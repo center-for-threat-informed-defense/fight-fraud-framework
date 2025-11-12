@@ -1,1 +1,1 @@
-# fight-financial-fraud
+# Fight Financial Fraud
