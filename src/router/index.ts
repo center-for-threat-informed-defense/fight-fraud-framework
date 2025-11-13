@@ -3,6 +3,7 @@ import { nextTick } from "vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import MatrixView from "@/views/MatrixView.vue";
+import TechniqueView from "@/views/TechniqueView.vue";
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: "/resources/matrix",
     name: "matrix",
     component: MatrixView,
+  },
+  {
+    path: "/technique/:id",
+    name: "technique",
+    component: TechniqueView,
   },
 ];
 

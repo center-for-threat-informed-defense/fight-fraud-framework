@@ -2,7 +2,7 @@
     <div class="matrix">
         <div class="tactic-row">
             <div class="tactic" v-for="tactic in tactics" :key="tactic.id">
-                <h5>{{ tactic.id }}</h5>
+                <h5><router-link :to="'tactic/' + tactic.id">{{ tactic.id }}</router-link></h5>
                 <p>{{ tactic.name }}</p>
             </div>
         </div>
@@ -50,7 +50,7 @@ export default defineComponent({
 }
 
 .tactic h5 {
-    @apply text-ctid-blue mb-[2px] font-medium;
+    @apply text-ctid-blue mb-[2px] font-medium hover:text-ctid-navy;
 }
 
 .tactic p {
