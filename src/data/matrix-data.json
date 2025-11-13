@@ -1,0 +1,224 @@
+[
+  {
+    "id": "TA0001",
+    "name": "Example Tactic",
+    "tactic": true,
+    "techniques": ["T00001", "T00002", "T00003"]
+  },
+  {
+    "id": "TA0002",
+    "name": "Example Tactic #2",
+    "tactic": true,
+    "techniques": ["T00004", "T00005"]
+  },
+  {
+    "id": "T00001",
+    "name": "3DS Bypass",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "T00002",
+    "name": "3rd Party Guarantee",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "T00003",
+    "name": "Abuse of Public-Facing API",
+    "description": "Attackers exploit publicly available APIs intended for customers or partners, using automated tools or scripts to perform actions outside the intended use cases. This may involve account enumeration, credential stuffing, scraping sensitive data, or automating financial fraud operations.",
+    "subtechniques": ["T00003.001", "T00003.002"]
+  },
+  {
+    "id": "T00003.001",
+    "name": "Abuse of Public-Facing API: Web API Abuse",
+    "description": "Fraudsters abuse web-based APIs exposed via websites or web applications. These attacks often leverage botnets, proxy networks, or headless browsers to mimic legitimate traffic. The goal may include bypassing authentication, automating transactions, or data exfiltration.",
+    "subtechniques": []
+  },
+  {
+    "id": "T00003.002",
+    "name": "Abuse of Public-Facing API: Mobile API Abuse",
+    "description": "Fraudsters  exploit mobile-specific APIs. Techniques include using modified apps, mobile emulators, or custom scripts to generate legitimate-looking but fraudulent API calls.",
+    "subtechniques": []
+  },
+  {
+    "id": "T00004",
+    "name": "Access with Stolen Session Cookie",
+    "description": "Fraudsters exploit access with stolen session cookies as a method to gain unauthorized entry into the victim's accounts. This technique involves acquiring session cookies, which are small pieces of data stored on the user's device to maintain their login state, typically through illicit means such as phishing attacks or data breaches. Once in possession of these session cookies, fraudsters can impersonate the victim's browser session and access their accounts without needing to enter login credentials.",
+    "subtechniques": ["T00001"]
+  },
+  {
+    "id": "T00005",
+    "name": "Accessibility Service",
+    "description": "Fraudsters exploit 2nd Factor Bypass Accessibility Service by abusing the accessibility features of devices to intercept and manipulate the second-factor authentication process. They may develop malicious apps that request accessibility permissions under false pretenses, enabling them to monitor and intercept authentication prompts displayed on the device. By capturing and automatically inputting the second-factor authentication codes, fraudsters bypass this security measure and gain unauthorized access to the victim's accounts, allowing them to carry out fraudulent activities undetected.",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Access on Victim Device",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Access Removal",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Aging",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account creation",
+    "description": "The fraudster signs in using the data received from the victim on a new device that deviates from the user's usual pattern. It can also be a device previously linked to confirmed illicit activities, as fraudsters often employ the same device to access multiple victims' accounts.",
+    "subtechniques": ["Account creation: on Fraudster Device"]
+  },
+  {
+    "id": "",
+    "name": "Account Deletion",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Deposit",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Enumeration",
+    "description": "Account balance enumeration involves an attacker identifying the financial status of compromised accounts to evaluate their worthiness for further fraudulent activity. The goal is to determine available balances, payout limits, credit limits, and other financial metrics, which falls under reconnaissance as the attacker assesses potential profit from exploiting or manipulating account funds.; Execution: After gaining unauthorized access to an account, attackers explore various financial details available on the account dashboard, in reports, and through API endpoints. Key information includes current available balances, pending payouts, transaction volumes, credit limits for card issuing services, refund reserves, and transfer settings. These insights enable attackers to make calculated moves, such as initiating high-value fraudulent transactions or timing attacks strategically after significant payments are processed but before funds are disbursed.; Examples: Exploring the Balances section of the dashboard to view available and pending balances for various currencies or payment methods.; Using APIs to programmatically retrieve account balance details, payout schedules, and credit limits without alerting account owners.; Assessing payout settings to understand delays and thresholds impacting the timeline for fraudulent actions.; Reviewing transaction history to estimate typical transaction profiles and identify optimal times for fraud.; Goals: Attackers engaging in account balance enumeration aim to: identify high-value targets with significant balances or transaction throughput for lucrative fraud or theft.; Gain insights into funds flow, including payout frequency and volume to plan fraudulent transfers.; Assess risks associated with attacks, including the likelihood of triggering fraud detection mechanisms based on the account's typical activity.",
+    "subtechniques": ["Account Enumeration: Account Balance Enumeration"]
+  },
+  {
+    "id": "",
+    "name": "Account Enumeration",
+    "description": "Account Radar Rule Enumeration is a specific form of reconnaissance where an attacker, after gaining unauthorized access to a Stripe account, attempts to determine the custom fraud detection rules that have been set up using Stripe Radar. Stripe Radar is a suite of tools designed to help businesses detect and prevent fraud in real-time. By understanding the configured rules, an attacker can tailor fraudulent activities to fly under the radar, avoiding triggers that would otherwise block transactions or flag them for review.\nExecution: \nTo perform this type of enumeration, savvy attackers would navigate the Stripe dashboard Radar settings if they have UI access or make authenticated calls to the Stripe API to list Radar rules. They may methodically test the fraud detection system by initiating transactions that barely skirt the thresholds of existing rules or otherwise observe the transaction review logs to deduce which activities are being flagged or blocked.\nExamples:\nAnalyzing the list of active Radar rules found within the Stripe dashboard to understand what behaviors or transaction characteristics are being monitored.\nMaking controlled, incremental transactions that test the boundaries of Radar rules without overtly triggering fraud alerts.\nLeveraging the API to query Radar rule hits or test the rules with hypothetical transaction calls (if such functionality is exposed).\nGoals: The goals of an attacker engaging in Account Radar Rule Enumeration include:\nAvoiding detection by understanding the specific conditions that trigger fraud reviews or block transactions.\nCrafting fraudulent transactions that have a higher probability of success by staying within the parameters allowed by the rules.\nGaining a granular understanding of the business's risk tolerance as expressed through the configuration of Radar rules, which can inform the scale or nature of the fraud attempt.",
+    "subtechniques": ["Account Enumeration: Account Radar Rule Enumeration"]
+  },
+  {
+    "id": "",
+    "name": "Account Enumeration",
+    "description": "Account Tier Enumeration for Stripe involves an attacker determining the level of service and feature set that a compromised Stripe account has access to. This type of reconnaissance is aimed at understanding the tier or subscription level, as different tiers may have varying processing capabilities, transaction limits, access to premium features, and API access scopes.\nExecution: \nOnce an adversary has gained access to a Stripe account, they will explore the account details page, subscription settings, and other relevant sections to ascertain the account’s tier. Attackers may also make API calls that reveal the scope of services enabled for the account, such as advanced fraud protection features, custom reporting, or higher rate limits that come with premium tiers.\nExamples:\nReviewing account settings to identify mentions of the account plan or subscription level, such as ‘Standard’, ‘Pro’, or ‘Enterprise’.\nQuerying the Stripe API for available features or rate-limit information that might only be accessible to higher-tier accounts.\nAttempting to enable features or make configurations changes that are tier-dependent to infer the current service level by the success or failure of these changes.\nGoals: The primary objectives for an attacker involved in account tier enumeration may include:\nidentifying premium accounts that could present higher-value targets due to a larger volume of transactions or higher credit limits.\nExploiting advanced features that may be misconfigured or less likely to be monitored by organizations assuming they are secure.\nAssessing the extent of potential fraud activities that can be conducted without tripping automated fraud detection systems, which may be more or less stringent based on tier.",
+    "subtechniques": ["Account Enumeration: Account Tier Enumeration"]
+  },
+  {
+    "id": "",
+    "name": "Account Linkage to Third Party Service",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Linking",
+    "description": "",
+    "subtechniques": []
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "In the context of a payment processing platform like Stripe, account manipulation through the addition of an additional authorized account refers to Fraudsters gaining unauthorized access to a Stripe user's account and then adding new user accounts or permissions. This allows the attacker to maintain access, conduct unauthorized financial transactions, manage payment flows, and potentially facilitate other fraudulent activities, all while masquerading as a legitimate user of the account.\nExecution: \nThe attacker, after gaining initial access to the Stripe account, either through phishing, exploiting a vulnerability, or using stolen credentials, will add new team members or user accounts with permissions that allow for complete or partial control of the account. These newly added accounts often have administrative rights or privileges necessary to initiate transactions, alter payment settings, manage API keys, or view sensitive financial reporting data.\nExamples:\nA fraudster accesses a Stripe account by compromising the account owner's login details. They then add a new user under the pretense of a trusted team member, granting this account comprehensive control over payments and settings.\nAfter taking over a Stripe account, attackers add multiple new users with varying degrees of access, better spreading out and camouflaging their illicit activities among seemingly legitimate account activity.\nAn attacker uses the guise of a new employee or consultant to request access to the company’s Stripe account, which is then used to manipulate transaction flows or abscond with customer payment information.\nGoals: The goals of attackers when adding additional authorized accounts to a compromised Stripe account include:\nContinuously accessing the Stripe account for ongoing exploitation without the knowledge of the legitimate account owner.\nUtilizing the account to siphon funds to accounts held by the attacker.\nConducting surveillance and exfiltrating sensitive financial data over an extended period.\nLaying the groundwork for larger financial fraud schemes or ransom events by establishing backdoor access to payment systems.",
+    "subtechniques": ["Account Manipulation: Additional Authorized Account"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Within the Stripe payment platform, account manipulation involving the addition of additional bank accounts constitutes unauthorized alterations to a Stripe account's financial payout arrangements. Malicious actors add new bank account details to the Stripe account settings with the aim of redirecting future payouts and transferring funds to accounts they control.\nExecution: \nA cybercriminal who has gained access to a Stripe account—whether through phishing, account takeover, or exploiting system vulnerabilities—navigates to the payout settings. Here, they can insert information for an additional bank account, often one set up under false pretenses or controlled by the attacker. After verifying or satisfying Stripe's account validation procedures, the fraudster can then adjust payout schedules or initiate immediate transfers to the new account.\nExamples:\nAn attacker modifies the linked bank account in a compromised Stripe account to divert incoming payments from sales or other service transactions.\nConfiguring an altered automatic transfer schedule under the guise of a \"\"new business account\"\" that channels funds away from the legitimate business.\nManipulating payout settings following a high-revenue event, such as a flash sale or product launch, to siphon off a substantial volume of payments.\nGoals: The objectives behind the tactic of adding unauthorized additional bank accounts to a compromised Stripe account include:\nRerouting funds from legitimate financial transactions, such as customer payments, to accounts under the attacker's control.\nConducting extensive financial fraud through deceptive payouts or cash-outs before the original account holder detects the unauthorized changes.\nHiding the trail of illicit financial gains, often as part of broader money laundering operations, by using legitimate payment processing services like Stripe to give an appearance of legitimate business activity.",
+    "subtechniques": ["Account Manipulation: Additional Bank Accounts"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "The \"\"Buy Now, Pay Later\"\" (BNPL) option is a flexible payment solution that Stripe offers merchants to allow their customers to defer payments while receiving goods or services immediately. Within the context of account manipulation, fraudsters may add or exploit the BNPL feature within a compromised Stripe account to conduct unauthorized transactions, increase credit exposure, or engage in financial fraud.\nExecution: \nAfter gaining unauthorized access to a Stripe account, either through phishing or other account takeover techniques, an attacker manipulates the BNPL settings. This could involve enabling BNPL options on a merchant's account without consent, altering the terms of existing BNPL offerings, or configuring the feature to reroute subsequent payments to fraudulent accounts.\nExamples:\nEditing the terms of a BNPL plan to extend the payment period, giving the fraudster a longer time frame to exploit charged but unpaid-for items or services.\nConfiguring additional BNPL plans and associating them with high-value items, creating a financial liability for the merchant by allowing excessive deferrals of payment.\nEnticing customers to select BNPL at checkout on an e-commerce platform by offering unusually lenient terms, then utilizing the delay before payment collection to move or launder the anticipated revenues without delivering the goods.\nGoals: The goals behind manipulating \"\"Additional Buy Now, Pay Later\"\" configurations in Stripe accounts include:\nDeferred transaction visibility, allowing fraudsters to obfuscate their activities among genuinely pending transactions and delay detection.\nExploiting the credit system to perpetrate financial fraud such as the creation of synthetic identities or compounding credit to be exploited in a bust-out fraud scheme.\nLeveraging BNPL plan manipulations to facilitate money laundering by creating illegitimate transactions that will receive later payment.",
+    "subtechniques": ["Account Manipulation: Additional Buy Now, Pay Later"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "In this technique, an adversary gains unauthorized access to credentials or keys associated with a registered merchant where the Connect Platform is enabled. Once access is obtained, the adversary exploits this to create additional child accounts under the merchant's primary account. These child accounts are typically set up to facilitate fraudulent financial activities, such as card cashing attacks, where illicit funds are funneled through the child accounts and ultimately transferred to the adversary's designated bank accounts. This method allows the adversary to obscure the origin of the fraudulent funds, complicating detection and investigation efforts.",
+    "subtechniques": ["Account Manipulation: Additional Connect Accounts"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "In reference to Stripe accounts, the \"\"Account Manipulation: Additional Linked Account\"\" technique involves unauthorized actors linking other Stripe accounts to a compromised primary account. This manipulation could potentially allow attackers to transfer funds, access sensitive customer data, and perform activities on behalf of the compromised account without the account holder's knowledge.\nExecution: \nA malicious actor with access to a Stripe account, through credential compromise or other methods, may exploit Stripe's capabilities to link multiple accounts. For instance, they may add an account to facilitate the transfer of funds in a platform-native manner. The attacker could also use linked accounts to disperse funds more discreetly or leverage the increased transactional capabilities often associated with aggregated Stripe accounts.\nExamples:\nAfter gaining access to a business's primary Stripe account, the attacker links a secondary account they control, allowing for fund redirection or consolidated payment processing across the accounts.\nUsing linked accounts as a means to obfuscate financial trails during other fraudulent activities, such as money laundering or unauthorized withdrawals.\nThe attacker connects to a series of accounts at different transaction levels, using the network of accounts to perform larger-scale fraudulent transactions that may be detected if attempted through a single account.\nGoals: The goals behind linking additional unauthorized accounts typically include:\nExpanding the fraudulent control over a network of accounts to facilitate large-scale financial theft.\nHiding and laundering the origins of ill-gotten gains by transferring funds between linked accounts.\nIncreasing the complexity and scope of fraudulent schemes by taking advantage of the varied functionalities and limits across multiple accounts.",
+    "subtechniques": ["Account Manipulation: Additional Linked Account"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Account manipulation involving the addition of new payment methods often refers to unauthorized activities whereby fraudulent actors or cybercriminals add new credit cards, bank accounts, or other financial instruments to a compromised account. This can occur across various platforms, including e-commerce sites, payment processing services, or online banking systems, allowing attackers to funnel funds to controlled destinations or make unauthorized purchases.\nExecution: \nUsing stolen credentials or exploited system vulnerabilities, attackers access a user’s online account and navigate to the payment settings. Here they can enter new payment details which might involve stolen credit card numbers or bank account information. They might use these new payment methods immediately for fraud or position them for future use, laying the groundwork for further financial deceit.\nExamples:\nInserting a fraudulent payment method into a compromised e-commerce account to make unauthorized purchases that ship goods to a location controlled by the attacker.\nAdding a new credit card to an online payment gateway and quickly draining the credit from the card through illegitimate transactions.\nInfiltrating a mobile wallet application to add new credit cards under the user's profile, which are then used to transfer funds or make purchases.\nGoals: The primary goals of adding unauthorized payment methods to accounts are to:\nPerform financial theft directly by purchasing goods or services using the added payment methods.\nCarry out money laundering by channeling funds through various added payment instruments, complicating the money trail.\nExploit and maximize the financial gain from stolen financial data before the victim detects the fraud and cancels or secures their payment methods.",
+    "subtechniques": ["Account Manipulation: Additional Payment Methods"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Account manipulation through the addition of an additional payout schedule in a Stripe account involves unauthorized users configuring new or altering existing payout intervals and destinations. This malpractice enables the covert redirection and withdrawal of funds to bank accounts controlled by the malicious actors, often unbeknownst to the legitimate account holders.\nExecution: \nAfter attaining unauthorized entry into a Stripe account, cybercriminals navigate to the payout settings, where they can either create new schedules or modify existing ones. They may set up payouts at irregular intervals or change the timing of regular payouts to swiftly move money to their accounts. In order to avoid immediate suspicion or detection, fraudsters often aim to align these changes with the typical transaction patterns and behaviors observed within the compromised account.\nExamples:\nAdjusting an e-commerce business's Stripe account to execute payouts daily instead of the typical bi-weekly schedule, prompting the transfer of funds more quickly and frequently into an account managed by the perpetrator.\nInserting an additional payout schedule to occur right after a high-volume sales period, such as during holidays or special sales events, ensuring that significant funds are redirected before the business owner may notice.\nGoals: The goals behind adding an unauthorized additional payout schedule to a Stripe account include:\nAccelerating the cash-out process for an attacker who has gained access to an e-commerce platform and wishes to exfiltrate funds rapidly.\nTemporarily hiding fraudulent activity by manipulating payout schedules in a way that seems normal to the business’s cash flow, delaying the detection of these activities.\nContinual extraction of funds from the compromised account in alignment with the added payout schedule, providing a steady flow of stolen funds to the attacker.",
+    "subtechniques": ["Account Manipulation: Additional Payout Schedule"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Account manipulation involving the addition of an extra user to a compromised Stripe account is a strategic move that falls under the category of 'command and control' tactics used by cybercriminals. Once an attacker has gained access to a Stripe account, they can abuse the platform's features to add new, unauthorized users. This allows them not only to maintain control over the compromised account but also to establish additional avenues to facilitate illicit activities without raising immediate suspicion.\nExecution: \nIn the execution of this tactic, an attacker with initial access to a Stripe account uses their level of infiltration to inject a new user with permissions set to levels that enable data access and perhaps transaction capabilities. This is often done stealthily, with contact information that goes overlooked or masquerades as legitimate business contacts. The new user account could be disguised to appear as a legitimate team member, temporary consultant, or a third-party service provider.\nExamples:\nAn attacker, after compromising a merchant's Stripe account credentials, stealthily adds a new user with administrative privileges, effectively setting up a backdoor for uninterrupted access and transaction control.\nFraudulently adding a fake \"\"audit\"\" or \"\"tech support\"\" account under the guise of performing a routine check or system update, allowing for continued oversight and control by the attacker.\nThe cybercriminal creates multiple user profiles with different access levels to segment their activities and evade detection by spreading out unauthorized actions across these profiles.\nGoals: The primary objectives behind adding unauthorized user accounts to a compromised Stripe account are to:\nMaintain persistent access to the Stripe account, even if the original breach is discovered and closed.\nManage fraudulent transactions, such as initiating payouts, refunds, or modifying payment flows, through secondary user accounts to complicate tracing efforts.\nHarvest sensitive financial data over an extended period, increasing the potential for long-term exploitation.",
+    "subtechniques": ["Account Manipulation: Additional User Account"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "In this technique, an adversary gains unauthorized access to a merchant account by compromising credentials or keys. Once inside, the adversary abuses this access to enable additional account features that the legitimate account holder did not intend to activate. This manipulation can allow the adversary to exploit the merchant's account capabilities for malicious purposes, such as increasing transaction limits, enabling international transactions, or activating other features that facilitate unauthorized financial activities. The unintended enablement of these features can result in significant financial losses and operational disruptions for the affected merchant, while also complicating efforts to detect and mitigate the unauthorized activities.",
+    "subtechniques": ["Account Manipulation: Enable Account Features"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Changing the e-delivery settings to prevent the account holder from being aware of suspicious activity on their account, especially if the email associated to the account has been changed.",
+    "subtechniques": ["Change E-Delivery / Notification Settings"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "",
+    "subtechniques": ["Knowledge-based Answers (view, modify, add)"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "Altering the legitimate payment details on file to a fraudulent payment method to conduct fraud.",
+    "subtechniques": ["Change of Payment Details"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "By altering the account information of a Payee, a threat actor with control of a compromised account can redirect future payments to accounts controlled by the threat actor.",
+    "subtechniques": ["Change Payee Information"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "",
+    "subtechniques": ["Changing Contact Information by Account Owner"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "",
+    "subtechniques": ["Changing PIN Number"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "",
+    "subtechniques": ["Changing/Canceling Limits"]
+  },
+  {
+    "id": "",
+    "name": "Account Manipulation",
+    "description": "In this technique, an adversary gains unauthorized access to a merchant's account by compromising credentials or keys. Once inside, the adversary manipulates the account to top up the platform balance without the consent or knowledge of the legitimate account holder. This manipulation involves either using the attached bank account or attaching a new unauthorized bank account to the merchant's platform. The adversary then initiates unauthorized transactions to transfer funds, thereby artificially inflating the account balance. This can be achieved through exploiting system vulnerabilities or leveraging unauthorized promotional credits. By increasing the platform balance, the adversary facilitates unlawful transactions, funds fraudulent activities, or launders illegitimate money through the compromised account. The unintended top-up of platform balances can result in substantial financial losses and pose significant legal and reputational risks for the affected merchant. This form of manipulation not only complicates detection and mitigation efforts but also blends fraudulent activities into what appear to be legitimate account actions. Implementing effective detection and response measures is crucial to safeguarding against the financial and operational impacts of this complex fraud technique.",
+    "subtechniques": ["Account Manipulation: Top-Up Platform Balance"]
+  }
+]

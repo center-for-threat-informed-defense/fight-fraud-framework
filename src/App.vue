@@ -21,4 +21,8 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style>
+#page-body {
+  @apply mt-20 mb-10
+}
+</style>

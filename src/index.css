@@ -26,6 +26,10 @@ h6 {
   font-family: "Fira Sans Extra Condensed", sans-serif;
 }
 
+h1 {
+  @apply text-4xl mb-2;
+}
+
 .btn-primary-light {
   @apply bg-ctid-light-blue hover:bg-ctid-blue hover:text-white my-4 py-4 uppercase font-bold text-lg;
   font-family: "Fira Sans Extra Condensed", sans-serif;

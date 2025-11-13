@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import { nextTick } from "vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
+import MatrixView from "@/views/MatrixView.vue";
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/resources/matrix",
+    name: "matrix",
+    component: MatrixView,
   },
 ];
 
