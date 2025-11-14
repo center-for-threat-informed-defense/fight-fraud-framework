@@ -2,7 +2,7 @@
     <div class="matrix">
         <div class="tactic-row">
             <div class="tactic" v-for="tactic in tactics" :key="tactic.id">
-                <h5><router-link :to="'tactic/' + tactic.id">{{ tactic.id }}</router-link></h5>
+                <h5><router-link :to="'/tactic/' + tactic.id">{{ tactic.id }}</router-link></h5>
                 <p>{{ tactic.name }}</p>
             </div>
         </div>

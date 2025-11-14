@@ -26,6 +26,11 @@ const routes = [
     name: "technique",
     component: TechniqueView,
   },
+  {
+    path: "/tactic/:id",
+    name: "tactic",
+    component: TechniqueView,
+  },
 ];
 
 const router = createRouter({

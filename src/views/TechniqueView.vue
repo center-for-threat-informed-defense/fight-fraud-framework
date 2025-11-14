@@ -1,4 +1,5 @@
 <template>
+    <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
         <h1><span class="highlight">{{ technique.id }}</span> {{ technique.name }}</h1>
         <h2>Description</h2>
@@ -15,12 +16,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import json from "../data/matrix-data.json";
+import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 
 export default defineComponent({
-    components: {},
+    components: { BreadcrumbComponent },
     data() {
         return {
             matrixData: json,
+            breadcrumbItems: [
+                { label: "Techniques", route: "/techniques" },
+                { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }
+            ],
         };
     },
     computed: {
