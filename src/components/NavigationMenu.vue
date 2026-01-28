@@ -44,6 +44,12 @@ export default defineComponent({
       items: [
         { label: "Home", route: "/" },
         { label: "About", route: "/about" },
+        {
+          label: "Resources", route: "/resources"
+        },
+        {
+          label: "Matrix", route: "/resources/matrix"
+        }
       ],
     };
   },

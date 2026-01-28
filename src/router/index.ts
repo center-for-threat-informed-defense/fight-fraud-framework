@@ -4,6 +4,7 @@ import HomeView from "@/views/HomeView.vue";
 import AboutView from "@/views/AboutView.vue";
 import MatrixView from "@/views/MatrixView.vue";
 import TechniqueView from "@/views/TechniqueView.vue";
+import TechniqueListView from "@/views/TechniqueListView.vue";
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: "/resources/matrix",
     name: "matrix",
     component: MatrixView,
+  },
+  {
+    path: "/techniques",
+    name: "techniques",
+    component: TechniqueListView,
   },
   {
     path: "/technique/:id",

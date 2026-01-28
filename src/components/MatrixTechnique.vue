@@ -7,7 +7,9 @@
         <div v-else-if="isSubtechnique" class="subtechnique-border"></div>
         <div v-else class="spacer"></div>
         <div :class="['technique', { 'supertechnique': technique.subtechniques?.length > 0 }]">
-            <h6><router-link :to="'/technique/' + techniqueId">{{ techniqueId }}</router-link></h6>
+            <h6><router-link :to="'/technique/' + techniqueId">{{ techniqueId }}</router-link>
+                <span class="attack-indicator" v-if="technique.isAttack">&</span>
+            </h6>
             <p>{{ technique.name }}</p>
         </div>
     </div>
@@ -56,7 +58,7 @@ export default defineComponent({
     @apply w-[144px] px-2 py-2 border-ctid-light-gray border-[1px] -mb-[1px] box-border
 }
 
-.technique h6 {
+.technique h6 a {
     @apply text-ctid-blue font-medium hover:text-ctid-navy;
 }
 

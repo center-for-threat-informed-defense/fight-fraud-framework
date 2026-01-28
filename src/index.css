@@ -195,3 +195,16 @@ h2 {
 .p-splitbutton .p-button-icon-only.p-splitbutton-menubutton {
   @apply hover:text-ctid-light-blue hover:bg-ctid-dark-navy px-2;
 }
+
+.attack-indicator {
+  @apply text-ctid-red font-semibold ml-1;
+}
+
+.markdown-html p {
+  @apply mb-8;
+  margin-bottom: 10px !important;
+}
+
+.markdown-html a {
+  @apply text-ctid-blue underline;
+}

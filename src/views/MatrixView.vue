@@ -1,4 +1,5 @@
 <template>
+    <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
         <h1>Fight Financial Fraud <span class="highlight">Matrix</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -15,9 +16,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import MatrixContainer from "../components/MatrixContainer.vue";
+import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 
 export default defineComponent({
-    components: { MatrixContainer },
+    components: { BreadcrumbComponent, MatrixContainer },
+    data() {
+        return {
+            breadcrumbItems: [
+                { label: "Resources", route: "/resources" },
+                { label: "Matrix", route: "/resources/matrix" }
+            ],
+        }
+    }
 });
 </script>
 

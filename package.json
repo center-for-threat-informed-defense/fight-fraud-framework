@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "markdown-it": "^14.1.0",
     "primeicons": "^7.0.0",
     "primevue": "^3.49.1",
     "vue": "^3.2.37",

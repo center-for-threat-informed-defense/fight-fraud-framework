@@ -1,10 +1,12 @@
 <template>
     <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
-        <h1><span class="highlight">{{ technique.id }}</span> {{ technique.name }}</h1>
+        <h1><span class="highlight">{{ technique.id }}</span> {{ technique.name }} <a v-if="technique.isAttack"
+                :href="'https://attack.mitre.org/techniques/' + technique.id + '/'" class="attack-indicator"
+                target="_blank">&</a></h1>
         <h2>Description</h2>
-        <p>{{ technique.description }}</p>
-        <template v-if="technique.subtechniques">
+        <div class="markdown-html" v-html="renderedHtml(technique.description)"></div>
+        <template v-if="technique.subtechniques?.length > 0">
             <h2>Subtechniques</h2>
             <ul>
                 <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">{{ subtechnique }}</li>
@@ -17,16 +19,19 @@
 import { defineComponent } from "vue";
 import json from "../data/matrix-data.json";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
+import MarkdownIt from 'markdown-it';
 
 export default defineComponent({
     components: { BreadcrumbComponent },
     data() {
         return {
             matrixData: json,
+            md: new MarkdownIt(),
             breadcrumbItems: [
                 { label: "Techniques", route: "/techniques" },
                 { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }
             ],
+
         };
     },
     computed: {
@@ -38,6 +43,9 @@ export default defineComponent({
         }
     },
     methods: {
+        renderedHtml(data: string) {
+            return this.md.render(data);
+        }
     }
 });
 </script>
