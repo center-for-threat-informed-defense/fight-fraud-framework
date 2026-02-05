@@ -6,7 +6,14 @@
                     <AccordionPanel :value="tactic.id">
                         <AccordionHeader> <router-link :to="'/tactic/' + tactic.id">{{ tactic.name }}</router-link>
                         </AccordionHeader>
-                        <AccordionContent>list subtechniques here</AccordionContent>
+                        <AccordionContent>
+                            <ul v-if="tactic.techniques">
+                                <li v-for="technique of tactic.techniques" :key="technique">
+                                    <router-link :to="'/technique/' + technique">{{ getTechniqueData(technique).name
+                                        }}</router-link>
+                                </li>
+                            </ul>
+                        </AccordionContent>
                     </AccordionPanel>
                 </template>
             </Accordion>
@@ -20,12 +27,37 @@
                         target="_blank">&</a></h1>
                 <h2>Description</h2>
                 <div class="markdown-html" v-html="renderedHtml(technique.description)"></div>
+
+                <h2>Detection Source</h2>
+                <p>put detection information here</p>
+
+                <h2>Mitigation</h2>
+                <p>put mitigation information here</p>
+
+                <h2>Tactics</h2>
+                <ul>
+                    <li v-for="tactic in [parentTactic]" :key="tactic">
+                        <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                        }}</router-link>
+                    </li>
+                </ul>
+
                 <template v-if="technique.subtechniques?.length > 0">
                     <h2>Subtechniques</h2>
                     <ul>
-                        <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">{{ subtechnique }}</li>
+                        <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">
+                            <router-link :to="'/technique/' + subtechnique">{{ getTechniqueData(subtechnique).name
+                            }}</router-link>
+                        </li>
                     </ul>
                 </template>
+                <h2>References</h2>
+                <ul>
+                    <li>
+                        <a href="/">this is a link to a reference</a>
+
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -52,7 +84,6 @@ export default defineComponent({
                 { label: "Techniques", route: "/techniques" },
                 { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }
             ],
-            sidenavValue: ['TA0003']
 
         };
     },
@@ -65,11 +96,23 @@ export default defineComponent({
         },
         tactics() {
             return this.matrixData.filter(i => i.tactic)
+        },
+        parentTactic() {
+            // until we have actual tactics assigned to each technique, currently this is always tactic TA0001
+            return this.matrixData.filter(i => i.tactic)[0]
+
+        },
+        sidenavValue() {
+            return [this.parentTactic.id]
         }
     },
     methods: {
         renderedHtml(data: string) {
             return this.md.render(data);
+        },
+        getTechniqueData(id: string) {
+            return this.matrixData.filter(i => i.id === id)[0]
+
         }
     }
 });
@@ -81,11 +124,11 @@ export default defineComponent({
 }
 
 .main-container {
-    @apply w-3/4 p-8 px-12 h-full
+    @apply w-3/4 p-8 px-12 h-full border-l-2 border-ctid-light-gray
 }
 
 .sidebar {
-    @apply w-1/4 block border-r-2 p-8 border-ctid-light-gray h-full
+    @apply w-1/4 block p-8 h-full flex-1
 }
 
 
@@ -93,7 +136,15 @@ export default defineComponent({
     @apply text-ctid-gray font-medium
 }
 
-.sidebar a {
+a {
     @apply text-ctid-blue hover:text-ctid-navy hover:underline
+}
+
+ul {
+    @apply ml-4
+}
+
+li {
+    @apply my-1 leading-snug
 }
 </style>
