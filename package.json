@@ -11,10 +11,11 @@
     "update": "node ./scripts/update_techniques.js"
   },
   "dependencies": {
+    "@primevue/themes": "^4.5.4",
     "bootstrap": "^5.3.8",
     "markdown-it": "^14.1.0",
     "primeicons": "^7.0.0",
-    "primevue": "^3.49.1",
+    "primevue": "^4.5.4",
     "vue": "^3.2.37",
     "vue-router": "^4.1.6"
   },

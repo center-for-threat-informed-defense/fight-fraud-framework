@@ -1,16 +1,53 @@
 [
   {
     "id": "TA0001",
-    "name": "Example Tactic",
+    "name": "Reconnaisance",
+    "description": "Threat actors gather information they can use to plan future operations.",
     "tactic": true,
     "techniques": ["T00001", "T1650", "T00003"],
     "isAttack": true
   },
   {
     "id": "TA0002",
-    "name": "Example Tactic #2",
+    "name": "Resource Development",
+    "description": "Threat actors establish resources they can use to support operations.",
     "tactic": true,
     "techniques": ["T00004", "T00005"]
+  },
+  {
+    "id": "TA0003",
+    "name": "Initial Access",
+    "description": "Threat actors get into the organization's network, manipulate individuals, or gain access to funds, financial assets, and/or financial instruments.",
+    "tactic": true,
+    "techniques": []
+  },
+  {
+    "id": "TA0004",
+    "name": "Positioning",
+    "description": "Threat actors place funds into the financial system to then use for fraud or to facilitate financial theft.",
+    "tactic": true,
+    "techniques": []
+  },
+  {
+    "id": "TA0005",
+    "name": "Defense Evasion",
+    "description": "Threat actors try to avoid being detected",
+    "tactic": true,
+    "techniques": []
+  },
+  {
+    "id": "TA0006",
+    "name": "Execution",
+    "description": "Threat actors run malicious code, fraudulently apply for a financial instrument, request a fraudulent claim, conduct financial theft, etc.",
+    "tactic": true,
+    "techniques": []
+  },
+  {
+    "id": "TA0007",
+    "name": "Monetization",
+    "description": "Threat actors profit from creating counterfeit, forged, or synthetic assets; manipulating financial assets; stealing financial assets and/or data; etc., impacting the victims of their theft and helping other threat actors to conduct fraud.",
+    "tactic": true,
+    "techniques": []
   },
   {
     "id": "T00001",

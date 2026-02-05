@@ -136,7 +136,19 @@ h2 {
 .p-highlight .p-checkbox-box {
   @apply bg-ctid-navy;
 }
-
+.p-tabmenu-tablist {
+  background-color: #0d2f4f !important;
+}
+.p-tabmenu-item-label {
+  @apply text-ctid-light-gray;
+}
+.p-tabmenu-item-active .p-tabmenu-item-label {
+  @apply text-ctid-light-blue border-ctid-light-blue;
+}
+.p-tabmenu-item-active .p-tabmenu-item-link {
+  color: #87deff !important;
+  border-color: #87deff !important;
+}
 .p-selectbutton .p-button.p-component {
   @apply uppercase border-[1px] border-ctid-black rounded-none mx-[-1px] sm:mx-1 md:mx-[-1px] lg:mx-1;
 }
