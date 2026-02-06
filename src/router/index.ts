@@ -5,6 +5,7 @@ import AboutView from "@/views/AboutView.vue";
 import MatrixView from "@/views/MatrixView.vue";
 import TechniqueView from "@/views/TechniqueView.vue";
 import TechniqueListView from "@/views/TechniqueListView.vue";
+import TacticListView from "@/views/TacticListView.vue";
 
 const routes = [
   {
@@ -23,7 +24,12 @@ const routes = [
     component: MatrixView,
   },
   {
-    path: "/techniques",
+    path: "/tactic",
+    name: "tactics",
+    component: TacticListView,
+  },
+  {
+    path: "/technique",
     name: "techniques",
     component: TechniqueListView,
   },

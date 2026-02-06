@@ -1,11 +1,11 @@
 <template>
     <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
-        <h1>Techniques</h1>
-        <p>Techniques represent 'how' an adversary achieves a tactical goal by performing an action. For example, an
-            adversary may dump credentials to achieve credential access.</p>
+        <h1>Tactics</h1>
+        <p>Tactics represent the "why" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the
+            reason for performing an action. For example, an adversary may want to achieve credential access.</p>
 
-        <DataTable v-model:filters="filters" :value="techniques" dataKey="id" :globalFilterFields="['id', 'name']">
+        <DataTable v-model:filters="filters" :value="tactics" dataKey="id" :globalFilterFields="['id', 'name']">
             <template #header>
                 <div class="flex justify-end">
                     <InputGroup>
@@ -23,7 +23,7 @@
             <Column header="Name" field="name" filterField="technique.name"></Column>
             <Column header="Link">
                 <template #body="{ data }">
-                    <router-link :to="'/technique/' + data.id">See More <i class="pi pi-arrow-right ml-1"
+                    <router-link :to="'/tactic/' + data.id">See More <i class="pi pi-arrow-right ml-1"
                             style="font-size: .75rem"></i>
                     </router-link>
                 </template>
@@ -49,7 +49,7 @@ export default defineComponent({
         return {
             matrixData: json,
             breadcrumbItems: [
-                { label: "Techniques", route: "/techniques" },
+                { label: "Tactics", route: "/tactic" },
             ],
             filters: {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -57,8 +57,8 @@ export default defineComponent({
         }
     },
     computed: {
-        techniques() {
-            return this.matrixData.filter(i => !i.tactic)
+        tactics() {
+            return this.matrixData.filter(i => i.tactic)
         },
     }
 });

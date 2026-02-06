@@ -10,7 +10,7 @@
                             <ul v-if="tactic.techniques">
                                 <li v-for="technique of tactic.techniques" :key="technique">
                                     <router-link :to="'/technique/' + technique">{{ getTechniqueData(technique).name
-                                        }}</router-link>
+                                    }}</router-link>
                                 </li>
                             </ul>
                         </AccordionContent>
@@ -38,7 +38,7 @@
                 <ul>
                     <li v-for="tactic in [parentTactic]" :key="tactic">
                         <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
-                        }}</router-link>
+                            }}</router-link>
                     </li>
                 </ul>
 
@@ -47,7 +47,7 @@
                     <ul>
                         <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">
                             <router-link :to="'/technique/' + subtechnique">{{ getTechniqueData(subtechnique).name
-                            }}</router-link>
+                                }}</router-link>
                         </li>
                     </ul>
                 </template>
@@ -80,14 +80,13 @@ export default defineComponent({
         return {
             matrixData: json,
             md: new MarkdownIt(),
-            breadcrumbItems: [
-                { label: "Techniques", route: "/techniques" },
-                { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }
-            ],
-
         };
     },
     computed: {
+        breadcrumbItems() {
+            return [this.technique.tactic ? { label: "Tactics", route: "/tactic" } : { label: "Techniques", route: "/technique" },
+            { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }]
+        },
         techniqueId() {
             return this.$route.params.id;
         },
@@ -112,7 +111,6 @@ export default defineComponent({
         },
         getTechniqueData(id: string) {
             return this.matrixData.filter(i => i.id === id)[0]
-
         }
     }
 });
