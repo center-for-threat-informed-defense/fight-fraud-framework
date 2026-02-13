@@ -6,6 +6,7 @@ import MatrixView from "@/views/MatrixView.vue";
 import TechniqueView from "@/views/TechniqueView.vue";
 import TechniqueListView from "@/views/TechniqueListView.vue";
 import TacticListView from "@/views/TacticListView.vue";
+import SearchView from "@/views/SearchView.vue";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/tactic/:id",
     name: "tactic",
     component: TechniqueView,
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: SearchView,
   },
 ];
 

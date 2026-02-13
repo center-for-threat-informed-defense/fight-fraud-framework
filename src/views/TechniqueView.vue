@@ -33,14 +33,25 @@
 
                 <h2>Mitigation</h2>
                 <p>put mitigation information here</p>
+                <template v-if="technique.tactic && technique.techniques">
+                    <h2>Techniques</h2>
+                    <ul>
+                        <li v-for="t in technique.techniques" :key="t">
+                            <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
+                                }}</router-link>
+                        </li>
+                    </ul>
+                </template>
+                <template v-else>
+                    <h2>Tactics</h2>
+                    <ul>
+                        <li v-for="tactic in [parentTactic]" :key="tactic">
+                            <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                                }}</router-link>
+                        </li>
+                    </ul>
+                </template>
 
-                <h2>Tactics</h2>
-                <ul>
-                    <li v-for="tactic in [parentTactic]" :key="tactic">
-                        <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
-                            }}</router-link>
-                    </li>
-                </ul>
 
                 <template v-if="technique.subtechniques?.length > 0">
                     <h2>Subtechniques</h2>
@@ -144,5 +155,9 @@ ul {
 
 li {
     @apply my-1 leading-snug
+}
+
+.attack-indicator {
+    @apply text-ctid-red
 }
 </style>

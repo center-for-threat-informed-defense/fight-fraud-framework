@@ -23,7 +23,7 @@
     </div>
   </main>
   <div class="matrix-container">
-    <h1 class="text-center text-3xl">Fight Financial Fraud Matrix</h1>
+    <h1 class="text-center font-medium text-3xl mb-6">Fight Financial Fraud Matrix</h1>
     <matrix-container />
   </div>
 </template>
@@ -54,7 +54,7 @@ export default defineComponent({
 <style scoped>
 .hero {
   @apply py-20 m-0 bg-ctid-light-gray/30 absolute top-0 left-0 w-screen;
-  height: 50vh;
+  height: 60vh;
 
 }
 
@@ -62,12 +62,12 @@ export default defineComponent({
   width: 75vw;
   margin: auto;
   margin-bottom: 0;
-  padding-top: 100px;
+  padding-top: 150px;
   padding-bottom: 40px;
 }
 
 .matrix-container {
-  margin-top: 40vh;
+  margin-top: 50vh;
   padding-top: 10px;
 }
 </style>

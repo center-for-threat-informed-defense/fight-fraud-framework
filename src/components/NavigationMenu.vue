@@ -14,14 +14,7 @@
             </router-link>
           </template>
         </TabMenu>
-        <InputGroup>
-          <InputText size="small" variant="outline" placeholder="Search" />
-          <InputGroupAddon>
-            <Button severity="secondary" variant="icon" @click="toggle">
-              <i class="pi pi-search"></i>
-            </Button>
-          </InputGroupAddon>
-        </InputGroup>
+        <SiteSearch />
       </div>
       <div class=" lg:hidden inline-block w-max my-auto">
         <MenuBar :model="items" id="overlay_menu" ref="menu" class=" text-white z-50  p-menubar-mobile">
@@ -44,16 +37,15 @@ import { defineComponent } from "vue";
 import TabMenu from "primevue/tabmenu";
 import MenuBar from "primevue/menubar";
 import Logo from "@/assets/logo-line-white.svg";
-import InputGroup from 'primevue/inputgroup';
-import InputGroupAddon from 'primevue/inputgroupaddon';
-import InputText from 'primevue/inputtext';
-
+import { useRouter } from 'vue-router';
+import SiteSearch from "./SiteSearch.vue"
 
 export default defineComponent({
-  components: { TabMenu, MenuBar, InputGroup, InputGroupAddon, InputText },
+  components: { TabMenu, MenuBar, SiteSearch },
   data() {
     return {
       Logo,
+      router: useRouter(),
       items: [
         { label: "Home", route: "/" },
         { label: "About", route: "/about" },
@@ -64,6 +56,7 @@ export default defineComponent({
           label: "Matrix", route: "/resources/matrix"
         }
       ],
+      searchTerm: null,
     };
   },
   methods: {
