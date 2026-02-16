@@ -80,7 +80,7 @@ jobs:
             --template-color-primary "#6241c5" \
             --template-color-secondary "#b2b2b2" \
             --template-button "Log In" \
-            -r fff_website/
+            -r ./dist/
       - name: Ensure StatiCrypt ran # StatiCrypt will fail without warning; verify it created a directory
         run: test -d encrypted
       - name: Copy encrypted HTML files
