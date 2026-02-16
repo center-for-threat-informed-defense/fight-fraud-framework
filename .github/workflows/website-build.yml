@@ -20,7 +20,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  tat_website_build:
+  fff_website_build:
     runs-on: ubuntu-latest
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
@@ -48,30 +48,83 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: tat_website
+          name: fff_website
           path: ./dist/
 
-  github_pages:
-    # This job only runs when committing or merging to main branch.
-    if: github.ref_name == 'main'
-    needs: tat_website_build
+  # Publish to Azure blob only on PRs, not main.
+  azure_blob:
+    needs: fff_website_build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: $\{\{ steps.deployment.outputs.page_url \}\}
-
+    env:
+      AZURE_STORAGE_ACCOUNT: mappingsexplorerfinsec
+      AZURE_STORAGE_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      STATICRYPT_PASS: ${{ secrets.STATICRYPT_PASS }}
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "19"
+      - run: npm install -g staticrypt
       - name: Download Web Site
         uses: actions/download-artifact@v4
         with:
-          name: tat_website
-          path: tat_website
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          name: fff_website
+          path: ./dist/
+      - env:
+          STATICRYPT_PASS: ${{ secrets.STATICRYPT_PASS }}
+        run: >
+          staticrypt --remember 3 --salt b1c18fbb5081eca3e2db08a413b01774 \
+            --password $STATICRYPT_PASS --short \
+            --template-title "Technique Inference Engine (branch: $BRANCH_NAME)" \
+            --template-instructions "The contents of this site are marked TLP:AMBER:CTID-R&D:22-80. Do not share with unauthorized individuals." \
+            --template-color-primary "#6241c5" \
+            --template-color-secondary "#b2b2b2" \
+            --template-button "Log In" \
+            -r tie_website/
+      - name: Ensure StatiCrypt ran # StatiCrypt will fail without warning; verify it created a directory
+        run: test -d encrypted
+      - name: Copy encrypted HTML files
+        run: rsync -Ir -v --include='*.html' --exclude='*.*' encrypted/tie_website .
+      - name: Set the branch name
+        run: mv tie_website "$BRANCH_NAME"
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Delete old blobs
+        run: az storage blob delete-batch -s '$web' --pattern "$BRANCH_NAME/*"
+      - name: Upload to blob storage
+        run: az storage blob upload-batch -s . --pattern "$BRANCH_NAME/*" -d '$web'
+      - uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
         with:
-          path: ./tat_website
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `This PR has been published to https://mappingsexplorerfinsec.z13.web.core.windows.net/${process.env['BRANCH_NAME']}/`,
+            })
+
+  # github_pages:
+  #   # This job only runs when committing or merging to main branch.
+  #   if: github.ref_name == 'main'
+  #   needs: fff_website_build
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: github-pages
+  #     url: $\{\{ steps.deployment.outputs.page_url \}\}
+
+  #   steps:
+  #     - name: Setup Pages
+  #       uses: actions/configure-pages@v2
+  #     - name: Download Web Site
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: fff_website
+  #         path: fff_website
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         path: ./fff_website
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
