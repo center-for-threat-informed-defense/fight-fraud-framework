@@ -2,9 +2,9 @@
     <InputGroup>
         <InputText v-model="searchTerm" size="small" variant="outline" placeholder="Search" />
         <InputGroupAddon>
-            <Button severity="secondary" variant="icon" @click="clickSearch">
+            <PrimeButton severity="secondary" variant="icon" @click="clickSearch">
                 <i class="pi pi-search"></i>
-            </Button>
+            </PrimeButton>
         </InputGroupAddon>
     </InputGroup>
 </template>
@@ -16,10 +16,10 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
-import Button from "primevue/button"
+import PrimeButton from "primevue/button"
 
 export default defineComponent({
-    components: { InputGroup, InputGroupAddon, InputText, Button },
+    components: { InputGroup, PrimeButton, InputGroupAddon, InputText },
     data() {
         return {
             router: useRouter(),
