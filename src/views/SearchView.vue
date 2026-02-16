@@ -3,7 +3,7 @@
     <div class="main">
       <h1>Search</h1>
       <SiteSearch />
-      <div v-for="result of filteredResults" :key="result.id" class="search-result">
+      <div v-for="result of visibleResults" :key="result.id" class="search-result">
         <h2>{{ result.id }} {{ result.name }}</h2>
         <p>{{ truncatedDescription(result.description) }}</p>
         <p v-if="resultTactics(result)">
@@ -11,7 +11,10 @@
             <router-link :to="'/tactic/' + tactic.id">{{ tactic.name }}</router-link>
           </template>
         </p>
+        <router-link :to="'/technique/' + result.id" class="link-blue-external small">View Page</router-link>
       </div>
+      <Paginator v-model:first="first" :rows="rows" :totalRecords="filteredResults.length"
+        :rowsPerPageOptions="[5, 10, 20, 30]" @page="onPageChange" />
     </div>
     <div class="search-sidebar">
       <h2>Filter By:</h2>
@@ -28,14 +31,17 @@ import { useRoute } from 'vue-router';
 import SiteSearch from "../components/SiteSearch.vue";
 import MultiSelect from 'primevue/multiselect';
 import json from "../data/matrix-data.json";
+import Paginator from 'primevue/paginator';
 
 export default defineComponent({
-  components: { SiteSearch, MultiSelect },
+  components: { SiteSearch, MultiSelect, Paginator },
   data() {
     return {
       route: useRoute(),
       selectedTactics: [],
-      matrixData: json
+      matrixData: json,
+      first: 0,
+      rows: 5,
     }
   },
   computed: {
@@ -46,8 +52,35 @@ export default defineComponent({
       return this.matrixData.filter(i => i.tactic)
     },
     searchResults() {
-      // todo: write search algorithm
-      return [this.matrixData[8], this.matrixData[6]]
+      // Prioritize techniques over tactics
+      // Look for matches in ID, name, description
+      const matches = [];
+      this.matrixData.forEach((i) => {
+        let matchScore = 0;
+        const regex = new RegExp(this.searchQuery, "gi");
+
+        if (i.id.match(regex)) {
+          matchScore += 5;
+        }
+
+        if (i.name.match(regex)) {
+          const count = i.description.match(regex);
+          matchScore += 3 * count?.length;
+        }
+        if (i.description.match(regex)) {
+          const count = i.description.match(regex);
+          matchScore += count.length;
+        }
+
+        if (matchScore > 0) {
+          matches.push({
+            ...i,
+            searchScore: matchScore
+          })
+        }
+      })
+      return matches.sort((a, b) => b.searchScore - a.searchScore);
+
     },
     filteredResults() {
 
@@ -55,6 +88,9 @@ export default defineComponent({
       //   return this.searchResults.filter()
       // }
       return this.searchResults;
+    },
+    visibleResults() {
+      return this.filteredResults.slice(this.first, this.rows + this.first);
     }
   },
   methods: {
@@ -71,6 +107,9 @@ export default defineComponent({
         return null;
       }
       return [this.matrixData[0]]
+    }, onPageChange(event) {
+      this.first = event.first;
+      this.rows = event.rows;
     }
   }
 });
@@ -78,7 +117,7 @@ export default defineComponent({
 
 <style>
 .main {
-  @apply w-full
+  @apply w-full block
 }
 
 .search-sidebar {
@@ -95,5 +134,9 @@ export default defineComponent({
 
 a, p a {
   @apply text-ctid-blue hover:text-ctid-navy hover:underline
+}
+
+.search-result .link-blue-external {
+  @apply mt-0
 }
 </style>

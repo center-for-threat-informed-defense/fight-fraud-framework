@@ -262,3 +262,8 @@ a.link-blue-external.dark,
   color: var(--ctid-light-blue);
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="27.673" height="20.126" viewBox="0 0 27.673 20.126"><g id="arrow_forward" transform="translate(9)"><path id="Path_2708" data-name="Path 2708" d="M0,0H20.126V20.126H0Z" transform="translate(-1.453)" fill="none"/><path id="Path_2709" data-name="Path 2709" d="M8.61,4,7.428,5.182,12.107,9.87H-9v1.677H12.107L7.428,16.235,8.61,17.417l6.709-6.709Z" transform="translate(0 -0.646)" fill="%2387DEFF"/></g></svg>');
 }
+a.link-blue-external.small {
+  line-height: 30px !important;
+  padding-bottom: 1px;
+  font-size: 14px;
+}
