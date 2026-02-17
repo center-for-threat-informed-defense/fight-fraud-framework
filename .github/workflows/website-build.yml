@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      BASE_PATH: ${{ (github.ref_name == 'main') && '/' || format('/{0}/', github.head_ref || github.ref_name) }}
     steps:
       # Configure Environment
       - uses: actions/checkout@v4
@@ -44,7 +45,7 @@ jobs:
       - name: Type Check
         run: npm run type-check
       - name: Build
-        run: npm run build-only -- --base /
+        run: npm run build-only -- --base "${BASE_PATH}"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
