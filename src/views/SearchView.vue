@@ -115,7 +115,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .main {
   @apply w-full block
 }

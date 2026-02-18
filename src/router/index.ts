@@ -7,6 +7,10 @@ import TechniqueView from "@/views/TechniqueView.vue";
 import TechniqueListView from "@/views/TechniqueListView.vue";
 import TacticListView from "@/views/TacticListView.vue";
 import SearchView from "@/views/SearchView.vue";
+import ResourceView from "@/views/ResourceView.vue";
+import SuggestTechniqueView from "@/views/SuggestTechniqueView.vue";
+import UpdateTechniqueView from "@/views/UpdateTechniqueView.vue";
+import ContactUsView from "@/views/ContactUsView.vue";
 
 const routes = [
   {
@@ -18,6 +22,26 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/contact-us",
+    name: "contact",
+    component: ContactUsView,
+  },
+  {
+    path: "/contact-us/new-technique",
+    name: "suggest-technique",
+    component: SuggestTechniqueView,
+  },
+  {
+    path: "/contact-us/update-technique/:id?",
+    name: "update-technique",
+    component: UpdateTechniqueView,
+  },
+  {
+    path: "/resources",
+    name: "resources",
+    component: ResourceView,
   },
   {
     path: "/resources/matrix",

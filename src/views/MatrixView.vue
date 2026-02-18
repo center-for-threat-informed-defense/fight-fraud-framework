@@ -1,5 +1,5 @@
 <template>
-    <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
+    <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mt-0" />
     <div>
         <h1>Fight Financial Fraud <span class="highlight">Matrix</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

@@ -76,9 +76,9 @@ jobs:
         run: >
           staticrypt --remember 3 --salt b1c18fbb5081eca3e2db08a413b01774 \
             --password $STATICRYPT_PASS --short \
-            --template-title "Technique Inference Engine (branch: $BRANCH_NAME)" \
+            --template-title "Fight Financial Fraud (branch: $BRANCH_NAME)" \
             --template-instructions "The contents of this site are marked TLP:AMBER:CTID-R&D:22-80. Do not share with unauthorized individuals." \
-            --template-color-primary "#6241c5" \
+            --template-color-primary "#005B94" \
             --template-color-secondary "#b2b2b2" \
             --template-button "Log In" \
             -r fff_website/
