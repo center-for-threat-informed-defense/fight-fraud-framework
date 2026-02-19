@@ -2,14 +2,13 @@
   <div class="flex">
     <div class="sidebar">
       <h2>Resources</h2>
-      <router-link to="/contact-us/new-technique">
+      <router-link to="/contact-us">
         <h3>Contact Us</h3>
       </router-link>
     </div>
     <div class="main">
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
-
-      <p>Resource page</p>
+      <h1>Resources</h1>
     </div>
   </div>
 </template>

@@ -41,10 +41,10 @@ export default defineComponent({
           label: "Resources", route: "/resources"
         },
         { label: "Contributors", route: "/" },
-        { label: "Tactics", route: "/tactics" },
+        { label: "Tactics", route: "/tactic" },
 
         {
-          label: "Techniques", route: "/techniques"
+          label: "Techniques", route: "/technique"
         }
       ],
     };
