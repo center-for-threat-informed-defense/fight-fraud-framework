@@ -69,7 +69,7 @@ const routes = [
     component: TechniqueView,
   },
   {
-    path: "/search",
+    path: "/search/:query?",
     name: "search",
     component: SearchView,
   },

@@ -46,7 +46,7 @@ export default defineComponent({
   },
   computed: {
     searchQuery() {
-      return this.route.query.q;
+      return this.route.params.query;
     },
     tactics() {
       return this.matrixData.filter(i => i.tactic)

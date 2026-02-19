@@ -1,6 +1,6 @@
 <template>
     <InputGroup>
-        <InputText v-model="searchTerm" size="small" variant="outline" placeholder="Search" />
+        <InputText v-model="searchTerm" size="small" variant="outline" placeholder="Search" @submit="clickSearch" />
         <InputGroupAddon>
             <PrimeButton severity="secondary" variant="icon" @click="clickSearch">
                 <i class="pi pi-search"></i>
@@ -24,22 +24,18 @@ export default defineComponent({
         return {
             router: useRouter(),
             route: useRoute(),
+            searchTerm: this.$route.params.query || ''
 
         };
     },
     methods: {
         clickSearch() {
             this.router.push({
-                path: '/search',
-                query: { q: this.searchTerm }
+                name: 'search',
+                params: { query: this.searchTerm }
             });
         }
     },
-    computed: {
-        searchTerm() {
-            return this.route.query.q;
-        }
-    }
 });
 </script>
 
