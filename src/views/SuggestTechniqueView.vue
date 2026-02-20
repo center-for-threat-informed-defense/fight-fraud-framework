@@ -75,14 +75,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.main {
-  @apply w-full block
-}
-
-.sidebar {
-  @apply border-r-2 border-ctid-light-gray h-screen mr-6 pr-6 w-1/4;
-}
-
 a h3 {
   @apply text-ctid-blue hover:text-ctid-navy
 }

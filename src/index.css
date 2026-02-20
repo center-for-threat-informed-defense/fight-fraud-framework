@@ -267,3 +267,11 @@ a.link-blue-external.small {
   padding-bottom: 1px;
   font-size: 14px;
 }
+
+.main {
+  @apply w-full block;
+}
+
+.sidebar {
+  @apply border-r-2 border-ctid-light-gray h-screen mr-6 pr-6 w-1/4;
+}

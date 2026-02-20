@@ -11,6 +11,7 @@ import ResourceView from "@/views/ResourceView.vue";
 import SuggestTechniqueView from "@/views/SuggestTechniqueView.vue";
 import UpdateTechniqueView from "@/views/UpdateTechniqueView.vue";
 import ContactUsView from "@/views/ContactUsView.vue";
+import DesignPrinciplesView from "@/views/DesignPrinciplesView.vue";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/about/methodology",
+    name: "methodology",
+    component: DesignPrinciplesView,
   },
   {
     path: "/contact-us",
