@@ -69,6 +69,12 @@
 
                     </li>
                 </ul>
+                <div class="mt-8">
+                    <router-link :to="'/contact-us/update-technique/' + techniqueId">Suggest improvements to
+                        this <template v-if="technique.tactic">tactic</template>
+                        <template v-else>technique</template>
+                    </router-link>
+                </div>
             </div>
         </div>
 
