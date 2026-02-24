@@ -17,24 +17,18 @@
                     </AccordionPanel>
                 </template>
             </Accordion>
-
         </div>
-        <div class="main-container">
+        <div class="main">
             <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
             <div>
-                <h1><span class="highlight">{{ technique.id }}</span> {{ technique.name }} <a v-if="technique.isAttack"
+                <h1> {{ technique.name }} <a v-if="technique.isAttack"
                         :href="'https://attack.mitre.org/techniques/' + technique.id + '/'" class="attack-indicator"
                         target="_blank">&</a></h1>
                 <h2>Description</h2>
                 <div class="markdown-html" v-html="renderedHtml(technique.description)"></div>
-
-                <h2>Detection Source</h2>
-                <p>put detection information here</p>
-
-                <h2>Mitigation</h2>
-                <p>put mitigation information here</p>
-                <template v-if="technique.tactic && technique.techniques">
-                    <h2>Techniques</h2>
+                <!-- for tactics: display list of techniques under the tactic -->
+                <template v-if="technique.tactic && technique.techniques.length > 0">
+                    <h2>Technique<template v-if="technique.techniques.length > 1">s</template></h2>
                     <ul>
                         <li v-for="t in technique.techniques" :key="t">
                             <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
@@ -42,17 +36,8 @@
                         </li>
                     </ul>
                 </template>
-                <template v-else>
-                    <h2>Tactics</h2>
-                    <ul>
-                        <li v-for="tactic in [parentTactic]" :key="tactic">
-                            <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
-                                }}</router-link>
-                        </li>
-                    </ul>
-                </template>
 
-
+                <!-- if there are subtechniques, list them -->
                 <template v-if="technique.subtechniques?.length > 0">
                     <h2>Subtechniques</h2>
                     <ul>
@@ -62,13 +47,16 @@
                         </li>
                     </ul>
                 </template>
-                <h2>References</h2>
-                <ul>
-                    <li>
-                        <a href="/">this is a link to a reference</a>
-
-                    </li>
-                </ul>
+                <!-- for techniques, display parent tactic -->
+                <template v-if="!technique.tactic">
+                    <h2>Tactics</h2>
+                    <ul>
+                        <li v-for="tactic in parentTactic" :key="tactic">
+                            <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                                }}</router-link>
+                        </li>
+                    </ul>
+                </template>
                 <div class="mt-8">
                     <router-link :to="'/contact-us/update-technique/' + techniqueId">Suggest improvements to
                         this <template v-if="technique.tactic">tactic</template>
@@ -77,7 +65,46 @@
                 </div>
             </div>
         </div>
+        <div class="right-sidebar">
 
+            <p class="sidebar-item">
+                <span class="emphasis">ID: </span>
+                {{ technique.id }}
+            </p>
+
+            <p v-if="technique.tactic && technique.techniques" class="sidebar-item">
+                <span class="emphasis">Techniques: </span>
+                <template v-for="(t, i) in technique.techniques" :key="t">
+                    <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
+                        }}</router-link>
+                    <span v-if="i < technique.techniques.length - 1">, </span>
+                </template>
+            </p>
+            <p v-if="technique.subtechniques?.length > 0" class="sidebar-item">
+                <span class="emphasis">Subtechniques: </span>
+                <template v-for="(t, i) in technique.subtechniques" :key="t">
+                    <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
+                        }}</router-link>
+                    <span v-if="i < technique.subtechniques.length - 1">, </span>
+                </template>
+            </p>
+            <p v-if="!technique.tactic" class="sidebar-item">
+                <span class="emphasis">Tactics: </span>
+                <template v-for="(tactic, i) in parentTactic" :key="tactic">
+                    <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                        }}</router-link>
+                    <span v-if="i < parentTactic.length - 1">, </span>
+                </template>
+            </p>
+            <p class="sidebar-item">
+                <span class="emphasis">Last Modified: </span>
+                01/01/1900
+            </p>
+            <p class="sidebar-item">
+                <span class="emphasis">Version: </span>
+                v0.0
+            </p>
+        </div>
     </div>
 </template>
 
@@ -102,7 +129,8 @@ export default defineComponent({
     computed: {
         breadcrumbItems() {
             return [this.technique.tactic ? { label: "Tactics", route: "/tactic" } : { label: "Techniques", route: "/technique" },
-            { label: `${this.$route.params.id}`, route: `/technique/${this.$route.params.id}` }]
+            // Todo: add another label 
+            { label: `${this.technique.name}`, route: `/technique/${this.$route.params.id}` }]
         },
         techniqueId() {
             return this.$route.params.id;
@@ -115,7 +143,7 @@ export default defineComponent({
         },
         parentTactic() {
             // until we have actual tactics assigned to each technique, currently this is always tactic TA0001
-            return this.matrixData.filter(i => i.tactic)[0]
+            return [this.matrixData.filter(i => i.tactic)[0]]
 
         },
         sidenavValue() {
@@ -138,16 +166,7 @@ export default defineComponent({
     @apply text-ctid-blue font-medium
 }
 
-.main-container {
-    @apply w-3/4 p-8 px-12 h-full border-l-2 border-ctid-light-gray
-}
-
-.sidebar {
-    @apply w-1/4 block p-8 h-full flex-1
-}
-
-
-.sidebar h4 {
+.sidebar h4, .sidebar-item h4 {
     @apply text-ctid-gray font-medium
 }
 
@@ -166,4 +185,18 @@ li {
 .attack-indicator {
     @apply text-ctid-red
 }
+
+.right-sidebar {
+    @apply border-l-2 border-ctid-light-gray pl-6 ml-6 w-1/4
+}
+
+.sidebar-item {
+    @apply my-4
+}
+
+.sidebar-item .emphasis {
+    @apply text-ctid-gray
+}
+
+.sidebar-item p {}
 </style>

@@ -234,7 +234,8 @@ a.link-blue-external {
   padding-right: 2em !important;
   padding-bottom: 3px;
   margin-top: 10px;
-  font-family: "Oswald", "Roboto", Helvetica, Arial, sans-serif !important;
+  font-family:
+    "Fira Sans Extra Condensed", "Roboto", Helvetica, Arial, sans-serif !important;
   transition: padding 300ms ease 0ms;
   position: relative;
   line-height: 40px !important;
@@ -273,5 +274,5 @@ a.link-blue-external.small {
 }
 
 .sidebar {
-  @apply border-r-2 border-ctid-light-gray h-screen mr-6 pr-6 w-1/4;
+  @apply border-r-2 border-ctid-light-gray min-h-screen mr-6 pr-6 w-1/4;
 }
