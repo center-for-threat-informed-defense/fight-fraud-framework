@@ -13,7 +13,7 @@
     <div class="main">
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
 
-      <h1>Fight Financial Fraud (F3) Design Principles and Methodology </h1>
+      <h1>Design Principles and Methodology </h1>
       <h2 id="introduction">Introduction</h2>
       <p>The Fight Financial Fraud (F3) Framework is a curated knowledge base of tactics, techniques, and procedures
         (TTPs) used by fraud actors. The F3 Framework includes behaviors that characterize known fraud TTPs and
@@ -58,6 +58,34 @@
         framework provides a collective ability to enumerate the material events of a fraud incident and to implement
         controls that disrupt fraud through emulating, detecting, and preventing the TTPs used in these incidents.</p>
 
+      <h3>Foundation</h3>
+      <p>Includes derivation from prior work, including</p>
+      <div class="flex flex-wrap box-border">
+        <div class="foundation-item">
+          <h4><a href="https://www.fsisac.com/knowledge/cyber-fraud-prevention-framework" target="_blank">FS-ISAC Cyber
+              Fraud Prevention Framework</a></h4>
+          <p>Framework that enables gathering and sharing of cyber fraud information across the financial sector
+            regarding fraud conducted on cyber channels </p>
+        </div>
+        <div class="foundation-item">
+          <h4><a href="https://nrf.com/research/retail-fraud-taxonomy" target="_blank">National Retail Federation Retail
+              Fraud Taxonomy</a></h4>
+          <p>Framework for assessing and categorizing retail fraud threats and identifying appropriate actions to
+            mitigate them </p>
+        </div>
+        <div class="foundation-item">
+          <h4><a href="https://www.group-ib.com/products/cyber-fraud-intelligence-platform/" target="_blank">Group-IB
+              Cyber Fraud Intelligence</a></h4>
+          <p>Framework to systematically break down fraud actor actions and behaviors across an incident into stages and
+            techniques </p>
+        </div>
+        <div class="foundation-item">
+          <h4><a href="https://github.com/stripe/ft3" target="_blank">Stripe Fraud Tools Tactics and Techniques
+              (FT3)</a></h4>
+          <p>Framework to enhance understanding of the tactics, techniques, and procedures (TTPs) used by actors in
+            fraudulent activities </p>
+        </div>
+      </div>
 
       <h2 id="design-principles">Design Principles</h2>
       <div class="design-principle">
@@ -131,10 +159,19 @@ p {
 }
 
 blockquote {
-  @apply bg-ctid-light-gray/30 border-l-4 border-ctid-light-gray px-8 py-4 italic my-4
+  @apply bg-ctid-light-gray/30 border-l-4 border-ctid-light-gray px-8 py-4 italic my-4 text-base
 }
 
-.design-principle {
+.design-principle, .foundation-item {
   @apply border-ctid-light-gray border-[1px] py-4 px-6 my-1
+}
+
+.foundation-item {
+  @apply lg:w-1/4 sm:w-1/2 mr-4
+  /* box-content */
+}
+
+.design-principle h3 {
+  @apply font-medium
 }
 </style>
