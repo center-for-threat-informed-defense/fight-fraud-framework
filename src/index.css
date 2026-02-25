@@ -274,5 +274,9 @@ a.link-blue-external.small {
 }
 
 .sidebar {
-  @apply border-r-2 border-ctid-light-gray min-h-screen mr-6 pr-6 w-1/4;
+  @apply border-r-2 border-ctid-light-gray  mr-6 pr-6 w-1/4;
+}
+
+.right-sidebar {
+  @apply border-l-2 border-ctid-light-gray pl-6 ml-6 w-1/4;
 }
