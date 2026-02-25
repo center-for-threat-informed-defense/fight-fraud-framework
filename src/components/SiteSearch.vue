@@ -1,6 +1,7 @@
 <template>
     <InputGroup>
-        <InputText v-model="searchTerm" size="small" variant="outline" placeholder="Search" @submit="clickSearch" />
+        <InputText name="search-bar" v-model="searchTerm" size="small" variant="outline" placeholder="Search"
+            @submit="clickSearch" id="search-bar" />
         <InputGroupAddon>
             <PrimeButton severity="secondary" variant="icon" @click="clickSearch">
                 <i class="pi pi-search"></i>

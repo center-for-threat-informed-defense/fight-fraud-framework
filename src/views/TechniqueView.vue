@@ -57,14 +57,24 @@
                 </ul>
             </template>
             <div class="mt-8">
-                <i class="pi pi-send text-ctid-gray mx-2"></i>
+                <i class="pi pi-wrench text-ctid-gray mx-2"></i>
                 <router-link :to="'/contact-us/update-technique/' + techniqueId">Suggest improvements to
                     this <template v-if="technique.tactic">tactic</template>
                     <template v-else>technique</template>
                 </router-link>
             </div>
-            <div>
+            <div v-if="searchResults && searchResults.length > 0">
+                <h2>Didn't find what you're looking for?</h2>
+                <p class=" -mt-2 mb-2">Check out some other results from your most recent search</p>
+                <div class="result-row">
+                    <div v-for="result of searchResults" :key="result.id" class="suggested-result">
+                        <h3><router-link :to="'/technique/' + result.id">{{ result.name }}</router-link></h3>
+                        <p>{{ truncatedDescription(result.description) }}</p>
+                        <router-link :to="'/technique/' + result.id" class="link-blue-external small">View
+                            Page</router-link>
 
+                    </div>
+                </div>
             </div>
         </div>
         <div class="right-sidebar">
@@ -151,11 +161,62 @@ export default defineComponent({
         },
         sidenavValue() {
             return [this.parentTactic.id]
-        }
+        },
+        searchQuery() {
+            const searchBar = document.getElementById('search-bar');
+            if (searchBar.value) {
+                return searchBar.value
+            }
+            return null;
+        },
+        searchResults() {
+            if (!this.searchQuery) {
+                return null;
+            }
+            let matches = [];
+            this.matrixData.forEach((i) => {
+                let matchScore = 0;
+                const regex = new RegExp(this.searchQuery, "gi");
+
+                if (i.id.match(regex)) {
+                    matchScore += 5;
+                }
+
+                if (i.name.match(regex)) {
+                    const count = i.description.match(regex);
+                    matchScore += 3 * count?.length;
+                }
+                if (i.description.match(regex)) {
+                    const count = i.description.match(regex);
+                    matchScore += count.length;
+                }
+
+                if (matchScore > 0) {
+                    matches.push({
+                        ...i,
+                        searchScore: matchScore
+                    })
+                }
+            })
+            // remove current item from search results
+            matches = matches.filter(m => m.id !== this.techniqueId)
+            matches = matches.sort((a, b) => b.searchScore - a.searchScore);
+            return matches.slice(0, 3)
+        },
+
     },
     methods: {
         renderedHtml(data: string) {
             return this.md.render(data);
+        },
+        truncatedDescription(text: string) {
+            if (!text) return null;
+            const words = text?.split(' ');
+            if (words.length > 25) {
+                return words.slice(0, 25).join(' ') + '...';
+            }
+            return text;
+
         },
         getTechniqueData(id: string) {
             return this.matrixData.filter(i => i.id === id)[0]
@@ -198,5 +259,16 @@ li {
     @apply text-ctid-gray
 }
 
-.sidebar-item p {}
+.result-row {
+    @apply xl:flex block gap-2;
+}
+
+.suggested-result {
+    @apply border-ctid-light-gray border-[1px] py-4 px-6 my-1;
+    width: auto
+}
+
+.suggested-result h3 {
+    @apply text-lg font-medium
+}
 </style>
