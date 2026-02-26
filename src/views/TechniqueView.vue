@@ -10,7 +10,7 @@
                             <ul v-if="getTacticTechniques(tactic)">
                                 <li v-for="technique of getTacticTechniques(tactic)" :key="technique">
                                     <router-link :to="'/technique/' + technique">{{ getTechniqueData(technique)?.name
-                                        }}</router-link>
+                                    }}</router-link>
                                 </li>
                             </ul>
                         </AccordionContent>
@@ -31,7 +31,7 @@
                 <ul>
                     <li v-for="t in getTacticTechniques(technique)" :key="t">
                         <router-link :to="'/technique/' + t">{{ getTechniqueData(t)?.name
-                            }}</router-link>
+                        }}</router-link>
                     </li>
                 </ul>
             </template>
@@ -42,7 +42,7 @@
                 <ul>
                     <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">
                         <router-link :to="'/technique/' + subtechnique">{{ getTechniqueData(subtechnique)?.name
-                            }}</router-link>
+                        }}</router-link>
                     </li>
                 </ul>
             </template>
@@ -52,7 +52,7 @@
                 <ul>
                     <li v-for="tactic in parentTactic" :key="tactic">
                         <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
-                            }}</router-link>
+                        }}</router-link>
                     </li>
                 </ul>
             </template>
@@ -89,7 +89,7 @@
                 </span>
                 <template v-for="(t, i) in getTacticTechniques(technique)" :key="t">
                     <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
-                    }}</router-link>
+                        }}</router-link>
                     <span v-if="i < getTacticTechniques(technique).length - 1">, </span>
                 </template>
             </p>
@@ -98,7 +98,7 @@
                 </span>
                 <template v-for="(t, i) in technique.subtechniques" :key="t">
                     <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
-                    }}</router-link>
+                        }}</router-link>
                     <span v-if="i < technique.subtechniques.length - 1">, </span>
                 </template>
             </p>
@@ -106,17 +106,17 @@
                 <span class="emphasis">Tactic<template v-if="parentTactic.length > 1">s</template>: </span>
                 <template v-for="(tactic, i) in parentTactic" :key="tactic">
                     <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
-                    }}</router-link>
+                        }}</router-link>
                     <span v-if="i < parentTactic.length - 1">, </span>
                 </template>
             </p>
             <p class="sidebar-item">
                 <span class="emphasis">Last Modified: </span>
-                01/01/1900
+                {{ technique?.lastModified ? new Date(technique.lastModified).toLocaleDateString() : null }}
             </p>
             <p class="sidebar-item">
                 <span class="emphasis">Version: </span>
-                v0.0
+                v{{ technique?.version }}
             </p>
         </div>
     </div>

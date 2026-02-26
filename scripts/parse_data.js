@@ -23,6 +23,8 @@ console.log("here..");
       tactics: row.getCell(4).value.split(", "),
       subtechniques: [],
       isAttack: tid.charAt(0) === "T" ? true : false,
+      version: "1.0",
+      lastModified: new Date().toISOString(),
     };
 
     if (tid.split(".").length > 1) {
