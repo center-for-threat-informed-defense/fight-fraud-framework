@@ -13,8 +13,7 @@ console.log("here..");
 
   console.log("Reading from Calculator spreadsheet...");
   const worksheet = wb.getWorksheet("Techniques");
-  worksheet.eachRow({ includeEmpty: false }, function (row, rowNumber) {
-    // console.log(`Row ${rowNumber} values:`, row.values);
+  worksheet.eachRow({ includeEmpty: false }, function (row) {
     const tid = row.getCell(1).value;
 
     const technique = {
@@ -25,7 +24,6 @@ console.log("here..");
       subtechniques: [],
       isAttack: tid.charAt(0) === "T" ? true : false,
     };
-    // console.log("subtechnique?  ", technique.id.split("."));
 
     if (tid.split(".").length > 1) {
       const parent = techniques.find(
@@ -35,8 +33,6 @@ console.log("here..");
       console.log("subtechnique added to parent ", parent);
     }
     techniques.push(technique);
-
-    // console.log("parsed technique ", technique);
   });
 
   const str = JSON.stringify(techniques, null, 4);
