@@ -7,9 +7,9 @@
                         <AccordionHeader> <router-link :to="'/tactic/' + tactic.id">{{ tactic.name }}</router-link>
                         </AccordionHeader>
                         <AccordionContent>
-                            <ul v-if="tactic.techniques">
-                                <li v-for="technique of tactic.techniques" :key="technique">
-                                    <router-link :to="'/technique/' + technique">{{ getTechniqueData(technique).name
+                            <ul v-if="getTacticTechniques(tactic)">
+                                <li v-for="technique of getTacticTechniques(tactic)" :key="technique">
+                                    <router-link :to="'/technique/' + technique">{{ getTechniqueData(technique)?.name
                                         }}</router-link>
                                 </li>
                             </ul>
@@ -20,17 +20,17 @@
         </div>
         <div class="main">
             <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
-            <h1> {{ technique.name }} <a v-if="technique.isAttack"
+            <h1> {{ technique?.name }} <a v-if="technique.isAttack"
                     :href="'https://attack.mitre.org/techniques/' + technique.id + '/'" class="attack-indicator"
                     target="_blank">&</a></h1>
             <h2>Description</h2>
             <div class="markdown-html" v-html="renderedHtml(technique.description)"></div>
             <!-- for tactics: display list of techniques under the tactic -->
-            <template v-if="technique.tactic && technique.techniques.length > 0">
-                <h2>Technique<template v-if="technique.techniques.length > 1">s</template></h2>
+            <template v-if="technique.tactic && getTacticTechniques(technique).length > 0">
+                <h2>Technique<template v-if="getTacticTechniques(technique).length > 1">s</template></h2>
                 <ul>
-                    <li v-for="t in technique.techniques" :key="t">
-                        <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
+                    <li v-for="t in getTacticTechniques(technique)" :key="t">
+                        <router-link :to="'/technique/' + t">{{ getTechniqueData(t)?.name
                             }}</router-link>
                     </li>
                 </ul>
@@ -41,7 +41,7 @@
                 <h2>Subtechnique<template v-if="technique.subtechniques?.length > 1">s</template></h2>
                 <ul>
                     <li v-for="subtechnique in technique.subtechniques" :key="subtechnique">
-                        <router-link :to="'/technique/' + subtechnique">{{ getTechniqueData(subtechnique).name
+                        <router-link :to="'/technique/' + subtechnique">{{ getTechniqueData(subtechnique)?.name
                             }}</router-link>
                     </li>
                 </ul>
@@ -84,12 +84,13 @@
                 {{ technique.id }}
             </p>
 
-            <p v-if="technique.tactic && technique.techniques.length > 0" class="sidebar-item">
-                <span class="emphasis">Technique<template v-if="technique.techniques.length > 1">s</template>: </span>
-                <template v-for="(t, i) in technique.techniques" :key="t">
+            <p v-if="technique.tactic && getTacticTechniques(technique).length > 0" class="sidebar-item">
+                <span class="emphasis">Technique<template v-if="getTacticTechniques(technique).length > 1">s</template>:
+                </span>
+                <template v-for="(t, i) in getTacticTechniques(technique)" :key="t">
                     <router-link :to="'/technique/' + t">{{ getTechniqueData(t).name
                     }}</router-link>
-                    <span v-if="i < technique.techniques.length - 1">, </span>
+                    <span v-if="i < getTacticTechniques(technique).length - 1">, </span>
                 </template>
             </p>
             <p v-if="technique.subtechniques?.length > 0" class="sidebar-item">
@@ -149,6 +150,7 @@ export default defineComponent({
             return this.$route.params.id;
         },
         technique() {
+            console.log("finding match ", this.matrixData?.filter(i => i.id == this.techniqueId)[0])
             return this.matrixData?.filter(i => i.id == this.techniqueId)[0]
         },
         tactics() {
@@ -220,7 +222,17 @@ export default defineComponent({
         },
         getTechniqueData(id: string) {
             return this.matrixData.filter(i => i.id === id)[0]
+        },
+        getTacticTechniques(tactic) {
+            const matches = [];
+            this.matrixData.forEach(i => {
+                if (i.tactics?.includes(tactic.id)) {
+                    matches.push(i.id)
+                }
+            })
+            return matches;
         }
+
     }
 });
 </script>

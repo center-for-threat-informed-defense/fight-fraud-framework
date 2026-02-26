@@ -8,11 +8,12 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "update": "node ./scripts/update_techniques.js"
+    "update": "node ./scripts/parse_data.js"
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",
     "bootstrap": "^5.3.8",
+    "exceljs": "^4.4.0",
     "markdown-it": "^14.1.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.5.4",

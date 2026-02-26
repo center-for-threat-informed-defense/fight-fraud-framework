@@ -1,20 +1,20 @@
 <template>
     <div class="flex box-border items-stretch">
-        <div v-if="technique.subtechniques?.length > 0" class="expand-btn" @click="clickExpand">
+        <div v-if="technique?.subtechniques?.length > 0" class="expand-btn" @click="clickExpand">
             <span v-if="isOpen">-</span>
             <span v-else>+</span>
         </div>
         <div v-else-if="isSubtechnique" class="subtechnique-border"></div>
         <div v-else class="spacer"></div>
-        <div :class="['technique', { 'supertechnique': technique.subtechniques?.length > 0 }]">
+        <div :class="['technique', { 'supertechnique': technique?.subtechniques?.length > 0 }]">
             <h6><router-link :to="'/technique/' + techniqueId">{{ techniqueId }}</router-link>
-                <span class="attack-indicator" v-if="technique.isAttack">&</span>
+                <span class="attack-indicator" v-if="technique?.isAttack">&</span>
             </h6>
-            <p>{{ technique.name }}</p>
+            <p>{{ technique?.name }}</p>
         </div>
     </div>
     <div v-if="isOpen">
-        <template v-for="subtechnique in technique.subtechniques" :key="subtechnique">
+        <template v-for="subtechnique in technique?.subtechniques" :key="subtechnique">
             <matrix-technique :techniqueId="subtechnique" :isSubtechnique="true" />
         </template>
     </div>

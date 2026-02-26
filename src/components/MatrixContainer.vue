@@ -4,14 +4,14 @@
             <div class="tactic" v-for="tactic in tactics" :key="tactic.id">
                 <h5>
                     <router-link :to="'/tactic/' + tactic.id">{{ tactic.id }}</router-link>
-                    <span class="attack-indicator" v-if="tactic.isAttack">&</span>
+                    <span class="attack-indicator" v-if="tactic?.isAttack">&</span>
                 </h5>
                 <p>{{ tactic.name }}</p>
             </div>
         </div>
         <div class="technique-container">
             <div v-for="tactic in tactics" :key="tactic.id">
-                <template v-for="tid in tactic.techniques" :key="tid">
+                <template v-for="tid in getTacticTechniques(tactic)" :key="tid">
                     <matrix-technique :techniqueId="tid" />
                 </template>
             </div>
@@ -36,6 +36,17 @@ export default defineComponent({
             return this.matrixData.filter(i => i.tactic)
         }
     },
+    methods: {
+        getTacticTechniques(tactic) {
+            const matches = [];
+            this.matrixData.forEach(i => {
+                if (i.tactics?.includes(tactic.id)) {
+                    matches.push(i.id)
+                }
+            })
+            return matches;
+        }
+    }
 });
 </script>
 
