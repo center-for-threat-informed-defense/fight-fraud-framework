@@ -4,59 +4,63 @@
     "name": "Reconnaissance",
     "description": "Adversaries may gather information to plan and target fraud operations. Reconnaissance consists of techniques that involve adversaries actively or passively collecting information about potential victims, organizations, systems, or services that can be used to support targeting. This information may include personal data, financial information, organizational relationships, security controls, or technical details that enable more effective fraud attacks.",
     "tactic": true,
-    "techniques": []
+    "techniques": [],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "TA0042",
     "name": "Resource Development",
     "description": "Adversaries may establish resources to support fraud operations. Resource Development consists of techniques that involve adversaries creating, purchasing, or compromising resources that can be used to facilitate fraud. Such resources include infrastructure, accounts, capabilities, and services. These resources can be leveraged to support various phases of fraud operations, including hosting phishing sites, establishing payment processing, acquiring accounts, or developing fraud tools.",
     "tactic": true,
-    "techniques": []
+    "techniques": [],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "TA0001",
     "name": "Initial Access",
     "description": "Adversaries may use various techniques to gain their initial foothold to conduct fraud operations. Initial Access consists of techniques that enable adversaries to gain unauthorized access to accounts, systems, or influence over target individuals. Techniques used to gain initial access include phishing, credential theft, exploiting vulnerabilities, social engineering, and leveraging stolen credentials. Initial access enables adversaries to conduct reconnaissance, establish persistence, or directly execute fraud activities.",
     "tactic": true,
-    "techniques": []
+    "techniques": [],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "TA0005",
     "name": "Defense Evasion",
     "description": "Adversaries may use techniques to avoid detection throughout fraud operations. Defense Evasion consists of techniques that adversaries use to avoid detection by security controls, fraud detection systems, or investigators. These techniques include manipulating device characteristics, spoofing identities, using anonymization services, mimicking legitimate behavior patterns, or disabling security tools. Successful defense evasion allows adversaries to operate with reduced risk of detection, investigation, or attribution.",
     "tactic": true,
-    "techniques": []
+    "techniques": [],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "FA0001",
     "name": "Positioning",
     "description": "Adversaries may collect and modify account information or data to prepare for fraud execution. Positioning consists of techniques that involve adversaries gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable adversaries to maximize the value extracted during fraud execution or establish persistent access for future operations.",
     "tactic": true,
-    "techniques": []
+    "techniques": [],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "TA0002",
     "name": "Execution",
     "description": "Adversaries may initiate fraudulent transactions and convert stolen data into monetary value. Execution consists of techniques that result in adversary-controlled actions to complete fraud operations. These techniques include initiating unauthorized transactions, making fraudulent purchases, conducting unauthorized transfers, exploiting compromised accounts, or leveraging stolen data for financial gain. Execution represents the direct monetization phase where adversaries realize value from compromised access or stolen information.",
     "tactic": true,
-    "techniques": ["T00004", "T00005"]
+    "techniques": ["T00004", "T00005"],
+    "version": "1.0",
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "FA0002",
     "name": "Monetization",
     "description": "Adversaries may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve adversaries liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or laundering illicit funds. These techniques represent the final stages of fraud operations where adversaries secure their gains and attempt to obscure the transaction trail.",
     "tactic": true,
-    "techniques": []
-  },
-  {
-    "id": "Technique ID",
-    "name": "Technique",
-    "description": "Description",
-    "tactics": ["Tactic ID"],
-    "subtechniques": [],
-    "isAttack": true,
+    "techniques": [],
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.769Z"
+    "lastModified": "2026-02-26T17:59:51.771Z"
   },
   {
     "id": "F1000",
