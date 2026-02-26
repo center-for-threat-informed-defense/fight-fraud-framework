@@ -12,7 +12,7 @@
         <div class="technique-container">
             <div v-for="tactic in tactics" :key="tactic.id">
                 <template v-for="tid in getTacticTechniques(tactic)" :key="tid">
-                    <matrix-technique :techniqueId="tid" />
+                    <matrix-technique :techniqueId="tid" v-if="tid.split('.').length <= 1" />
                 </template>
             </div>
         </div>
