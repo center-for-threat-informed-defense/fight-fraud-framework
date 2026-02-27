@@ -1,7 +1,7 @@
 <template>
   <navigation-menu />
   <div class="d-flex">
-    <div id="page-body" class="col-md-12">
+    <div id="page-body">
       <router-view></router-view>
     </div>
   </div>

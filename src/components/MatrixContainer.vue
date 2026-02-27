@@ -53,6 +53,8 @@ export default defineComponent({
 <style scoped>
 .matrix {
     border-collapse: collapse !important;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .tactic-row {

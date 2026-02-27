@@ -56,8 +56,7 @@ export default defineComponent({
 <style scoped>
 .hero {
   @apply py-20 m-0 bg-ctid-light-gray/30 absolute top-0 left-0 w-screen;
-  height: 60vh;
-
+  min-height: 60vh;
 }
 
 .hero .container {
@@ -69,7 +68,7 @@ export default defineComponent({
 }
 
 .matrix-container {
-  margin-top: 50vh;
+  @apply mt-[70vh] sm:mt-[60vh] md:mt-[50vh];
   padding-top: 10px;
 }
 </style>
