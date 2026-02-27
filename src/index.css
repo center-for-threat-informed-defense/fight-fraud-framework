@@ -8,7 +8,8 @@ body {
 }
 
 #page-body {
-  @apply pt-20 bg-white text-ctid-black min-h-screen xl:max-w-[1536px] mx-auto p-16 xl:py-20 lg:px-32 2xl:px-16;
+  @apply pt-20 bg-white text-ctid-black xl:max-w-[1536px] mx-auto p-16 xl:py-20 lg:px-32 2xl:px-16;
+  min-height: calc(100vh - 450px);
 }
 
 #app {

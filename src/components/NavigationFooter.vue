@@ -38,17 +38,25 @@
                 </div>
             </div>
             <div class="xl:max-w-1/2 xl:pl-10 xl:my-auto mt-8">
-                <h2 class="mt-8">Related Projects</h2>
-                <div class="internal-links">
-                    <div v-for="(item, i) of externalProjects" :key="item.label" class="flex">
-                        <a :href="item.route + '/?utm_source=fight-financial-fraud'" target="blank"
-                            class="hover:underline hover:text-ctid-light-blue md:mx-0 mx-2 my-auto">{{
-                                item.label }}</a>
-                        <div v-if="i !== externalProjects.length - 1"
-                            class="md:block hidden mx-4 2xl:mx-8 w-[3px] h-full bg-ctid-light-blue"></div>
+                <div class="flex w-full  content-between">
+                    <div class="w-1/2">
+                        <h2 class="mt-8">About</h2>
+                        <ul>
+                            <li><router-link to="/about/methodology">Design Principles</router-link></li>
+                            <li><router-link to="/about/contributors">Contributors</router-link></li>
+                            <li><router-link to="/contact-us">Contact Us</router-link></li>
+                        </ul>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="mt-8">Resources</h2>
+                        <ul>
+                            <li><router-link to="/matrix">Matrix</router-link></li>
+                            <li><router-link to="/tactic">Tactics</router-link></li>
+                            <li><router-link to="/technique">Techniques</router-link></li>
+                        </ul>
                     </div>
                 </div>
-                <p class="my-4 public-release">© 2022 MITRE. Approved for public release. Document number(s) XXXXXX.</p>
+                <p class="my-4 public-release">© 2026 MITRE. Approved for public release. Document number(s) XXXXXX.</p>
             </div>
         </div>
     </div>
@@ -79,25 +87,15 @@ h1 {
 }
 
 h2 {
-    @apply text-xl font-semibold
+    @apply text-xl font-semibold mt-0
 }
 
 .public-release {
-    @apply text-sm
+    @apply text-sm mb-0
 }
 
 .social-links {
     @apply flex md:ml-8 md:my-0 my-4 gap-6 xl:gap-4 2xl:gap-8
-}
-
-.internal-links {
-    @apply md:flex my-4 uppercase;
-    font-family: "Fira Sans Extra Condensed", sans-serif;
-}
-
-.internal-links div::before {
-    @apply text-ctid-light-blue mr-2 block md:hidden text-lg;
-    content: "-";
 }
 
 .social-links a {
@@ -107,5 +105,14 @@ h2 {
 .social-links i {
     @apply m-auto;
 
+}
+
+ul {
+    @apply list-inside;
+    list-style-type: square;
+}
+
+li a {
+    @apply hover:underline hover:text-ctid-light-blue
 }
 </style>
