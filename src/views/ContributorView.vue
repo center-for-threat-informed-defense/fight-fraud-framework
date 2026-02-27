@@ -28,13 +28,14 @@
 
       <p>The F3 framework was developed in collaboration with members from Aviation ISAC, Citi, FS-ISAC, JPMorganChase,
         Lloyds Banking Group, Marsh, NRF, and Retail & Hospitality ISAC.</p>
-      <div class="flex gap-4 my-10">
-        <div v-for="person of contributors" :key="person.name" class="w-60">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-4">
+        <div v-for="person of contributors" :key="person.name" class="w-full">
           <img :src="person.img" />
           <h2 class="mt-2 mb-1 leading-none">{{ person.name }}</h2>
           <p class="leading-none">{{ person.role }}, {{ person.company }}</p>
         </div>
       </div>
+      <p>... and all the other contributors too pending data collection</p>
     </div>
   </div>
 </template>

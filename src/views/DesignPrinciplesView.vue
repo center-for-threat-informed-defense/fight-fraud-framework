@@ -60,7 +60,7 @@
 
       <h3>Foundation</h3>
       <p>Includes derivation from prior work, including</p>
-      <div class="flex flex-wrap box-border">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="foundation-item">
           <h4><a href="https://www.fsisac.com/knowledge/cyber-fraud-prevention-framework" target="_blank">FS-ISAC Cyber
               Fraud Prevention Framework</a></h4>
@@ -86,6 +86,11 @@
             fraudulent activities </p>
         </div>
       </div>
+      <p>The F3 Framework is grounded in real-world fraud actor behavior derived from the as and developed by fraud
+        fusion analysts. The framework is modeled after ATT&CK, inspired by the MITRE ATT&CK®: Design and Philosophy2,
+        to enumerate fraud actor behavior in banking institutions. The F3 Framework includes new content to describe
+        fraud technical behaviors for which there is no existing ATT&CK content, and references and refines existing
+        ATT&CK techniques when they are applicable to financial fraud. </p>
 
       <h2 id="design-principles">Design Principles</h2>
       <div class="design-principle">
@@ -123,9 +128,6 @@
           described by techniques into more specific descriptions of how behavior is used to achieve an objective. </p>
         <p>Sub-techniques allow for a similar abstraction level of techniques across the framework, while demonstrating
           the many ways that techniques are performed. </p>
-
-
-
       </div>
     </div>
   </div>
@@ -164,11 +166,6 @@ blockquote {
 
 .design-principle, .foundation-item {
   @apply border-ctid-light-gray border-[1px] py-4 px-6 my-1
-}
-
-.foundation-item {
-  @apply lg:w-1/4 sm:w-1/2 mr-4
-  /* box-content */
 }
 
 .design-principle h3 {
