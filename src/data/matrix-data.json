@@ -804,7 +804,7 @@
   },
   {
     "id": "T1555",
-    "name": "Crednetials from Password Stores",
+    "name": "Credentials from Password Stores",
     "description": "nan",
     "tactics": ["FA0001"],
     "subtechniques": ["T1555.001", "T1555.002"],

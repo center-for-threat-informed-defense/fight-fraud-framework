@@ -2,11 +2,10 @@
     <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mt-0" />
     <div>
         <h1>Fight Financial Fraud <span class="highlight">Matrix</span></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+        <p>The F3 Matrix contains information on how adversaries move through an attack and provides a visual
+            representation of where different techniques are classified. View information about techniques and how
+            techniques and tactics interact on the Matrix page.
+        </p>
     </div>
     <div class="mt-8">
         <matrix-container />
@@ -24,7 +23,7 @@ export default defineComponent({
         return {
             breadcrumbItems: [
                 { label: "Resources", route: "/resources" },
-                { label: "Matrix", route: "/resources/matrix" }
+                { label: "Matrix", route: "/matrix" }
             ],
         }
     }

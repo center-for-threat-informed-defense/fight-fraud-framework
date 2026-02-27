@@ -55,10 +55,11 @@ export default defineComponent({
     border-collapse: collapse !important;
     width: 100%;
     overflow-x: scroll;
+    overflow-y: visible
 }
 
 .tactic-row {
-    @apply flex border-collapse border-b-2 border-ctid-light-gray mb-2;
+    @apply flex border-collapse border-b-2 border-ctid-light-gray mb-2 mx-auto w-fit;
 }
 
 .tactic {
@@ -74,6 +75,6 @@ export default defineComponent({
 }
 
 .technique-container {
-    @apply flex gap-0;
+    @apply flex gap-0 mx-auto w-fit pb-10;
 }
 </style>
