@@ -53,7 +53,7 @@ export default defineComponent({
           label: "Resources", route: "/resources"
         },
         {
-          label: "Matrix", route: "/resources/matrix"
+          label: "Matrix", route: "/matrix"
         }
       ],
       searchTerm: null,

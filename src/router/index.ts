@@ -50,7 +50,7 @@ const routes = [
     component: ResourceView,
   },
   {
-    path: "/resources/matrix",
+    path: "/matrix",
     name: "matrix",
     component: MatrixView,
   },
