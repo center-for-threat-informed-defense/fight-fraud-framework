@@ -12,6 +12,7 @@ import SuggestTechniqueView from "@/views/SuggestTechniqueView.vue";
 import UpdateTechniqueView from "@/views/UpdateTechniqueView.vue";
 import ContactUsView from "@/views/ContactUsView.vue";
 import DesignPrinciplesView from "@/views/DesignPrinciplesView.vue";
+import ContributorView from "@/views/ContributorView.vue";
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/about/contributors",
+    name: "contributors",
+    component: ContributorView,
   },
   {
     path: "/about/methodology",
