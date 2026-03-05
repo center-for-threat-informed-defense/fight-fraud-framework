@@ -2,11 +2,10 @@
     <div class="matrix">
         <div class="tactic-row">
             <div class="tactic" v-for="tactic in tactics" :key="tactic.id">
-                <h5>
-                    <router-link :to="'/tactic/' + tactic.id">{{ tactic.id }}</router-link>
+                <p>
+                    <router-link :to="'/tactic/' + tactic.id">{{ tactic.name }}</router-link>
                     <span class="attack-indicator" v-if="tactic?.isAttack">&</span>
-                </h5>
-                <p>{{ tactic.name }}</p>
+                </p>
             </div>
         </div>
         <div class="technique-container">
@@ -63,15 +62,15 @@ export default defineComponent({
 }
 
 .tactic {
-    @apply px-4 py-2 w-40;
+    @apply px-4 py-2 w-40 mt-auto flex;
 }
 
-.tactic h5 a {
+.tactic p a {
     @apply text-ctid-blue mb-[2px] font-medium hover:text-ctid-navy;
 }
 
 .tactic p {
-    @apply leading-none;
+    @apply leading-none align-bottom mt-auto;
 }
 
 .technique-container {
