@@ -3,64 +3,57 @@
     "id": "TA0043",
     "name": "Reconnaissance",
     "description": "Adversaries may gather information to plan and target fraud operations. Reconnaissance consists of techniques that involve adversaries actively or passively collecting information about potential victims, organizations, systems, or services that can be used to support targeting. This information may include personal data, financial information, organizational relationships, security controls, or technical details that enable more effective fraud attacks.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.160Z"
   },
   {
     "id": "TA0042",
     "name": "Resource Development",
     "description": "Adversaries may establish resources to support fraud operations. Resource Development consists of techniques that involve adversaries creating, purchasing, or compromising resources that can be used to facilitate fraud. Such resources include infrastructure, accounts, capabilities, and services. These resources can be leveraged to support various phases of fraud operations, including hosting phishing sites, establishing payment processing, acquiring accounts, or developing fraud tools.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "TA0001",
     "name": "Initial Access",
     "description": "Adversaries may use various techniques to gain their initial foothold to conduct fraud operations. Initial Access consists of techniques that enable adversaries to gain unauthorized access to accounts, systems, or influence over target individuals. Techniques used to gain initial access include phishing, credential theft, exploiting vulnerabilities, social engineering, and leveraging stolen credentials. Initial access enables adversaries to conduct reconnaissance, establish persistence, or directly execute fraud activities.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "TA0005",
     "name": "Defense Evasion",
     "description": "Adversaries may use techniques to avoid detection throughout fraud operations. Defense Evasion consists of techniques that adversaries use to avoid detection by security controls, fraud detection systems, or investigators. These techniques include manipulating device characteristics, spoofing identities, using anonymization services, mimicking legitimate behavior patterns, or disabling security tools. Successful defense evasion allows adversaries to operate with reduced risk of detection, investigation, or attribution.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "FA0001",
     "name": "Positioning",
     "description": "Adversaries may collect and modify account information or data to prepare for fraud execution. Positioning consists of techniques that involve adversaries gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable adversaries to maximize the value extracted during fraud execution or establish persistent access for future operations.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "TA0002",
     "name": "Execution",
     "description": "Adversaries may initiate fraudulent transactions and convert stolen data into monetary value. Execution consists of techniques that result in adversary-controlled actions to complete fraud operations. These techniques include initiating unauthorized transactions, making fraudulent purchases, conducting unauthorized transfers, exploiting compromised accounts, or leveraging stolen data for financial gain. Execution represents the direct monetization phase where adversaries realize value from compromised access or stolen information.",
-    "tactic": true,
-    "techniques": ["T00004", "T00005"],
+    "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "FA0002",
     "name": "Monetization",
     "description": "Adversaries may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve adversaries liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or laundering illicit funds. These techniques represent the final stages of fraud operations where adversaries secure their gains and attempt to obscure the transaction trail.",
-    "tactic": true,
-    "techniques": [],
+    "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1000",
@@ -70,7 +63,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1001",
@@ -80,7 +73,7 @@
     "subtechniques": ["F1001.001", "F1001.002"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1001.001",
@@ -90,7 +83,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.771Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1001.002",
@@ -100,7 +93,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1004",
@@ -110,7 +103,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1005",
@@ -120,7 +113,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1006",
@@ -130,7 +123,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1531",
@@ -140,7 +133,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1007",
@@ -150,7 +143,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008",
@@ -170,7 +163,7 @@
     ],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.001",
@@ -180,7 +173,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.772Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.002",
@@ -190,7 +183,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.773Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.003",
@@ -200,7 +193,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.773Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.004",
@@ -210,7 +203,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.773Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.005",
@@ -220,7 +213,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.773Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.006",
@@ -230,7 +223,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.773Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.007",
@@ -240,7 +233,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.008",
@@ -250,7 +243,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1008.009",
@@ -260,7 +253,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1018",
@@ -270,7 +263,7 @@
     "subtechniques": ["F1018.001"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1018.001",
@@ -280,7 +273,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1020",
@@ -290,27 +283,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
-  },
-  {
-    "id": "F1021",
-    "name": "Acquire Access",
-    "description": "Adversaries may acquire unauthorized access to systems, networks, or accounts to facilitate fraud operations. This encompasses various methods including exploitation of vulnerabilities, use of stolen credentials, social engineering, or leveraging compromised infrastructure. Once access is obtained, adversaries can conduct reconnaissance, establish persistence, or directly execute fraud activities such as data theft or unauthorized transactions.",
-    "tactics": ["TA0001"],
-    "subtechniques": ["F1021.001"],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
-  },
-  {
-    "id": "F1021.001",
-    "name": "Acquire Access: Email Accounts",
-    "description": "Adversaries may acquire or create email accounts using fraudulent financial resources to facilitate fraud operations. This may include using stolen credit card information or compromised bank account details to register for premium email services. These fraudulently acquired email accounts can be used to conduct business email compromise attacks, coordinate phishing schemes, establish seemingly legitimate business identities, or serve as credential harvesting drop points.",
-    "tactics": ["TA0001"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1650",
@@ -320,7 +293,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1583",
@@ -330,7 +303,7 @@
     "subtechniques": ["T1583.001", "T1583.002", "T1583.003"],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1583.001",
@@ -340,7 +313,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.774Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1583.002",
@@ -350,7 +323,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1023",
@@ -360,7 +333,7 @@
     "subtechniques": ["F1023.001", "F1023.002", "F1023.003"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1023.001",
@@ -370,7 +343,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1023.002",
@@ -380,7 +353,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1023.003",
@@ -390,7 +363,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1027",
@@ -400,7 +373,7 @@
     "subtechniques": ["F1027.001", "F1027.002"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1027.001",
@@ -410,7 +383,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1027.002",
@@ -420,7 +393,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1030",
@@ -430,7 +403,7 @@
     "subtechniques": ["F1030.001", "F1030.002"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1030.001",
@@ -440,7 +413,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1030.002",
@@ -450,7 +423,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1033",
@@ -460,7 +433,7 @@
     "subtechniques": ["F1033.001", "F1033.002", "F1033.003", "F1033.004"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1033.001",
@@ -470,7 +443,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1033.002",
@@ -480,7 +453,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1033.003",
@@ -490,7 +463,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1033.004",
@@ -500,7 +473,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1038",
@@ -510,7 +483,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1039",
@@ -520,7 +493,7 @@
     "subtechniques": ["F1039.001"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1039.001",
@@ -530,7 +503,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1110",
@@ -540,7 +513,7 @@
     "subtechniques": ["T1110.001"],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1041",
@@ -550,7 +523,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1042",
@@ -560,7 +533,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1043",
@@ -570,37 +543,37 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1044",
-    "name": "Physical Withdrawls of Money",
+    "name": "Withdrawls of Money",
     "description": "Withdrawing money through physical means like Cashier Checks, Money Orders, and ATM Withdrawals",
     "tactics": ["FA0002"],
-    "subtechniques": ["F1044.001"],
+    "subtechniques": ["F1044.001", "F1044.002"],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1044.001",
-    "name": "Physical Withdrawls of Money: adversary-in",
+    "name": "Physical Withdrawls of Money",
     "description": "Withdrawing money through physical means like Cashier Checks, Money Orders, and ATM Withdrawals",
     "tactics": ["FA0002"],
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
-    "id": "F1046",
+    "id": "F1044.002",
     "name": "Electronic Withdrawls of Money",
     "description": "Withdrawing money over electronic means which can include Conversion to Crytpocurrency, Wire Transfer, and EFT - Regional Payment Rails (ACH, SEPA)",
     "tactics": ["FA0002"],
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1047",
@@ -610,7 +583,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1048",
@@ -620,7 +593,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1049",
@@ -630,7 +603,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1050",
@@ -640,7 +613,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1051",
@@ -650,7 +623,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1052",
@@ -660,7 +633,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "F1053",
@@ -670,67 +643,67 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
     "id": "T1586",
     "name": "Compromise Accounts",
     "description": "Adversaries may compromise accounts with services that can be leveraged during fraud operations. This may include social media accounts, email accounts, cloud service accounts, or corporate accounts. Compromised accounts provide adversaries with legitimate-appearing identities for conducting social engineering, distributing malicious content, or accessing services and data associated with the compromised account.",
     "tactics": ["TA0001"],
-    "subtechniques": ["T1586.001", "T1586.002", "T1586.003"],
+    "subtechniques": ["T1586.003", "T1586.001", "T1586.002", "T1586.004"],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
-    "id": "T1586.001",
+    "id": "T1586.003",
     "name": "Compromise Accounts: Cloud Accounts",
     "description": "Adversaries may compromise cloud service accounts to access sensitive data, pivot to connected resources, or leverage cloud services for malicious purposes. Compromised cloud accounts may provide access to stored data, configuration information, or connected services and applications. Adversaries may use compromised cloud accounts to host malicious content, conduct cryptomining operations, or access resources in connected cloud environments.",
     "tactics": ["TA0001"],
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.775Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
-    "id": "T1586.002",
+    "id": "T1586.001",
     "name": "Compromise Accounts: Social Media Accounts",
     "description": "Adversaries may compromise social media accounts to conduct social engineering attacks, distribute malicious content, or impersonate legitimate users. Compromised social media accounts can be used to send convincing phishing messages to the victim's contacts, promote fraudulent schemes, gather intelligence about targets and their relationships, or damage the reputation of the account owner.",
     "tactics": ["TA0001"],
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.162Z"
   },
   {
-    "id": "T1586.003",
+    "id": "T1586.002",
+    "name": "Compromise Accounts: Email Accounts",
+    "description": "",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-05T20:30:03.163Z"
+  },
+  {
+    "id": "T1586.004",
     "name": "Compromise Accounts: Corporate Accounts",
     "description": "Adversaries may compromise corporate accounts to gain access to business systems, conduct business email compromise attacks, or access sensitive corporate information. Compromised corporate accounts provide adversaries with legitimate credentials for accessing internal systems, customer data, financial information, or other protected corporate resources. These accounts may also be used to authorize fraudulent transactions or initiate unauthorized changes to business processes.",
     "tactics": ["TA0001"],
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1054",
-    "name": "Compromise Accounts nee Account Takeover ",
-    "description": "Adversaries may gain unauthorized access and control of user accounts on financial platforms or services. This may include using stolen credentials, exploiting system vulnerabilities, conducting phishing attacks, or leveraging credential stuffing with previously breached credentials. Once access is obtained, adversaries can modify account details, redirect payments, initiate unauthorized transactions, or extract sensitive customer data for further fraud operations.",
-    "tactics": ["TA0001"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1055",
-    "name": "Account Takeover: Exposed API Keyl",
+    "name": "Account Takeover: Exposed API Key",
     "description": "Account Takeover (ATO) via Exposed API Key Overview: Account takeover (ATO) via an exposed API key refers to unauthorized adversaries gaining access to a user account by acquiring the API key, which is intended to control account functions programmatically. An API key acts as a secret token that permits interaction with financial services on behalf of the account holder. Exposure of this key can lead to unauthorized account access, manipulation of payment flows, theft of sensitive data, and illicit transactions.; Execution: Exposure of an API key can occur through various means, such as: Improperly Secured Code Repositories: Code containing API keys may be inadvertently uploaded to public repositories.; Unsecured Files: API keys stored in plain text on web servers or within applications.; Shared Code: Developers sharing code snippets in forums without realizing they contain sensitive information.; Phishing Attacks: Targeting developers or employees in organizations to retrieve API keys. Examples: An employee mistakenly uploads code with an API key to a public repository.; A developer shares code for troubleshooting purposes, unknowingly including an API key.; A hacker gains access to a network and discovers an API key stored in plain text within configuration files.; Goals: Attackers exploit an exposed API key for objectives such as: Accessing and exfiltrating transaction records and customer payment information.; Creating fraudulent transactions or refunds to siphon funds into their own accounts.; Altering payment configurations to reroute future payments.; Using obtained data for further targeted phishing campaigns or financial fraud against customers.",
     "tactics": ["TA0001"],
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1056",
@@ -740,7 +713,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1057",
@@ -750,17 +723,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1058",
-    "name": "Compromised accounts",
-    "description": "\"Compromise Accounts\" is a primary cyber threat tactic that refers to the unauthorized access and control of various types of online accounts. It serves as a master technique encompassing specific strategies aimed at breaching and exploiting the security of digital platforms that store sensitive data and provide critical services. Attackers who successfully compromise accounts can access privileged information, financial assets, or leverage the trusted status of an account for further malicious activities.\n\nExecution: \n\nThe execution of account compromise often involves the theft or prediction of passwords, phishing attacks, exploiting software vulnerabilities, or leveraging access gained from other compromised systems. Attackers may use automated tools for credential stuffing, launch targeted phishing campaigns, or install malware that logs keystrokes to capture login credentials. Once inside an account, they can conduct activities ranging from data theft to financial fraud, often without the knowledge of the legitimate account owner.\n\nGoals: The goals behind the \"Compromise Accounts\" technique include:\n\nAccessing sensitive personal, corporate, or customer data for theft, sale, or use in blackmail and extortion schemes.\nUsing the compromised accounts as stepping stones for lateral movement within an organization's network or for launching secondary attacks.\nDisguising illicit activities behind legitimate accounts to avoid detection and increase the odds of a successful attack.\nDisrupting operations, damaging reputations, and exploiting the trust established between account holders and their contacts or customers.",
-    "tactics": ["TA0001"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1059",
@@ -770,7 +733,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1060",
@@ -780,7 +743,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1061",
@@ -790,37 +753,47 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1062",
-    "name": "Create Fake Materials: Creating Fake Documents",
-    "description": "Can also include fabiracting shipping evidence like tracking numbers\nBy forging documents such as identification cards, passports, or financial statements, they can falsify identities, deceive authorities, or fabricate evidence to facilitate various forms of fraud. Furthermore, fake documents enable adversaries to bypass verification processes and gain entry into restricted areas or secure sensitive information.\nCommonly faked identity documents include bank statements, paychecks, IDs, Social Security cards, and insurance policies. These may be altered or counterfeit. Finding alterations in these documents is crucial to determining their authenticity.",
+    "name": "Create Fake Materials: Fake Documents",
+    "description": "Adversaries may forge documents and supporting artifacts to falsify identities, deceive authorities, or fabricate evidence in support of fraud operations. This can include creating or altering identification cards, passports, financial statements, or shipping-related evidence such as tracking numbers to bypass verification processes, gain access to restricted services, or legitimize fraudulent transactions. Commonly faked documents include bank statements, paychecks, government-issued IDs, Social Security cards, and insurance policies, which may be either fully counterfeit or subtly modified to evade detection.",
     "tactics": ["TA0042"],
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1555",
-    "name": "Credentials from Password Stores",
-    "description": "nan",
+    "name": "Crednetials from Password Stores",
+    "description": "Adversaries may search for common password storage locations to obtain user credentials. Passwords are stored in several places on a system, depending on the operating system or application holding the credentials. There are also specific applications and services that store passwords to make them easier for users to manage and maintain, such as password managers and cloud secrets vaults. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.",
     "tactics": ["FA0001"],
-    "subtechniques": ["T1555.001", "T1555.002"],
+    "subtechniques": ["T1555.003", "T1555.005", "T1555.002"],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
-    "id": "T1555.001",
+    "id": "T1555.003",
     "name": "Credentials from Password Stores: Credentials from Web Browsers",
     "description": "Adversaries may extract credentials saved in web browser password storage mechanisms. Web browsers commonly offer to save and autofill credentials for user convenience, but this stored information can be extracted by malware or adversaries with local access. Extracted credentials may include usernames, passwords, and authentication tokens for various online services.",
     "tactics": ["FA0001"],
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
+  },
+  {
+    "id": "T1555.005",
+    "name": "Credentials from Password Stores: Password Managers",
+    "description": "Adversaries may acquire user credentials from third-party password managers.[1] Password managers are applications designed to store user credentials, normally in an encrypted database. Credentials are typically accessible after a user provides a master password that unlocks the database. After the database is unlocked, these credentials may be copied to memory. These databases can be stored as files on disk. ",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1063",
@@ -830,7 +803,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1064",
@@ -840,7 +813,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1065",
@@ -850,7 +823,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1189",
@@ -860,7 +833,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1672",
@@ -870,7 +843,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1585",
@@ -880,7 +853,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1066",
@@ -890,7 +863,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1067",
@@ -900,7 +873,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1068",
@@ -910,7 +883,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1069",
@@ -920,7 +893,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1070",
@@ -930,7 +903,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1071",
@@ -940,7 +913,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1072",
@@ -950,7 +923,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1073",
@@ -960,7 +933,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1074",
@@ -970,17 +943,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1075",
-    "name": "Malvertising",
-    "description": "Attackers create advertisements for fraudulent merchant sites equipped with credit card skimming software, or for legitimate merchants whose sites have been compromised with such software. The goal is to either capture the card details from direct purchases made on the fraudulent merchants' sites or by siphoning data from customers of the compromised legitimate merchants.\n\nExamples:\n\nCybercriminals use stolen credit card data to fund large advertising campaigns on Facebook, directing users to sham e-commerce sites that capture payment data via skimming scripts.\nAttackers compromise legitimate e-commerce websites, add skimming code, then buy ads that direct traffic to these sites, exploiting normal customer transactions for data theft.\nFraudulent merchants indirectly facilitate ad fraud by first acquiring user traffic through legitimate purchases, then transitioning to no-shipping practices, all while continuing to skim credit card information.",
-    "tactics": ["TA0042"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1076",
@@ -990,7 +953,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1111",
@@ -1000,7 +963,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1621",
@@ -1010,47 +973,17 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1077",
     "name": "Official Phone Number Spoofing",
-    "description": "Adversaries manipulate caller ID information to display a legitimate phone number when communicating with victims, impersonating customer service hotlines, government agencies, financial institutions, or other trusted entities. This technique can lead to various types of illicit activities, such as phishing, where victims are tricked into entering sensitive information or performing unauthorized activities under the guise of official messages.",
+    "description": "Adversaries manipulate caller ID information to display a legitimate phone number when communicating with victims, impersonating customer service hotlines, law enforcement, government agencies, financial institutions, or other trusted entities. This technique can lead to various types of illicit activities, such as phishing, where victims are tricked into entering sensitive information or performing unauthorized activities under the guise of official messages.",
     "tactics": ["TA0005"],
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1078",
-    "name": "Official Phone Number Spoofing: Bank number",
-    "description": "By manipulating caller ID information to display a bank's genuine phone number, they deceive victims into believing they are communicating with a trusted financial institution. Once the victim perceives the call as legitimate, adversaries exploit this trust to extract sensitive personal or financial information under the guise of providing support or assistance.",
-    "tactics": ["TA0005"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1079",
-    "name": "Official Phone Number Spoofing: Law enforcement number",
-    "description": "Adversaries manipulate caller ID information to display a legitimate law enforcement agency's phone number during communication with the victim, creating a false sense of credibility and authority. Once victims trust the legitimacy of the call, adversaries employ various schemes, such as fake investigations or enforcement actions, to manipulate victims into divulging sensitive personal or financial information.",
-    "tactics": ["TA0005"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
-  },
-  {
-    "id": "F1080",
-    "name": "Official Phone Number Spoofing: Regulator number",
-    "description": "Adversaries manipulate caller ID information to display a legitimate regulator's phone number during communication with the victim. This technique can lead to various types of illicit activities, such as posing as regulators conducting investigations or offering assistance with compliance matters. Victims may be deceived into providing sensitive information or taking actions that benefit the fraudster's objectives.",
-    "tactics": ["TA0005"],
-    "subtechniques": [],
-    "isAttack": false,
-    "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1081",
@@ -1060,7 +993,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1082",
@@ -1070,7 +1003,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1083",
@@ -1080,7 +1013,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1084",
@@ -1090,7 +1023,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1085",
@@ -1100,7 +1033,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1086",
@@ -1110,7 +1043,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1608",
@@ -1120,7 +1053,7 @@
     "subtechniques": ["T1608.001"],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1608.001",
@@ -1130,7 +1063,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1087",
@@ -1140,7 +1073,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1195",
@@ -1150,7 +1083,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1070",
@@ -1160,7 +1093,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1110",
@@ -1170,7 +1103,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1110.001",
@@ -1180,7 +1113,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1557",
@@ -1190,7 +1123,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1555",
@@ -1200,7 +1133,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1555.002",
@@ -1210,7 +1143,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1088",
@@ -1220,7 +1153,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1583.003",
@@ -1230,7 +1163,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1089",
@@ -1240,7 +1173,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1090",
@@ -1250,7 +1183,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1091",
@@ -1260,7 +1193,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1092",
@@ -1270,7 +1203,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1093",
@@ -1280,7 +1213,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1219",
@@ -1290,7 +1223,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1094",
@@ -1300,7 +1233,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1095",
@@ -1310,7 +1243,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1113",
@@ -1320,7 +1253,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1539",
@@ -1330,7 +1263,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1185",
@@ -1340,7 +1273,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1451",
@@ -1350,7 +1283,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "T1667",
@@ -1360,7 +1293,7 @@
     "subtechniques": [],
     "isAttack": true,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1096",
@@ -1370,7 +1303,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1097",
@@ -1380,7 +1313,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1098",
@@ -1390,7 +1323,7 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   },
   {
     "id": "F1099",
@@ -1400,6 +1333,6 @@
     "subtechniques": [],
     "isAttack": false,
     "version": "1.0",
-    "lastModified": "2026-02-26T17:59:51.776Z"
+    "lastModified": "2026-03-05T20:30:03.163Z"
   }
 ]

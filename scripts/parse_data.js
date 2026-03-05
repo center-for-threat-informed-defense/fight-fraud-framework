@@ -1,19 +1,38 @@
 const ExcelJS = require("exceljs");
 const fs = require("fs");
 const SOURCE_FILE = "src/data/FFF Complete.xlsx";
-const DESTINATION_FILE = "src/data/Techniques.json";
-
-console.log("here..");
+const DESTINATION_FILE = "src/data/matrix-data.json";
 
 (async function () {
   const wb = new ExcelJS.Workbook();
   // initialize new list for techniques
   const techniques = [];
   await wb.xlsx.readFile(SOURCE_FILE);
+  console.log("Reading from Compiled technique spreadsheet...");
+  console.log("Grabbing tactics");
 
-  console.log("Reading from Calculator spreadsheet...");
+  const worksheet2 = wb.getWorksheet("Tactics");
+  worksheet2.eachRow({ includeEmpty: false }, function (row, rowNum) {
+    if (rowNum === 1) {
+      return;
+    } // skip heading row
+    const technique = {
+      id: row.getCell(1).value,
+      name: row.getCell(2).value,
+      description: convertRichTextToMarkdown(row.getCell(3).value),
+      isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
+      version: "1.0",
+      lastModified: new Date().toISOString(),
+    };
+    techniques.push(technique);
+  });
+  console.log("Grabbing techniques");
+
   const worksheet = wb.getWorksheet("Techniques");
-  worksheet.eachRow({ includeEmpty: false }, function (row) {
+  worksheet.eachRow({ includeEmpty: false }, function (row, rowNum) {
+    if (rowNum === 1) {
+      return;
+    } // skip heading row
     const tid = row.getCell(1).value;
 
     const technique = {
@@ -32,7 +51,6 @@ console.log("here..");
         (t) => t.id === technique.id.split(".")[0],
       );
       parent.subtechniques.push(technique.id);
-      console.log("subtechnique added to parent ", parent);
     }
     techniques.push(technique);
   });
