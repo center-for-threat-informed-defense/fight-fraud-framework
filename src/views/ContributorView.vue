@@ -28,14 +28,12 @@
 
       <p>The F3 framework was developed in collaboration with members from Aviation ISAC, Citi, FS-ISAC, JPMorganChase,
         Lloyds Banking Group, Marsh, NRF, and Retail & Hospitality ISAC.</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-4">
-        <div v-for="person of contributors" :key="person.name" class="w-full">
-          <img :src="person.img" />
-          <h2 class="mt-2 mb-1 leading-none">{{ person.name }}</h2>
-          <p class="leading-none">{{ person.role }}, {{ person.company }}</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-x-20 gap-y-10">
+        <div v-for="contributor of contributors" :key="contributor.name" class="contributor">
+          <img :src="contributor.img" />
         </div>
       </div>
-      <p>... and all the other contributors too pending data collection</p>
     </div>
   </div>
 </template>
@@ -53,30 +51,46 @@ export default defineComponent({
         { label: "Project Contributors", route: "/about/contributors" },
       ],
       contributors: [
+
         {
-          name: "Suneel Sundar",
-          role: "Director of R&D",
-          company: "CTID",
-          img: "https://ctid.mitre.org/img/team/suneel_sundar.jpg"
+          name: "Aviation ISAC",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/a_isac.png"
         },
         {
-          name: "Mike Cunningham",
-          role: "R&D Program Manager",
-          company: "CTID",
-          img: "https://ctid.mitre.org/img/team/mike_cunningham.png",
+          name: "Citi",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/citi.png",
         },
         {
-          name: "Tiffany Bergeron",
-          role: "Chief Architect, Mappings Program",
-          company: "CTID",
-          img: "https://ctid.mitre.org/img/team/tiffany_bergeron.jpg",
+          name: "FS-ISAC",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/fs_isac.png",
+        }, {
+          name: "JPMorganChase",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/jp_morgan.png",
+        }
+        , {
+          name: "Lloyds Banking Group",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/lloyds.png",
         },
-        // {
-        //   name: "",
-        //   role: "",
-        //   company: "",
-        //   img: "",
-        // }
+
+        {
+          name: "Marsh",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/marsh.png",
+        },
+        {
+          name: "NRF",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/nrf.png",
+        }, {
+          name: "Retail & Hospitality ISAC",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/retail_hospitality_isac.png",
+        }
       ]
     };
   },
@@ -97,5 +111,13 @@ export default defineComponent({
 
 a h3 {
   @apply text-ctid-blue hover:text-ctid-navy
+}
+
+.contributor {
+  @apply flex w-full h-20
+}
+
+.contributor img {
+  @apply m-auto h-20 w-auto object-contain
 }
 </style>
