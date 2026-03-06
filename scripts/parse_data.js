@@ -23,6 +23,7 @@ const DESTINATION_FILE = "src/data/matrix-data.json";
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
       version: "1.0",
       lastModified: new Date().toISOString(),
+      tactic: true,
     };
     techniques.push(technique);
   });
