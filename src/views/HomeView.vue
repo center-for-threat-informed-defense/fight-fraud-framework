@@ -71,4 +71,8 @@ export default defineComponent({
   @apply mt-[70vh] sm:mt-[60vh] md:mt-[50vh];
   padding-top: 10px;
 }
+
+.matrix-container h1 {
+  @apply mt-40 sm:mt-20 lg:mt-10 xl:mt-0;
+}
 </style>

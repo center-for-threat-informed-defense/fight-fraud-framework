@@ -281,3 +281,15 @@ a.link-blue-external.small {
 .right-sidebar {
   @apply md:border-l-2 border-ctid-light-gray md:pl-6 md:ml-6 md:w-1/4;
 }
+
+.p-menubar-root-list {
+  width: 200px !important;
+  left: -150px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 0s 50000s;
+}

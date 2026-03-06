@@ -54,7 +54,7 @@ export default defineComponent({
     border-collapse: collapse !important;
     width: 100%;
     overflow-x: scroll;
-    overflow-y: visible
+    overflow-y: visible;
 }
 
 .tactic-row {

@@ -17,7 +17,8 @@
         <SiteSearch />
       </div>
       <div class=" lg:hidden inline-block w-max my-auto">
-        <MenuBar :model="items" id="overlay_menu" ref="menu" class=" text-white z-50  p-menubar-mobile">
+        <MenuBar :model="[...items, { label: 'Search', route: '/search' }]" id="overlay_menu" ref="menu"
+          class=" text-white z-50  p-menubar-mobile">
           <template #item="{ item, props }">
             <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
               <a :to="href" v-bind="props.action" @click="navigate">
@@ -94,5 +95,13 @@ export default defineComponent({
 
 .p-inputgroupaddon button {
   @apply text-ctid-light-gray
+}
+
+.p-menubar.p-menubar-mobile {
+  @apply bg-ctid-navy border-none
+}
+
+.p-menubar.p-menubar-mobile .p-menubar-button {
+  @apply text-white fill-white
 }
 </style>
