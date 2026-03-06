@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full flex-1">
+  <div class=" flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
       <h2><router-link to="/about">About</router-link></h2>
       <router-link to="/about/methodology">
@@ -72,14 +72,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.main {
-  @apply w-full block
-}
-
-.sidebar {
-  @apply border-r-2 border-ctid-light-gray mr-6 pr-6 w-1/4;
-}
-
 a h3 {
   @apply text-ctid-blue hover:text-ctid-navy
 }

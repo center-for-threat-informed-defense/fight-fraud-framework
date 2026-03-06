@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
       <h2>Contact Us</h2>
       <router-link to="/contact-us/new-technique">

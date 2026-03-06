@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
       <h2>On This Page</h2>
       <h4>Introduction</h4>

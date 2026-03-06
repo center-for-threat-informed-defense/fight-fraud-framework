@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
       <h2>Contact Us</h2>
       <router-link to="/contact-us/new-technique">
@@ -67,14 +67,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.main {
-  @apply w-full block
-}
-
-.sidebar {
-  @apply border-r-2 border-ctid-light-gray h-screen mr-6 pr-6 w-1/4;
-}
-
 label {
   @apply uppercase pb-0 text-lg;
   font-family: "Fira Sans Extra Condensed", sans-serif;
