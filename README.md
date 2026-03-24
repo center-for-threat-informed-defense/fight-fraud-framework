@@ -1,4 +1,4 @@
-# Fight Financial Fraud
+# MITRE Fight Fraud Framework™
 
 ## Updating the data
 

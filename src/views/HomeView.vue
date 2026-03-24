@@ -3,7 +3,7 @@
     <div class="hero">
       <div class="flex container">
         <div class="w-1/2 pr-20">
-          <h1 class="font-medium text-4xl ">Fight Financial Fraud</h1>
+          <h1 class="font-medium text-4xl ">MITRE Fight Fraud Framework™</h1>
           <div class="flex flex-wrap gap-x-40">
             <div v-for="link in featuredLinks" :key="link.label" class=" w-32">
               <router-link :to="link.route" class="link-blue-external">{{
@@ -12,7 +12,8 @@
           </div>
         </div>
         <div class="w-1/2">
-          <p>The Fight Financial Fraud (F3) Framework is a curated knowledge base of tactics, techniques, and procedures
+          <p>The MITRE Fight Fraud Framework™ (F3 Framework) is a curated knowledge base of tactics, techniques, and
+            procedures
             (TTPs) used by fraud actors. The F3 Framework includes behaviors that characterize known fraud TTPs and
             references existing <a href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> cyber techniques as
             applicable to
@@ -25,7 +26,7 @@
     </div>
   </main>
   <div class="matrix-container">
-    <h1 class="text-center font-medium text-3xl mb-6">Fight Financial Fraud Matrix</h1>
+    <h1 class="text-center font-medium text-3xl mb-6">MITRE Fight Fraud Framework™ Matrix</h1>
     <matrix-container />
   </div>
 </template>

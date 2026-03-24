@@ -2,7 +2,7 @@
 
 ## How to contribute
 
-Thanks for contributing to Fight Financial Fraud!
+Thanks for contributing to MITRE Fight Fraud Framework™!
 
 You are welcome to comment on issues, open new issues, and open pull requests.
 

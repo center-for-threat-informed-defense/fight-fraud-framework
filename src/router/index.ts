@@ -99,8 +99,8 @@ const router = createRouter({
 router.afterEach((to) => {
   nextTick(() => {
     document.title = to.meta.title
-      ? to.meta.title + " | Fight Financial Fraud"
-      : "Fight Financial Fraud";
+      ? to.meta.title + " | MITRE Fight Fraud Framework™"
+      : "MITRE Fight Fraud Framework™";
   });
 });
 

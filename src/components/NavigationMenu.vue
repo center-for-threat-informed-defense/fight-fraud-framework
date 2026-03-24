@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="flex justify-between mx-8">
       <router-link to="/" class="my-auto w-max">
-        <h1>Fight Financial Fraud</h1>
+        <h1>MITRE Fight Fraud Framework™</h1>
       </router-link>
       <div class="lg:flex hidden w-max gap-10">
         <TabMenu class="w-max" :model="items" :active-index="getActiveIndex()">

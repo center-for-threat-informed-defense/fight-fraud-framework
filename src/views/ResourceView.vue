@@ -25,7 +25,13 @@
     <div class="main">
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
       <h1>Resources</h1>
-
+      <h2>Download Data</h2>
+      <p>Want to download the F3 framework to use in other Center for Threat-Informed Defense or MITRE ATT&CK tools?
+        These download links provide you access to the data in all the formats you could need. </p>
+      <div class="flex gap-8"><a class="link-blue-external small">Download STIX</a>
+        <a class="link-blue-external small">Download JSON</a>
+        <a class="link-blue-external small">Download Excel</a>
+      </div>
       <h2>F3 Matrix</h2>
       <p>The F3 Matrix contains information on how adversaries move through an attack and provides a visual
         representation of where different techniques are classified. View information about techniques and how
@@ -43,13 +49,7 @@
         goal by performing an action. For example, an adversary may dump credentials to achieve credential access.</p>
       <router-link to="/technique" class="link-blue-external small">Learn More</router-link>
 
-      <h2>Download Data</h2>
-      <p>Want to download the F3 framework to use in other Center for Threat-Informed Defense or MITRE ATT&CK tools?
-        These download links provide you access to the data in all the formats you could need. </p>
-      <div class="flex gap-8"><a class="link-blue-external small">Download STIX</a>
-        <a class="link-blue-external small">Download JSON</a>
-        <a class="link-blue-external small">Download Excel</a>
-      </div>
+
     </div>
   </div>
 </template>
