@@ -48,10 +48,10 @@
             </template>
             <!-- for techniques, display parent tactic -->
             <template v-if="!technique.tactic">
-                <h2>Tactic<template v-if="parentTactic.length > 1">s</template></h2>
+                <h2>Tactic<template v-if="technique.tactics.length > 1">s</template></h2>
                 <ul>
-                    <li v-for="tactic in parentTactic" :key="tactic">
-                        <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                    <li v-for="tactic in technique.tactics" :key="tactic">
+                        <router-link :to="'/tactic/' + tactic">{{ getTechniqueData(tactic).name
                             }}</router-link>
                     </li>
                 </ul>
@@ -103,11 +103,11 @@
                 </template>
             </p>
             <p v-if="!technique.tactic" class="sidebar-item">
-                <span class="emphasis">Tactic<template v-if="parentTactic.length > 1">s</template>: </span>
-                <template v-for="(tactic, i) in parentTactic" :key="tactic">
-                    <router-link :to="'/tactic/' + tactic.id">{{ tactic.name
+                <span class="emphasis">Tactic<template v-if="technique.tactics.length > 1">s</template>: </span>
+                <template v-for="(tactic, i) in technique.tactics" :key="tactic">
+                    <router-link :to="'/tactic/' + tactic">{{ getTechniqueData(tactic).name
                     }}</router-link>
-                    <span v-if="i < parentTactic.length - 1">, </span>
+                    <span v-if="i < technique.tactics.length - 1">, </span>
                 </template>
             </p>
             <p class="sidebar-item">
@@ -156,13 +156,11 @@ export default defineComponent({
         tactics() {
             return this.matrixData.filter(i => i.tactic)
         },
-        parentTactic() {
-            // until we have actual tactics assigned to each technique, currently this is always tactic TA0001
-            return [this.matrixData.filter(i => i.tactic)[0]]
-
-        },
         sidenavValue() {
-            return [this.parentTactic.id]
+            if (this.technique.tactic) {
+                return [this.technique.id]
+            }
+            return [this.technique.tactics[0]]
         },
         searchQuery() {
             const searchBar = document.getElementById('search-bar');
