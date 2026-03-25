@@ -40,7 +40,7 @@ jobs:
         run: npm run update
       - name: Install Python deps
         run: |
-          pip install argparse copy json pathlib re stix2 stix2.v21 uuid
+          pip install stix2
 
       - name: Generate export data
         run: |
