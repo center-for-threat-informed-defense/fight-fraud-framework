@@ -13,6 +13,7 @@ import UpdateTechniqueView from "@/views/UpdateTechniqueView.vue";
 import ContactUsView from "@/views/ContactUsView.vue";
 import DesignPrinciplesView from "@/views/DesignPrinciplesView.vue";
 import ContributorView from "@/views/ContributorView.vue";
+import VersionHistoryView from "@/views/VersionHistoryView.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/resources",
     name: "resources",
     component: ResourceView,
+  },
+  {
+    path: "/resources/versions",
+    name: "versions",
+    component: VersionHistoryView,
   },
   {
     path: "/matrix",

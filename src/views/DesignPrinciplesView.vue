@@ -15,7 +15,7 @@
 
       <h1>Design Principles and Methodology </h1>
       <!-- <h2 id="introduction">Introduction</h2>
-      <p>The Fight Financial Fraud (F3) Framework is a curated knowledge base of tactics, techniques, and procedures
+      <p>The MITRE Fight Fraud Framework™ (F3) Framework is a curated knowledge base of tactics, techniques, and procedures
         (TTPs) used by fraud actors. The F3 Framework includes behaviors that characterize known fraud TTPs and
         references existing <a href="https://attack.mitre.org/">MITRE ATT&CK®</a> cyber techniques as applicable to
         financial fraud. The F3 Framework provides a living
@@ -160,7 +160,8 @@
       <p>The purpose is to provide actionable support for cyber threat intelligence, detection engineering, and security
         control implementation, and performing investigations. This ensures that insights are not only understood but
         can be effectively applied to strengthen an organization's overall security posture. </p>
-      <h2>Design Principle #3: Techniques must describe the behavior of the adversary. </h2>
+      <h2>Design Principle #3 </h2>
+      <h3 class="subheading">Techniques must describe the behavior of the adversary.</h3>
       <p>Techniques represent 'how' a fraud actor achieves a tactical goal by performing an action. Each technique
         captures a distinct, observable action or behavior that is used by the fraud actor to achieve their objective. A
         technique is not an entity or a tool, but rather the specific way those entities or tools are used. Techniques
@@ -169,8 +170,9 @@
         within an incident. This also provides operational value by ensuring that defenses such as detection logic and
         security control design can be mapped to the actions performed by fraud actors, rather than to the specific
         entities or tools used to achieve their goals. </p>
-      <h2>Design Principle #4: For behaviors with the same "how” performed in different ways, we must create a
-        technique/sub-technique relationship. </h2>
+      <h2>Design Principle #4 </h2>
+      <h3 class="subheading">For behaviors with the same "how” performed in different ways, we must create a
+        technique/sub-technique relationship.</h3>
       <p>Not all techniques will have sub-techniques. Sub-techniques describe more specific means by which fraud actors
         achieve tactical goals at a lower level than techniques. Sub-techniques further break down behaviors described
         by techniques into more specific descriptions of how behavior is used to achieve an objective. </p>
@@ -220,8 +222,13 @@ blockquote {
   @apply border-ctid-light-gray border-[1px] py-4 px-6 my-1
 }
 
+.subheading {
+  @apply -mt-2 mb-3 italic normal-case text-lg
+}
+
+
 .design-principle h3 {
-  @apply font-medium
+  @apply font-medium uppercase
 }
 
 .subtitle {
