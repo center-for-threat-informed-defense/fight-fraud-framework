@@ -9,8 +9,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "update": "node ./scripts/parse_data.js",
-    "generate:stix": ".venv/bin/python scripts/generate_stix.py",
-    "generate:navigator": ".venv/bin/python scripts/generate_navigator_layer.py"
+    "generate:stix": "python scripts/generate_stix.py",
+    "generate:navigator": "python scripts/generate_navigator_layer.py"
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",
