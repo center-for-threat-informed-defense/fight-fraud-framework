@@ -357,7 +357,7 @@ if __name__ == "__main__":
         "-o",
         type=str,
         dest="output_filepath",
-        default="src/data/f3-stix.json",
+        default="public/f3-stix.json",
         help="Output filepath for STIX JSON",
     )
     parser.add_argument(

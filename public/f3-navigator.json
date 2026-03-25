@@ -1,0 +1,857 @@
+{
+    "versions": {
+        "layer": "4.5",
+        "navigator": "4.6.4"
+    },
+    "domain": "f3-f3",
+    "metadata": [
+        {
+            "name": "f3_data_version",
+            "value": "v1.0"
+        }
+    ],
+    "name": "ATLAS Matrix",
+    "description": "Adversarial Threat Landscape for Artificial-Intelligence Systems, see atlas.mitre.org",
+    "techniques": [
+        {
+            "techniqueID": "F1076",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1453",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001.001",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001.002",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1004",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1005",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1005",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1006",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1531",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1007",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.004",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.006",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.005",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.002",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.003",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.009",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.008",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.007",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1018",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1055",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1056",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1018.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1020",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1650",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1583",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1583.001",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1583.008",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1583.003",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.002",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.003",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.003",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1557",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1557",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027.001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1027.002",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1030",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1030.002",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1030.001",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.001",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.002",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.003",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.004",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1038",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1039",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1039.001",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1185",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1110",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1041",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1042",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1043",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1047",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1093",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1049",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1050",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1051",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1586",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1586.003",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1586.004",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1586.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1586.001",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1057",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1059",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1060",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1062",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1061",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1044",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1555",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1555.003",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1555.005",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1063",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1064",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1065",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1189",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1044.002",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1667",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1672",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1585",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1066",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1048",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1067",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1068",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1069",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1070",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1071",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1070",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1072",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1073",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1074",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1111",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1621",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1089",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1090",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1077",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1091",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1092",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1081",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1044.001",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1082",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1083",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1084",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1085",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1219",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1094",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1095",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1113",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1451",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1086",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1608",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1608.001",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1539",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1087",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1195",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1096",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1555",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1555.002",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1097",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1088",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1098",
+            "showSubtechniques": true,
+            "tactic": "resource-development",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1099",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        }
+    ],
+    "legendItems": [
+        {
+            "label": "F3 technique",
+            "color": "#C8E6C9"
+        }
+    ]
+}

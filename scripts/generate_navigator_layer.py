@@ -129,7 +129,7 @@ if __name__ == "__main__":
         "-o",
         type=str,
         dest="output_filepath",
-        default="src/data/",
+        default="public/",
         help="Output filepath for Navigator JSON",
     )
     # Matrix layer gets updated when tactics and techniques change
