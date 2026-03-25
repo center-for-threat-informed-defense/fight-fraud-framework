@@ -40,12 +40,13 @@ jobs:
         run: npm run update
       - name: Install Python deps
         run: |
-          pip install -r requirements.txt
+          pip install argparse copy json pathlib re stix2 stix2.v21 uuid
 
       - name: Generate export data
         run: |
           npm install
-          npm run generate:data
+          npm run generate:stix
+          npm run generate:navigator
 
   fff_website_build:
     needs: update_data
