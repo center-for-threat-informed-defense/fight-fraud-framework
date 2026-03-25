@@ -31,10 +31,21 @@ jobs:
           node-version: "19"
           cache: "npm"
           cache-dependency-path: "./package-lock.json"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Install dependencies
         run: npm ci
       - name: Update data
         run: npm run update
+      - name: Install Python deps
+        run: |
+          pip install -r requirements.txt
+
+      - name: Generate export data
+        run: |
+          npm install
+          npm run generate:data
 
   fff_website_build:
     needs: update_data

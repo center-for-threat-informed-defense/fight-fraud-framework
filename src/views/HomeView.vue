@@ -46,7 +46,7 @@ export default defineComponent({
         {
           label: "Resources", route: "/resources"
         },
-        { label: "Contributors", route: "/" },
+        { label: "Contributors", route: "/about/contributors" },
         { label: "Tactics", route: "/tactic" },
 
         {
