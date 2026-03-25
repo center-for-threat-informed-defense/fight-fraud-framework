@@ -58,10 +58,12 @@
             </template>
             <div class="mt-8">
                 <i class="pi pi-wrench text-ctid-gray mx-2"></i>
-                <router-link :to="'/contact-us/update-technique/' + techniqueId">Suggest improvements to
+                <a
+                    :href="'mailto:ctid@mitre.org?subject=Fight%20Fraud%20Framework%20Feedback:%20' + technique.name.replaceAll(' ', '%20')">Suggest
+                    improvements to
                     this <template v-if="technique.tactic">tactic</template>
                     <template v-else>technique</template>
-                </router-link>
+                </a>
             </div>
             <div v-if="searchResults && searchResults.length > 0">
                 <h2>Didn't find what you're looking for?</h2>

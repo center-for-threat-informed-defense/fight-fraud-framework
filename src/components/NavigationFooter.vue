@@ -44,7 +44,7 @@
                         <ul>
                             <li><router-link to="/about/methodology">Design Principles</router-link></li>
                             <li><router-link to="/about/contributors">Contributors</router-link></li>
-                            <li><router-link to="/contact-us">Contact Us</router-link></li>
+                            <li><router-link to="/about/contact-us">Contact Us</router-link></li>
                         </ul>
                     </div>
                     <div class="w-1/2">

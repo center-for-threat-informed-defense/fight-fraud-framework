@@ -18,7 +18,7 @@
       <router-link to="/about/contributors">
         <h3>Contributors</h3>
       </router-link>
-      <router-link to="/contact-us">
+      <router-link to="/about/contact-us">
         <h3>Contact Us</h3>
       </router-link>
     </div>
@@ -28,9 +28,14 @@
       <h2>Download Data</h2>
       <p>Want to download the F3 framework to use in other Center for Threat-Informed Defense or MITRE ATT&CK tools?
         These download links provide you access to the data in all the formats you could need. </p>
-      <div class="flex gap-8"><a class="link-blue-external small">Download STIX</a>
-        <a class="link-blue-external small">Download JSON</a>
-        <a class="link-blue-external small">Download Excel</a>
+      <div class="flex gap-8"><a href="/f3-stix.json" download="f3-financial-stix-v1"
+          class="link-blue-external small">Download
+          STIX</a>
+        <a href="/f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
+          Navigator Layer</a>
+        <a href="/f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
+        <a href="/F3-v1.xlsx" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
+
       </div>
       <h2>F3 Matrix</h2>
       <p>The F3 Matrix contains information on how adversaries move through an attack and provides a visual

@@ -269,7 +269,34 @@ a.link-blue-external.small {
   padding-bottom: 1px;
   font-size: 14px;
 }
-
+.btn {
+  font-weight: 700;
+  font-family: roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  border-radius: 0;
+}
+.btn-external {
+  background-color: #005b94;
+  color: #fff;
+  height: max-content;
+  margin: 10px 0;
+  display: flex;
+  width: max-content;
+  padding: 16px 20px;
+}
+.btn-external:hover,
+.btn-external:active,
+.btn-external:focus {
+  background-color: #0d2f4f;
+  color: #fff;
+}
+.btn-external i {
+  @apply text-xs my-auto ml-2;
+}
 .main {
   @apply w-full block;
 }

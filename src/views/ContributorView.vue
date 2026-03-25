@@ -8,7 +8,7 @@
       <router-link to="/about/contributors">
         <h3>Contributors</h3>
       </router-link>
-      <router-link to="/contact-us">
+      <router-link to="/about/contact-us">
         <h3>Contact Us</h3>
       </router-link>
       <h2><router-link to="/resources">Resources</router-link></h2>

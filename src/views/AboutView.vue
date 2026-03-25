@@ -8,7 +8,7 @@
       <router-link to="/about/contributors">
         <h3>Contributors</h3>
       </router-link>
-      <router-link to="/contact-us">
+      <router-link to="/about/contact-us">
         <h3>Contact Us</h3>
       </router-link>
       <h2><router-link to="/resources">Resources</router-link></h2>
@@ -44,9 +44,9 @@
       <router-link to="/about/contributors" class="link-blue-external small">Learn More</router-link>
 
       <h2>Contact Us</h2>
-      <p>We welcome any feedback on the F3 Framework and its resources. We have dedicated forms to identify new
-        techniques to be added to the framework, suggest updates to existing techniques, and more.</p>
-      <router-link to="/contact-us" class="link-blue-external small">Contact Us</router-link>
+      <p>We welcome any feedback on the F3 Framework and its resources. We rely on feedback to identify new
+        techniques to be added to the framework, make updates to existing techniques, and more.</p>
+      <router-link to="/about/contact-us" class="link-blue-external small">Contact Us</router-link>
 
     </div>
   </div>

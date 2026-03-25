@@ -37,20 +37,20 @@ const routes = [
     component: DesignPrinciplesView,
   },
   {
-    path: "/contact-us",
+    path: "/about/contact-us",
     name: "contact",
     component: ContactUsView,
   },
-  {
-    path: "/contact-us/new-technique",
-    name: "suggest-technique",
-    component: SuggestTechniqueView,
-  },
-  {
-    path: "/contact-us/update-technique/:id?",
-    name: "update-technique",
-    component: UpdateTechniqueView,
-  },
+  // {
+  //   path: "/contact-us/new-technique",
+  //   name: "suggest-technique",
+  //   component: SuggestTechniqueView,
+  // },
+  // {
+  //   path: "/contact-us/update-technique/:id?",
+  //   name: "update-technique",
+  //   component: UpdateTechniqueView,
+  // },
   {
     path: "/resources",
     name: "resources",

@@ -1,67 +1,63 @@
 <template>
   <div class="flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
-      <h2>Contact Us</h2>
-      <router-link to="/contact-us/new-technique">
-        <h3>Suggest a New Technique</h3>
+      <h2><router-link to="/about">About</router-link></h2>
+      <router-link to="/about/methodology">
+        <h3>Design Principles</h3>
       </router-link>
-      <router-link to="/contact-us/update-technique">
-        <h3>Suggest Technique Updates</h3>
+      <router-link to="/about/contributors">
+        <h3>Contributors</h3>
       </router-link>
-      <router-link to="/contact-us">
-        <h3>General</h3>
+      <router-link to="/about/contact-us">
+        <h3>Contact Us</h3>
+      </router-link>
+      <h2><router-link to="/resources">Resources</router-link></h2>
+      <router-link to="/matrix">
+        <h3>Matrix</h3>
+      </router-link>
+      <router-link to="/technique">
+        <h3>Techniques</h3>
+      </router-link>
+      <router-link to="/tactic">
+        <h3>Tactics</h3>
       </router-link>
     </div>
     <div class="main">
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
       <h1>Contact Us</h1>
-      <h2 class="mb-4 mt-2">General Inquiries</h2>
-
-      <div class="form flex flex-col gap-y-6">
-        <div class="flex gap-x-4">
-          <div class="flex flex-col w-full">
-            <label for="first_name">First Name</label>
-            <InputText id="first_name" />
-          </div>
-          <div class="flex flex-col w-full">
-            <label for="last_name">Last Name</label>
-            <InputText id="last_name" />
-          </div>
-        </div>
-
-        <div class="flex flex-col w-full">
-          <label for="email">Email</label>
-          <InputText id="email" />
-        </div>
-        <div class="flex flex-col w-full">
-          <label for="description">Question/Comment</label>
-          <p class="description">What do you want to ask our team?</p>
-          <PrimeTextarea id="description" />
-        </div>
-        <PrimeButton class="rounded-none w-fit">Submit</PrimeButton>
+      <p class="mt-6">Contact the Center with any questions or comments or to sign up to get more involved with the
+        Center.</p>
+      <a href="https://ctid.mitre.org/get-involved/#stay-informed" target="_blank" class="btn btn-external">Contact the
+        Center <i class="pi pi-external-link"></i>
+      </a>
+      <p class="mt-6">We're collecting feedback on any existing techniques or techniques you think should be added to
+        the framework next. You can either email us with those suggestions or submit a GitHub issue. If you're
+        submitting feedback on an existing technique, please include its name. </p>
+      <div class="flex gap-2">
+        <a href="mailto:ctid@mitre.org?subject=Fight%20Fraud%20Framework%20Feedback" target="_blank"
+          class="btn btn-external">Email Us <i class="pi pi-external-link"></i>
+        </a>
+        <a href="https://github.com/center-for-threat-informed-defense/fight-financial-fraud/issues/new" target="_blank"
+          class="btn btn-external">Submit a GitHub Issue <i class="pi pi-external-link"></i>
+        </a>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import InputText from 'primevue/inputtext';
-import PrimeTextarea from 'primevue/textarea';
-import PrimeButton from "primevue/button"
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 
 export default defineComponent({
-  components: { InputText, PrimeTextarea, PrimeButton, BreadcrumbComponent },
+  components: { BreadcrumbComponent },
   data() {
     return {
       breadcrumbItems: [
-        { label: "Contact Us", route: "/contact-us" },
+        { label: "About", route: "/about" },
+        { label: "Contact Us", route: "/about/contact-us" },
       ],
     };
   },
-  computed: {
-
-  }
 })
 
 </script>
