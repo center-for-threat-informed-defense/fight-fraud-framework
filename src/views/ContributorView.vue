@@ -49,7 +49,7 @@ import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 import groupIB from "@/assets/Group-IB.png";
 
 export default defineComponent({
-  components: { BreadcrumbComponent, groupIB },
+  components: { BreadcrumbComponent },
 
   data() {
     return {
