@@ -36,11 +36,32 @@ const DESTINATION_FILE = "src/data/matrix-data.json";
     } // skip heading row
     const tid = row.getCell(1).value;
 
+    // Safely normalize the tactics cell to a string and split
+    let tacticsCellValue = row.getCell(4).value;
+    if (tacticsCellValue && typeof tacticsCellValue === "object") {
+      if ("result" in tacticsCellValue) {
+        tacticsCellValue = tacticsCellValue.result;
+      } else if ("text" in tacticsCellValue) {
+        tacticsCellValue = tacticsCellValue.text;
+      } else if (
+        "richText" in tacticsCellValue &&
+        Array.isArray(tacticsCellValue.richText)
+      ) {
+        tacticsCellValue = tacticsCellValue.richText
+          .map((part) => part.text)
+          .join("");
+      }
+    }
+    const tactics =
+      typeof tacticsCellValue === "string" && tacticsCellValue.trim().length > 0
+        ? tacticsCellValue.split(/\s*,\s*/)
+        : [];
+
     const technique = {
       id: tid,
       name: row.getCell(2).value,
       description: convertRichTextToMarkdown(row.getCell(3).value),
-      tactics: row.getCell(4).value.split(", "),
+      tactics: tactics,
       subtechniques: [],
       isAttack: tid.charAt(0) === "T" ? true : false,
       version: "1.0",
@@ -87,10 +108,6 @@ function convertRichTextToMarkdown(richTextValue) {
     if (font?.strike) {
       segment = `~~${segment}~~`;
     }
-    // Handle hyperlinks if they exist in the cell
-    // Note: Hyperlinks might be a separate property in the cell value object,
-    // this example focuses on inline font styles.
-    // The link should be applied to the 'text' property if available in the richText part.
 
     markdownString += segment;
   });
