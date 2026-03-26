@@ -12,17 +12,16 @@
           </div>
         </div>
         <div class="w-1/2">
-          <p>The MITRE Fight Fraud Framework™ (MITRE F3) is a curated knowledge base of tactics, techniques, and
-            procedures
-            (TTPs) used by financial fraud actors. The F3 Framework includes behaviors that characterize known fraud
-            TTPs and
-            references existing <a href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> cyber techniques as
-            applicable to
-            financial fraud. The F3 Framework provides a living
-            knowledge base of financial fraud actor TTPs based on real-world observations of financial fraud incidents
-            as seen by
-            banking
-            institutions. </p>
+          <p>The MITRE Fight Fraud Framework™ (F3) is a curated knowledge base of tactics, techniques, and procedures
+            (TTPs) used by financial fraud actors, derived from real-world observations of cyber fraud incidents. The
+            framework includes behaviors that characterize known fraud TTPs and references existing <a
+              href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> cyber techniques cyber techniques as
+            applicable to financial fraud.
+          </p>
+          <!-- <p>MITRE F3™ provides a common structure and taxonomy to consistently describe
+            and enumerate the material events of a cyber fraud incident. This shared framework enables stronger
+            collaboration on fraud prevention, detection, and response across organizational teams. The knowledge base
+            is globally accessible, open, and available at no charge for use by any person or organization.</p> -->
           <router-link to="/about" class="link-blue-external">Learn More</router-link>
         </div>
       </div>
