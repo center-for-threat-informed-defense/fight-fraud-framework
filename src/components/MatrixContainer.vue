@@ -62,7 +62,7 @@ export default defineComponent({
 }
 
 .tactic {
-    @apply px-4 py-2 w-40 mt-auto flex;
+    @apply pl-4 pr-2 py-2 w-40 mt-auto flex;
 }
 
 .tactic p a {
@@ -74,6 +74,6 @@ export default defineComponent({
 }
 
 .technique-container {
-    @apply flex gap-0 mx-auto w-fit pb-10;
+    @apply flex gap-1 mx-auto w-fit pb-10;
 }
 </style>
