@@ -26,8 +26,14 @@
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
       <h1>Contributors</h1>
 
-      <p>The F3 framework was developed in collaboration with members from Aviation ISAC, Citi, FS-ISAC, JPMorganChase,
-        Lloyds Banking Group, Marsh, NRF, and Retail & Hospitality ISAC.</p>
+      <p>The MITRE Fight Fraud Framework (F3)™ was developed through MITRE’s Center for Threat-Informed Defense (CTID)
+        and CTID member-powered collaboration. With the understanding that the challenges we face are bigger than
+        ourselves, our members join CTID prepared to tackle hard problems in a uniquely collaborative environment. CTID
+        gratefully acknowledges the significant contributions and deep expertise provided by Aviation Information
+        Sharing and Analysis Center (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase,
+        Lloyds Banking Group, Marsh, National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard
+        Chartered, and Verizon Business towards the development of MITRE F3™. CTID further recognizes Group IB as a key
+        data contributor whose insights and contributions supported the development of F3.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-x-20 gap-y-10">
         <div v-for="contributor of contributors" :key="contributor.name" class="contributor">
@@ -40,9 +46,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
+import groupIB from "@/assets/Group-IB.png";
 
 export default defineComponent({
-  components: { BreadcrumbComponent },
+  components: { BreadcrumbComponent, groupIB },
 
   data() {
     return {
@@ -63,9 +70,19 @@ export default defineComponent({
           img: "https://ctid.mitre.org/img/participants/citi.png",
         },
         {
+          name: "Crowdstrike",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/crowdstrike.png",
+        },
+        {
           name: "FS-ISAC",
           link: "",
           img: "https://ctid.mitre.org/img/participants/fs_isac.png",
+        },
+        {
+          name: "Group-IB",
+          link: "",
+          img: groupIB
         }, {
           name: "JPMorganChase",
           link: "",
@@ -90,6 +107,16 @@ export default defineComponent({
           name: "Retail & Hospitality ISAC",
           link: "",
           img: "https://ctid.mitre.org/img/participants/retail_hospitality_isac.png",
+        },
+        {
+          name: "Standard Chartered",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/standard_chartered.png",
+        },
+        {
+          name: "Verizon Business",
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/verizon.png",
         }
       ]
     };
