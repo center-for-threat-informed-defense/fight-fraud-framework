@@ -37,7 +37,6 @@
 import { defineComponent } from "vue";
 import TabMenu from "primevue/tabmenu";
 import MenuBar from "primevue/menubar";
-import Logo from "@/assets/logo-line-white.svg";
 import { useRouter } from 'vue-router';
 import SiteSearch from "./SiteSearch.vue"
 
@@ -45,7 +44,6 @@ export default defineComponent({
   components: { TabMenu, MenuBar, SiteSearch },
   data() {
     return {
-      Logo,
       router: useRouter(),
       items: [
         { label: "Home", route: "/" },

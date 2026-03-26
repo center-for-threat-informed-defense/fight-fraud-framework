@@ -64,12 +64,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Logo from "@/assets/logo-line-white.svg";
 
 export default defineComponent({
     data() {
         return {
-            Logo,
             externalProjects: [
                 { label: "Attack Flow", route: "https://center-for-threat-informed-defense.github.io/attack-flow/" },
                 { label: "M3TID", route: "https://center-for-threat-informed-defense.github.io/m3tid/" },
