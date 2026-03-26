@@ -62,7 +62,7 @@ export default defineComponent({
 }
 
 .tactic {
-    @apply pl-4 pr-2 py-2 w-40 mt-auto flex;
+    @apply px-2 py-2 w-40 mt-auto flex;
 }
 
 .tactic p a {
