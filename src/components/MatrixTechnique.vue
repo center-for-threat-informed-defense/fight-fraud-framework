@@ -1,11 +1,6 @@
 <template>
     <div class="flex box-border items-stretch">
-        <div v-if="technique?.subtechniques?.length > 0" class="expand-btn" @click="clickExpand">
-            <span v-if="isOpen">-</span>
-            <span v-else>+</span>
-        </div>
-        <div v-else-if="isSubtechnique" class="subtechnique-border"></div>
-        <div v-else class="spacer"></div>
+
         <div :class="['technique', { 'supertechnique': technique?.subtechniques?.length > 0 }]">
             <p><router-link :to="'/technique/' + techniqueId">
                     {{ technique?.name }}
@@ -14,6 +9,12 @@
                 <span class="attack-indicator" v-if="technique?.isAttack">&</span>
             </p>
         </div>
+        <div v-if="technique?.subtechniques?.length > 0" class="expand-btn" @click="clickExpand">
+            <span v-if="isOpen">-</span>
+            <span v-else>+</span>
+        </div>
+        <div v-else-if="isSubtechnique" class="subtechnique-border"></div>
+        <div v-else class="spacer"></div>
     </div>
     <div v-if="isOpen">
         <template v-for="subtechnique in technique?.subtechniques" :key="subtechnique">
@@ -77,7 +78,7 @@ export default defineComponent({
 }
 
 .subtechnique-border {
-    @apply w-1 ml-auto bg-ctid-light-gray;
+    @apply w-1 mr-auto bg-ctid-light-gray;
 }
 
 .expand-btn span {
