@@ -1,7 +1,7 @@
 <template>
     <InputGroup>
         <InputText name="search-bar" v-model="searchTerm" size="small" variant="outline" placeholder="Search"
-            @submit="clickSearch" id="search-bar" />
+            @keyup.enter="clickSearch" id="search-bar" />
         <InputGroupAddon>
             <PrimeButton severity="secondary" variant="icon" @click="clickSearch">
                 <i class="pi pi-search"></i>
@@ -15,27 +15,31 @@ import { defineComponent } from "vue";
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
-import { useRouter } from 'vue-router';
-import { useRoute } from 'vue-router';
 import PrimeButton from "primevue/button"
 
 export default defineComponent({
     components: { InputGroup, PrimeButton, InputGroupAddon, InputText },
     data() {
         return {
-            router: useRouter(),
-            route: useRoute(),
-            searchTerm: this.$route.params.query || ''
-
+            searchTerm: "",
         };
     },
+    watch: {
+        "$route.params.query": {
+            immediate: true,
+            handler(q) {
+                this.searchTerm = typeof q === "string" ? q : "";
+            },
+        },
+    },
+
     methods: {
         clickSearch() {
-            this.router.push({
-                name: 'search',
-                params: { query: this.searchTerm }
+            this.$router.push({
+                name: "search",
+                params: { query: this.searchTerm || "" },
             });
-        }
+        },
     },
 });
 </script>

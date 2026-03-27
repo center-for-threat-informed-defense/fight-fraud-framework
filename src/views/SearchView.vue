@@ -44,43 +44,66 @@ export default defineComponent({
       rows: 5,
     }
   },
+  watch: {
+    // Reset pagination when the URL search query changes
+    "route.params.query": {
+      immediate: true,
+      handler() {
+        this.first = 0;
+      },
+    },
+  },
   computed: {
     searchQuery() {
-      return this.route.params.query;
+      console.log("query ", this.route.params.query)
+      const raw = this.route.params.query;
+      const s = typeof raw === "string" ? raw : "";
+      return decodeURIComponent(s).trim();
     },
     tactics() {
       return this.matrixData.filter(i => i.tactic)
     },
     searchResults() {
-      // Prioritize techniques over tactics
-      // Look for matches in ID, name, description
-      const matches = [];
-      this.matrixData.forEach((i) => {
-        let matchScore = 0;
-        const regex = new RegExp(this.searchQuery, "gi");
+      const q = this.searchQuery;
+      if (!q) return [];
 
-        if (i.id.match(regex)) {
-          matchScore += 5;
+      // Normalize + tokenize query: "Account takeover" -> ["account","takeover"]
+      const tokens = this.normalize(q).split(" ").filter(Boolean);
+
+      const results: any[] = [];
+
+      for (const i of this.matrixData as any[]) {
+        const id = i.id ?? "";
+        const name = i.name ?? "";
+        const desc = i.description ?? "";
+
+        // Normalized fields (case-insensitive, punctuation-insensitive)
+        const idN = this.normalize(id);
+        const nameN = this.normalize(name);
+        const descN = this.normalize(desc);
+
+        const allText = `${idN} ${nameN} ${descN}`;
+
+        // Require ALL tokens to be present somewhere (AND search)
+        const allTokensPresent = tokens.every(t => allText.includes(t));
+        if (!allTokensPresent) continue;
+
+        // Scoring: weight matches in id/name/description
+        let score = 0;
+        for (const t of tokens) {
+          score += 5 * this.countOccurrences(idN, t);
+          score += 3 * this.countOccurrences(nameN, t);
+          score += 1 * this.countOccurrences(descN, t);
         }
 
-        if (i.name.match(regex)) {
-          const count = i.description.match(regex);
-          matchScore += 3 * count?.length;
-        }
-        if (i.description.match(regex)) {
-          const count = i.description.match(regex);
-          matchScore += count.length;
-        }
+        // Bonus if exact normalized phrase occurs (keeps phrase results on top)
+        const phrase = this.normalize(q);
+        if (allText.includes(phrase)) score += 10;
 
-        if (matchScore > 0) {
-          matches.push({
-            ...i,
-            searchScore: matchScore
-          })
-        }
-      })
-      return matches.sort((a, b) => b.searchScore - a.searchScore);
+        if (score > 0) results.push({ ...i, searchScore: score });
+      }
 
+      return results.sort((a, b) => b.searchScore - a.searchScore);
     },
     filteredResults() {
 
@@ -94,6 +117,29 @@ export default defineComponent({
     }
   },
   methods: {
+    normalize(s: string) {
+      // lowercase, remove diacritics, turn punctuation into spaces, collapse whitespace
+      return s
+        .toLowerCase()
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim()
+        .replace(/\s+/g, " ");
+    },
+
+    countOccurrences(haystack: string, needle: string) {
+      if (!needle) return 0;
+      let count = 0;
+      let idx = 0;
+      while (true) {
+        idx = haystack.indexOf(needle, idx);
+        if (idx === -1) break;
+        count++;
+        idx += needle.length;
+      }
+      return count;
+    },
     truncatedDescription(text: string) {
       const words = text.split(' ');
       if (words.length > 50) {
