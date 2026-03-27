@@ -19,13 +19,21 @@
                     </InputGroup>
                 </div>
             </template>
-            <Column header="ID" field="id" filterField="technique.id"></Column>
-            <Column header="Name" field="name" filterField="technique.name"></Column>
-            <Column header="Link">
+            <Column header="ID" filterField="technique.id">
                 <template #body="{ data }">
-                    <router-link :to="'/tactic/' + data.id">See More <i class="pi pi-arrow-right ml-1"
-                            style="font-size: .75rem"></i>
+                    <router-link :to="'/tactic/' + data.id">{{ data.id }}
                     </router-link>
+                </template>
+            </Column>
+            <Column header="Name" filterField="technique.name">
+                <template #body="{ data }">
+                    <router-link :to="'/tactic/' + data.id">{{ data.name }}
+                    </router-link>
+                </template>
+            </Column>
+            <Column header="Description">
+                <template #body="{ data }">
+                    {{ getShortDescription(data) }}
                 </template>
             </Column>
         </DataTable>
@@ -60,6 +68,12 @@ export default defineComponent({
         tactics() {
             return this.matrixData.filter(i => i.tactic)
         },
+    },
+    methods: {
+        getShortDescription(tactic) {
+            const lines: string[] = tactic.description.split(/\r\n|\r|\n/);
+            return lines[0]
+        }
     }
 });
 </script>
