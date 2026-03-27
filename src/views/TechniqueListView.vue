@@ -2,8 +2,12 @@
     <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
         <h1>Techniques</h1>
-        <p>Techniques represent 'how' an adversary achieves a tactical goal by performing an action. For example, an
-            adversary may dump credentials to achieve credential access.</p>
+        <p>Techniques represent “how” a fraud actor achieves a tactical goal by performing an action. There may be
+            multiple ways to perform a technique, resulting in distinct sub-techniques that describe more specific
+            methods of how behavior is used to achieve an objective. Not all techniques have sub-techniques.</p>
+        <p>F3 technique and sub-technique identifiers are of the format F#### for techniques and F####.#### for
+            sub-techniques and are unique within the knowledgebase; or, if a technique or sub-technique already exists
+            in the ATT&CK knowledgebase, the ATT&CK identifier is used (i.e., T####, T####.###).</p>
 
         <DataTable v-model:filters="filters" :value="techniques" dataKey="id"
             :globalFilterFields="['id', 'name', 'description']" class="w-full">

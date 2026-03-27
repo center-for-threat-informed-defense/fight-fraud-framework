@@ -2,9 +2,12 @@
     <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
     <div>
         <h1>Tactics</h1>
-        <p>Tactics represent the "why" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the
-            reason for performing an action. For example, an adversary may want to achieve credential access.</p>
-
+        <p>Tactics represent the “why” of an F3 technique or sub-technique: the fraud actor's tactical goal and the
+            reason for performing an action. Tactics are not the same as phases of a fraud incident and not every tactic
+            will be present in every fraud incident.
+        </p>
+        <p>F3 tactics are of the format FA#### and are unique within the knowledgebase; or, if a tactic already exists
+            in the ATT&CK knowledgebase, the ATT&CK identifier is used (i.e., TA####).</p>
         <DataTable v-model:filters="filters" :value="tactics" dataKey="id"
             :globalFilterFields="['id', 'name', 'description']">
             <template #header>

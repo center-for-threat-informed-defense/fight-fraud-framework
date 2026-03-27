@@ -25,14 +25,15 @@
     <div class="main">
       <breadcrumb-component :breadcrumbItems="breadcrumbItems" class="mb-2 -ml-3" />
       <h1>Contact Us</h1>
-      <p class="mt-6">Contact the Center with any questions or comments or to sign up to get more involved with the
-        Center.</p>
+      <p class="mt-6">Contact CTID with any questions or comments or to sign up to get more involved with CTID.</p>
       <a href="https://ctid.mitre.org/get-involved/#stay-informed" target="_blank" class="btn btn-external">Contact the
         Center <i class="pi pi-external-link"></i>
       </a>
-      <p class="mt-6">We're collecting feedback on any existing techniques or techniques you think should be added to
-        the framework next. You can either email us with those suggestions or submit a GitHub issue. If you're
-        submitting feedback on an existing technique, please include its name. </p>
+      <p class="mt-6">F3 will expand and evolve over time, and we welcome your feedback on the F3 knowledge base and
+        resources. We're particularly interested in feedback on any existing techniques or techniques used by fraud
+        actors in real-world, cyber-based incidents that are not yet represented in F3. You can either email us with
+        those suggestions or submit a GitHub issue. If you're submitting feedback on an existing technique, please
+        include its name.</p>
       <div class="flex gap-2">
         <a href="mailto:ctid@mitre.org?subject=Fight%20Fraud%20Framework%20Feedback" target="_blank"
           class="btn btn-external">Email Us <i class="pi pi-external-link"></i>
