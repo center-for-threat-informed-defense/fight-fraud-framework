@@ -56,7 +56,8 @@
                         </ul>
                     </div>
                 </div>
-                <p class="my-4 public-release">© 2026 MITRE. Approved for public release. Document number(s) XXXXXX.</p>
+                <p class="my-4 public-release">© 2026 MITRE. Approved for public release. Document number(s)
+                    PR_25-02691-6.</p>
             </div>
         </div>
     </div>

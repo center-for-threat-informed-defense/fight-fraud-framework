@@ -54,15 +54,6 @@ h2 {
   font-size: 15px;
 }
 
-/* Calculator */
-.calculator-details {
-  @apply border-ctid-black border-[1px];
-}
-
-.checkbox-group {
-  @apply w-full my-4 flex gap-4;
-}
-
 /* Primevue Overrides */
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
   border-top-right-radius: 0;
