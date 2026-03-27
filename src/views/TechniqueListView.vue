@@ -5,7 +5,8 @@
         <p>Techniques represent 'how' an adversary achieves a tactical goal by performing an action. For example, an
             adversary may dump credentials to achieve credential access.</p>
 
-        <DataTable v-model:filters="filters" :value="techniques" dataKey="id" :globalFilterFields="['id', 'name']">
+        <DataTable v-model:filters="filters" :value="techniques" dataKey="id"
+            :globalFilterFields="['id', 'name', 'description']" class="w-full">
             <template #header>
                 <div class="flex justify-end">
                     <InputGroup>
@@ -19,13 +20,22 @@
                     </InputGroup>
                 </div>
             </template>
-            <Column header="ID" field="id" filterField="technique.id"></Column>
-            <Column header="Name" field="name" filterField="technique.name"></Column>
-            <Column header="Link">
+            <Column header="ID" filterField="technique.id">
                 <template #body="{ data }">
-                    <router-link :to="'/technique/' + data.id">See More <i class="pi pi-arrow-right ml-1"
-                            style="font-size: .75rem"></i>
+                    <router-link :to="'/technique/' + data.id">{{ data.id }}
                     </router-link>
+                </template>
+            </Column>
+            <Column header="Name" filterField="technique.name">
+                <template #body="{ data }">
+                    <router-link :to="'/technique/' + data.id">{{ data.name }}
+                    </router-link>
+                </template>
+            </Column>
+            <Column header="Description" filterField="technique.description" headerClass="description-col"
+                bodyClass="description-col">
+                <template #body="{ data }">
+                    {{ getShortDescription(data) }}
                 </template>
             </Column>
         </DataTable>
@@ -60,6 +70,15 @@ export default defineComponent({
         techniques() {
             return this.matrixData.filter(i => !i.tactic)
         },
+    },
+    methods: {
+        getShortDescription(technique) {
+            const words = technique.description.split(' ');
+            if (words.length > 50) {
+                return words.slice(0, 50).join(' ') + '...';
+            }
+            return technique.description;
+        }
     }
 });
 </script>
@@ -71,5 +90,21 @@ export default defineComponent({
 
 a {
     @apply text-ctid-blue hover:text-ctid-navy hover:underline
+}
+
+/* Make the internal table fixed-width and allow wrapping */
+:deep(.p-datatable-table) {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Allow cell content to wrap instead of forcing a long single line */
+:deep(.p-datatable-tbody > tr > td) {
+    white-space: normal;
+    word-break: break-word;
+}
+
+:deep(.description-col) {
+    @apply w-2/3 xl:w-3/4 hidden md:table-cell
 }
 </style>

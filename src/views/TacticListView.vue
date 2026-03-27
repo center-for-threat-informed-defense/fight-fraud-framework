@@ -5,7 +5,8 @@
         <p>Tactics represent the "why" of an ATT&CK technique or sub-technique. It is the adversary's tactical goal: the
             reason for performing an action. For example, an adversary may want to achieve credential access.</p>
 
-        <DataTable v-model:filters="filters" :value="tactics" dataKey="id" :globalFilterFields="['id', 'name']">
+        <DataTable v-model:filters="filters" :value="tactics" dataKey="id"
+            :globalFilterFields="['id', 'name', 'description']">
             <template #header>
                 <div class="flex justify-end">
                     <InputGroup>
@@ -31,7 +32,8 @@
                     </router-link>
                 </template>
             </Column>
-            <Column header="Description">
+            <Column header="Description" filterField="technique.description" headerClass="description-col"
+                bodyClass="description-col">
                 <template #body="{ data }">
                     {{ getShortDescription(data) }}
                 </template>
@@ -85,5 +87,9 @@ export default defineComponent({
 
 a {
     @apply text-ctid-blue hover:text-ctid-navy hover:underline
+}
+
+:deep(.description-col) {
+    @apply w-2/3 xl:w-3/4 hidden md:table-cell
 }
 </style>
