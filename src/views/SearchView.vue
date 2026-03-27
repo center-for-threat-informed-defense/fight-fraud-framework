@@ -6,9 +6,8 @@
       <div v-for="result of visibleResults" :key="result.id" class="search-result">
         <h2>{{ result.id }} {{ result.name }}</h2>
         <p>{{ truncatedDescription(result.description) }}</p>
-        <p v-if="resultTactics(result)">
-          Tactics: <template v-for="tactic of resultTactics(result)" :key="tactic.id">
-            <router-link :to="'/tactic/' + tactic.id">{{ tactic.name }}</router-link>
+        <p v-if="result.tactics">Tactics: <template v-for="tactic of result.tactics" :key="tactic">
+            <router-link :to="'/tactic/' + tactic">{{ getTacticData(tactic).name }}</router-link>
           </template>
         </p>
         <router-link :to="'/technique/' + result.id" class="link-blue-external small">View Page</router-link>
@@ -70,9 +69,9 @@ export default defineComponent({
       // Normalize + tokenize query: "Account takeover" -> ["account","takeover"]
       const tokens = this.normalize(q).split(" ").filter(Boolean);
 
-      const results: any[] = [];
+      const results = [];
 
-      for (const i of this.matrixData as any[]) {
+      for (const i of this.matrixData) {
         const id = i.id ?? "";
         const name = i.name ?? "";
         const desc = i.description ?? "";
@@ -106,11 +105,16 @@ export default defineComponent({
       return results.sort((a, b) => b.searchScore - a.searchScore);
     },
     filteredResults() {
+      if (!this.selectedTactics || this.selectedTactics.length === 0) {
+        return this.searchResults;
+      }
 
-      // if (this.selectedTactics.length > 0) {
-      //   return this.searchResults.filter()
-      // }
-      return this.searchResults;
+      const selectedIds = new Set(this.selectedTactics.map((t) => t.id));
+
+      return this.searchResults.filter((r) => {
+        const tactics: string[] = Array.isArray(r.tactics) ? r.tactics : [];
+        return tactics.some((tid) => selectedIds.has(tid));
+      });
     },
     visibleResults() {
       return this.filteredResults.slice(this.first, this.rows + this.first);
@@ -132,7 +136,7 @@ export default defineComponent({
       if (!needle) return 0;
       let count = 0;
       let idx = 0;
-      while (true) {
+      for (; ;) {
         idx = haystack.indexOf(needle, idx);
         if (idx === -1) break;
         count++;
@@ -148,12 +152,10 @@ export default defineComponent({
       return text;
 
     },
-    resultTactics(result) {
-      if (result?.tactic) {
-        return null;
-      }
-      return [this.matrixData[0]]
-    }, onPageChange(event) {
+    getTacticData(id: string) {
+      return this.matrixData.filter(i => i.id === id)[0]
+    },
+    onPageChange(event) {
       this.first = event.first;
       this.rows = event.rows;
     }
