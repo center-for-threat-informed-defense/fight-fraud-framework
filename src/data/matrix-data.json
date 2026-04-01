@@ -5,7 +5,7 @@
         "description": "The fraud actor's actions to gather information they can use to plan future operations, including both cyber intrusions and attempted fraud. \n\nReconnaissance consists of techniques that involve fraud actors actively or passively gathering information that can be used to support targeting. Such information may include details of the victim organization, infrastructure, or staff/personnel. This information can be leveraged by the fraud actor to aid in other phases of the fraud lifecycle, such as using gathered information to plan and execute Initial Access, to scope and prioritize post-compromise objectives, or to drive and lead further Reconnaissance efforts.",
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.405Z",
+        "lastModified": "2026-04-01T05:32:58.830Z",
         "tactic": true
     },
     {
@@ -14,7 +14,7 @@
         "description": "The fraud actor's actions to establish resources they can use to support both cyber and fraud activities. \n\nResource Development consists of techniques that involve fraud actors creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities. These resources can be leveraged by the fraud actor to aid in other phases of the fraud lifecycle, such as using purchased domains to support Execution, email accounts for phishing as a part of Initial Access, or spoofing to help with Defense Evasion.",
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -23,7 +23,7 @@
         "description": "The fraud actor's actions to gain a foothold in a selected environment.  \n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a selected environment. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses in browsers. Footholds gained through initial access may allow for continued access, like compromise accounts and use of external remote services, or may be limited-use due to changing passwords.",
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -32,7 +32,7 @@
         "description": "The fraud actor's actions to avoid being detected.\n\nDefense Evasion consists of techniques that fraud actors use to avoid detection throughout their compromise. Techniques used for defense evasion include phone number spoofing or social engineering. Fraud actors also leverage and abuse trusted processes to hide and masquerade their activities. Other tactics’ techniques are cross-listed here when those techniques include the added benefit of subverting defenses.",
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -41,7 +41,7 @@
         "description": "The fraud actor's actions in a selected environment, after initial access, to collect or manipulate data or otherwise prepare for execution. \n                   \nPositioning consists of techniques that involve fraud actors gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable fraud actors to maximize the value extracted during fraud execution or establish persistent access for future operations.",
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -50,7 +50,7 @@
         "description": "The fraud actor's actions to run malicious code or initiate fraudulent transactions that will convert stolen data to money. \n\nExecution consists of techniques that result in fraud actor‑controlled code or actions running on a local, remote, or transaction‑processing system. Techniques that run malicious code or automate actions are often paired with other tactics to achieve broader goals, such as exploring a network, manipulating applications, initiating unauthorized payments, or altering transaction data to support fraud. For example, a fraud actor might use a remote access tool to run a PowerShell script that performs Remote System Discovery and then launch scripts or bots that submit fraudulent transfers, modify payment instructions, or replay payment messages through compromised banking or merchant platforms.",
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -59,7 +59,7 @@
         "description": "The fraud actor's actions to convert assets, often stolen, into usable funds or value in their possession.\n\nFraud actors may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve fraud actors liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or manipulating markets. These techniques represent the final stages of fraud operations where fraud actors secure their gains and attempt to obscure the transaction trail.",
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z",
+        "lastModified": "2026-04-01T05:32:58.832Z",
         "tactic": true
     },
     {
@@ -72,7 +72,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "T1453",
@@ -84,7 +84,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "F1001",
@@ -92,7 +92,8 @@
         "description": "Fraud actors may exploit publicly available APIs intended for legitimate customer or partner use to facilitate fraud operations. This may include account enumeration, credential stuffing attacks, data scraping, or automated financial transaction fraud. Fraud actors often leverage compromised credentials, botnets, or custom scripts to generate high volumes of API requests that mimic legitimate traffic patterns.",
         "tactics": [
             "TA0001",
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [
             "F1001.001",
@@ -100,7 +101,7 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "F1001.001",
@@ -108,12 +109,13 @@
         "description": "Fraud actors may exploit mobile-specific APIs to conduct fraud operations. This may include using modified mobile applications, mobile device emulators, or custom scripts to generate fraudulent API calls that appear legitimate. Fraud actors target mobile APIs to bypass security controls designed for web-based access or to exploit mobile-specific vulnerabilities in authentication and authorization mechanisms.",
         "tactics": [
             "TA0001",
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "F1001.002",
@@ -121,37 +123,25 @@
         "description": "Fraud actors may abuse web-based APIs exposed through websites or web applications to automate fraud operations. This may include leveraging botnets, proxy networks, or headless browsers to mimic legitimate web traffic while conducting credential stuffing, transaction fraud, or data exfiltration. Fraud actors exploit web APIs to bypass rate limiting, CAPTCHA controls, or other security mechanisms designed to prevent automated abuse.",
         "tactics": [
             "TA0001",
-            "TA0002"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
-    },
-    {
-        "id": "F1004",
-        "name": "Abuse SMS verification",
-        "description": "Fraud actors may abuse SMS verification services to generate excessive costs or enable fraud. This may include sending multiple verification requests to premium-rate numbers, manipulating SMS routing to route traffic through higher-cost carriers, or flooding systems with verification requests to disrupt services or increase operational costs for the target organization.",
-        "tactics": [
-            "TA0002"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
-    },
-    {
-        "id": "F1005",
-        "name": "Access Notifications",
-        "description": "Fraud actors may intercept SMS messages or push notifications to capture authentication codes or sensitive information sent to victim devices. This may include exploiting SIM swap vulnerabilities, using malware to read notification content, or compromising notification delivery infrastructure. Fraud actors use captured authentication codes to bypass multi-factor authentication controls and gain unauthorized account access.",
-        "tactics": [
-            "TA0001",
+            "TA0002",
             "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
+    },
+    {
+        "id": "F1004",
+        "name": "Abuse SMS verification",
+        "description": "Fraud actors may abuse SMS verification and one-time-password (OTP) services to generate excessive messaging costs or facilitate toll‑fraud schemes, rather than to authenticate real users. In a common pattern, attackers script large numbers of account sign‑ups or login attempts that all trigger SMS verifications to premium‑rate or otherwise high‑tariff phone numbers they control, allowing them to collect a share of the inflated termination fees while the victim organization pays the messaging bill. \n\nAdversaries may also manipulate SMS routing by steering verification traffic through specific high‑cost international carriers or number ranges, disguising these as normal mobile destinations so that automated routing systems deliver the messages without suspicion. By driving sustained volumes of verification traffic into these expensive routes, attackers can rapidly increase the victim’s telecom spend and monetize the difference between actual delivery cost and what the organization expects to pay for legitimate verification usage. \n\nThis technique focuses on cost and routing abuse of SMS verification itself, and is distinct from Multi-Factor Authenticaion Request Generation, which covers triggering MFA prompts or notifications to overwhelm or pressure vicitims into approving authenticaion attempts. ",
+        "tactics": [
+            "TA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "F1006",
@@ -163,7 +153,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "T1531",
@@ -175,154 +165,138 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
-    },
-    {
-        "id": "F1007",
-        "name": "Account Linking",
-        "description": "Fraud actors may link compromised accounts to accounts under their control to establish persistent access that survives credential resets. In online and mobile banking environments, fraud actors may link victim bank accounts to secondary credentials or profiles without the victim's knowledge. This technique allows fraud actors to maintain account access even after the victim changes primary authentication credentials.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
+        "lastModified": "2026-04-01T05:32:58.832Z"
     },
     {
         "id": "F1008",
         "name": "Account Manipulation",
-        "description": "Fraud actors may modify account settings to facilitate fraud operations or maintain persistent access. This may include altering payment methods, changing account details, modifying notification preferences, or adjusting security settings. Fraud actors typically gain initial access through stolen credentials or system vulnerabilities, then make unauthorized changes to account configurations to support subsequent fraud activities or prevent detection.",
+        "description": "Fraud actors may modify account settings to facilitate fraud operations or maintain persistent access. This may include altering payment methods, changing contact information, modifying notification preferences, adjusting security settings, linking accounts, or adding users. . Fraud actors typically gain initial access through stolen credentials or system vulnerabilities, then make unauthorized changes to account configurations to support subsequent fraud activities or prevent detection.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0005"
         ],
         "subtechniques": [
-            "F1008.004",
-            "F1008.006",
-            "F1008.005",
+            "F1008.001",
             "F1008.002",
             "F1008.003",
-            "F1008.009",
-            "F1008.001",
-            "F1008.008",
-            "F1008.007"
+            "F1008.004",
+            "F1008.005",
+            "F1008.006",
+            "F1008.007",
+            "F1008.008"
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
-    },
-    {
-        "id": "F1008.004",
-        "name": "Account Manipulation: Add Authorized User",
-        "description": "Fraud actors may add themselves or accomplices as authorized users or secondary signers on compromised accounts. Authorized users typically have permission to perform transactions and access account features on behalf of the primary account holder. This technique provides fraud actors with legitimate-appearing access to accounts and may be used to position access for monetization or to establish persistent access that appears authorized.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.411Z"
-    },
-    {
-        "id": "F1008.006",
-        "name": "Account Manipulation: Add Beneficiary",
-        "description": "Fraud actors may add themselves or accounts under their control as beneficiaries on compromised financial accounts. Beneficiary designations determine who receives account assets or benefits after the account holder's death or under other specified conditions. This technique allows fraud actors to potentially receive account assets in the future or to establish fraudulent claims to account benefits.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1008.005",
-        "name": "Account Manipulation: Add Call Receiving Device",
-        "description": "Fraud actors may add devices under their control to victim accounts to intercept phone calls intended for the legitimate account holder. This may include adding devices to cloud account profiles such as Apple ID or Microsoft accounts. By intercepting phone calls, fraud actors can receive authentication codes sent via voice calls, intercept customer service callbacks, or monitor communication related to account security.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1008.002",
-        "name": "Account Manipulation: Additional Bank Accounts",
-        "description": "Fraud actors may add new bank account details to compromised accounts to redirect future payments or transfers. By adding accounts under their control to payment or payout settings, fraud actors can intercept legitimate financial transfers or redirect funds during payment processing. This technique is commonly used against merchant accounts, payroll systems, or other platforms that facilitate outbound payments.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1008.003",
-        "name": "Account Manipulation: Additional Payment Methods",
-        "description": "Fraud actors may add new credit cards, bank accounts, or other financial instruments to compromised accounts. This allows fraud actors to make unauthorized purchases, redirect funds to accounts under their control, or establish payment methods that can be used for subsequent fraud operations. Added payment methods may be funded with stolen financial credentials or used to monetize compromised accounts.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1008.009",
-        "name": "Account Manipulation: Change Account Details",
-        "description": "Fraud actors may change account details such as PIN numbers, security questions, transaction limits, or other account parameters. By modifying these details, fraud actors can reduce security controls, increase their operational capabilities, or prevent legitimate users from accessing or recovering accounts. This may include changing knowledge-based authentication answers or adjusting account restrictions.",
-        "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1008.001",
-        "name": "Account Manipulation: Change E-Delivery / Notification Settings",
-        "description": "Fraud actors may change electronic delivery or notification settings to prevent account holders from detecting suspicious account activity. By disabling email alerts, SMS notifications, or other notification mechanisms, fraud actors can conduct fraudulent transactions or account modifications without triggering alerts that would otherwise notify the legitimate account owner.",
+        "name": "Account Manipulation: Account Linking",
+        "description": "Fraud actors may link compromised accounts to accounts under their control to establish persistent access that survives credential resets. In online and mobile banking environments, fraud actors may link victim bank accounts to secondary credentials or profiles without the victim's knowledge. This technique allows fraud actors to maintain account access even after the victim changes primary authentication credentials.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
-        "id": "F1008.008",
-        "name": "Account Manipulation: Change of Payment Details",
-        "description": "Fraud actors may alter legitimate payment details stored in compromised accounts to redirect payments to accounts or payment methods under their control. This may include changing bank account numbers, credit card information, or electronic payment addresses stored for recurring payments or payouts. This technique is commonly used to redirect payroll, vendor payments, or customer refunds.",
+        "id": "F1008.002",
+        "name": "Account Manipulation: Add Authorized User",
+        "description": "Fraud actors may add themselves or accomplices as authorized users or secondary signers on compromised accounts. Authorized users typically have permission to perform transactions and access account features on behalf of the primary account holder. This technique provides fraud actors with legitimate-appearing access to accounts and may be used to position access for monetization or to establish persistent access that appears authorized.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1008.003",
+        "name": "Account Manipulation: Add Beneficiary",
+        "description": "Fraud actors may add themselves or accounts under their control as beneficiaries on compromised financial accounts. Beneficiary designations determine who receives account assets or benefits after the account holder's death or under other specified conditions. This technique allows fraud actors to potentially receive account assets in the future or to establish fraudulent claims to account benefits.",
+        "tactics": [
+            "FA0001",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1008.004",
+        "name": "Account Manipulation: Update Call Receiving Device",
+        "description": "Fraud actors may add devices under their control to victim accounts to intercept phone calls intended for the legitimate account holder. This may include adding devices to cloud account profiles such as Apple ID or Microsoft accounts. By intercepting phone calls, fraud actors can receive authentication codes sent via voice calls, intercept customer service callbacks, or monitor communication related to account security.",
+        "tactics": [
+            "FA0001",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1008.005",
+        "name": "Account Manipulation: Change Account Details",
+        "description": "Fraud actors may change account details such as PIN numbers, security questions, transaction limits, addresses, phone numbers, email address, or other account parameters. By modifying these details, fraud actors can reduce security controls, increase their operational capabilities, or prevent legitimate users from accessing or recovering accounts. This may include changing knowledge-based authentication answers or adjusting account restrictions.",
+        "tactics": [
+            "FA0001",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1008.006",
+        "name": "Account Manipulation: Change E-Delivery or Notification Settings",
+        "description": "Fraud actors may change electronic delivery or notification settings to prevent account holders from detecting suspicious account activity. By disabling email alerts, SMS notifications, or other notification mechanisms, fraud actors can conduct fraudulent transactions or account modifications without triggering alerts that would otherwise notify the legitimate account owner.",
+        "tactics": [
+            "FA0001",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1008.007",
-        "name": "Account Manipulation: Enable Account Features",
-        "description": "Fraud actors may enable additional account features that legitimate account holders did not intend to activate. This may include increasing transaction limits, enabling international transactions, activating overdraft protection, or enabling other features that facilitate unauthorized financial activities. By expanding account capabilities, fraud actors increase their ability to monetize compromised accounts.",
+        "name": "Account Manipulation: Change of Payment Details",
+        "description": "Fraud actors may alter stored payment or payout details in compromised customer, merchant, or vendor accounts to redirect non‑payroll funds to accounts or instruments they control. This can include changing bank information for vendor payments or customer refunds, updating stored cards or digital wallets used for billing, or adding new payment methods to enable unauthorized purchases and withdrawals, while leaving payroll processes untouched.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1008.008",
+        "name": "Account Manipulation: Enable Account Features",
+        "description": "Fraud actors may enable additional account features that legitimate account holders did not intend to activate. This may include increasing transaction limits, enabling international transactions, activating overdraft protection, or enabling other features that facilitate unauthorized financial activities. By expanding account capabilities, fraud actors increase their ability to monetize compromised accounts.",
+        "tactics": [
+            "FA0001",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1018",
         "name": "Account Takeover",
-        "description": "Fraud actors may gain unauthorized access and control of user accounts on financial platforms or services. This may include using stolen credentials, exploiting system vulnerabilities, conducting phishing attacks, or leveraging credential stuffing with previously breached credentials. Once access is obtained, fraud actors can modify account details, redirect payments, initiate unauthorized transactions, or extract sensitive customer data for further fraud operations.",
+        "description": "Fraud actors may gain unauthorized access and control of a customer’s bank or payment account on a financial platform or service. This typically involves compromising the account used to hold and move funds—such as online banking, card‑issuing, or digital wallet accounts—rather than general user or application accounts covered under Compromise Accounts.\n\nFraud actors may achieve bank account takeover by using stolen credentials, exploiting system vulnerabilities, conducting phishing attacks, bypassing MFA, or leveraging credential stuffing with previously breached credentials. Once access is obtained, they can change contact and security details, add or modify payees, redirect deposits or payouts, initiate unauthorized transfers and card‑not‑present transactions, or extract sensitive financial data that supports additional fraud against the customer or institution.",
         "tactics": [
             "TA0001"
         ],
@@ -333,7 +307,7 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1018.001",
@@ -345,19 +319,19 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1018.002",
         "name": "Account Takeover: Exposed Login Credential",
-        "description": "Fraudsters may gain control of accounts by using exposed login credentials, such as usernames and passwords leaked or stolen from other sources. Using these credentials, they authenticate directly to payment or account portals and assume the identity of the legitimate user, often without triggering additional verification if passwords are reused or multifactor controls are weak.\n\nLogin credentials can be obtained via large‑scale data breaches, credential‑stuffing lists, phishing campaigns, keylogging malware, or password spraying against common combinations. After gaining access, fraudsters may change routing details or payout instructions, initiate withdrawals or refunds, view and exfiltrate sensitive customer data, adjust billing or invoicing settings to redirect future payments, or use the compromised account as infrastructure for additional fraud schemes.",
+        "description": "Fraudsters may gain control of accounts by using exposed login credentials, such as usernames and passwords leaked or stolen from other sources. Using these credentials, they authenticate directly to payment or account portals and assume the identity of the legitimate user, often without triggering additional verification if passwords are reused or multifactor controls are weak.\n\nLogin credentials can be obtained via large‑scale data breaches, credential‑stuffing lists, phishing campaigns, or keylogging malware. After gaining access, fraudsters may change routing details or payout instructions, initiate withdrawals or refunds, view and exfiltrate sensitive customer data, adjust billing or invoicing settings to redirect future payments, or use the compromised account as infrastructure for additional fraud schemes.",
         "tactics": [
             "TA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1018.003",
@@ -369,31 +343,19 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1020",
-        "name": "Account Transfer",
-        "description": "Fraud actors may transfer funds or assets from compromised accounts without authorization. This typically involves using legitimate transfer mechanisms after gaining unauthorized account access through stolen credentials, social engineering, or technical exploits. Fraud actors may transfer funds to accounts under their control or to intermediary accounts used for money laundering operations.",
-        "tactics": [
-            "TA0002"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1650",
         "name": "Acquire Access",
-        "description": "Fraud actors may acquire unauthorized access to systems, networks, or accounts to facilitate fraud operations. This encompasses various methods including exploitation of vulnerabilities, use of stolen credentials, social engineering, or leveraging compromised infrastructure. Once access is obtained, fraud actors can conduct reconnaissance, establish persistence, or directly execute fraud activities such as data theft or unauthorized transactions.",
+        "description": "Fraud actors may purchase or otherwise obtain existing access to organizations, accounts, or infrastructure instead of gaining access themselves. This access is often sold through underground markets or broker networks and can include compromised bank and customer accounts, merchant accounts, remote access into back‑office systems, or logins to third‑party platforms that process payments or store customer data.\n\nPurchased access may take many forms, such as credentials and MFA artifacts for online banking or payment accounts, administrative access to merchant portals, remote access tools already deployed on internal systems, or API keys and tokens that allow programmatic control of financial services. Brokers may also pre‑install tooling or “loads” that buyers can use to deploy additional malware or automate fraud at scale.\n\nBy leveraging acquired access, fraud actors can bypass early intrusion steps and focus on high‑value fraud activity such as moving funds, altering account details, manipulating transactions, or harvesting additional identities and credentials. They may prioritize buying access to accounts or systems with high limits, weak monitoring, or privileged roles, and to organizations in sectors (for example, processors, fintechs, BPOs, or service providers) where a single foothold can be used to reach additional victims through trusted business relationships and shared platforms.",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1583",
@@ -409,7 +371,7 @@
         ],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1583.001",
@@ -421,19 +383,19 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1583.008",
         "name": "Acquire Infrastructure: Malvertising",
-        "description": "Fraud actors may create malicious advertisements that direct users to fraudulent sites equipped with credential harvesting or payment card skimming capabilities. This may include advertisements for fraudulent merchant sites or compromised legitimate merchant sites. Fraud actors often use stolen payment card data to fund advertising campaigns, creating a self-sustaining fraud operation where stolen credentials fund further credential theft activities.",
+        "description": "Fraud actors may create malicious advertisements that direct users to fraudulent sites equipped with credential harvesting or payment card skimming capabilities. This may include advertisements for fraudulent merchant sites, compromised legitimate merchant sites, and fradulent Whatsapp investment groups. Fraud actors often use stolen payment card data to fund advertising campaigns, creating a self-sustaining fraud operation where stolen credentials fund further credential theft activities.",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1583.003",
@@ -445,7 +407,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1023",
@@ -453,7 +415,8 @@
         "description": "Fraud actors may use malware or malicious browser components to intercept, monitor, or manipulate web browser activity and transactions. This may include injecting malicious code into browser processes, deploying malicious browser extensions, or using DLL injection to compromise browser operations. Adversary-in-the-browser techniques allow real-time interception and modification of web traffic, including credential capture and transaction manipulation.",
         "tactics": [
             "TA0001",
-            "FA0001"
+            "FA0001",
+            "TA0002"
         ],
         "subtechniques": [
             "F1023.001",
@@ -462,7 +425,7 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1023.001",
@@ -470,12 +433,13 @@
         "description": "Fraud actors may inject malicious dynamic-link libraries into legitimate browser processes to intercept and manipulate web traffic. Injected DLLs can capture credentials, modify displayed content, intercept form data, or manipulate financial transactions in real-time. This technique allows fraud actors to bypass browser security controls and operate within the context of trusted browser processes.",
         "tactics": [
             "TA0001",
-            "FA0001"
+            "FA0001",
+            "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1023.002",
@@ -483,12 +447,13 @@
         "description": "Fraud actors may deploy malicious browser extensions that appear legitimate but contain hidden functionality to steal credentials or intercept financial transactions. Malicious extensions can monitor web activity, capture form inputs including payment information, modify displayed content, or inject malicious scripts into visited web pages. Users may be deceived into installing these extensions through social engineering or by compromising legitimate extension distribution channels.",
         "tactics": [
             "TA0001",
-            "FA0001"
+            "FA0001",
+            "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1023.003",
@@ -496,12 +461,13 @@
         "description": "Fraud actors may inject malicious JavaScript into legitimate web pages to intercept credentials, capture payment information, or manipulate financial transactions. This may be accomplished through compromising web servers, exploiting cross-site scripting vulnerabilities, or using browser-based malware to modify page content before rendering. Injected JavaScript operates within the security context of the legitimate website, making detection more difficult.",
         "tactics": [
             "TA0001",
-            "FA0001"
+            "FA0001",
+            "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1557",
@@ -509,12 +475,13 @@
         "description": "Fraud actors may attempt to position themselves between two or more devices to support follow-on behaviors such as Network Sniffing, Transmitted Data Manipulation, or replay attacks (Exploitation for Credential Access). By abusing features of common network protocols that can determine the flow of network traffic (e.g. ARP, DNS, LLMNR, etc.), fraud actors may force a device to communicate through a fraudster-controlled system so they can collect information or perform additional actions.",
         "tactics": [
             "TA0001",
-            "FA0001"
+            "FA0001",
+            "TA0002"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1030",
@@ -529,7 +496,7 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1030.002",
@@ -541,7 +508,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1030.001",
@@ -553,14 +520,15 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1033",
         "name": "Bank Deposit",
         "description": "Fraud actors may exploit bank deposit mechanisms to introduce fraudulent funds, kite checks, or launder money. This may include depositing counterfeit checks, manipulating mobile deposit systems, exploiting deposit timing vulnerabilities, or using stolen instruments. Bank deposit fraud techniques exploit the delay between deposit and verification or clearing of deposited instruments.",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [
             "F1033.001",
@@ -570,98 +538,88 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1033.001",
         "name": "Bank Deposit: ATM Deposit",
         "description": "Fraud actors may exploit ATM deposit functions to introduce fraudulent checks or cash into accounts. This may include depositing counterfeit checks, altered checks, or stolen instruments through ATMs that process deposits with limited immediate verification. ATM deposits may provide longer processing times before fraud is detected compared to teller deposits.",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1033.002",
         "name": "Bank Deposit: Mobile Deposit",
         "description": "Fraud actors may exploit mobile deposit capabilities to deposit fraudulent checks or repeatedly deposit the same check. This may include depositing counterfeit checks, altered checks, or exploiting check processing delays to deposit the same check through multiple channels before fraud is detected. Mobile deposit systems may have reduced verification compared to in-person deposits.",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1033.003",
         "name": "Bank Deposit: Night Deposit",
         "description": "Fraud actors may exploit night deposit services to introduce fraudulent deposits with delayed verification. Night deposits are processed the following business day, providing additional time for fraud actors to exploit the float period before deposits are verified. This may include depositing counterfeit checks, stolen checks, or altered instruments.",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1033.004",
         "name": "Bank Deposit: Test Deposit",
         "description": "Fraud actors may abuse test deposit mechanisms used for account verification to gather account information or conduct micro-deposit fraud. Account linking services often send small test deposits that users must verify, and fraud actors may intercept these deposits to confirm account control or conduct account enumeration. This technique may also be used to identify active accounts for targeting.",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1038",
-        "name": "Bank Transfer",
+        "name": "Transfer of funds",
         "description": "Fraud actors may initiate unauthorized bank transfers to move funds from compromised accounts. This may include wire transfers, ACH transfers, peer-to-peer payment transfers, or other electronic fund transfer mechanisms. Fraud actors typically gain access through stolen credentials, compromised sessions, or by manipulating account holders through social engineering before initiating transfers to accounts under their control.",
         "tactics": [
-            "TA0002"
+            "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1039",
-        "name": "Betting and Gambling Platforms",
-        "description": "Fraud actors may exploit betting and gambling platforms to launder money, conduct bonus abuse, or commit transaction fraud. This may include creating accounts with stolen identities, exploiting bonus structures, conducting arbitrage fraud, or using gambling platforms to transfer and obfuscate the origin of illicit funds. Gambling platforms can provide mechanisms for moving funds while creating transaction complexity that hinders fraud detection.",
-        "tactics": [
-            "FA0002"
-        ],
-        "subtechniques": [
-            "F1039.001"
-        ],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1039.001",
-        "name": "Betting and Gambling Platforms: Deposit Funds for Betting",
-        "description": "Fraud actors may deposit stolen funds into gambling platform accounts to launder money or exploit platform features. This may include depositing funds from compromised payment methods, then withdrawing funds through different payment mechanisms to obscure the original source. Fraud actors may conduct minimal gambling activity to create the appearance of legitimate platform use.",
+        "name": "Exploitation of Gambling Platforms",
+        "description": "Fraud actors may exploit gambling platforms as a channel to convert illicit value into seemingly legitimate funds and to move or disguise the proceeds of fraud. They may create or use accounts, often opened with stolen or fabricated identities, to deposit illicit funds, place low‑risk or offsetting bets, and then withdraw balances as “winnings” to other accounts under their control. They may also exploit bonus structures, loyalty rewards, or promotional credits to generate additional value, or conduct arbitrage across multiple platforms to turn promotional or gaming flows into profit. \n\nBy routing funds through gambling platforms and generating complex patterns of bets, transfers, and payouts, actors aim to obscure the source of the money and make subsequent withdrawals appear consistent with normal gambling activity, supporting monetization and money‑laundering objectives rather than the initial execution of fraud.",
         "tactics": [
             "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1185",
         "name": "Browser Session Hijacking",
-        "description": "Fraud actors may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking techniques.[1]\n\nA specific example is when a fraud actor injects software into a browser that allows them to inherit cookies, HTTP sessions, and SSL client certificates of a user then use the browser as a way to pivot into an authenticated intranet.[2][3] Executing browser-based behaviors such as pivoting may require specific process permissions, such as SeDebugPrivilege and/or high-integrity/administrator rights\n\nAnother example involves pivoting browser traffic from the fraud actor's browser through the user's browser by setting up a proxy which will redirect web traffic. This does not alter the user's traffic in any way, and the proxy connection can be severed as soon as the browser is closed. The fraud actor assumes the security context of whichever browser process the proxy is injected into. Browsers typically create a new process for each tab that is opened and permissions and certificates are separated accordingly. With these permissions, a fraud actor could potentially browse to any resource on an intranet, such as SharePoint or webmail, that is accessible through the browser and which the browser has sufficient permissions. Browser pivoting may also bypass security provided by 2-factor authentication.[4]",
+        "description": "Fraud actors may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking techniques.\n\nA specific example is when a fraud actor injects software into a browser that allows them to inherit cookies, HTTP sessions, and SSL client certificates of a user then use the browser as a way to pivot into an authenticated intranet. Executing browser-based behaviors such as pivoting may require specific process permissions, such as SeDebugPrivilege and/or high-integrity/administrator rights\n\nAnother example involves pivoting browser traffic from the fraud actor's browser through the user's browser by setting up a proxy which will redirect web traffic. This does not alter the user's traffic in any way, and the proxy connection can be severed as soon as the browser is closed. The fraud actor assumes the security context of whichever browser process the proxy is injected into. Browsers typically create a new process for each tab that is opened and permissions and certificates are separated accordingly. With these permissions, a fraud actor could potentially browse to any resource on an intranet, such as SharePoint or webmail, that is accessible through the browser and which the browser has sufficient permissions. Browser pivoting may also bypass security provided by 2-factor authentication.",
         "tactics": [
             "TA0001",
             "FA0001"
@@ -669,7 +627,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1110",
@@ -686,7 +644,7 @@
         ],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1110.004",
@@ -698,7 +656,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1110.002",
@@ -710,7 +668,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1110.001",
@@ -722,7 +680,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1110.003",
@@ -734,31 +692,32 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1041",
         "name": "Buy Money Order",
-        "description": "Fraud actors may purchase money orders with stolen payment methods or fraudulent funds to convert illicit proceeds into more anonymous monetary instruments. Money orders can be cashed at various locations, are difficult to trace back to the purchaser, and can be used as payment instruments with reduced fraud detection compared to electronic payments. Fraud actors may use multiple small money orders to avoid transaction reporting thresholds.",
+        "description": "Fraud actors may purchase money orders with stolen payment methods or fraudulent funds to convert illicit proceeds into more anonymous monetary instruments. Money orders can be cashed at various locations, are difficult to trace back to the purchaser, and can be used as payment instruments with reduced fraud detection compared to electronic payments. ",
         "tactics": [
             "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1042",
         "name": "Card Dump Capture",
         "description": "Fraud actors may capture payment card magnetic stripe data, EMV chip data, or card details from various sources. This may include using skimming devices at point-of-sale terminals, ATMs, or fuel pumps, compromising payment processing systems, or conducting memory scraping attacks against POS systems. Captured card data can be used to create counterfeit cards, conduct card-not-present fraud, or be sold to other malicious fraud actors.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0043"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1043",
@@ -770,60 +729,60 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1093",
         "name": "Change Payroll Details",
-        "description": "Fraudsters may alter payroll settings so that salary or wage payments are redirected to accounts they control. This can include changing direct‑deposit account numbers, updating routing information, or modifying payee details within payroll or HR systems, enabling ongoing diversion of payroll funds away from the legitimate employee.\n",
+        "description": "Fraud actors may alter payroll or HR system settings so that an employee’s salary or wage payments are redirected to accounts they control. This typically involves changing direct‑deposit account and routing numbers, updating payee details, or modifying payroll profiles inside dedicated payroll/HR platforms, resulting in ongoing diversion of regular paycheck deposits away from the legitimate employee.\n",
         "tactics": [
             "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1049",
-        "name": "Charge Back Fraud",
-        "description": "Fraudsters or complicit consumers may intentionally dispute legitimate card purchases or payment transactions to obtain unwarranted credits or refunds from a financial institution. By falsely claiming that a transaction was unauthorized, fraudulent, or that goods or services were not received, they seek to reverse charges while retaining the benefit of the original purchase.",
+        "name": "Dispute Legitimate Transaction",
+        "description": "Fraud Actors or complicit consumers may intentionally dispute legitimate card purchases or payment transactions to obtain unwarranted credits or refunds from a financial institution. By falsely claiming that a transaction was unauthorized, fraudulent, or that goods or services were not received, they seek to reverse charges while retaining the benefit of the original purchase.",
         "tactics": [
             "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1050",
         "name": "Check Fraud",
-        "description": "Fraudsters may illicitly obtain funds by abusing paper or digital checks tied to existing accounts. This can involve stealing checks, forging signatures or endorsements, issuing counterfeit or unauthorized checks, altering payee or amount details, or “washing” and reusing legitimate checks, all with the goal of cashing out or redirecting funds without the account holder’s consent.",
+        "description": "Fraud Actors may illicitly obtain funds by abusing paper or digital checks tied to existing accounts. This can involve stealing checks, forging signatures or endorsements, issuing counterfeit or unauthorized checks, altering payee or amount details, or “washing” and reusing legitimate checks, all with the goal of cashing out or redirecting funds without the account holder’s consent.",
         "tactics": [
             "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1051",
         "name": "Churning",
-        "description": "Churning fraud occurs when fraudsters repeatedly use stolen payment card information to conduct transactions until the card limit is reached or the account balance is depleted, often before detection or card deactivation.\n\nFraudsters typically begin with a low‑value test transaction to confirm that the card details are valid and active, then rapidly execute a series of higher‑value transactions. These transactions often involve card‑not‑present channels such as eCommerce, digital goods and services, or purchases that can be quickly resold, including gift cards, prepaid instruments, or other easily liquidated assets.\n\nThe primary objectives of churning fraud are to quickly monetize stolen card data before it is revoked, acquire goods or assets that can be anonymized or converted into cash with minimal traceability, and maximize financial gain from each compromised card before fraud controls or victims detect the activity.",
+        "description": "Churning fraud occurs when fraud actors repeatedly use stolen payment card information to conduct transactions until the card limit is reached or the account balance is depleted, often before detection or card deactivation.\n\nFraud actors typically begin with a low‑value test transaction to confirm that the card details are valid and active, then rapidly execute a series of higher‑value transactions. These transactions often involve card‑not‑present channels such as eCommerce, digital goods and services, or purchases that can be quickly resold, including gift cards, prepaid instruments, or other easily liquidated assets.\n\nThe primary objectives of churning fraud are to quickly monetize stolen card data before it is revoked, acquire goods or assets that can be anonymized or converted into cash with minimal traceability, and maximize financial gain from each compromised card before fraud controls or victims detect the activity.",
         "tactics": [
             "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1586",
         "name": "Compromise Accounts",
-        "description": "Fraud actors may compromise accounts with services that can be leveraged during fraud operations. This may include social media accounts, email accounts, cloud service accounts, or corporate accounts. Compromised accounts provide fraud actors with legitimate-appearing identities for conducting social engineering, distributing malicious content, or accessing services and data associated with the compromised account.",
+        "description": "Fraud Actors may compromise accounts with services that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating accounts (i.e. Establish Accounts), adversaries may compromise existing accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.\n\nA variety of methods exist for compromising accounts, such as gathering credentials via Phishing for Information, purchasing credentials from third-party sites, brute forcing credentials (ex: password reuse from breach credential dumps), or paying employees, suppliers or business partners for access to credentials.Prior to compromising accounts, adversaries may conduct Reconnaissance to inform decisions about which accounts to compromise to further their operation.\n\nPersonas may exist on a single site or across multiple sites (ex: Facebook, LinkedIn, Twitter, Google, etc.). Compromised accounts may require additional development, this could include filling out or modifying profile information, further developing social networks, or incorporating photos.\n\nFraud actors may directly leverage compromised email accounts for Phishing for Information or Phishing.",
         "tactics": [
             "TA0042"
         ],
@@ -835,31 +794,31 @@
         ],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1586.003",
         "name": "Compromise Accounts: Cloud Accounts",
-        "description": "Fraud actors may compromise cloud service accounts to access sensitive data, pivot to connected resources, or leverage cloud services for malicious purposes. Compromised cloud accounts may provide access to stored data, configuration information, or connected services and applications. Fraud actors may use compromised cloud accounts to host malicious content, conduct cryptomining operations, or access resources in connected cloud environments.",
+        "description": "Fraud Actors may compromise cloud accounts that can be used during targeting. Adversaries can use compromised cloud accounts to further their operations, including leveraging cloud storage services such as Dropbox, Microsoft OneDrive, or AWS S3 buckets for Exfiltration to Cloud Storage or to Upload Tools. Cloud accounts can also be used in the acquisition of infrastructure, such as Virtual Private Servers or Serverless infrastructure. Additionally, cloud-based messaging services such as Twilio, SendGrid, AWS End User Messaging, AWS SNS (Simple Notification Service), or AWS SES (Simple Email Service) may be leveraged for spam or Phishing. Compromising cloud accounts may allow adversaries to develop sophisticated capabilities without managing their own servers.\n\nA variety of methods exist for compromising cloud accounts, such as gathering credentials via Phishing for Information, purchasing credentials from third-party sites, conducting Password Spraying attacks, or attempting to Steal Application Access Tokens.[4] Prior to compromising cloud accounts, adversaries may conduct Reconnaissance to inform decisions about which accounts to compromise to further their operation. In some cases, adversaries may target privileged service provider accounts with the intent of leveraging a Trusted Relationship between service providers and their customers.\n",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1586.004",
         "name": "Compromise Accounts: Corporate Accounts",
-        "description": "Fraud actors may compromise corporate accounts to gain access to business systems, conduct business email compromise attacks, or access sensitive corporate information. Compromised corporate accounts provide fraud actors with legitimate credentials for accessing internal systems, customer data, financial information, or other protected corporate resources. These accounts may also be used to authorize fraudulent transactions or initiate unauthorized changes to business processes.",
+        "description": "Fraud actors may compromise corporate accounts that can be used during targeting and follow-on fraud operations. Compromised corporate accounts provide fraud actors with legitimate access to business systems, internal applications, and communication channels that can be leveraged to conduct business email compromise attacks, initiate unauthorized transactions, or modify business processes for financial gain.\n\nA variety of methods exist for compromising corporate accounts, such as gathering credentials via Phishing for Information, purchasing credentials from third-party sites, brute forcing credentials (for example, password reuse from breach credential dumps), or paying employees, suppliers, or business partners for access to credentials. Prior to compromising corporate accounts, fraud actors may conduct Reconnaissance to identify high-value employees, roles, or business units whose access can provide entry to sensitive data, financial systems, or approval workflows.\n\nOnce compromised, corporate accounts may be used to access internal systems, customer records, financial information, or other protected corporate resources, as well as to authorize fraudulent payments or make unauthorized changes to vendor, payroll, or billing details. Fraud actors may also further develop the compromised corporate identity, such as by maintaining normal email behavior or updating profiles, to preserve trust with partners and customers while they execute and expand their fraud schemes.",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1586.002",
@@ -871,19 +830,19 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1586.001",
         "name": "Compromise Accounts: Social Media Accounts",
-        "description": "Fraud actors may compromise social media accounts to conduct social engineering attacks, distribute malicious content, or impersonate legitimate users. Compromised social media accounts can be used to send convincing phishing messages to the victim's contacts, promote fraudulent schemes, gather intelligence about targets and their relationships, or damage the reputation of the account owner.",
+        "description": "Adversaries may compromise social media accounts that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating social media profiles (i.e. Social Media Accounts), adversaries may compromise existing social media accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.\n\nA variety of methods exist for compromising social media accounts, such as gathering credentials via Phishing for Information, purchasing credentials from third-party sites, or by brute forcing credentials (ex: password reuse from breach credential dumps). Prior to compromising social media accounts, adversaries may conduct Reconnaissance to inform decisions about which accounts to compromise to further their operation.\n\nPersonas may exist on a single site or across multiple sites (ex: Facebook, LinkedIn, Twitter, etc.). Compromised social media accounts may require additional development, this could include filling out or modifying profile information, further developing social networks, or incorporating photos.\n\nAdversaries can use a compromised social media profile to create new, or hijack existing, connections to targets of interest. These connections may be direct or may include trying to connect through others. Compromised profiles may be leveraged during other phases of the adversary lifecycle, such as during Initial Access (ex: Spearphishing via Service).\n",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1057",
@@ -895,7 +854,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1047",
@@ -907,7 +866,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1059",
@@ -919,7 +878,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1060",
@@ -934,19 +893,19 @@
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1060.001",
         "name": "Create Fake Materials: Fake Documents",
-        "description": "Fraud actors may forge documents and supporting artifacts to falsify identities, deceive authorities, or fabricate evidence in support of fraud operations. This can include creating or altering identification cards, passports, financial statements, or shipping-related evidence such as tracking numbers to bypass verification processes, gain access to restricted services, or legitimize fraudulent transactions. Commonly faked documents include bank statements, paychecks, government-issued IDs, Social Security cards, and insurance policies, which may be either fully counterfeit or subtly modified to evade detection.",
+        "description": "Fraud actors may forge documents and supporting artifacts to falsify identities, deceive authorities, or fabricate evidence in support of fraud operations. This can include creating or altering identification cards, passports, financial statements, or shipping-related evidence such as tracking numbers to bypass verification processes, gain access to restricted services, or legitimize fraudulent transactions. Commonly faked documents include bank statements, paychecks, government-issued IDs, Social Security cards, insurance policies, invoices, business licenses, which may be either fully counterfeit or subtly modified to evade detection.",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1060.002",
@@ -958,7 +917,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1555",
@@ -974,7 +933,7 @@
         ],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1555.003",
@@ -986,7 +945,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1555.005",
@@ -998,7 +957,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1063",
@@ -1010,7 +969,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1064",
@@ -1022,7 +981,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1189",
@@ -1034,7 +993,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1667",
@@ -1046,19 +1005,19 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1672",
         "name": "Email Spoofing",
-        "description": "Technique used by fraud actors to misrepresent the sender's email address, making it seem as if the email originates from a trusted or reliable source. The intent is to deceive the recipient (victim) into thinking the message is genuine, prompting them to click on malicious links, download and execute attachments with malware, share confidential information or execute fraudulent activity. This technique is frequently utilized in phishing scams to trick individuals into becoming victims of fraud or malware.",
+        "description": "Fraud actors may forge or misrepresent the sender’s email address and related headers so messages appear to come from a trusted or recognizable source, such as a bank, employer, vendor, or colleague. The goal is to make the email look legitimate enough that recipients will trust the content and act on it.\n\nSpoofed emails are commonly used in phishing and fraud schemes to convince victims to click links, open attachments, share credentials or other sensitive information, change payment details, or approve fraudulent transactions. By imitating known domains, display names, or reply‑to addresses - and sometimes bypassing basic email authentication controls - email spoofing increases the likelihood that fraudulent messages evade suspicion and technical defenses.",
         "tactics": [
-            "TA0001"
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1585",
@@ -1070,7 +1029,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1066",
@@ -1082,31 +1041,71 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1048",
         "name": "Fradulent Purchasing",
         "description": "Fraudulent purchasing occurs when fraud actors use stolen payment card data, compromised or fraudulent accounts, or money laundering channels to buy goods or services. These purchases are used to convert illicit funds into seemingly legitimate assets, avoid scrutiny by financial institutions, or cash out stolen value into clean money.\n\nFraud actors may carry out fraudulent purchases using stolen credit card details or by abusing compromised financial accounts on e‑commerce platforms, payment processors (for example, gateway providers), or brick‑and‑mortar merchants with online payment capabilities. They may prioritize high‑value goods that can be quickly resold, or convert funds into cryptocurrencies or gift cards that provide liquid, harder‑to‑trace value.\n\nExamples of fraudulent purchasing include: buying luxury items with stolen card information and reselling them for cash; ordering goods or services to drop addresses where they or associates can safely retrieve the items; and using illegitimately obtained funds to purchase gift cards or digital assets that have anonymous resale value or can be redeemed without exposing the buyer’s identity.\n\nThe primary objectives of fraudulent purchasing are to liquidate stolen financial assets before detection and account shutdown, launder money by transforming illicit funds into physical goods that can be resold for “clean” proceeds, and obtain goods or services for personal use or profit without any intention of legitimate payment.\n",
         "tactics": [
-            "TA0002"
+            "TA0002",
+            "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1067",
-        "name": "Gather Victim Information",
-        "description": "Fraud actors may gather information about victims to support targeted fraud operations or social engineering attacks. This may include collecting personal information, financial information, relationship information, or behavioral information from public sources, data breaches, social media, or social engineering. Gathered information enables more convincing and targeted fraud attacks.",
+        "name": "Gather Customer Information",
+        "description": "Fraud actors may gather information about existing or prospective customers to support targeted fraud operations and social‑engineering attacks against financial institutions, merchants, or platforms. This can include collecting customer identity details (such as names, addresses, dates of birth, government identifiers), account and card data, contact information, relationship data (for example, employers, family members, or business associations), and behavioral or preference information (such as typical spending patterns or channel usage).\n\nCustomer information may be sourced from data breaches, underground markets, public records, social media, third‑party data brokers, compromised internal systems, or direct social‑engineering of customers and staff. Aggregated customer data enables more convincing impersonation, tailored fraud scenarios, and higher‑success attacks such as account takeover, new‑account fraud, mule recruitment, and highly targeted social‑engineering campaigns against both customers and the institutions that serve them.\n",
         "tactics": [
             "TA0043"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "T1593",
+        "name": "Search Open Websites/Domains",
+        "description": "Fraud actors may search freely available online sources for information about customers or organizations that can be used to plan and target fraud. This can include browsing social media profiles, public records, company websites, data‑leak forums, and other open sources to collect details such as contact information, roles, affiliations, and recent activity.\n\nThey may tailor where they look based on the type of information needed—for example, using professional networks to identify finance staff, public procurement sites to learn about vendors and contracts, or social platforms to understand personal relationships and behaviors. Information gathered from open sources can then be used to craft convincing social‑engineering pretexts, identify high‑value accounts or employees, and enable follow‑on techniques such as phishing for information, establishing or compromising accounts, or attempting direct access to exposed services.",
+        "tactics": [
+            "TA0043"
+        ],
+        "subtechniques": [
+            "T1593.001",
+            "T1593.002"
+        ],
+        "isAttack": true,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "T1593.001",
+        "name": "Search Open Websites/Domains: Social Media",
+        "description": "Fraud actors may search social media platforms for information about customers or organizations that can be used to plan and target fraud. Public posts, profiles, and company pages can reveal details such as roles and seniority, contact information, locations, recent business events, and personal interests or relationships that make social‑engineering attempts more convincing.\n\nThey may passively harvest data from multiple social networks or professional platforms, then use that information to tailor phishing messages, impersonate trusted contacts, or identify high‑value employees and accounts. Fraud actors may also create fake profiles, pages, or groups that mimic real people or organizations in order to build rapport and lure targets into disclosing additional details, which can then be used to support account takeover, new‑account fraud, or other targeted fraud operations.",
+        "tactics": [
+            "TA0043"
+        ],
+        "subtechniques": [],
+        "isAttack": true,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "T1593.002",
+        "name": "Search Open Websites/Domains: Search Engines",
+        "description": "Fraud actors may use search engines to collect information about customers, employees, and organizations that can be leveraged for fraud. General queries can surface public details such as contact information, exposed documents, cached pages, and references to accounts or services tied to a target.\n\nThey may also craft specialized queries (for example, using advanced operators or searching by file type) to locate accidentally exposed data, such as configuration files, credential lists, internal documents, or screenshots containing sensitive information. Insights gathered from search results can then be used to refine social‑engineering pretexts, identify weakly protected services, support account takeover or new‑account fraud, and guide further reconnaissance against specific people, systems, or business processes.",
+        "tactics": [
+            "TA0043"
+        ],
+        "subtechniques": [],
+        "isAttack": true,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1068",
@@ -1118,19 +1117,19 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1069",
-        "name": "Identity Theft for Merchant Accounts",
-        "description": "Fraud actors may use stolen identity information to establish fraudulent merchant accounts with payment processors. Fraudulent merchant accounts allow Fraud actors to process payments for non-existent goods or services, conduct money laundering operations, or establish infrastructure for payment card testing. Identity theft for merchant accounts provides fraud actors with legitimate-appearing payment processing capabilities.",
+        "name": "Create Fraudulent Merchant Account",
+        "description": "Fraud actors may create fraudulent merchant accounts with payment processors or acquiring banks to obtain legitimate‑appearing payment acceptance capabilities. These accounts are often opened using stolen or fabricated identity information, shell businesses, or front companies to bypass onboarding and KYC controls.\n\nOnce established, fraudulent merchant accounts allow fraud actors to process payments for non‑existent or sham goods and services, run payment card testing at scale, or move and cycle funds as part of broader fraud schemes. By mimicking the behavior and documentation of real merchants, these accounts provide a controlled point for receiving card payments and disbursing proceeds, while making downstream transactions appear to originate from a legitimate business.",
         "tactics": [
             "TA0042"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1070",
@@ -1143,7 +1142,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1071",
@@ -1156,7 +1155,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1070",
@@ -1168,7 +1167,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1072",
@@ -1180,11 +1179,11 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1073",
-        "name": "IVR Discovery",
+        "name": "Interactive Voice Response Mapping",
         "description": "Fraud actors may interact with interactive voice response systems to understand call flows, authentication mechanisms, or available functions. By mapping IVR systems, fraud actors can identify opportunities for fraud, understand authentication requirements, or develop strategies for social engineering attacks against customer service representatives. IVR discovery may be automated or conducted manually to gather intelligence for fraud operations.",
         "tactics": [
             "TA0043"
@@ -1192,19 +1191,20 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1074",
         "name": "Mail Theft",
         "description": "Fraud actors may steal physical mail to obtain financial information, payment cards, checks, or identity documents. Mail theft provides access to statements, new payment cards, checks, tax documents, or other financial materials that can be used for fraud. Stolen mail may be intercepted from mailboxes, during postal delivery, or from mail processing facilities.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0043"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1111",
@@ -1216,31 +1216,32 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1621",
         "name": "Multi-Factor Authentication Request Generation",
         "description": "Fraud actors may generate multiple MFA requests to overwhelm or pressure victims into approving fraudulent authentication attempts. This technique, often called MFA fatigue, involves repeatedly generating authentication requests until the victim approves access to stop the notifications. Fraud actors rely on user frustration, confusion, or mistakes to gain approval for unauthorized access attempts.",
         "tactics": [
-            "TA0005"
+            "TA0001"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1089",
         "name": "New Vendor Setup",
-        "description": "Fraud actors pretend to be existing or new vendors to trick organizations into paying fraudulent accounts. New vendor setup can be done through fake invoices, requests for banking information changes, or urgent payment requests.",
+        "description": "Fraud actors may pretend to be a new vendor or supplier to trick organizations into directing payments to fraudulent accounts. New vendor setup can be initiated through fake invoices, requests for adding a new payee, banking information change forms, or urgent payment requests that pressure staff to bypass normal verification steps. Once the bogus vendor profile is established in accounts payable or procurement systems, fraud actors can submit additional invoices, alter payment details, or reroute legitimate payments intended for real vendors to accounts they control.\n",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1090",
@@ -1252,19 +1253,21 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1077",
         "name": "Official Phone Number Spoofing",
         "description": "Fraud actors manipulate caller ID information to display a legitimate phone number when communicating with victims, impersonating customer service hotlines, law enforcement, government agencies, financial institutions, or other trusted entities. This technique can lead to various types of illicit activities, such as phishing, where victims are tricked into entering sensitive information or performing unauthorized activities under the guise of official messages.",
         "tactics": [
-            "TA0005"
+            "TA0005",
+            "TA0043",
+            "TA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1091",
@@ -1276,7 +1279,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1092",
@@ -1288,69 +1291,56 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "T1660",
+        "name": "Phishing",
+        "description": "Fraud Actors may send malicious content to users in order to gain access to their mobile devices. All forms of phishing are electronically delivered social engineering. Adversaries can conduct both non-targeted phishing, such as in mass malware spam campaigns, as well as more targeted phishing tailored for a specific individual, company, or industry, known as \"spearphishing.\" Phishing often involves social engineering techniques, such as posing as a trusted source, as well as evasion techniques, such as removing or manipulating emails or metadata/headers from compromised accounts being abused to send messages.\n\nMobile phishing may take various forms. For example, adversaries may send emails containing malicious attachments or links, typically to deliver and then execute malicious code on victim devices. Phishing may also be conducted via third-party services, like social media platforms. Adversaries may also impersonate executives of organizations to persuade victims into performing some action on their behalf. For example, adversaries will often use social engineering techniques in text messages to trick the victims into acting quickly, which leads to adversaries obtaining credentials and other information.\n\nMobile devices have sensors and radios that allow adversaries to execute phishing attempts over several different vectors, such as:\n\n- SMS messages: Adversaries may send SMS messages (known as \"smishing\") from compromised devices to potential targets to convince the target to, for example, install malware, navigate to a specific website, or enable certain insecure configurations on their device.\n- Quick Response (QR) Codes: Adversaries may use QR codes (known as \"quishing\") to redirect users to a phishing website. For example, an adversary could replace a legitimate public QR Code with one that leads to a different destination, such as a phishing website. A malicious QR code could also be delivered via other means, such as SMS or email. In the latter case, an adversary could utilize a malicious QR code in an email to pivot from the user’s desktop computer to their mobile device.\n- Phone Calls: Adversaries may call victims (known as \"vishing\") to persuade them to perform an action, such as providing login credentials or navigating to a malicious website. This could also be used as a technique to perform the initial access on a mobile device, but then pivot to a computer/other network by having the victim perform an action on a desktop computer.",
+        "tactics": [
+            "TA0001"
+        ],
+        "subtechniques": [],
+        "isAttack": true,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1598",
         "name": "Phishing for Information",
-        "description": "Fraud actors may send fraudulent communications designed to deceive victims into providing sensitive information, credentials, or payment information. Phishing may be conducted through email, SMS smishing, voice calls vishing, QR codes quishing, or other communication channels. Phishing messages typically impersonate trusted entities and create urgency to pressure victims into immediate action without careful consideration.",
-        "tactics": [
-            "TA0043"
-        ],
-        "subtechniques": [
-            "T1598.004"
-        ],
-        "isAttack": true,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "T1598.004",
-        "name": "Phishing for Information: Spearphishing Voice",
-        "description": "Fraud actors may use voice communications to elicit sensitive information that can be used during targeting. Spearphishing for information is an attempt to trick targets into divulging information, frequently credentials or other actionable information. Spearphishing for information frequently involves social engineering techniques, such as posing as a source with a reason to collect information (ex: Impersonation) and/or creating a sense of urgency or alarm for the recipient.\n\nAll forms of phishing are electronically delivered social engineering. In this scenario, fraud actors use phone calls to elicit sensitive information from victims. Known as voice phishing (or \"vishing\"), these communications can be manually executed by fraud actors, hired call centers, or even automated via robocalls. Voice phishers may spoof their phone number while also posing as a trusted entity, such as a business partner or technical support staff.\n\nVictims may also receive phishing messages that direct them to call a phone number (\"callback phishing\") where the fraud actor attempts to collect confidential information.\n\nFraud actors may also use information from previous reconnaissance efforts to tailor pretexts to be even more persuasive and believable for the victim.\n",
+        "description": "Fraud actors may send phishing messages across multiple channels - email, SMS (smishing), QR codes (quishing), and voice calls (vishing) - to elicit sensitive information for targeting and follow‑on fraud. Phishing for information focuses on tricking targets into revealing credentials, one‑time passcodes, or other actionable data, and is distinct from Phishing, which primarily aims to get the user to execute malicious code or payloads.\n\nThese are all electronically delivered social‑engineering attacks. Email phishing and spearphishing may target specific people or organizations, while broad campaigns support mass credential harvesting. Smishing uses deceptive texts, quishing uses QR codes that lead to fraudulent sites, and vishing relies on calls or voicemail to socially engineer victims, sometimes by luring them to dial a controlled phone number.\n\nPhishing for information typically uses convincing pretexts—such as posing as a bank, payment provider, help desk, or vendor—and often leverages urgency like account lockouts or security alerts. Attackers combine email spoofing, look‑alike domains, shortened links in SMS, and caller‑ID spoofing in vishing to appear legitimate, and may hide or manipulate messages, headers, sender IDs, or phone numbers to bypass security tools and reduce the chance of detection across email, SMS, QR, and voice channels.\n",
         "tactics": [
             "TA0043"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1082",
         "name": "PIN-code Peeking",
         "description": "Fraud actors observe or obtain personal identification numbers (PINs). Use of hidden cameras, skimming devices, or other covert methods to capture PINs at ATMs, point-of-sale terminals, or other PIN-entry locations.\n\nObtained PIN numbers used with other stolen information to compromise the victim's accounts or conduct fraudulent transactions.",
         "tactics": [
-            "FA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1084",
-        "name": "QR Code Poisoning",
-        "description": "A social engineering attack vector disguised within a QR code, typically a \"Login with QR Code\" feature that presents a secure way to log into account, but enables fraud actors to highjack all applications relying on the compromised credentials.",
-        "tactics": [
             "TA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1085",
         "name": "Reactivate Account",
-        "description": "Fraud actors target inactive accounts because they are less likely to be monitored closely by the account holder or financial institution. They may attempt to reactivate the account through social engineering or by exploiting loopholes in the bank's security procedures. Once reactivated, they can use the account to launder money, deposit counterfeit checks, or engage in other fraudulent activities, taking advantage of the perceived lack of scrutiny on inactive accounts.",
+        "description": "Fraud actors target inactive bank accounts because they are less likely to be monitored closely by the account holder or financial institution. They may attempt to reactivate the bank account through social engineering or by exploiting loopholes in the bank's security procedures. Once reactivated, they can use the account to launder money, deposit counterfeit checks, or engage in other fraudulent activities, taking advantage of the perceived lack of scrutiny on inactive accounts.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "TA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1219",
@@ -1362,19 +1352,19 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1094",
         "name": "Reversal of Transaction",
-        "description": "Fraud actors exploit the Reversal of Operation by initially conducting a legitimate transaction, such as purchasing goods or services. After the transaction is complete and the funds have been transferred, they then reverse the transaction, claiming it was unauthorized or fraudulent. This technique mya allow them to obtain the goods or services without actually paying for them, effectively evading detection and potentially causing financial loss to the legitimate party involved.",
+        "description": "Fraud actors exploit the Reversal of Operation by initially conducting a legitimate transaction, such as purchasing goods or services. After the transaction is complete and the funds have been transferred, they then reverse the transaction, claiming it was unauthorized or fraudulent. This technique may allow them to obtain the goods or services without actually paying for them, effectively evading detection and potentially causing financial loss to the legitimate party involved.",
         "tactics": [
             "TA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1095",
@@ -1386,7 +1376,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1113",
@@ -1398,7 +1388,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1451",
@@ -1410,24 +1400,12 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
-    },
-    {
-        "id": "F1086",
-        "name": "Social Engineering",
-        "description": "Fraud actors may manipulate individuals into divulging sensitive information, authorizing transactions, or taking actions that compromise security. Social engineering exploits human psychology, trust, authority, fear, or urgency rather than technical vulnerabilities. Social engineering may be conducted through various communication channels and is often combined with other techniques to establish credibility or create pressure for immediate action.",
-        "tactics": [
-            "TA0001"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1608",
         "name": "Stage Capabilities",
-        "description": "Fraud actors may upload malicious content, establish fraud infrastructure, or position resources for delivery to victims. This may include hosting phishing websites, establishing command and control infrastructure, uploading malicious applications to app stores, or creating social media profiles for fraud operations. Staging activities prepare the technical infrastructure needed to execute fraud operations.",
+        "description": "Fraud actors may upload, install, or otherwise set up capabilities and infrastructure that will be used in later stages of fraud operations. This can include staging tools and content they have developed or acquired on infrastructure they control, such as purchased or compromised servers, cloud platforms, or web services, as well as on third‑party platforms like app stores, code‑hosting sites, or social networks.\n\nStaging activities may involve hosting phishing or impersonation websites, configuring command‑and‑control or automation infrastructure, uploading malicious applications or scripts, or creating and populating social media profiles and other online personas for fraud operations. Fraud actors may also stage payloads, tooling, and supporting web resources used to deliver links or files in phishing campaigns, to enable later tool transfer into victim environments, or to support encrypted communications and other operational needs. Collectively, these actions position the technical resources required to execute and sustain fraud at scale.",
         "tactics": [
             "TA0042"
         ],
@@ -1436,7 +1414,7 @@
         ],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1608.006",
@@ -1448,32 +1426,32 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1539",
         "name": "Steal Web Session Cookie",
         "description": "A fraud actor may steal web application or service session cookies and use them to gain access to web applications or Internet services as an authenticated user without needing credentials. Web applications and services often use session cookies as an authentication token after a user has authenticated to a website.\n\nCookies are often valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk, in the process memory of the browser, and in network traffic to remote systems. Additionally, other applications on the targets machine might store sensitive authentication cookies in memory (e.g. apps which authenticate to cloud services). Session cookies can be used to bypasses some multi-factor authentication protocols.\n\nThere are several examples of malware targeting cookies from web browsers on the local system. Fraud actors may also steal cookies by injecting malicious JavaScript content into websites or relying on User Execution by tricking victims into running malicious JavaScript in their browser.\n\nThere are also open source frameworks such as Evilginx2 and Muraena that can gather session cookies through a malicious proxy (e.g., Adversary-in-the-Middle) that can be set up by a fraud actor and used in phishing campaigns.\n\nAfter a fraud actor acquires a valid cookie, they can then perform a Web Session Cookie technique to login to the corresponding web application.",
         "tactics": [
-            "TA0043",
-            "FA0001"
+            "FA0001",
+            "TA0001"
         ],
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1087",
         "name": "Structuring",
-        "description": "Parceling large transactions, locations or other account activity to subvert fraud detection and CTR/SAR reporting. Fraud actors will use structuring to keep their fraudulent activity from detection or alerts.",
+        "description": "Fraud actors may structure transactions or account activity by breaking up large movements of funds, spreading activity across multiple accounts, or using different locations and channels to avoid triggering fraud controls and regulatory reporting thresholds. By parcelling deposits, withdrawals, or transfers into smaller amounts that fall below Currency Transaction Report (CTR) or Suspicious Activity Report (SAR) triggers, or by distributing activity over time and across institutions, they aim to keep illicit flows appearing routine and prevent automated systems or investigators from detecting the underlying money laundering or fraud.",
         "tactics": [
-            "FA0002"
+            "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1195",
@@ -1485,19 +1463,19 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1096",
-        "name": "Testing Payment Thresholds",
-        "description": "Fraud actors conduct small-scale transactions to identify vulnerable accounts with sufficient funds. By staying within the payment thresholds, they avoid raising suspicion while accumulating information. This approach enables them to strategically target accounts with significant balances for larger-scale fraudulent activities.",
+        "name": "Test Payment Thresholds",
+        "description": "Fraud actors may perform small, low‑value “test” transactions to verify that stolen or compromised payment instruments can be successfully used before attempting larger fraud. In these tests, they confirm details such as whether the card or account is open, has not been blocked, passes authorization checks (for example, AVS/CVV or 3‑D Secure), and can complete online or card‑not‑present purchases without triggering strong controls. Successful tests indicate that a card or account is likely to support higher‑value charges or cash‑out attempts, allowing fraud actors to prioritize the most viable instruments for large‑scale fraudulent transactions or broader card‑testing campaigns.\n",
         "tactics": [
             "FA0001"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1555",
@@ -1509,7 +1487,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "T1555.002",
@@ -1521,50 +1499,51 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1097",
         "name": "Use Virtual Cards",
-        "description": "Fraud actors use virtual cards for money laundering because they provide anonymity, flexibility, and ease of use in online transactions. Virtual cards are often obtained with less stringent identity verification, making it easier to conceal illicit financial activities. Their disposability allows fraud actors to use them for a series of transactions and then discard them, reducing traceability.\nThese cards are beneficial for cross-border transactions, enabling fraud actors to move funds quickly across jurisdictions, and complicating efforts to track money flows. Virtual cards can also be employed to create complex layers of transactions, often used in \"layering\" within money laundering schemes to obscure the origin of funds. This flexibility makes virtual cards a convenient tool for converting illicit funds into legitimate assets without raising suspicion.",
+        "description": "Fraud actors use virtual cards to facilitate online fraud because they provide flexibility, anonymity, and rapid issuance for card‑not‑present transactions. Virtual cards are often obtained with weaker identity verification or sourced from compromised accounts, making them attractive instruments for testing stolen card data, funding mule accounts, or executing rapid series of purchases and refunds. Their disposability allows fraud actors to run multiple transactions, dispute or reverse charges, and then discard the card, reducing the risk that a single compromised instrument links together the broader scheme.\n\nVirtual cards are frequently employed in promotion abuse, synthetic identity fraud, and account takeover scenarios, for example, to cash out loyalty points, rotate through trial or subscription offers, or route payments through intermediary wallets and marketplaces. They can also be used to create complex transaction chains across merchants and jurisdictions, complicating efforts to tie specific fraudulent purchases back to the originating compromised identity or account. This flexibility makes virtual cards a convenient tool for scaling and obscuring a wide range of digital fraud schemes, even when they are not explicitly part of a formal money‑laundering process.\n",
         "tactics": [
             "TA0005"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
         "id": "F1044",
-        "name": "Withdraw Money",
-        "description": "Fraudsters may convert compromised account balances into physical funds by initiating in‑person cash movements such as ATM withdrawals, cashier’s checks, money orders, or similar instruments. These withdrawals remove value from financial accounts in ways that can be quickly spent, transported, or layered through additional transactions to obscure the origin of the funds.\n",
+        "name": "Electronic Funds Transfer",
+        "description": "Fraud actors may use electronic funds transfer mechanisms to move money out of compromised accounts into destinations they control. This activity can leverage traditional banking rails, regional payment systems, or peer‑to‑peer platforms to rapidly cash out or further obscure stolen funds.",
         "tactics": [
             "FA0002"
         ],
         "subtechniques": [
+            "F1044.001",
             "F1044.002",
-            "F1044.001"
+            "F1044.003"
         ],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
-        "id": "F1044.002",
-        "name": "Withdraw Money: Electronic Withdrawal",
-        "description": "Fraudsters may deplete compromised accounts by initiating electronic fund movements such as wire transfers, regional payment rails (ACH or SEPA), other electronic funds transfers, or conversion of balances into cryptocurrency. These withdrawals move value rapidly across payment rails or into pseudo‑anonymous assets, making recovery and tracing of funds more difficult.\n",
+        "id": "F1044.001",
+        "name": "Electronic Funds Transfer: Peer-to-Peer Transfer",
+        "description": "Fraud actors may use regional payment systems, such as ACH or SEPA, to schedule push payments, credits, or other electronic transfers from victim accounts to accounts they or their accomplices control. These rails can support repeated or batched withdrawals, enabling lower‑value but high‑volume monetization that may initially blend into normal transaction patterns.\n",
         "tactics": [
             "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
-        "id": "F1044.001",
-        "name": "Withdraw Money: Physical Withdrawal",
+        "id": "F1044.002",
+        "name": "Electronic Funds Transfer: Regional Payment Rail",
         "description": "Fraudsters may convert compromised account balances into physical funds by obtaining cash or cash‑like instruments, including ATM withdrawals, cashier’s checks, money orders, or similar negotiable instruments. Physical withdrawals allow immediate spending or further layering of funds outside of the original financial channel",
         "tactics": [
             "FA0002"
@@ -1572,18 +1551,66 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
     },
     {
-        "id": "F1099",
-        "name": "Withdrawal by Legitimate Account Owner",
-        "description": "Fraud actors may exploit the Withdrawal by Legitimate Account Owner defence to evade detection by conducting illicit transactions that appear legitimate on the surface. They might coerce or deceive account holders into making withdrawals or transfers under false pretences, using their legitimate access to financial accounts. By leveraging this defence, fraud actors can obscure their illicit activities, making it harder for authorities to identify and prosecute them, as the transactions initially appear to be authorized by the account owner.",
+        "id": "F1044.003",
+        "name": "Electronic Funds Transfer: Wire Transfer",
+        "description": "Fraud actors may initiate domestic or international wire transfers from compromised accounts to mule or controlled accounts. Wire transfers can move large values quickly and, once executed, are often difficult or slow to reverse, providing an efficient channel for high‑value cash‑out.",
         "tactics": [
-            "TA0005"
+            "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
         "version": "1.0",
-        "lastModified": "2026-03-27T19:06:53.412Z"
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1045",
+        "name": "Conversion to Physical Monetary Instruments",
+        "description": "Fraud actors may turn digital or account‑based balances into physical money or negotiable instruments to complete cash‑out. By moving value into cash or cash‑like forms, they reduce traceability within electronic payment systems and gain flexibility to spend, transport, or further launder proceeds.",
+        "tactics": [
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1045",
+        "name": "Conversion to Physical Monetary Instruments: Cash",
+        "description": "Fraud actors may withdraw cash directly from compromised accounts using ATMs, in‑branch teller withdrawals, or cash‑back at point‑of‑sale. Cash withdrawals provide immediate access to funds and can be coordinated across multiple mules, cards, or locations to rapidly deplete balances before controls or fraud‑detection mechanisms respond.\n",
+        "tactics": [
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1045",
+        "name": "Conversion to Physical Monetary Instruments: Cashier's Check",
+        "description": "Fraud actors may request cashier’s checks funded from compromised accounts and payable to themselves, accomplices, or front entities. Once issued, cashier’s checks can be deposited, cashed, or used to purchase high‑value goods, providing a semi‑anonymous way to move and store value outside the original account.",
+        "tactics": [
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
+    },
+    {
+        "id": "F1045",
+        "name": "Conversion to Physical Monetary Instruments: Money Order",
+        "description": "Fraud actors may purchase money orders using funds drawn from compromised accounts, including via debit card, bank counter transactions, or other payment instruments. Money orders can then be cashed, resold, or used for payments (such as rent or goods), enabling further layering and obscuring the link to the original compromised account.",
+        "tactics": [
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-04-01T05:32:58.833Z"
     }
 ]
