@@ -1,6 +1,11 @@
 <template>
   <div class="flex h-full flex-col-reverse md:flex-row">
     <div class="sidebar">
+      <h2>Download Paper</h2>
+      <p>The content on this page has been published as a standalone paper.</p>
+      <a href="/MITRE F3 Design Principles and Methodology.pdf" class="btn btn-external"
+        download="MITRE F3 Design Principles and Methodology.pdf">Download Paper <i class="pi pi-download"></i></a>
+
       <h2>On This Page</h2>
       <template v-for="heading of topLevelHeadings" :key="heading.label">
         <h3 @click="scrollToHeading(heading.id)" class=" cursor-pointer">
@@ -142,7 +147,11 @@
       <h3 id="matrix">The F3 Matrix</h3>
       <p>The relationship between tactics, techniques, and sub-techniques can be visualized in the F3
         matrix<sup>3</sup>. Figure 1 depicts the F3 Matrix: </p>
-      <p><em>image goes here</em></p>
+      <figure>
+        <img :src="matrixImage"
+          alt="F3 matrix which visualizes relationships between tactics, techniques, and subtechniques" />
+        <figcaption>Figure 1: Placeholder for F3 Matrix Overview</figcaption>
+      </figure>
       <p>For example, under the Resource Development tactic (this is the fraud actor's goal, to prepare for fraud in the
         target environment), there are a series of techniques including Acquire Infrastructure and Create Fake
         Materials. Each of these is a single technique that fraud actors may use to achieve the goal of setting up
@@ -152,8 +161,11 @@
         Website, to describe how forged or fraudulent resources may be created to support attempted fraud. Figure 3
         depicts the Acquire Infrastructure and Create Fake Materials techniques under the Resource Development tactic,
         expanded to show their respective sub-techniques. </p>
-      <p><em>image goes here</em></p>
-
+      <figure>
+        <img :src="expandedImage" class=" m-auto"
+          alt="Expanded technique in matrix that shows what it looks like for a technique to have subtechniques" />
+        <figcaption>Figure 2: Examples of Expanded Techniques</figcaption>
+      </figure>
       <h3 id="tactics">Tactics</h3>
       <p>Tactics represent the “why” of an F3 technique or sub-technique: the fraud actor's tactical goal and the reason
         for performing an action. Tactics are not the same as phases of a fraud incident and not every tactic will be
@@ -525,11 +537,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
+import matrixImage from "@/assets/matrix-img.png";
+import expandedImage from "@/assets/expanded-techniques.png";
 
 export default defineComponent({
   components: { BreadcrumbComponent },
   data() {
     return {
+      matrixImage,
+      expandedImage,
       breadcrumbItems: [
         { label: "About", route: "/about" },
         { label: "Design Principles", route: "/about/methodology" },
@@ -666,5 +682,9 @@ td {
 
 ul {
   @apply ml-4
+}
+
+figcaption {
+  @apply text-center italic mt-2 mb-6
 }
 </style>

@@ -40,7 +40,7 @@
 
       </div>
       <h2>F3 Matrix</h2>
-      <p>TThe F3 Matrix provides a visual representation of the relationship between tactics, techniques, and
+      <p>The F3 Matrix provides a visual representation of the relationship between tactics, techniques, and
         sub-techniques. View information about techniques and how techniques and tactics interact on the Matrix page.
       </p>
       <router-link to="/matrix" class="link-blue-external small">Learn More</router-link>
