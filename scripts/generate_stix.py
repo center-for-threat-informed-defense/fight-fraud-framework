@@ -1,19 +1,14 @@
 from argparse import ArgumentParser
-import datetime
 import json
 from pathlib import Path
 import uuid
 
-import requests
-from stix2 import MemoryStore, properties
+from stix2 import properties
 from stix2.v21 import (
     AttackPattern,
     Bundle,
-    CourseOfAction,
     CustomObject,
     ExternalReference,
-    Identity,
-    KillChainPhase,
     Relationship,
 )
 
@@ -96,36 +91,36 @@ class AttackCollection:
 class F3:
     """Converts from F3 JSON data to STIX."""
 
-    def __init__(self, atlas_data, source_name, existing_stix_json=None):
-        """Initialize an ATLAS object.  Defaults provided via arguments in main.
+    def __init__(self, f3_data, source_name, existing_stix_json=None):
+        """Initialize an F3 object.  Defaults provided via arguments in main.
 
         Args:
-            atlas_data (str): Dictionary of ATLAS.yaml data
+            f3_data (str): Dictionary of F3.json data
         """
-        self.uuid_domain = uuid.UUID("atlas.mitre.org.".encode("utf-8").hex())
+        self.uuid_domain = uuid.uuid5(uuid.NAMESPACE_DNS, "ctid.mitre.org.")
         self.source_name = source_name
-        self.parse_data_files(atlas_data)
-        # Track ATLAS tactics by short ID for matrix ordering lookup
+        self.parse_data_files(f3_data)
+        # Track F3 tactics by short ID for matrix ordering lookup
         self.tactic_mapping = {}
         # Existing STIX JSON, i.e. for ATT&CK Enterprise data
         self.existing_stix_json = existing_stix_json
 
-    def parse_data_files(self, atlas_data):
-        """Sets attributes from the ATLAS data."""
+    def parse_data_files(self, f3_data):
+        """Sets attributes from the F3 data."""
         self.data_id = "F3"
         self.data_name = "MITRE Fight Financial Fraud Framework"
         self.data_version = "1.0"
 
-        if not isinstance(atlas_data, list):
+        if not isinstance(f3_data, list):
             raise ValueError(
-                "Expected atlas_data to be a list of objects (loaded JSON array)."
+                "Expected f3_data to be a list of objects (loaded JSON array)."
             )
 
         # need to create a matrix object here:
         self.matrices = []
 
-        self.tactics = [obj for obj in atlas_data if obj.get("tactic") is True]
-        self.techniques = [obj for obj in atlas_data if obj.get("tactic") is not True]
+        self.tactics = [obj for obj in f3_data if obj.get("tactic") is True]
+        self.techniques = [obj for obj in f3_data if obj.get("tactic") is not True]
         print("number of techniques ", len(self.techniques))
         self.mitigations = []
         self.attack_derived_techniques = [
@@ -135,10 +130,10 @@ class F3:
             obj for obj in self.tactics if obj.get("isAttack") is True
         ]
 
-        self.id_mapping = {t["id"]: t for t in atlas_data if "id" in t}
+        self.id_mapping = {t["id"]: t for t in f3_data if "id" in t}
 
     def find_stix_technique_by_external_ref_id(self, stix_objects, external_ref_id):
-        """Returns the corresponding STIX technique object for an ATLAS ID, or None if none are found."""
+        """Returns the corresponding STIX technique object for an F3 ID, or None if none are found."""
         # Look for an ATT&CK technique that has the corresponding ID
         return next(
             (
@@ -150,14 +145,14 @@ class F3:
             None,
         )
 
-    def to_stix_json(self, stix_output_filepath, atlas_url, identity_name):
-        """Saves a STIX JSON file of the ATLAS tactics and techniques info.
+    def to_stix_json(self, stix_output_filepath, f3_url, identity_name):
+        """Saves a STIX JSON file of the F3 tactics and techniques info.
 
         STIX Bundle specs
         https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_nuwp4rox8c7r
         """
 
-        # Convert ATLAS techniques first to populate the referenced ATT&CK tactics
+        # Convert F3 techniques first to populate the referenced ATT&CK tactics
         # Only for parent techniques, as subtechniques do not have tactics references
 
         stix_techniques = []
@@ -168,14 +163,14 @@ class F3:
             if len(t["id"].split(".")) > 1:
                 # Create subtechnique and relationship
                 subtechnique, relationship = self.subtechnique_to_attack_pattern(
-                    t, parent_technique, atlas_url
+                    t, parent_technique, f3_url
                 )
                 # Add to trackers
                 stix_techniques.append(subtechnique)
                 relationships.append(relationship)
             else:
                 # Create and add this technique
-                technique = self.technique_to_attack_pattern(t, atlas_url)
+                technique = self.technique_to_attack_pattern(t, f3_url)
                 stix_techniques.append(technique)
                 # Save off reference to this technique for use by its subtechniques, should there be any following
                 parent_technique = technique
@@ -185,13 +180,13 @@ class F3:
         print(f"Created {len(relationships)} subtechnique relationships.")
         # Convert F3 tactics to x-mitre-tactics
         stix_tactics = [
-            self.tactic_to_mitre_attack_tactic(t, atlas_url) for t in self.tactics
+            self.tactic_to_mitre_attack_tactic(t, f3_url) for t in self.tactics
         ]
         print(f"Converted {len(stix_tactics)} tactics to STIX objects.")
         external_references = [
             ExternalReference(
                 source_name=self.source_name,
-                url=atlas_url,
+                url=f3_url,
                 external_id=self.source_name,  # https://github.com/mitre-attack/attack-navigator/issues/362
             )
         ]
@@ -235,8 +230,8 @@ class F3:
         )
         print(f"Created STIX collection object.")
         # JSON
-        print("Bundling and serializing ATLAS data to JSON file...")
-        bundle_uuid = uuid.uuid5(self.uuid_domain, "ATLAS-bundle")
+        print("Bundling and serializing F3 data to JSON file...")
+        bundle_uuid = uuid.uuid5(self.uuid_domain, "F3-bundle")
         bundle = Bundle(
             id=f"bundle--{bundle_uuid}",
             objects=stix_data_objects
@@ -249,11 +244,11 @@ class F3:
         with open(stix_output_filepath, "w") as f:
             json.dump(stix_json, f)
 
-    def build_atlas_external_references(self, t, atlas_url, route="techniques"):
-        """Returns a STIX External Reference for ATLAS data."""
+    def build_f3_external_references(self, t, f3_url, route="techniques"):
+        """Returns a STIX External Reference for F3 data."""
 
         # Construct the full URL to the resource
-        url = atlas_url + "/" + route + "/" + t["id"]
+        url = f3_url + "/" + route + "/" + t["id"]
 
         # External references is a list
         return [
@@ -264,16 +259,14 @@ class F3:
             )
         ]
 
-    def tactic_to_mitre_attack_tactic(self, t, atlas_url):
+    def tactic_to_mitre_attack_tactic(self, t, f3_url):
         """Returns a STIX x-mitre-tactic representing this tactic."""
         tactic_uuid = uuid.uuid5(self.uuid_domain, t["id"])
         at = AttackTactic(
             id=f"x-mitre-tactic--{tactic_uuid}",
             name=t["name"],
             description=t["description"],
-            external_references=self.build_atlas_external_references(
-                t, atlas_url, "tactics"
-            ),
+            external_references=self.build_f3_external_references(t, f3_url, "tactics"),
             x_mitre_shortname=t["name"].lower().replace(" ", "-"),
             created="2026-04-02T19:15:57.686Z",
             modified=t["lastModified"],
@@ -284,7 +277,7 @@ class F3:
 
         return at
 
-    def technique_to_attack_pattern(self, t, atlas_url):
+    def technique_to_attack_pattern(self, t, f3_url):
         """Returns a STIX AttackPattern representing this technique."""
         technique_uuid = uuid.uuid5(self.uuid_domain, t["id"])
         return AttackPattern(
@@ -294,15 +287,15 @@ class F3:
             # kill_chain_phases=self.referenced_tactics_to_kill_chain_phases(
             #     t["tactics"]
             # ),
-            external_references=self.build_atlas_external_references(t, atlas_url),
+            external_references=self.build_f3_external_references(t, f3_url),
             # Needed by Navigator else TypeError technique.platforms is not iterable
             allow_custom=True,
-            x_mitre_platforms=["ATLAS"],
+            x_mitre_platforms=["F3"],
             created="2026-04-02T19:15:57.686Z",
             modified=t["lastModified"],
         )
 
-    def subtechnique_to_attack_pattern(self, t, parent, atlas_url):
+    def subtechnique_to_attack_pattern(self, t, parent, f3_url):
         """Returns a STIX AttackPattern representing this subtechnique and a STIX Relationship
         between this subtechnique and its parent.
 
@@ -313,10 +306,10 @@ class F3:
             id=f"attack-pattern--{subtechnique_uuid}",
             name=t["name"],
             description=t["description"],
-            external_references=self.build_atlas_external_references(t, atlas_url),
+            external_references=self.build_f3_external_references(t, f3_url),
             # Needed by Navigator else TypeError technique.platforms is not iterable
             allow_custom=True,
-            x_mitre_platforms=["ATLAS"],
+            x_mitre_platforms=["F3"],
             x_mitre_is_subtechnique=True,
             created="2026-04-02T19:15:57.686Z",
             modified=t["lastModified"],
@@ -338,7 +331,7 @@ class F3:
 
 
 if __name__ == "__main__":
-    """Main entry point to STIX file generation for ATLAS data."""
+    """Main entry point to STIX file generation for F3 data."""
 
     print("running generate_stix")
 
@@ -348,7 +341,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-f",
         type=str,
-        dest="atlas_data_filepath",
+        dest="f3_data_filepath",
         default="src/data/matrix-data.json",
         help="Path to F3 source data file",
     )
@@ -363,15 +356,15 @@ if __name__ == "__main__":
     parser.add_argument(
         "--url",
         type=str,
-        dest="atlas_url",
-        default="https://atlas.mitre.org",
-        help="URL to ATLAS website for Navigator item linking",
+        dest="f3_url",
+        default="https://ctid.mitre.org/fraud",
+        help="URL to F3 website for Navigator item linking",
     )
     parser.add_argument(
         "--identity_name",
         type=str,
         dest="identity_name",
-        default="MITRE ATLAS",
+        default="MITRE F3",
         help="Name of the creator identity",
     )
     args = parser.parse_args()
@@ -379,12 +372,12 @@ if __name__ == "__main__":
     output_filepath = Path(args.output_filepath)
     output_filepath.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(args.atlas_data_filepath) as f:
+    with open(args.f3_data_filepath) as f:
         data = json.load(f)
 
         f3 = F3(data, "mitre-f3")
         f3.to_stix_json(
             output_filepath,
-            args.atlas_url,
+            args.f3_url,
             args.identity_name,
         )

@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 from copy import deepcopy
-from datetime import datetime
 import json
 from pathlib import Path
 import re
@@ -17,11 +16,11 @@ def generate_matrix_layer(
     layer_data,
     navigator_technique_objs,
 ):
-    """Outputs a layer JSON file highlighting the techniques used in ATLAS."""
+    """Outputs a layer JSON file highlighting the techniques used in F3."""
 
     # Redefine name and description
-    name = "ATLAS Matrix"
-    description = "Adversarial Threat Landscape for Artificial-Intelligence Systems, see atlas.mitre.org"
+    name = "F3 Matrix"
+    description = "Knowledge base of tactics, techniques, and procedures used by financial fraud actors, see ctid.mitre.org/fraud"
 
     # Technique highlight color
     color = "#C8E6C9"  # Light green
@@ -43,7 +42,7 @@ def generate_matrix_layer(
 
     # Define output filename
     dir_path = output_dir
-    matrix_filename = "f3_layer_matrix.json"
+    matrix_filename = "f3-navigator.json"
     # Write JSON to file
     write_to_json_file(matrix_layer_data, dir_path, matrix_filename)
 
@@ -51,7 +50,7 @@ def generate_matrix_layer(
 
 
 def build_navigator_technique_objs(data):
-    """Returns a dictionary of Navigator layer technique objects from the provided ATLAS data.
+    """Returns a dictionary of Navigator layer technique objects from the provided F3 data.
 
     https://github.com/mitre-attack/attack-navigator/blob/master/layers/LAYERFORMATv4.md
     """
@@ -120,7 +119,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-f",
         type=str,
-        dest="atlas_data_filepath",
+        dest="f3_data_filepath",
         default="src/data/matrix-data.json",
         help="Path to F3 source data file",
     )
@@ -147,7 +146,7 @@ if __name__ == "__main__":
     output_filepath = Path(args.output_filepath)
     output_filepath.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(args.atlas_data_filepath) as f:
+    with open(args.f3_data_filepath) as f:
         data = json.load(f)
         # Define common Navigator layer info
         # nav-app/src/assets/config.json's version name before the 'vX' - domain name

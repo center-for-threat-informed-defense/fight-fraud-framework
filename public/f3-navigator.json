@@ -10,8 +10,8 @@
             "value": "v1.0"
         }
     ],
-    "name": "ATLAS Matrix",
-    "description": "Adversarial Threat Landscape for Artificial-Intelligence Systems, see atlas.mitre.org",
+    "name": "F3 Matrix",
+    "description": "Knowledge base of tactics, techniques, and procedures used by financial fraud actors, see ctid.mitre.org/fraud",
     "techniques": [
         {
             "techniqueID": "F1076",
@@ -22,7 +22,7 @@
         {
             "techniqueID": "T1453",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -38,6 +38,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1001.001",
             "showSubtechniques": true,
             "tactic": "initial-access",
@@ -50,6 +56,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1001.001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1001.002",
             "showSubtechniques": true,
             "tactic": "initial-access",
@@ -59,24 +71,18 @@
             "techniqueID": "F1001.002",
             "showSubtechniques": true,
             "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1001.002",
+            "showSubtechniques": true,
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "F1004",
             "showSubtechniques": true,
             "tactic": "execution",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1005",
-            "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1005",
-            "showSubtechniques": true,
-            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -92,7 +98,7 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1007",
+            "techniqueID": "F1008",
             "showSubtechniques": true,
             "tactic": "positioning",
             "color": "#C8E6C9"
@@ -100,43 +106,7 @@
         {
             "techniqueID": "F1008",
             "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.004",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.006",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.005",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.002",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.003",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1008.009",
-            "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "defense-evasion",
             "color": "#C8E6C9"
         },
         {
@@ -146,9 +116,69 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1008.008",
+            "techniqueID": "F1008.001",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.002",
             "showSubtechniques": true,
             "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.002",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.003",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.003",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.004",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.004",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.005",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.005",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.006",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.006",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
             "color": "#C8E6C9"
         },
         {
@@ -158,19 +188,25 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1008.007",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.008",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1008.008",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1018",
-            "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1055",
-            "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1056",
             "showSubtechniques": true,
             "tactic": "initial-access",
             "color": "#C8E6C9"
@@ -182,15 +218,21 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1020",
+            "techniqueID": "F1018.002",
             "showSubtechniques": true,
-            "tactic": "execution",
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1018.003",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1650",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
@@ -230,6 +272,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1023",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1023.001",
             "showSubtechniques": true,
             "tactic": "initial-access",
@@ -239,6 +287,12 @@
             "techniqueID": "F1023.001",
             "showSubtechniques": true,
             "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1023.001",
+            "showSubtechniques": true,
+            "tactic": "execution",
             "color": "#C8E6C9"
         },
         {
@@ -254,6 +308,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1023.002",
+            "showSubtechniques": true,
+            "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1023.003",
             "showSubtechniques": true,
             "tactic": "initial-access",
@@ -266,15 +326,9 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1027",
+            "techniqueID": "F1023.003",
             "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1027",
-            "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "execution",
             "color": "#C8E6C9"
         },
         {
@@ -290,27 +344,9 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1027.001",
+            "techniqueID": "T1557",
             "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1027.001",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1027.002",
-            "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1027.002",
-            "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "execution",
             "color": "#C8E6C9"
         },
         {
@@ -338,9 +374,21 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1033",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1033.001",
             "showSubtechniques": true,
             "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.001",
+            "showSubtechniques": true,
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -350,9 +398,21 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1033.002",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1033.003",
             "showSubtechniques": true,
             "tactic": "execution",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1033.003",
+            "showSubtechniques": true,
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -362,9 +422,15 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1033.004",
+            "showSubtechniques": true,
+            "tactic": "positioning",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1038",
             "showSubtechniques": true,
-            "tactic": "execution",
+            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
@@ -374,15 +440,15 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1039.001",
+            "techniqueID": "T1185",
             "showSubtechniques": true,
-            "tactic": "monetization",
+            "tactic": "initial-access",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1185",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -428,15 +494,15 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1043",
+            "techniqueID": "F1042",
             "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "reconnaissance",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1047",
+            "techniqueID": "F1043",
             "showSubtechniques": true,
-            "tactic": "monetization",
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -466,37 +532,43 @@
         {
             "techniqueID": "T1586",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1586.003",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1586.004",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1586.002",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1586.001",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "F1057",
             "showSubtechniques": true,
             "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1047",
+            "showSubtechniques": true,
+            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
@@ -512,39 +584,33 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1062",
+            "techniqueID": "F1060.001",
             "showSubtechniques": true,
             "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1061",
+            "techniqueID": "F1060.002",
             "showSubtechniques": true,
             "tactic": "resource-development",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1044",
-            "showSubtechniques": true,
-            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1555",
             "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "reconnaissance",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1555.003",
             "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "reconnaissance",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "T1555.005",
             "showSubtechniques": true,
-            "tactic": "positioning",
+            "tactic": "reconnaissance",
             "color": "#C8E6C9"
         },
         {
@@ -560,21 +626,9 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1065",
-            "showSubtechniques": true,
-            "tactic": "execution",
-            "color": "#C8E6C9"
-        },
-        {
             "techniqueID": "T1189",
             "showSubtechniques": true,
             "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1044.002",
-            "showSubtechniques": true,
-            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
@@ -586,7 +640,7 @@
         {
             "techniqueID": "T1672",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "defense-evasion",
             "color": "#C8E6C9"
         },
         {
@@ -608,7 +662,31 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1048",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1067",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1593",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1593.001",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1593.002",
             "showSubtechniques": true,
             "tactic": "reconnaissance",
             "color": "#C8E6C9"
@@ -632,9 +710,21 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1070",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1071",
             "showSubtechniques": true,
             "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1071",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
             "color": "#C8E6C9"
         },
         {
@@ -662,6 +752,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1074",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "T1111",
             "showSubtechniques": true,
             "tactic": "initial-access",
@@ -680,6 +776,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1089",
+            "showSubtechniques": true,
+            "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1090",
             "showSubtechniques": true,
             "tactic": "execution",
@@ -689,6 +791,18 @@
             "techniqueID": "F1077",
             "showSubtechniques": true,
             "tactic": "defense-evasion",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1077",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1077",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
             "color": "#C8E6C9"
         },
         {
@@ -704,31 +818,19 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1081",
+            "techniqueID": "T1660",
             "showSubtechniques": true,
             "tactic": "initial-access",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1044.001",
+            "techniqueID": "T1598",
             "showSubtechniques": true,
-            "tactic": "monetization",
+            "tactic": "reconnaissance",
             "color": "#C8E6C9"
         },
         {
             "techniqueID": "F1082",
-            "showSubtechniques": true,
-            "tactic": "positioning",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1083",
-            "showSubtechniques": true,
-            "tactic": "monetization",
-            "color": "#C8E6C9"
-        },
-        {
-            "techniqueID": "F1084",
             "showSubtechniques": true,
             "tactic": "initial-access",
             "color": "#C8E6C9"
@@ -740,9 +842,15 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "T1219",
+            "techniqueID": "F1085",
             "showSubtechniques": true,
             "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "T1219",
+            "showSubtechniques": true,
+            "tactic": "positioning",
             "color": "#C8E6C9"
         },
         {
@@ -770,19 +878,13 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1086",
-            "showSubtechniques": true,
-            "tactic": "initial-access",
-            "color": "#C8E6C9"
-        },
-        {
             "techniqueID": "T1608",
             "showSubtechniques": true,
             "tactic": "resource-development",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "T1608.001",
+            "techniqueID": "T1608.006",
             "showSubtechniques": true,
             "tactic": "resource-development",
             "color": "#C8E6C9"
@@ -794,9 +896,15 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "T1539",
+            "showSubtechniques": true,
+            "tactic": "initial-access",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1087",
             "showSubtechniques": true,
-            "tactic": "monetization",
+            "tactic": "defense-evasion",
             "color": "#C8E6C9"
         },
         {
@@ -830,21 +938,51 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1088",
+            "techniqueID": "F1044",
             "showSubtechniques": true,
-            "tactic": "initial-access",
+            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1098",
+            "techniqueID": "F1044.001",
             "showSubtechniques": true,
-            "tactic": "resource-development",
+            "tactic": "monetization",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "F1099",
+            "techniqueID": "F1044.002",
             "showSubtechniques": true,
-            "tactic": "execution",
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1044.003",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1045",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1045.001",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1045.002",
+            "showSubtechniques": true,
+            "tactic": "monetization",
+            "color": "#C8E6C9"
+        },
+        {
+            "techniqueID": "F1045.003",
+            "showSubtechniques": true,
+            "tactic": "monetization",
             "color": "#C8E6C9"
         }
     ],
