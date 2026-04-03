@@ -4,7 +4,7 @@
 
 /* Global Styles */
 body {
-  margin: 0;
+  @apply bg-white m-0;
 }
 
 #page-body {
@@ -130,6 +130,7 @@ h2 {
 }
 .p-tabmenu-tablist {
   background-color: #0d2f4f !important;
+  border: none !important;
 }
 .p-tabmenu-item-label {
   @apply text-ctid-light-gray;
@@ -137,9 +138,12 @@ h2 {
 .p-tabmenu-item-active .p-tabmenu-item-label {
   @apply text-ctid-light-blue border-ctid-light-blue;
 }
+.p-tabmenu-item-link {
+  border: none !important;
+}
 .p-tabmenu-item-active .p-tabmenu-item-link {
   color: #87deff !important;
-  border-color: #87deff !important;
+  border-bottom: 4px #87deff solid !important;
 }
 .p-selectbutton .p-button.p-component {
   @apply uppercase border-[1px] border-ctid-black rounded-none mx-[-1px] sm:mx-1 md:mx-[-1px] lg:mx-1;

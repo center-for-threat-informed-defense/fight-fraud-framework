@@ -19,6 +19,9 @@ createApp(App)
           },
         },
       },
+      options: {
+        darkModeSelector: "none",
+      },
     },
   })
   .mount("#app");
