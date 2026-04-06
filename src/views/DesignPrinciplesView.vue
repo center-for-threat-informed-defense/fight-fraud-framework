@@ -20,12 +20,12 @@
 
       <h1>Design Principles and Methodology </h1>
 
-      <h2 id="introduction">Introduction</h2>
-      <p>The MITRE Fight Fraud Framework (F3)™ is a curated knowledge base of tactics, techniques, and procedures (TTPs)
+      <p>The MITRE Fight Fraud Framework (F3)™ is a curated knowledge base of tactics and techniques
         used by fraud actors. MITRE F3™ includes behaviors that characterize known fraud TTPs and references existing <a
-          href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> cyber techniques as applicable to financial
-        fraud. F3 provides a living knowledge base of fraud actor TTPs based on real-world observations of cyber-based
-        fraud incidents. The initial release focuses on financial fraud as seen by banking institutions<sup><a href=""
+          href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> techniques as applicable to financial
+        fraud. These incidents involve the intentional use of deceptive or illegal practices to fraudulently obtain money, assets, or information from individuals or institutions and include actions carried out over cyber channels. F3 provides a common structure and taxonomy and a collective ability to enumerate the material events of cyber fraud incidents and enable partnership on fraud prevention and response.</p>
+      
+      <p>The initial release focuses on financial fraud as seen by banking institutions<sup><a href=""
             target="blank">1</a></sup>. </p>
       <p>At a high level, F3 is a behavioral model that consists of the following core components: </p>
       <ul>

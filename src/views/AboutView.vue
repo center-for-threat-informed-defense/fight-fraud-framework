@@ -27,7 +27,7 @@
       <h1>About</h1>
 
       <p>MITRE F3™ is an authoritative, analyst-developed knowledge base of fraud actor behavior as observed in
-        cyber-based fraud incidents. Grounded in real-world fraud tactics and created by fraud fusion analysts, it
+        cyber-based fraud incidents. These incidents involve the intentional use of deceptive or illegal practices to fraudulently obtain money, assets, or information from individuals or institutions, and include actions carried out over cyber channels. Grounded in real-world fraud tactics and created by fraud fusion analysts, it
         consolidates key fraud knowledge into a structured, transparent, and operationally relevant resource. </p>
 
       <h2>Design Principles and Methodology</h2>

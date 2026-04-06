@@ -4,7 +4,7 @@
             <div class=" xl:w-1/2 xl:pr-10">
                 <h1>
                     <router-link to="/">
-                        <h1>MITRE Fight Fraud Framework™</h1>
+                        <h1>MITRE Fight Fraud Framework</h1>
                     </router-link>
                 </h1>
                 <p class="my-4">
