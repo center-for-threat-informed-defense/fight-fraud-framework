@@ -10,6 +10,7 @@ from stix2.v21 import (
     CustomObject,
     ExternalReference,
     Relationship,
+    KillChainPhase,
 )
 
 
@@ -244,6 +245,36 @@ class F3:
         with open(stix_output_filepath, "w") as f:
             json.dump(stix_json, f)
 
+    def referenced_tactics_to_kill_chain_phases(self, tactic_ids):
+        """Converts a list of tactic IDs referenced by a technique
+        to a list of STIX Kill Chain Phases.
+
+        Kill Chain Phase spec:
+        https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h
+        """
+        kill_chain_phases = []
+
+        for tactic_id in tactic_ids:
+
+            kill_chain_name = self.source_name  # Using this as an identifier
+
+            # Look up ATLAS tactic name
+            tactic = next(
+                (tactic for tactic in self.tactics if tactic["id"] == tactic_id), None
+            )
+            # Ensure this is found
+            if tactic is None:
+                raise ValueError(f"Could not find tactic object with ID {tactic_id}")
+
+            # Convert name to lowercase and hyphens to fit spec
+            phase_name = tactic["name"].lower().replace(" ", "-")
+
+            # Create and add
+            kcp = KillChainPhase(kill_chain_name=kill_chain_name, phase_name=phase_name)
+            kill_chain_phases.append(kcp)
+
+        return kill_chain_phases
+
     def build_f3_external_references(self, t, f3_url, route="techniques"):
         """Returns a STIX External Reference for F3 data."""
 
@@ -284,9 +315,9 @@ class F3:
             id=f"attack-pattern--{technique_uuid}",
             name=t["name"],
             description=t["description"],
-            # kill_chain_phases=self.referenced_tactics_to_kill_chain_phases(
-            #     t["tactics"]
-            # ),
+            kill_chain_phases=self.referenced_tactics_to_kill_chain_phases(
+                t["tactics"]
+            ),
             external_references=self.build_f3_external_references(t, f3_url),
             # Needed by Navigator else TypeError technique.platforms is not iterable
             allow_custom=True,
