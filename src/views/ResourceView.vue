@@ -33,9 +33,9 @@
       <div class="flex gap-8"><a href="f3-stix.json" download="f3-financial-stix-v1"
           class="link-blue-external small">Download
           STIX</a>
-        <a href="f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
-          Navigator Layer</a>
-        <a href="f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
+        <!-- <a href="f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
+          Navigator Layer</a> -->
+        <!-- <a href="f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a> -->
         <a href="F3-v1.xlsx" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
 
       </div>

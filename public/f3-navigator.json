@@ -836,6 +836,12 @@
             "color": "#C8E6C9"
         },
         {
+            "techniqueID": "F1082",
+            "showSubtechniques": true,
+            "tactic": "reconnaissance",
+            "color": "#C8E6C9"
+        },
+        {
             "techniqueID": "F1085",
             "showSubtechniques": true,
             "tactic": "positioning",
@@ -920,13 +926,13 @@
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "T1555",
+            "techniqueID": "T1550",
             "showSubtechniques": true,
             "tactic": "initial-access",
             "color": "#C8E6C9"
         },
         {
-            "techniqueID": "T1555.002",
+            "techniqueID": "T1550.001",
             "showSubtechniques": true,
             "tactic": "initial-access",
             "color": "#C8E6C9"
