@@ -288,10 +288,9 @@ class F3:
             return []
 
         kill_chain_phases = []
+        seen = set()
 
         for tactic_id in tactic_ids:
-            kill_chain_name = self.source_name
-
             tactic = next(
                 (tactic for tactic in self.tactics if tactic["id"] == tactic_id), None
             )
@@ -301,12 +300,18 @@ class F3:
                 continue
 
             phase_name = tactic["name"].lower().replace(" ", "-")
+            key = (self.source_name, phase_name)
 
-            kcp = KillChainPhase(
-                kill_chain_name=kill_chain_name,
-                phase_name=phase_name,
+            if key in seen:
+                continue
+            seen.add(key)
+
+            kill_chain_phases.append(
+                KillChainPhase(
+                    kill_chain_name=self.source_name,
+                    phase_name=phase_name,
+                )
             )
-            kill_chain_phases.append(kcp)
 
         return kill_chain_phases
 
@@ -375,18 +380,11 @@ class F3:
 
         subtechnique_uuid = uuid.uuid5(self.uuid_domain, t["id"])
 
-        kill_chain_phases = self.referenced_tactics_to_kill_chain_phases(
-            t.get("tactics", [])
-        )
-
-        if not kill_chain_phases:
-            kill_chain_phases = list(parent.kill_chain_phases or [])
-
         subtechnique = AttackPattern(
             id=f"attack-pattern--{subtechnique_uuid}",
             name=t["name"],
             description=t["description"],
-            kill_chain_phases=kill_chain_phases,
+            kill_chain_phases=[],  # important: present, but empty
             external_references=self.build_f3_external_references(t, f3_url),
             allow_custom=True,
             x_mitre_platforms=["F3"],

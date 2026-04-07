@@ -20,8 +20,7 @@
         </div>
         <div class="main">
             <breadcrumb-component :breadcrumbItems="breadcrumbItems" />
-            <h1> {{ technique?.name }} <a v-if="technique.isAttack"
-                    :href="'https://attack.mitre.org/techniques/' + technique.id + '/'" class="attack-indicator"
+            <h1> {{ technique?.name }} <a v-if="technique.isAttack" :href="getAttackURL" class="attack-indicator"
                     target="_blank">&</a></h1>
             <h2>Description</h2>
             <div class="markdown-html" v-html="renderedHtml(technique.description)"></div>
@@ -231,6 +230,12 @@ export default defineComponent({
                 }
             })
             return matches;
+        },
+        getAttackURL() {
+            if (this.technique.tactic) {
+                return 'https://attack.mitre.org/tactics/' + this.technique.id + '/'
+            }
+            return 'https://attack.mitre.org/techniques/' + this.technique.id + '/'
         }
 
     }
