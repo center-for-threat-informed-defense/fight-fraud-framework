@@ -63,6 +63,7 @@ export default defineComponent({
         return {
             matrixData: json,
             breadcrumbItems: [
+                { label: "Resources", route: "/resources" },
                 { label: "Techniques", route: "/techniques" },
             ],
             filters: {
