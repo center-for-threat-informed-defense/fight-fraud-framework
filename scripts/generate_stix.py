@@ -101,10 +101,32 @@ class F3:
         self.uuid_domain = uuid.uuid5(uuid.NAMESPACE_DNS, "ctid.mitre.org.")
         self.source_name = source_name
         self.parse_data_files(f3_data)
+        self.validate_unique_ids()
         # Track F3 tactics by short ID for matrix ordering lookup
         self.tactic_mapping = {}
         # Existing STIX JSON, i.e. for ATT&CK Enterprise data
         self.existing_stix_json = existing_stix_json
+
+    def validate_unique_ids(self):
+        seen = set()
+        dupes = set()
+
+        for obj in self.tactics + self.techniques:
+            obj_id = obj.get("id")
+            if not obj_id:
+                continue
+            if obj_id in seen:
+                dupes.add(obj_id)
+            seen.add(obj_id)
+
+        if dupes:
+            raise ValueError(f"Duplicate source IDs found: {sorted(dupes)}")
+
+    def get_parent_external_id(self, technique_id):
+        return technique_id.split(".")[0]
+
+    def is_subtechnique(self, technique_obj):
+        return "." in technique_obj["id"]
 
     def parse_data_files(self, f3_data):
         """Sets attributes from the F3 data."""
@@ -132,6 +154,9 @@ class F3:
         ]
 
         self.id_mapping = {t["id"]: t for t in f3_data if "id" in t}
+        # add tactic and technique lookup maps
+        self.tactic_id_mapping = {t["id"]: t for t in self.tactics if "id" in t}
+        self.tactic_name_mapping = {t["name"]: t for t in self.tactics if "name" in t}
 
     def find_stix_technique_by_external_ref_id(self, stix_objects, external_ref_id):
         """Returns the corresponding STIX technique object for an F3 ID, or None if none are found."""
@@ -152,29 +177,39 @@ class F3:
         STIX Bundle specs
         https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_nuwp4rox8c7r
         """
-
-        # Convert F3 techniques first to populate the referenced ATT&CK tactics
-        # Only for parent techniques, as subtechniques do not have tactics references
+        # Convert techniques in two passes:
+        # 1. create all parent techniques
+        # 2. create all subtechniques using parent lookup
 
         stix_techniques = []
         relationships = []
-        parent_technique = None
-        for t in self.techniques:
+        parent_technique_map = {}
 
-            if len(t["id"].split(".")) > 1:
-                # Create subtechnique and relationship
-                subtechnique, relationship = self.subtechnique_to_attack_pattern(
-                    t, parent_technique, f3_url
+        parent_techniques = [t for t in self.techniques if not self.is_subtechnique(t)]
+        subtechniques = [t for t in self.techniques if self.is_subtechnique(t)]
+
+        # First pass: create parent techniques
+        for t in parent_techniques:
+            technique = self.technique_to_attack_pattern(t, f3_url)
+            stix_techniques.append(technique)
+            parent_technique_map[t["id"]] = technique
+
+        # Second pass: create subtechniques with correct parent
+        for t in subtechniques:
+            parent_external_id = self.get_parent_external_id(t["id"])
+            parent_technique = parent_technique_map.get(parent_external_id)
+
+            if parent_technique is None:
+                raise ValueError(
+                    f"Could not resolve parent technique '{parent_external_id}' for subtechnique '{t['id']}'"
                 )
-                # Add to trackers
-                stix_techniques.append(subtechnique)
-                relationships.append(relationship)
-            else:
-                # Create and add this technique
-                technique = self.technique_to_attack_pattern(t, f3_url)
-                stix_techniques.append(technique)
-                # Save off reference to this technique for use by its subtechniques, should there be any following
-                parent_technique = technique
+
+            subtechnique, relationship = self.subtechnique_to_attack_pattern(
+                t, parent_technique, f3_url
+            )
+            stix_techniques.append(subtechnique)
+            relationships.append(relationship)
+
         print(
             f"Converted {len(stix_techniques)} techniques ({len(stix_techniques) - len(relationships)} top-level, {len(relationships)} subtechniques) to STIX objects."
         )
@@ -248,29 +283,29 @@ class F3:
     def referenced_tactics_to_kill_chain_phases(self, tactic_ids):
         """Converts a list of tactic IDs referenced by a technique
         to a list of STIX Kill Chain Phases.
-
-        Kill Chain Phase spec:
-        https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_i4tjv75ce50h
         """
+        if not tactic_ids:
+            return []
+
         kill_chain_phases = []
 
         for tactic_id in tactic_ids:
+            kill_chain_name = self.source_name
 
-            kill_chain_name = self.source_name  # Using this as an identifier
-
-            # Look up ATLAS tactic name
             tactic = next(
                 (tactic for tactic in self.tactics if tactic["id"] == tactic_id), None
             )
-            # Ensure this is found
-            if tactic is None:
-                raise ValueError(f"Could not find tactic object with ID {tactic_id}")
 
-            # Convert name to lowercase and hyphens to fit spec
+            if tactic is None:
+                print(f"WARNING: Could not find tactic object with ID {tactic_id}")
+                continue
+
             phase_name = tactic["name"].lower().replace(" ", "-")
 
-            # Create and add
-            kcp = KillChainPhase(kill_chain_name=kill_chain_name, phase_name=phase_name)
+            kcp = KillChainPhase(
+                kill_chain_name=kill_chain_name,
+                phase_name=phase_name,
+            )
             kill_chain_phases.append(kcp)
 
         return kill_chain_phases
@@ -311,15 +346,20 @@ class F3:
     def technique_to_attack_pattern(self, t, f3_url):
         """Returns a STIX AttackPattern representing this technique."""
         technique_uuid = uuid.uuid5(self.uuid_domain, t["id"])
+
+        kill_chain_phases = self.referenced_tactics_to_kill_chain_phases(
+            t.get("tactics", [])
+        )
+
+        if not kill_chain_phases:
+            print(f"WARNING: technique {t['id']} has no resolved tactics")
+
         return AttackPattern(
             id=f"attack-pattern--{technique_uuid}",
             name=t["name"],
             description=t["description"],
-            kill_chain_phases=self.referenced_tactics_to_kill_chain_phases(
-                t["tactics"]
-            ),
+            kill_chain_phases=kill_chain_phases,
             external_references=self.build_f3_external_references(t, f3_url),
-            # Needed by Navigator else TypeError technique.platforms is not iterable
             allow_custom=True,
             x_mitre_platforms=["F3"],
             created="2026-04-02T19:15:57.686Z",
@@ -329,16 +369,25 @@ class F3:
     def subtechnique_to_attack_pattern(self, t, parent, f3_url):
         """Returns a STIX AttackPattern representing this subtechnique and a STIX Relationship
         between this subtechnique and its parent.
-
-        https://github.com/mitre/cti/blob/master/USAGE.md#sub-techniques
         """
+        if parent is None:
+            raise ValueError(f"Subtechnique {t['id']} has no resolved parent")
+
         subtechnique_uuid = uuid.uuid5(self.uuid_domain, t["id"])
+
+        kill_chain_phases = self.referenced_tactics_to_kill_chain_phases(
+            t.get("tactics", [])
+        )
+
+        if not kill_chain_phases:
+            kill_chain_phases = list(parent.kill_chain_phases or [])
+
         subtechnique = AttackPattern(
             id=f"attack-pattern--{subtechnique_uuid}",
             name=t["name"],
             description=t["description"],
+            kill_chain_phases=kill_chain_phases,
             external_references=self.build_f3_external_references(t, f3_url),
-            # Needed by Navigator else TypeError technique.platforms is not iterable
             allow_custom=True,
             x_mitre_platforms=["F3"],
             x_mitre_is_subtechnique=True,
