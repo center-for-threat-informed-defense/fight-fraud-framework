@@ -277,8 +277,29 @@ class F3:
 
         # Convert to JSON
         stix_json = json.loads(bundle.serialize())
+        # Patch serialized JSON so Navigator always sees kill_chain_phases
+        stix_json = self.normalize_kill_chain_phases_for_navigator(stix_json)
         with open(stix_output_filepath, "w") as f:
             json.dump(stix_json, f)
+
+    def normalize_kill_chain_phases_for_navigator(self, stix_json):
+        """
+        Navigator expects kill_chain_phases to exist on every attack-pattern.
+        stix2 may omit empty lists during serialization, so re-add them here.
+
+        For subtechniques, force kill_chain_phases to [] so Navigator does not
+        render them as top-level techniques as well as subtechniques.
+        """
+        for obj in stix_json.get("objects", []):
+            if obj.get("type") != "attack-pattern":
+                continue
+
+            if obj.get("x_mitre_is_subtechnique") is True:
+                obj["kill_chain_phases"] = []
+            else:
+                obj.setdefault("kill_chain_phases", [])
+
+        return stix_json
 
     def referenced_tactics_to_kill_chain_phases(self, tactic_ids):
         """Converts a list of tactic IDs referenced by a technique
