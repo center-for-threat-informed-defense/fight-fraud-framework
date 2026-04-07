@@ -277,27 +277,45 @@ class F3:
 
         # Convert to JSON
         stix_json = json.loads(bundle.serialize())
-        # Patch serialized JSON so Navigator always sees kill_chain_phases
-        stix_json = self.normalize_kill_chain_phases_for_navigator(stix_json)
+
+        # Patch subtechniques so they inherit parent tactics
+        stix_json = self.patch_subtechnique_kill_chain_phases(stix_json)
+
         with open(stix_output_filepath, "w") as f:
             json.dump(stix_json, f)
 
-    def normalize_kill_chain_phases_for_navigator(self, stix_json):
+    def patch_subtechnique_kill_chain_phases(self, stix_json):
         """
-        Navigator expects kill_chain_phases to exist on every attack-pattern.
-        stix2 may omit empty lists during serialization, so re-add them here.
-
-        For subtechniques, force kill_chain_phases to [] so Navigator does not
-        render them as top-level techniques as well as subtechniques.
+        Navigator expects subtechniques to have the same kill_chain_phases as their parent.
+        Patch the serialized JSON accordingly.
         """
-        for obj in stix_json.get("objects", []):
-            if obj.get("type") != "attack-pattern":
-                continue
+        objects = stix_json.get("objects", [])
 
-            if obj.get("x_mitre_is_subtechnique") is True:
-                obj["kill_chain_phases"] = []
-            else:
-                obj.setdefault("kill_chain_phases", [])
+        attack_patterns = {
+            obj["id"]: obj for obj in objects if obj.get("type") == "attack-pattern"
+        }
+
+        # Find all subtechnique relationships and copy parent tactics to child
+        for obj in objects:
+            if (
+                obj.get("type") == "relationship"
+                and obj.get("relationship_type") == "subtechnique-of"
+            ):
+                child_id = obj.get("source_ref")
+                parent_id = obj.get("target_ref")
+
+                child = attack_patterns.get(child_id)
+                parent = attack_patterns.get(parent_id)
+
+                if not child or not parent:
+                    continue
+
+                parent_phases = parent.get("kill_chain_phases", [])
+                child["kill_chain_phases"] = list(parent_phases)
+
+        # Also ensure all attack-patterns at least have the field present
+        for obj in attack_patterns.values():
+            obj.setdefault("kill_chain_phases", [])
 
         return stix_json
 
