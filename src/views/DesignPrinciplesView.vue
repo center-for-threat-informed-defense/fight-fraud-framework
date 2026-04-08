@@ -541,7 +541,7 @@ import matrixImage from "@/assets/matrix-img.png";
 import expandedImage from "@/assets/expanded-techniques.png";
 
 const baseUrl = import.meta.env.BASE_URL
-const downloadUrl = `${baseURL}/MITRE F3 Design Principles and Methodology.pdf`
+const downloadUrl = `${baseUrl}/MITRE F3 Design Principles and Methodology.pdf`
 
 export default defineComponent({
   components: { BreadcrumbComponent },

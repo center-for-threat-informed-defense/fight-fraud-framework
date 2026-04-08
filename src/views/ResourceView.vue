@@ -65,9 +65,9 @@ import { defineComponent } from "vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 
 const baseUrl = import.meta.env.BASE_URL
-const stixUrl = `${baseURL}/f3-stix.json`
-const navigatorUrl = `${baseURL}/f3-navigator.json`
-const excelUrl = `${baseURL}/F3-v1.xlsx`
+const stixUrl = `${baseUrl}/f3-stix.json`
+const navigatorUrl = `${baseUrl}/f3-navigator.json`
+const excelUrl = `${baseUrl}/F3-v1.xlsx`
 
 export default defineComponent({
   components: { BreadcrumbComponent },
