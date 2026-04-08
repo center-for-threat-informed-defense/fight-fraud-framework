@@ -80,7 +80,7 @@ export default defineComponent({
 /* Now this can be "normal" spacing, not huge top padding */
 .hero-inner {
   @apply mx-auto w-11/12 lg:w-3/4;
-  @apply py-10 sm:py-14;
+  @apply py-5 sm:py-6;
 }
 
 .hero-grid {
