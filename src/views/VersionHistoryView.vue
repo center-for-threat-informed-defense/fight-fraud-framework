@@ -38,12 +38,12 @@
         </div>
 
         <div class="grid grid-cols-2 w-1/2">
-          <a href="/f3-stix.json" download="f3-financial-stix-v1" class="link-blue-external small">Download
+          <a :href="stixUrl" download="f3-financial-stix-v1" class="link-blue-external small">Download
             STIX</a>
-          <a href="/f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
+          <a :href="navigatorUrl" download="f3-financial-navigator-v1" class="link-blue-external small">Download
             Navigator Layer</a>
-          <a href="/f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
-          <a href="/F3-v1.xlsx" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
+          <a :href="jsonUrl" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
+          <a :href="excelUrl" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
         </div>
 
       </div>
@@ -54,6 +54,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
+
+const baseUrl = import.meta.env.BASE_URL
+const stixUrl = `${baseURL}/f3-stix.json`
+const navigatorUrl = `${baseURL}/f3-navigator.json`
+const jsonUrl = `${baseURL}/f3-v1.json`
+const excelUrl = `${baseURL}/F3-v1.xlsx`
 
 export default defineComponent({
   components: { BreadcrumbComponent },
