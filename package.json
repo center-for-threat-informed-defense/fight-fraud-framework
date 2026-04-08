@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",
+    "@vueuse/core": "^14.2.1",
     "bootstrap": "^5.3.8",
     "exceljs": "^4.4.0",
     "markdown-it": "^14.1.0",
