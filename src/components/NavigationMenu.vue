@@ -14,7 +14,7 @@
             </router-link>
           </template>
         </TabMenu>
-        <SiteSearch />
+        <SiteSearch :showActiveSearch="true" />
       </div>
       <div class=" lg:hidden inline-block w-max my-auto">
         <MenuBar :model="[...items, { label: 'Search', route: '/search' }]" id="overlay_menu" ref="menu"

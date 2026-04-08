@@ -10,7 +10,7 @@
             <router-link :to="'/tactic/' + tactic">{{ getTacticData(tactic).name }}</router-link>
           </template>
         </p>
-        <router-link :to="'/technique/' + result.id" class="link-blue-external small">View Page</router-link>
+        <router-link :to="getResultURL(result)" class="link-blue-external small">View Page</router-link>
       </div>
       <Paginator v-model:first="first" :rows="rows" :totalRecords="filteredResults.length"
         :rowsPerPageOptions="[5, 10, 20, 30]" @page="onPageChange" />
@@ -31,6 +31,7 @@ import SiteSearch from "../components/SiteSearch.vue";
 import MultiSelect from 'primevue/multiselect';
 import json from "../data/matrix-data.json";
 import Paginator from 'primevue/paginator';
+import { truncatedDescription, performSearch } from "../utils/Search";
 
 export default defineComponent({
   components: { SiteSearch, MultiSelect, Paginator },
@@ -63,46 +64,7 @@ export default defineComponent({
       return this.matrixData.filter(i => i.tactic)
     },
     searchResults() {
-      const q = this.searchQuery;
-      if (!q) return [];
-
-      // Normalize + tokenize query: "Account takeover" -> ["account","takeover"]
-      const tokens = this.normalize(q).split(" ").filter(Boolean);
-
-      const results = [];
-
-      for (const i of this.matrixData) {
-        const id = i.id ?? "";
-        const name = i.name ?? "";
-        const desc = i.description ?? "";
-
-        // Normalized fields (case-insensitive, punctuation-insensitive)
-        const idN = this.normalize(id);
-        const nameN = this.normalize(name);
-        const descN = this.normalize(desc);
-
-        const allText = `${idN} ${nameN} ${descN}`;
-
-        // Require ALL tokens to be present somewhere (AND search)
-        const allTokensPresent = tokens.every(t => allText.includes(t));
-        if (!allTokensPresent) continue;
-
-        // Scoring: weight matches in id/name/description
-        let score = 0;
-        for (const t of tokens) {
-          score += 5 * this.countOccurrences(idN, t);
-          score += 3 * this.countOccurrences(nameN, t);
-          score += 1 * this.countOccurrences(descN, t);
-        }
-
-        // Bonus if exact normalized phrase occurs (keeps phrase results on top)
-        const phrase = this.normalize(q);
-        if (allText.includes(phrase)) score += 10;
-
-        if (score > 0) results.push({ ...i, searchScore: score });
-      }
-
-      return results.sort((a, b) => b.searchScore - a.searchScore);
+      return performSearch(this.searchQuery)
     },
     filteredResults() {
       if (!this.selectedTactics || this.selectedTactics.length === 0) {
@@ -121,36 +83,8 @@ export default defineComponent({
     }
   },
   methods: {
-    normalize(s: string) {
-      // lowercase, remove diacritics, turn punctuation into spaces, collapse whitespace
-      return s
-        .toLowerCase()
-        .normalize("NFKD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]+/g, " ")
-        .trim()
-        .replace(/\s+/g, " ");
-    },
-
-    countOccurrences(haystack: string, needle: string) {
-      if (!needle) return 0;
-      let count = 0;
-      let idx = 0;
-      for (; ;) {
-        idx = haystack.indexOf(needle, idx);
-        if (idx === -1) break;
-        count++;
-        idx += needle.length;
-      }
-      return count;
-    },
-    truncatedDescription(text: string) {
-      const words = text.split(' ');
-      if (words.length > 50) {
-        return words.slice(0, 50).join(' ') + '...';
-      }
-      return text;
-
+    truncatedDescription(string: string) {
+      return truncatedDescription(string);
     },
     getTacticData(id: string) {
       return this.matrixData.filter(i => i.id === id)[0]
@@ -158,6 +92,12 @@ export default defineComponent({
     onPageChange(event) {
       this.first = event.first;
       this.rows = event.rows;
+    },
+    getResultURL(result) {
+      if (result.tactic) {
+        return '/tactic/' + result.id + '/'
+      }
+      return '/technique/' + result.id + '/'
     }
   }
 });
