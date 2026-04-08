@@ -540,13 +540,12 @@ import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 import matrixImage from "@/assets/matrix-img.png";
 import expandedImage from "@/assets/expanded-techniques.png";
 
-const baseUrl = import.meta.env.BASE_URL
-const downloadUrl = `${baseUrl}/MITRE F3 Design Principles and Methodology.pdf`
-
 export default defineComponent({
   components: { BreadcrumbComponent },
   data() {
+    const baseUrl = import.meta.env.BASE_URL
     return {
+      downloadUrl: `${baseUrl}MITRE F3 Design Principles and Methodology.pdf`,
       matrixImage,
       expandedImage,
       breadcrumbItems: [

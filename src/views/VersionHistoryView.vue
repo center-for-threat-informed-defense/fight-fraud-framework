@@ -55,17 +55,16 @@
 import { defineComponent } from "vue";
 import BreadcrumbComponent from "../components/BreadcrumbComponent.vue";
 
-const baseUrl = import.meta.env.BASE_URL
-const stixUrl = `${baseUrl}/f3-stix.json`
-const navigatorUrl = `${baseUrl}/f3-navigator.json`
-const jsonUrl = `${baseUrl}/f3-v1.json`
-const excelUrl = `${baseUrl}/F3-v1.xlsx`
-
 export default defineComponent({
   components: { BreadcrumbComponent },
 
   data() {
+    const baseUrl = import.meta.env.BASE_URL
     return {
+      stixUrl: `${baseUrl}f3-stix.json`,
+      navigatorUrl: `${baseUrl}f3-navigator.json`,
+      jsonUrl: `${baseUrl}f3-v1.json`,
+      excelUrl: `${baseUrl}F3-v1.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
         { label: "Version History", route: "/resources/versions" },
