@@ -174,7 +174,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--custom-data-url",
         dest="custom_data_url",
-        default="https://raw.githubusercontent.com/center-for-threat-informed-defense/fight-fraud-framework/refs/heads/develop/public/f3-stix.json?token=GHSAT0AAAAAADJ6U6Z4AZK3FUVNFKWJ2RC42OVP3ZA",
+        default="https://raw.githubusercontent.com/center-for-threat-informed-defense/fight-fraud-framework/refs/heads/main/public/f3-stix.json",
         help="Public URL to the F3 STIX bundle JSON used by Navigator",
     )
     parser.add_argument(

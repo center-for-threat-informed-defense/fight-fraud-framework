@@ -30,13 +30,12 @@
         have their own tools and processes. You may also want to use F3 data with other CTID or MITRE ATT&CK ® tools.
         These download links provide you F3 data in various formats to explore cyber fraud TTPs, describe incidents, and
         coordinate efforts.</p>
-      <div class="flex gap-8"><a href="f3-stix.json" download="f3-financial-stix-v1"
-          class="link-blue-external small">Download
+      <div class="flex gap-8"><a href="f3-stix.json" download="f3-stix-v1" class="link-blue-external small">Download
           STIX</a>
-        <!-- <a href="f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
-          Navigator Layer</a> -->
-        <!-- <a href="f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a> -->
-        <a href="F3-v1.xlsx" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
+        <a href="f3-navigator.json" download="f3-navigator-v1" class="link-blue-external small">Download
+          Navigator Layer</a>
+        <!-- <a href="f3-v1.json" download="f3-json-v1" class="link-blue-external small">Download JSON</a> -->
+        <a href="F3-v1.xlsx" download="f3-excel-v1" class="link-blue-external small">Download Excel</a>
 
       </div>
       <h2>F3 Matrix</h2>
