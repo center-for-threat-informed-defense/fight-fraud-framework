@@ -3,7 +3,7 @@
     <div class="sidebar">
       <h2>Download Paper</h2>
       <p>The content on this page has been published as a standalone paper.</p>
-      <a href="/MITRE F3 Design Principles and Methodology.pdf" class="btn btn-external"
+      <a :href="downloadUrl" class="btn btn-external"
         download="MITRE F3 Design Principles and Methodology.pdf">Download Paper <i class="pi pi-download"></i></a>
 
       <h2>On This Page</h2>
@@ -24,7 +24,7 @@
         used by fraud actors. MITRE F3™ includes behaviors that characterize known fraud TTPs and references existing <a
           href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> techniques as applicable to financial
         fraud. These incidents involve the intentional use of deceptive or illegal practices to fraudulently obtain money, assets, or information from individuals or institutions and include actions carried out over cyber channels. F3 provides a common structure and taxonomy and a collective ability to enumerate the material events of cyber fraud incidents and enable partnership on fraud prevention and response.</p>
-      
+
       <p>The initial release focuses on financial fraud as seen by banking institutions<sup><a href=""
             target="blank">1</a></sup>. </p>
       <p>At a high level, F3 is a behavioral model that consists of the following core components: </p>
@@ -543,7 +543,9 @@ import expandedImage from "@/assets/expanded-techniques.png";
 export default defineComponent({
   components: { BreadcrumbComponent },
   data() {
+    const baseUrl = import.meta.env.BASE_URL
     return {
+      downloadUrl: `${baseUrl}MITRE F3 Design Principles and Methodology.pdf`,
       matrixImage,
       expandedImage,
       breadcrumbItems: [

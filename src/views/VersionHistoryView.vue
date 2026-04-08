@@ -38,12 +38,12 @@
         </div>
 
         <div class="grid grid-cols-2 w-1/2">
-          <a href="/f3-stix.json" download="f3-financial-stix-v1" class="link-blue-external small">Download
+          <a :href="stixUrl" download="f3-financial-stix-v1" class="link-blue-external small">Download
             STIX</a>
-          <a href="/f3-navigator.json" download="f3-financial-navigator-v1" class="link-blue-external small">Download
+          <a :href="navigatorUrl" download="f3-financial-navigator-v1" class="link-blue-external small">Download
             Navigator Layer</a>
-          <a href="/f3-v1.json" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
-          <a href="/F3-v1.xlsx" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
+          <a :href="jsonUrl" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
+          <a :href="excelUrl" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
         </div>
 
       </div>
@@ -59,7 +59,12 @@ export default defineComponent({
   components: { BreadcrumbComponent },
 
   data() {
+    const baseUrl = import.meta.env.BASE_URL
     return {
+      stixUrl: `${baseUrl}f3-stix.json`,
+      navigatorUrl: `${baseUrl}f3-navigator.json`,
+      jsonUrl: `${baseUrl}f3-v1.json`,
+      excelUrl: `${baseUrl}F3-v1.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
         { label: "Version History", route: "/resources/versions" },
