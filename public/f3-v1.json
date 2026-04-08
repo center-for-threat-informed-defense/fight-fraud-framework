@@ -1,0 +1,1345 @@
+[
+  {
+    "id": "TA0043",
+    "name": "Reconnaissance",
+    "description": "Adversaries may gather information to plan and target fraud operations. Reconnaissance consists of techniques that involve adversaries actively or passively collecting information about potential victims, organizations, systems, or services that can be used to support targeting. This information may include personal data, financial information, organizational relationships, security controls, or technical details that enable more effective fraud attacks.",
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.684Z",
+    "tactic": true
+  },
+  {
+    "id": "TA0042",
+    "name": "Resource Development",
+    "description": "Adversaries may establish resources to support fraud operations. Resource Development consists of techniques that involve adversaries creating, purchasing, or compromising resources that can be used to facilitate fraud. Such resources include infrastructure, accounts, capabilities, and services. These resources can be leveraged to support various phases of fraud operations, including hosting phishing sites, establishing payment processing, acquiring accounts, or developing fraud tools.",
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "TA0001",
+    "name": "Initial Access",
+    "description": "Adversaries may use various techniques to gain their initial foothold to conduct fraud operations. Initial Access consists of techniques that enable adversaries to gain unauthorized access to accounts, systems, or influence over target individuals. Techniques used to gain initial access include phishing, credential theft, exploiting vulnerabilities, social engineering, and leveraging stolen credentials. Initial access enables adversaries to conduct reconnaissance, establish persistence, or directly execute fraud activities.",
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "TA0005",
+    "name": "Defense Evasion",
+    "description": "Adversaries may use techniques to avoid detection throughout fraud operations. Defense Evasion consists of techniques that adversaries use to avoid detection by security controls, fraud detection systems, or investigators. These techniques include manipulating device characteristics, spoofing identities, using anonymization services, mimicking legitimate behavior patterns, or disabling security tools. Successful defense evasion allows adversaries to operate with reduced risk of detection, investigation, or attribution.",
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "FA0001",
+    "name": "Positioning",
+    "description": "Adversaries may collect and modify account information or data to prepare for fraud execution. Positioning consists of techniques that involve adversaries gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable adversaries to maximize the value extracted during fraud execution or establish persistent access for future operations.",
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "TA0002",
+    "name": "Execution",
+    "description": "Adversaries may initiate fraudulent transactions and convert stolen data into monetary value. Execution consists of techniques that result in adversary-controlled actions to complete fraud operations. These techniques include initiating unauthorized transactions, making fraudulent purchases, conducting unauthorized transfers, exploiting compromised accounts, or leveraging stolen data for financial gain. Execution represents the direct monetization phase where adversaries realize value from compromised access or stolen information.",
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "FA0002",
+    "name": "Monetization",
+    "description": "Adversaries may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve adversaries liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or laundering illicit funds. These techniques represent the final stages of fraud operations where adversaries secure their gains and attempt to obscure the transaction trail.",
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z",
+    "tactic": true
+  },
+  {
+    "id": "F1076",
+    "name": "3DS Bypass",
+    "description": "Adversaries may exploit weaknesses in 3-Domain Secure authentication implementations to bypass additional security verification for card-not-present transactions. This may include deliberately providing incomplete cardholder information to cause authentication failures that result in transactions being processed without additional verification. Bypassing 3DS authentication allows adversaries to conduct fraudulent transactions without completing the additional security challenges designed to prevent card-not-present fraud.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1453",
+    "name": "Abuse Accessibility Features",
+    "description": "Adversaries may abuse accessibility features on mobile devices to intercept and manipulate authentication processes. Malicious applications may request accessibility service permissions, enabling them to monitor screen content, intercept authentication prompts, and capture one-time passwords or other multi-factor authentication codes displayed on the device. This technique allows adversaries to bypass security controls by gaining unauthorized access to sensitive information presented through legitimate authentication interfaces.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1001",
+    "name": "Abuse of Public-Facing API",
+    "description": "Adversaries may exploit publicly available APIs intended for legitimate customer or partner use to facilitate fraud operations. This may include account enumeration, credential stuffing attacks, data scraping, or automated financial transaction fraud. Adversaries often leverage compromised credentials, botnets, or custom scripts to generate high volumes of API requests that mimic legitimate traffic patterns.",
+    "tactics": ["TA0001", "TA0002"],
+    "subtechniques": ["F1001.001", "F1001.002"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1001.001",
+    "name": "Abuse of Public-Facing API: Mobile API Abuse",
+    "description": "Adversaries may exploit mobile-specific APIs to conduct fraud operations. This may include using modified mobile applications, mobile device emulators, or custom scripts to generate fraudulent API calls that appear legitimate. Adversaries target mobile APIs to bypass security controls designed for web-based access or to exploit mobile-specific vulnerabilities in authentication and authorization mechanisms.",
+    "tactics": ["TA0001", "TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1001.002",
+    "name": "Abuse of Public-Facing API: Web API Abuse",
+    "description": "Adversaries may abuse web-based APIs exposed through websites or web applications to automate fraud operations. This may include leveraging botnets, proxy networks, or headless browsers to mimic legitimate web traffic while conducting credential stuffing, transaction fraud, or data exfiltration. Adversaries exploit web APIs to bypass rate limiting, CAPTCHA controls, or other security mechanisms designed to prevent automated abuse.",
+    "tactics": ["TA0001", "TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1004",
+    "name": "Abuse SMS verification",
+    "description": "Adversaries may abuse SMS verification services to generate excessive costs or enable fraud. This may include sending multiple verification requests to premium-rate numbers, manipulating SMS routing to route traffic through higher-cost carriers, or flooding systems with verification requests to disrupt services or increase operational costs for the target organization.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1005",
+    "name": "Access Notifications",
+    "description": "Adversaries may intercept SMS messages or push notifications to capture authentication codes or sensitive information sent to victim devices. This may include exploiting SIM swap vulnerabilities, using malware to read notification content, or compromising notification delivery infrastructure. Adversaries use captured authentication codes to bypass multi-factor authentication controls and gain unauthorized account access.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1006",
+    "name": "Access with Stolen Session Cookie",
+    "description": "Adversaries may use stolen session cookies to gain unauthorized access to user accounts without requiring authentication credentials. Session cookies maintain user login state and may be obtained through phishing, malware, network interception, or data breaches. By replaying stolen session cookies, adversaries can impersonate legitimate users and access accounts as long as the session remains valid.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1531",
+    "name": "Account Access Removal",
+    "description": "Adversaries may remove or alter account access controls after gaining unauthorized access to lock out legitimate account owners. This may include changing login credentials, modifying account recovery information, or manipulating user roles and permissions within enterprise systems. By preventing the legitimate owner from regaining access, adversaries maintain persistent control over compromised accounts.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1007",
+    "name": "Account Linking",
+    "description": "Adversaries may link compromised accounts to accounts under their control to establish persistent access that survives credential resets. In online and mobile banking environments, adversaries may link victim bank accounts to secondary credentials or profiles without the victim's knowledge. This technique allows adversaries to maintain account access even after the victim changes primary authentication credentials.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008",
+    "name": "Account Manipulation",
+    "description": "Adversaries may modify account settings to facilitate fraud operations or maintain persistent access. This may include altering payment methods, changing account details, modifying notification preferences, or adjusting security settings. Adversaries typically gain initial access through stolen credentials or system vulnerabilities, then make unauthorized changes to account configurations to support subsequent fraud activities or prevent detection.",
+    "tactics": ["FA0001"],
+    "subtechniques": [
+      "F1008.004",
+      "F1008.006",
+      "F1008.005",
+      "F1008.002",
+      "F1008.003",
+      "F1008.009",
+      "F1008.001",
+      "F1008.008",
+      "F1008.007"
+    ],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.004",
+    "name": "Account Manipulation: Add Authorized User",
+    "description": "Adversaries may add themselves or accomplices as authorized users or secondary signers on compromised accounts. Authorized users typically have permission to perform transactions and access account features on behalf of the primary account holder. This technique provides adversaries with legitimate-appearing access to accounts and may be used to position access for monetization or to establish persistent access that appears authorized.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.006",
+    "name": "Account Manipulation: Add Beneficiary",
+    "description": "Adversaries may add themselves or accounts under their control as beneficiaries on compromised financial accounts. Beneficiary designations determine who receives account assets or benefits after the account holder's death or under other specified conditions. This technique allows adversaries to potentially receive account assets in the future or to establish fraudulent claims to account benefits.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.005",
+    "name": "Account Manipulation: Adding Call Receiving Device",
+    "description": "Adversaries may add devices under their control to victim accounts to intercept phone calls intended for the legitimate account holder. This may include adding devices to cloud account profiles such as Apple ID or Microsoft accounts. By intercepting phone calls, adversaries can receive authentication codes sent via voice calls, intercept customer service callbacks, or monitor communication related to account security.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.002",
+    "name": "Account Manipulation: Additional Bank Accounts",
+    "description": "Adversaries may add new bank account details to compromised accounts to redirect future payments or transfers. By adding accounts under their control to payment or payout settings, adversaries can intercept legitimate financial transfers or redirect funds during payment processing. This technique is commonly used against merchant accounts, payroll systems, or other platforms that facilitate outbound payments.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.003",
+    "name": "Account Manipulation: Additional Payment Methods",
+    "description": "Adversaries may add new credit cards, bank accounts, or other financial instruments to compromised accounts. This allows adversaries to make unauthorized purchases, redirect funds to accounts under their control, or establish payment methods that can be used for subsequent fraud operations. Added payment methods may be funded with stolen financial credentials or used to monetize compromised accounts.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.009",
+    "name": "Account Manipulation: Change Account Details",
+    "description": "Adversaries may change account details such as PIN numbers, security questions, transaction limits, or other account parameters. By modifying these details, adversaries can reduce security controls, increase their operational capabilities, or prevent legitimate users from accessing or recovering accounts. This may include changing knowledge-based authentication answers or adjusting account restrictions.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.001",
+    "name": "Account Manipulation: Change E-Delivery / Notification Settings",
+    "description": "Adversaries may change electronic delivery or notification settings to prevent account holders from detecting suspicious account activity. By disabling email alerts, SMS notifications, or other notification mechanisms, adversaries can conduct fraudulent transactions or account modifications without triggering alerts that would otherwise notify the legitimate account owner.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.008",
+    "name": "Account Manipulation: Change of Payment Details",
+    "description": "Adversaries may alter legitimate payment details stored in compromised accounts to redirect payments to accounts or payment methods under their control. This may include changing bank account numbers, credit card information, or electronic payment addresses stored for recurring payments or payouts. This technique is commonly used to redirect payroll, vendor payments, or customer refunds.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1008.007",
+    "name": "Account Manipulation: Enable Account Features",
+    "description": "Adversaries may enable additional account features that legitimate account holders did not intend to activate. This may include increasing transaction limits, enabling international transactions, activating overdraft protection, or enabling other features that facilitate unauthorized financial activities. By expanding account capabilities, adversaries increase their ability to monetize compromised accounts.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1018",
+    "name": "Account Takeover",
+    "description": "Adversaries may gain unauthorized access and control of user accounts on financial platforms or services. This may include using stolen credentials, exploiting system vulnerabilities, conducting phishing attacks, or leveraging credential stuffing with previously breached credentials. Once access is obtained, adversaries can modify account details, redirect payments, initiate unauthorized transactions, or extract sensitive customer data for further fraud operations.",
+    "tactics": ["TA0001"],
+    "subtechniques": ["F1018.001"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1055",
+    "name": "Account Takeover: Exposed API Key",
+    "description": "Account Takeover (ATO) via Exposed API Key Overview: Account takeover (ATO) via an exposed API key refers to unauthorized adversaries gaining access to a user account by acquiring the API key, which is intended to control account functions programmatically. An API key acts as a secret token that permits interaction with financial services on behalf of the account holder. Exposure of this key can lead to unauthorized account access, manipulation of payment flows, theft of sensitive data, and illicit transactions.; Execution: Exposure of an API key can occur through various means, such as: Improperly Secured Code Repositories: Code containing API keys may be inadvertently uploaded to public repositories.; Unsecured Files: API keys stored in plain text on web servers or within applications.; Shared Code: Developers sharing code snippets in forums without realizing they contain sensitive information.; Phishing Attacks: Targeting developers or employees in organizations to retrieve API keys. Examples: An employee mistakenly uploads code with an API key to a public repository.; A developer shares code for troubleshooting purposes, unknowingly including an API key.; A hacker gains access to a network and discovers an API key stored in plain text within configuration files.; Goals: Attackers exploit an exposed API key for objectives such as: Accessing and exfiltrating transaction records and customer payment information.; Creating fraudulent transactions or refunds to siphon funds into their own accounts.; Altering payment configurations to reroute future payments.; Using obtained data for further targeted phishing campaigns or financial fraud against customers.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1056",
+    "name": "Account Takeover: Exposed Login Credential",
+    "description": "Account Takeover (ATO) via Exposed Login Credentials Overview: In financial cyber fraud, account takeover (ATO) involving exposed login credentials refers to unauthorized access and manipulation of a user account using known or leaked username and password combinations. Unauthorized access to payment processing accounts can result in severe repercussions, including financial loss and data breaches.; Execution: Attackers obtain login credentials through various methods: Data Breaches: Login details may be leaked from compromised databases.; Phishing Campaigns: Users are tricked into revealing their usernames and passwords.; Malware: Keyloggers capture keystrokes to obtain credentials.; Password Spraying: Attackers attempt common passwords in hopes of a match. Once access is gained, adversaries can modify payment routing details, initiate refunds, and access sensitive financial data. Examples: Using a list from a data breach containing email and password pairs in a credential-stuffing attack to access accounts.; Sending phishing emails that appear as security alerts to trick employees into entering login details on a fraudulent website.; Discovering login credentials through social media or public information and using them to access accounts.; Goals: Typical goals for attackers executing an account takeover with exposed login credentials include: Withdrawing funds from the compromised account or redirecting payouts.; Accessing sensitive customer data for identity theft or further phishing attacks, or selling on the dark market.; Altering invoice or billing configurations to redirect future payments.; Using the compromised account as a base for launching additional fraud schemes.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1018.001",
+    "name": "Account Takeover: Password Reset",
+    "description": "Adversaries may reset account passwords using compromised email accounts or other authentication recovery mechanisms to seize account control. By accessing the victim's email account or intercepting password reset communications, adversaries can initiate and complete password reset processes without the victim's authorization. This technique allows adversaries to lock out legitimate users and establish new credentials under their control.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1020",
+    "name": "Account Transfer",
+    "description": "Adversaries may transfer funds or assets from compromised accounts without authorization. This typically involves using legitimate transfer mechanisms after gaining unauthorized account access through stolen credentials, social engineering, or technical exploits. Adversaries may transfer funds to accounts under their control or to intermediary accounts used for money laundering operations.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1650",
+    "name": "Acquire Access",
+    "description": "Adversaries may acquire unauthorized access to systems, networks, or accounts to facilitate fraud operations. This encompasses various methods including exploitation of vulnerabilities, use of stolen credentials, social engineering, or leveraging compromised infrastructure. Once access is obtained, adversaries can conduct reconnaissance, establish persistence, or directly execute fraud activities such as data theft or unauthorized transactions.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1583",
+    "name": "Acquire Infrastructure",
+    "description": "Adversaries may acquire or compromise infrastructure to support fraud operations. This may include registering domains, establishing hosting services, deploying command and control infrastructure, or compromising legitimate infrastructure for malicious use. Acquired infrastructure provides adversaries with resources needed to conduct phishing campaigns, host malicious content, process fraudulent transactions, or maintain persistent access to compromised environments.",
+    "tactics": ["TA0042"],
+    "subtechniques": ["T1583.001", "T1583.008", "T1583.003"],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1583.001",
+    "name": "Acquire Infrastructure: Domains",
+    "description": "Adversaries may register domains similar to legitimate organizations or services to support fraud operations. This may include typosquatting domains, domains using different top-level domains, or domains incorporating organization names with additional words. Fraudulent domains are used for phishing websites, fake service websites, or to send emails that appear to originate from legitimate organizations.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1583.008",
+    "name": "Acquire Infrastructure: Malvertising",
+    "description": "Adversaries may create malicious advertisements that direct users to fraudulent sites equipped with credential harvesting or payment card skimming capabilities. This may include advertisements for fraudulent merchant sites or compromised legitimate merchant sites. Adversaries often use stolen payment card data to fund advertising campaigns, creating a self-sustaining fraud operation where stolen credentials fund further credential theft activities.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1583.003",
+    "name": "Acquire Infrastructure: Virtual Private Network or Server",
+    "description": "Adversaries may acquire access to VPN services or anonymous proxy servers to mask their activities or create the appearance of legitimate operations. VPN and proxy services allow adversaries to obscure their true location, bypass geographic restrictions, evade detection systems that rely on IP reputation, or simulate legitimate user traffic patterns during fraud operations.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1023",
+    "name": "Adversary-in-the-Browser",
+    "description": "Adversaries may use malware or malicious browser components to intercept, monitor, or manipulate web browser activity and transactions. This may include injecting malicious code into browser processes, deploying malicious browser extensions, or using DLL injection to compromise browser operations. Adversary-in-the-browser techniques allow real-time interception and modification of web traffic, including credential capture and transaction manipulation.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": ["F1023.001", "F1023.002", "F1023.003"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1023.001",
+    "name": "Adversary-in-the-Browser: DLL Injection",
+    "description": "Adversaries may inject malicious dynamic-link libraries into legitimate browser processes to intercept and manipulate web traffic. Injected DLLs can capture credentials, modify displayed content, intercept form data, or manipulate financial transactions in real-time. This technique allows adversaries to bypass browser security controls and operate within the context of trusted browser processes.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1023.002",
+    "name": "Adversary-in-the-Browser: Malicious Browser Extension",
+    "description": "Adversaries may deploy malicious browser extensions that appear legitimate but contain hidden functionality to steal credentials or intercept financial transactions. Malicious extensions can monitor web activity, capture form inputs including payment information, modify displayed content, or inject malicious scripts into visited web pages. Users may be deceived into installing these extensions through social engineering or by compromising legitimate extension distribution channels.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1023.003",
+    "name": "Adversary-in-the-Browser: Malicious JavaScript Injection",
+    "description": "Adversaries may inject malicious JavaScript into legitimate web pages to intercept credentials, capture payment information, or manipulate financial transactions. This may be accomplished through compromising web servers, exploiting cross-site scripting vulnerabilities, or using browser-based malware to modify page content before rendering. Injected JavaScript operates within the security context of the legitimate website, making detection more difficult.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1027",
+    "name": "Adversary-in-the-Middle",
+    "description": "Adversaries may position themselves between communications to intercept, monitor, or manipulate network traffic. This may include manipulating DNS settings, proxy configurations, or network routing to redirect traffic through adversary-controlled infrastructure. Adversary-in-the-middle techniques allow capture of credentials, injection of malicious content, and real-time modification of communications or transactions.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": ["F1027.001", "F1027.002"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1557",
+    "name": "Adversary-in-the-Middle",
+    "description": "Adversaries may attempt to position themselves between two or more devices to support follow-on behaviors such as Network Sniffing, Transmitted Data Manipulation, or replay attacks (Exploitation for Credential Access). By abusing features of common network protocols that can determine the flow of network traffic (e.g. ARP, DNS, LLMNR, etc.), adversaries may force a device to communicate through an adversary controlled system so they can collect information or perform additional actions.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1027.001",
+    "name": "Adversary-in-the-Middle: DNS Settings Manipulation",
+    "description": "Adversaries may manipulate DNS settings on victim devices or networks to redirect traffic to adversary-controlled servers. This may include modifying DNS server configurations, tampering with hosts files, or compromising DNS resolver settings. By controlling DNS resolution, adversaries can redirect users to fraudulent websites, intercept communications, or position themselves to conduct further attacks while traffic appears to route to legitimate destinations.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1027.002",
+    "name": "Adversary-in-the-Middle: Proxy Settings Manipulation",
+    "description": "Adversaries may manipulate proxy settings on victim devices to route all network traffic through adversary-controlled proxy servers. This allows adversaries to intercept, monitor, and modify communications between the victim and intended destinations. Adversaries can capture credentials, inject malicious content, or manipulate transactions while maintaining the appearance of normal connectivity to legitimate services.",
+    "tactics": ["TA0001", "FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1030",
+    "name": "ATM Manipulation",
+    "description": "Adversaries may manipulate ATM hardware or software to steal financial data or dispense unauthorized cash. This may include installing malicious software, exploiting vulnerabilities, connecting unauthorized hardware devices, or physically manipulating ATM components. ATM manipulation techniques allow adversaries to capture card data and PINs, dispense cash without proper authorization, or disable security controls.",
+    "tactics": ["TA0002"],
+    "subtechniques": ["F1030.002", "F1030.001"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1030.002",
+    "name": "ATM Manipulation: ATM Hardware Manipulation",
+    "description": "Adversaries may manipulate ATM hardware to gain unauthorized access or control. This may include installing black box devices that connect to internal ATM systems, modifying card readers to capture card data, or physically accessing internal communication interfaces. Hardware manipulation techniques such as ATM black boxing involve connecting unauthorized devices to the ATM's internal systems to send fraudulent dispense commands.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1030.001",
+    "name": "ATM Manipulation: ATM Software Manipulation",
+    "description": "Adversaries may manipulate ATM software to gain unauthorized access to sensitive financial data or conduct unauthorized transactions. This may include installing malicious software, exploiting software vulnerabilities, or modifying ATM operating system configurations. Software manipulation can allow adversaries to capture card data and PINs, dispense cash without authorization, or disable security controls.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1033",
+    "name": "Bank Deposit",
+    "description": "Adversaries may exploit bank deposit mechanisms to introduce fraudulent funds, kite checks, or launder money. This may include depositing counterfeit checks, manipulating mobile deposit systems, exploiting deposit timing vulnerabilities, or using stolen instruments. Bank deposit fraud techniques exploit the delay between deposit and verification or clearing of deposited instruments.",
+    "tactics": ["TA0002"],
+    "subtechniques": ["F1033.001", "F1033.002", "F1033.003", "F1033.004"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1033.001",
+    "name": "Bank Deposit: ATM Deposit",
+    "description": "Adversaries may exploit ATM deposit functions to introduce fraudulent checks or cash into accounts. This may include depositing counterfeit checks, altered checks, or stolen instruments through ATMs that process deposits with limited immediate verification. ATM deposits may provide longer processing times before fraud is detected compared to teller deposits.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1033.002",
+    "name": "Bank Deposit: Mobile Deposit",
+    "description": "Adversaries may exploit mobile deposit capabilities to deposit fraudulent checks or repeatedly deposit the same check. This may include depositing counterfeit checks, altered checks, or exploiting check processing delays to deposit the same check through multiple channels before fraud is detected. Mobile deposit systems may have reduced verification compared to in-person deposits.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1033.003",
+    "name": "Bank Deposit: Night Deposit",
+    "description": "Adversaries may exploit night deposit services to introduce fraudulent deposits with delayed verification. Night deposits are processed the following business day, providing additional time for adversaries to exploit the float period before deposits are verified. This may include depositing counterfeit checks, stolen checks, or altered instruments.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1033.004",
+    "name": "Bank Deposit: Test Deposit",
+    "description": "Adversaries may abuse test deposit mechanisms used for account verification to gather account information or conduct micro-deposit fraud. Account linking services often send small test deposits that users must verify, and adversaries may intercept these deposits to confirm account control or conduct account enumeration. This technique may also be used to identify active accounts for targeting.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1038",
+    "name": "Bank Transfer",
+    "description": "Adversaries may initiate unauthorized bank transfers to move funds from compromised accounts. This may include wire transfers, ACH transfers, peer-to-peer payment transfers, or other electronic fund transfer mechanisms. Adversaries typically gain access through stolen credentials, compromised sessions, or by manipulating account holders through social engineering before initiating transfers to accounts under their control.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1039",
+    "name": "Betting and Gambling Platforms",
+    "description": "Adversaries may exploit betting and gambling platforms to launder money, conduct bonus abuse, or commit transaction fraud. This may include creating accounts with stolen identities, exploiting bonus structures, conducting arbitrage fraud, or using gambling platforms to transfer and obfuscate the origin of illicit funds. Gambling platforms can provide mechanisms for moving funds while creating transaction complexity that hinders fraud detection.",
+    "tactics": ["FA0002"],
+    "subtechniques": ["F1039.001"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1039.001",
+    "name": "Betting and Gambling Platforms: Deposit Funds for Betting",
+    "description": "Adversaries may deposit stolen funds into gambling platform accounts to launder money or exploit platform features. This may include depositing funds from compromised payment methods, then withdrawing funds through different payment mechanisms to obscure the original source. Adversaries may conduct minimal gambling activity to create the appearance of legitimate platform use.",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1185",
+    "name": "Browser Session Hijacking",
+    "description": "Adversaries may take advantage of security vulnerabilities and inherent functionality in browser software to change content, modify user-behaviors, and intercept information as part of various browser session hijacking techniques.[1]\n\nA specific example is when an adversary injects software into a browser that allows them to inherit cookies, HTTP sessions, and SSL client certificates of a user then use the browser as a way to pivot into an authenticated intranet.[2][3] Executing browser-based behaviors such as pivoting may require specific process permissions, such as SeDebugPrivilege and/or high-integrity/administrator rights\n\nAnother example involves pivoting browser traffic from the adversary's browser through the user's browser by setting up a proxy which will redirect web traffic. This does not alter the user's traffic in any way, and the proxy connection can be severed as soon as the browser is closed. The adversary assumes the security context of whichever browser process the proxy is injected into. Browsers typically create a new process for each tab that is opened and permissions and certificates are separated accordingly. With these permissions, an adversary could potentially browse to any resource on an intranet, such as Sharepoint or webmail, that is accessible through the browser and which the browser has sufficient permissions. Browser pivoting may also bypass security provided by 2-factor authentication.[4]",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1110",
+    "name": "Brute Force",
+    "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained. Without knowledge of the password for an account or set of accounts, an adversary may systematically guess the password using a repetitive or iterative mechanism. Brute forcing passwords can take place via interaction with a service that will check the validity of those credentials or offline against previously acquired credential data, such as password hashes.\n\nBrute forcing credentials may take place at various points during a breach. For example, adversaries may attempt to brute force access to Valid Accounts within a victim environment leveraging knowledge gathered from other post-compromise behaviors such as OS Credential Dumping, Account Discovery, or Password Policy Discovery. Adversaries may also combine brute forcing activity with behaviors such as External Remote Services as part of Initial Access.\n\nIf an adversary guesses the correct password but fails to login to a compromised account due to location-based conditional access policies, they may change their infrastructure until they match the victim’s location and therefore bypass those policies.",
+    "tactics": ["TA0001"],
+    "subtechniques": ["T1110.004", "T1110.002", "T1110.001", "T1110.003"],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1110.004",
+    "name": "Brute Force:  Credential Stuffing",
+    "description": "Adversaries may use credentials obtained from breach dumps of unrelated accounts to gain access to target accounts through credential overlap. Occasionally, large numbers of username and password pairs are dumped online when a website or service is compromised and the user account credentials accessed. The information may be useful to an adversary attempting to compromise accounts by taking advantage of the tendency for users to use the same passwords across personal and business accounts.\n\nCredential stuffing is a risky option because it could cause numerous authentication failures and account lockouts, depending on the organization's login failure policies.\n",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1110.002",
+    "name": "Brute Force: Password Cracking",
+    "description": "Adversaries may use password cracking to attempt to recover usable credentials, such as plaintext passwords, when credential material such as password hashes are obtained. OS Credential Dumping can be used to obtain password hashes, this may only get an adversary so far when Pass the Hash is not an option. Further, adversaries may leverage Data from Configuration Repository in order to obtain hashed credentials for network devices.\n\nTechniques to systematically guess the passwords used to compute hashes are available, or the adversary may use a pre-computed rainbow table to crack hashes. Cracking hashes is usually done on adversary-controlled systems outside of the target network. The resulting plaintext password resulting from a successfully cracked hash may be used to log into systems, resources, and services in which the account has access.\n",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1110.001",
+    "name": "Brute Force: Password Guessing",
+    "description": "Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts. Without knowledge of the password for an account, an adversary may opt to systematically guess the password using a repetitive or iterative mechanism. An adversary may guess login credentials without prior knowledge of system or environment passwords during an operation by using a list of common passwords. Password guessing may or may not take into account the target's policies on password complexity or use policies that may lock accounts out after a number of failed attempts.\n\nGuessing passwords can be a risky option because it could cause numerous authentication failures and account lockouts, depending on the organization's login failure policies.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1110.003",
+    "name": "Brute Force: Password Spraying",
+    "description": "Adversaries may use a single or small list of commonly used passwords against many different accounts to attempt to acquire valid account credentials. Password spraying uses one password (e.g. 'Password01'), or a small list of commonly used passwords, that may match the complexity policy of the domain. Logins are attempted with that password against many different accounts on a network to avoid account lockouts that would normally occur when brute forcing a single account with many passwords.\n\nIn order to avoid detection thresholds, adversaries may deliberately throttle password spraying attempts to avoid triggering security alerting. Additionally, adversaries may leverage LDAP and Kerberos authentication attempts, which are less likely to trigger high-visibility events such as Windows \"logon failure\" event ID 4625 that is commonly triggered by failed SMB connection attempts.\n",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1041",
+    "name": "Buy Money Order",
+    "description": "Adversaries may purchase money orders with stolen payment methods or fraudulent funds to convert illicit proceeds into more anonymous monetary instruments. Money orders can be cashed at various locations, are difficult to trace back to the purchaser, and can be used as payment instruments with reduced fraud detection compared to electronic payments. Adversaries may use multiple small money orders to avoid transaction reporting thresholds.",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1042",
+    "name": "Card Dump Capture",
+    "description": "Adversaries may capture payment card magnetic stripe data, EMV chip data, or card details from various sources. This may include using skimming devices at point-of-sale terminals, ATMs, or fuel pumps, compromising payment processing systems, or conducting memory scraping attacks against POS systems. Captured card data can be used to create counterfeit cards, conduct card-not-present fraud, or be sold to other malicious adversaries.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1043",
+    "name": "Card Testing",
+    "description": "Adversaries may test stolen payment card credentials by conducting small transactions to determine if cards are valid and active. This may include making small purchases, authorization attempts without completing transactions, or using automated testing services. Successful card tests confirm which stolen credentials remain valid for use in larger fraudulent transactions or for sale to other malicious adversaries.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1047",
+    "name": "Cashout: Conversion to Cryptocurrency",
+    "description": "Adversaries convert funds into cryptocurrencies like Bitcoin or Ethereum, which can be harder to trace due to the pseudonymous nature of these currencies.",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1093",
+    "name": "Change Payroll Details",
+    "description": "Payroll details changed is when the payroll details for an individual are altered to another account.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1049",
+    "name": "Charge Back Fraud",
+    "description": "A consumer or adversaries falsely claims that a purchase they made was fraudulent in order to financially gain from the credit issued from the financial institution.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1050",
+    "name": "Check Fraud",
+    "description": "A method in which a adversaries cashes out an existing account through either physical or digital means to illegally obtain funds via a check. Examples of check fraud include: stolen, forgery, fraudulently issue, modification, washing or counterfeit.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1051",
+    "name": "Churning",
+    "description": "Churning, in the context of financial fraud, refers to the process where adversaries use stolen credit card details repeatedly to conduct transactions until the card's limit is reached or the account's balance is fully drained. This type of fraud is particularly damaging because it can swiftly accrue a significant financial loss for the cardholder before the unauthorized activity is detected and the card is disabled.\n\nExecution: \n\nThe fraudster typically begins with a small 'test' transaction to verify that the stolen card details are active and have not yet been reported. Once this initial transaction succeeds, they rapidly make as many transactions as possible. This often involves making purchases online where immediate verification is not required, or \"cashing out\" by purchasing gift cards, currency, or other easily liquidated items.\n\nExamples:\n\nA criminal gains access to stolen credit card information and starts by conducting a small transaction online to ensure the card is valid and functional. After the success of this low-value transaction, they make numerous high-value purchases in succession.\nUsing eCommerce platforms to purchase digital goods or services that do not require shipping and can be quickly resold for cash.\nBuying prepaid debit cards, cryptocurrencies, or other financial instruments that can be immediately used or converted into funds.\n\nGoals: The primary goals of conducting churning fraud include:\n\nQuickly capitalizing on stolen credit card information before the card is canceled or maxed out.\nAcquiring goods or assets that can be anonymized, liquidated, or otherwise converted into cash without traceability.\nMaximizing the financial gain from each set of stolen card details before detection.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1586",
+    "name": "Compromise Accounts",
+    "description": "Adversaries may compromise accounts with services that can be leveraged during fraud operations. This may include social media accounts, email accounts, cloud service accounts, or corporate accounts. Compromised accounts provide adversaries with legitimate-appearing identities for conducting social engineering, distributing malicious content, or accessing services and data associated with the compromised account.",
+    "tactics": ["TA0001"],
+    "subtechniques": ["T1586.003", "T1586.004", "T1586.002", "T1586.001"],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1586.003",
+    "name": "Compromise Accounts: Cloud Accounts",
+    "description": "Adversaries may compromise cloud service accounts to access sensitive data, pivot to connected resources, or leverage cloud services for malicious purposes. Compromised cloud accounts may provide access to stored data, configuration information, or connected services and applications. Adversaries may use compromised cloud accounts to host malicious content, conduct cryptomining operations, or access resources in connected cloud environments.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1586.004",
+    "name": "Compromise Accounts: Corporate Accounts",
+    "description": "Adversaries may compromise corporate accounts to gain access to business systems, conduct business email compromise attacks, or access sensitive corporate information. Compromised corporate accounts provide adversaries with legitimate credentials for accessing internal systems, customer data, financial information, or other protected corporate resources. These accounts may also be used to authorize fraudulent transactions or initiate unauthorized changes to business processes.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1586.002",
+    "name": "Compromise Accounts: Email Accounts",
+    "description": "saries may compromise email accounts that can be used during targeting. Adversaries can use compromised email accounts to further their operations, such as leveraging them to conduct Phishing for Information, Phishing, or large-scale spam email campaigns. Utilizing an existing persona with a compromised email account may engender a level of trust in a potential victim if they have a relationship with, or knowledge of, the compromised persona. Compromised email accounts can also be used in the acquisition of infrastructure (ex: Domains).\n\nA variety of methods exist for compromising email accounts, such as gathering credentials via Phishing for Information, purchasing credentials from third-party sites, brute forcing credentials (ex: password reuse from breach credential dumps), or paying employees, suppliers or business partners for access to credentials. Prior to compromising email accounts, adversaries may conduct Reconnaissance to inform decisions about which accounts to compromise to further their operation. Adversaries may target compromising well-known email accounts or domains from which malicious spam or Phishing emails may evade reputation-based email filtering rules.\n\nAdversaries can use a compromised email account to hijack existing email threads with targets of interest.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1586.001",
+    "name": "Compromise Accounts: Social Media Accounts",
+    "description": "Adversaries may compromise social media accounts to conduct social engineering attacks, distribute malicious content, or impersonate legitimate users. Compromised social media accounts can be used to send convincing phishing messages to the victim's contacts, promote fraudulent schemes, gather intelligence about targets and their relationships, or damage the reputation of the account owner.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1057",
+    "name": "Compromise Payment Gateway",
+    "description": "A compromised payment gateway implies that cybercriminals have gained unauthorized access to a system responsible for processing online payments. Once they have this access, adversaries can redirect transactions to alternative accounts or manipulate transaction data to siphon funds, harvest payment information, or corrupt legitimate business processes.\nAdversaries may compromise a payment gateway by exploiting software vulnerabilities, using stolen credentials, executing phishing attacks against employees of the gateway provider or merchant, or installing malware that intercepts communications between the payment gateway and its users. They often target weak points in the integration between a merchant's website and the payment gateway or within the gateway's own infrastructure.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1059",
+    "name": "Create Counterfeit Card",
+    "description": "After gathering of card data for a valid card or withfictitious card data for additional identity validation.\n\nThis can be a debit or credit card",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1060",
+    "name": "Create Fake Materials",
+    "description": "Adversaries may create fraudulent materials to deceive victims or establish false legitimacy. This may include creating fake websites, fraudulent documents, counterfeit identification, or other materials designed to appear legitimate. Fake materials are used to support various fraud operations including phishing, identity fraud, business email compromise, or establishing fraudulent business entities.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1062",
+    "name": "Create Fake Materials: Fake Documents",
+    "description": "Adversaries may forge documents and supporting artifacts to falsify identities, deceive authorities, or fabricate evidence in support of fraud operations. This can include creating or altering identification cards, passports, financial statements, or shipping-related evidence such as tracking numbers to bypass verification processes, gain access to restricted services, or legitimize fraudulent transactions. Commonly faked documents include bank statements, paychecks, government-issued IDs, Social Security cards, and insurance policies, which may be either fully counterfeit or subtly modified to evade detection.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1061",
+    "name": "Create Fake Materials: Fake e-Commerce Website",
+    "description": "Adversaries may create fraudulent e-commerce websites to capture payment information or steal credentials. Fake e-commerce sites may mimic legitimate retailers, advertise products with no intention of delivery, or simply harvest payment card information during checkout. These sites may be promoted through malicious advertisements, search engine optimization, or social media campaigns to attract victims.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1044",
+    "name": "Withdrawls of Money",
+    "description": "Withdrawing money through physical means like Cashier Checks, Money Orders, and ATM Withdrawals",
+    "tactics": ["FA0002"],
+    "subtechniques": ["F1044.002", "F1044.001"],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1555",
+    "name": "Credentials from Password Stores",
+    "description": "Adversaries may search for common password storage locations to obtain user credentials. Passwords are stored in several places on a system, depending on the operating system or application holding the credentials. There are also specific applications and services that store passwords to make them easier for users to manage and maintain, such as password managers and cloud secrets vaults. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.",
+    "tactics": ["FA0001"],
+    "subtechniques": ["T1555.003", "T1555.005", "T1555.002"],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1555.003",
+    "name": "Credentials from Password Stores: Credentials from Web Browsers",
+    "description": "Adversaries may extract credentials saved in web browser password storage mechanisms. Web browsers commonly offer to save and autofill credentials for user convenience, but this stored information can be extracted by malware or adversaries with local access. Extracted credentials may include usernames, passwords, and authentication tokens for various online services.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1555.005",
+    "name": "Credentials from Password Stores: Password Managers",
+    "description": "Adversaries may acquire user credentials from third-party password managers.[1] Password managers are applications designed to store user credentials, normally in an encrypted database. Credentials are typically accessible after a user provides a master password that unlocks the database. After the database is unlocked, these credentials may be copied to memory. These databases can be stored as files on disk. ",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1063",
+    "name": "Delete Relevant Emails",
+    "description": "Adversaries delete emails to the customer that may tip the victim to their activity, such as emails sent from their account, emails received in response to emails they sent out, or emails sent in response to unusual login activity.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1064",
+    "name": "Device Fingerprint Spoofing",
+    "description": "Adversaries employ device fingerprint spoofing to mask their true identities and evade detection by security systems. By manipulating various attributes of their device's fingerprint, such as browser settings, operating system details, and hardware configurations, they can make their devices appear as different, legitimate ones. This technique enables adversaries to bypass security measures that rely on device identification for authentication or fraud detection, allowing them to carry out illicit activities while remaining undetected.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1065",
+    "name": "DoS",
+    "description": "A Denial of Service (DoS) attack against Stripe involves a deliberate attempt to disrupt the normal operations of Stripe's platform by overwhelming it with a flood of internet traffic. Unlike a Distributed Denial of Service (DDoS) attack, which uses multiple compromised computer systems as a source of the traffic, a DoS attack typically originates from a single source. The objective of such an attack could be to create a diversion that draws attention and security resources away from other financial crime activities or to incapacitate Stripe's ability to process payments and provide its financial services to users.\n\nExecution: \n\nPerpetrators may undertake a DoS attack by exploiting vulnerabilities in Stripe's systems that allow them to send an overwhelming amount of traffic from one source or by utilizing scripts or devices under their direct control. The targeted systems become overloaded, which can result in slowed service performance or complete service outages. Key components of Stripe's infrastructure, such as its website, API endpoints, or payment processing capabilities, might be specific targets for these attacks.\n\nExamples:\n\nSending an immense volume of transaction requests to Stripe's payment gateway to prevent legitimate payment authorization and processing.\nFlooding Stripe's customer service or account login portals with traffic, preventing customers and businesses from accessing their accounts or getting support.\nAbusing network protocols or application vulnerabilities to consume the bandwidth or resources of Stripe's servers, causing service degradation or outright failure.\n\nGoals: The goals behind launching a DoS attack on Stripe typically involve:\n\nTaking Stripe's systems offline to impact businesses that rely on the platform for payment processing, eroding trust in Stripe's reliability.\nRunning distraction operations that facilitate other criminal activities, such as fraud or data theft, by overwhelming Stripe's security measures.\nAttempting to extort Stripe or its dependent businesses by demanding payment to stop the DoS attack.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1189",
+    "name": "Drive-by Compromise",
+    "description": "Adversaries may gain access to a system through a user visiting a website over the normal course of browsing. Multiple ways of delivering exploit code to a browser exist (i.e., Drive-by Target), including: \n- A legitimate website is compromised, allowing adversaries to inject malicious code\n- Script files served to a legitimate website from a publicly writeable cloud storage bucket are modified by an adversary\n- Malicious ads are paid for and served through legitimate ad providers (i.e., Malvertising)\n- Built-in web application interfaces that allow content are leveraged for the insertion of malicious scripts or iFrames (e.g., cross-site scripting)\n\nBrowser push notifications may also be abused by adversaries and leveraged for malicious code injection via User Execution. By clicking \"allow\" on browser push notifications, users may be granting a website permission to run JavaScript code on their browser.\nOften the website used by an adversary is one visited by a specific community, such as government, a particular industry, or a particular region, where the goal is to compromise a specific user or set of users based on a shared interest. This kind of targeted campaign is often referred to a strategic web compromise or watering hole attack. There are several known examples of this occurring.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1044.002",
+    "name": "Electronic Withdrawls of Money",
+    "description": "Withdrawing money over electronic means which can include Conversion to Crytpocurrency, Wire Transfer, and EFT - Regional Payment Rails (ACH, SEPA)",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1667",
+    "name": "Email Bombing",
+    "description": "Adversaries may flood targeted email addresses with an overwhelming volume of messages. This may bury legitimate emails in a flood of spam and disrupt business operations.[1][2]\n\nAn adversary may accomplish email bombing by leveraging an automated bot to register a targeted address for e-mail lists that do not validate new signups, such as online newsletters. The result can be a wave of thousands of e-mails that effectively overloads the victim’s inbox.[2][3]\n\nBy sending hundreds or thousands of e-mails in quick succession, adversaries may successfully divert attention away from and bury legitimate messages including security alerts, daily business processes like help desk tickets and client correspondence, or ongoing scams.[3] This behavior can also be used as a tool of harassment.[2]",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1672",
+    "name": "Email Spoofing",
+    "description": "Technique used by adversaries to misrepresent the sender‚Äôs email address, making it seem as if the email originates from a trusted or reliable source. The intent is to deceive the recipient (victim) into thinking the message is genuine, prompting them to click on malicious links, download and execute attachments with malware, share confidential information or execute fraudulent activity. This technique is frequently utilized in phishing scams to trick individuals into becoming victims of fraud or malware.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1585",
+    "name": "Establish Accounts",
+    "description": "This can include social media accounts or email accounts or bank login accounts.\n\nAdversaries create accounts using personal information obtained through various illicit means such as phishing scams, data breaches, and social engineering tactics, by purchasing stolen information from underground markets on the dark web or generating fake data. By leveraging the victim's identity, adversaries can bypass security measures and infiltrate the victim's accounts undetected.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1066",
+    "name": "Falsify Business Documents",
+    "description": "Adversaries may create or alter business documents to support fraud schemes or deceive stakeholders. This may include creating fake invoices, forging business licenses, falsifying financial statements, or creating fraudulent corporate documentation. Falsified documents may be used to establish fraudulent business entities, support business email compromise schemes, obtain financing, or deceive partners and customers.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1048",
+    "name": "Fradulent Purchasing",
+    "description": "Under the Financial Evasion, Laundering, and Cash-Out tactic, \"Fraudulent Purchases\" refers to activities where bad adversaries use stolen credit card information, fraudulent accounts, or money laundering methods to buy goods or services. These transactions are intended to convert illegally obtained funds into legitimate assets, evade detection by financial authorities, or cash out funds for clean money.\n\nExecution: Adversaries make purchases using stolen credit card details or through compromised financial accounts on e-commerce sites, through payment processors like Stripe, or brick-and-mortar retailers with online payment capabilities. In some cases, they may purchase high-value items that are easily resalable in secondary markets or convert funds into cryptocurrencies or gift cards to launder the money.\n\nExamples:\n\nBuying luxury items with stolen credit card information to later sell for cash, thus cleaning part of the illegally obtained funds.\nPurchasing goods or services to be delivered to a drop address, from where the purchased items can be safely retrieved by the criminal or an associate.\nUsing fraudulently obtained funds to purchase gift cards or digital items, which either have anonymous resale value or can be used without revealing the buyer's identity.\nGoals: The primary goals of engaging in fraudulent purchases are:\n\nLiquidating stolen financial assets before the theft is detected and the account or cards are frozen.\nLaundering money by turning illicit funds into physical goods that can be disposed of for 'clean' money.\nObtaining goods or services for personal use or profit without the intention of legitimate payment.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1067",
+    "name": "Gather Victim Information",
+    "description": "Adversaries may gather information about victims to support targeted fraud operations or social engineering attacks. This may include collecting personal information, financial information, relationship information, or behavioral information from public sources, data breaches, social media, or social engineering. Gathered information enables more convincing and targeted fraud attacks.",
+    "tactics": ["TA0043"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1068",
+    "name": "Geolocation Spoofing",
+    "description": "Adversaries may falsify geographic location information to bypass location-based security controls or access restricted services. This may include using VPNs, proxy servers, GPS spoofing applications, or other techniques to mask true location. Location spoofing allows adversaries to access geo-restricted content, bypass location-based fraud detection, or hide their true location during fraud operations.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1069",
+    "name": "Identity Theft for Merchant Accounts",
+    "description": "Adversaries may use stolen identity information to establish fraudulent merchant accounts with payment processors. Fraudulent merchant accounts allow adversaries to process payments for non-existent goods or services, conduct money laundering operations, or establish infrastructure for payment card testing. Identity theft for merchant accounts provides adversaries with legitimate-appearing payment processing capabilities.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1070",
+    "name": "Impersonate Account Holder",
+    "description": "Adversaries may impersonate legitimate account holders when interacting with financial institutions or service providers. This may include using stolen personal information to answer authentication questions, conducting social engineering attacks while impersonating victims, or using compromised identity information to convince institutions to grant access or conduct transactions. Successful impersonation can bypass identity verification controls.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1071",
+    "name": "Impersonate Official",
+    "description": "Adversaries may impersonate officials such as bank representatives, law enforcement officers, government agents, or other authority figures to manipulate victims. By impersonating officials, adversaries leverage the trust and authority associated with these positions to convince victims to provide sensitive information, authorize transactions, or take actions that facilitate fraud. Impersonation may occur through phone calls, emails, or in-person interactions.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1070",
+    "name": "Indicator Removal",
+    "description": "Removal or disabling of user profiles, used to erase traces of unauthorized activitiesonce fraudulent operations have been completed.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1072",
+    "name": "Insider Access Abuse",
+    "description": "Adversaries may abuse legitimate access privileges to conduct fraud operations. This may include malicious insiders, compromised insiders, or exploitation of excessive access privileges by authorized users. Insider access provides adversaries with legitimate credentials and authorization to access systems, data, or conduct transactions, making detection more difficult than external attacks.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1073",
+    "name": "IVR Discovery",
+    "description": "Adversaries may interact with interactive voice response systems to understand call flows, authentication mechanisms, or available functions. By mapping IVR systems, adversaries can identify opportunities for fraud, understand authentication requirements, or develop strategies for social engineering attacks against customer service representatives. IVR discovery may be automated or conducted manually to gather intelligence for fraud operations.",
+    "tactics": ["TA0043"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1074",
+    "name": "Mail Theft",
+    "description": "Adversaries may steal physical mail to obtain financial information, payment cards, checks, or identity documents. Mail theft provides access to statements, new payment cards, checks, tax documents, or other financial materials that can be used for fraud. Stolen mail may be intercepted from mailboxes, during postal delivery, or from mail processing facilities.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1111",
+    "name": "Multi-Factor Authentication Interception",
+    "description": "Adversaries may intercept multi-factor authentication credentials or tokens to bypass additional security controls. This may include intercepting SMS messages containing one-time codes, capturing push notification approvals, compromising hardware tokens, or exploiting vulnerabilities in MFA implementations. Successful MFA interception allows adversaries to complete authentication despite not possessing legitimate MFA credentials.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1621",
+    "name": "Multi-Factor Authentication Request Generation",
+    "description": "Adversaries may generate multiple MFA requests to overwhelm or pressure victims into approving fraudulent authentication attempts. This technique, often called MFA fatigue, involves repeatedly generating authentication requests until the victim approves access to stop the notifications. Adversaries rely on user frustration, confusion, or mistakes to gain approval for unauthorized access attempts.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1089",
+    "name": "New Vendor Setup",
+    "description": "adversaries pretend to be existing or new vendors to trick organizations into paying fraudulent accounts. New vendor setup can be done through fake invoices, requests for banking information changes, or urgent payment requests.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1090",
+    "name": "NFC Payment",
+    "description": "Adversaries exploit NFC (Near Field Communication) payments by using stolen or cloned NFC-enabled cards or mobile devices to make unauthorized transactions. They may intercept or manipulate NFC signals to initiate payments without the legitimate cardholder's knowledge or consent. By leveraging NFC technology, adversaries can quickly and discreetly conduct fraudulent transactions, often evading traditional security measures such as PIN verification or signature requirements, leading to financial losses for both consumers and businesses.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1077",
+    "name": "Official Phone Number Spoofing",
+    "description": "Adversaries manipulate caller ID information to display a legitimate phone number when communicating with victims, impersonating customer service hotlines, law enforcement, government agencies, financial institutions, or other trusted entities. This technique can lead to various types of illicit activities, such as phishing, where victims are tricked into entering sensitive information or performing unauthorized activities under the guise of official messages.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1091",
+    "name": "PAN/CVV Generation",
+    "description": "Adversaries use PAN/CVV Generators to create valid credit card numbers (PANs) along with their corresponding Card Verification Values (CVVs), allowing adversaries to bypass security measures and make unauthorized purchases. By generating PANs and CVVs, adversaries can create counterfeit credit cards or conduct card-not-present transactions without physically possessing the victim's card.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1092",
+    "name": "PaReq manipulation",
+    "description": "Adversaries exploit Payment Authentication Requests (PaReqs) by manipulating the data within these requests to bypass security measures and gain unauthorized access to sensitive information or transactions. By altering the parameters or contents of PaReqs, they can trick payment systems into approving fraudulent transactions without proper authentication. This manipulation helps adversaries evade detection by exploiting vulnerabilities in payment processing systems and bypassing security checks designed to prevent unauthorized access or fraudulent transactions.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1081",
+    "name": "Phishing",
+    "description": "Adversaries may send fraudulent communications designed to deceive victims into providing sensitive information, credentials, or payment information. Phishing may be conducted through email, SMS smishing, voice calls vishing, QR codes quishing, or other communication channels. Phishing messages typically impersonate trusted entities and create urgency to pressure victims into immediate action without careful consideration.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1044.001",
+    "name": "Physical Withdrawls of Money",
+    "description": "Withdrawing money through physical means like Cashier Checks, Money Orders, and ATM Withdrawals",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1082",
+    "name": "PIN-code Peeking",
+    "description": "Adversaries observe or obtain personal identification numbers (PINs). Use of hidden cameras, skimming devices, or other covert methods to capture PINs at ATMs, point-of-sale terminals, or other PIN-entry locations.\n\nObtained PIN numbers used with other stolen information to compromise the victim's accounts or conduct fraudulent transactions.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1083",
+    "name": "Post on the Dark Web",
+    "description": "Adversaries may post sensitive content or request information on dark web sources for targeting institution. Posts may include compromised employee or consumer credentials, stolen checks, guides for how to scam/defraud an institution on channel, and more. Adversaries collaborate on these channels and assume anonymity.",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1084",
+    "name": "QR Code Poisoning",
+    "description": "A social engineering attack vector disguised within a QR code, typically a \"Login with QR Code\" feature that presents a secure way to log into account, but enables adversaries to highjack all applications relying on the compromised credentials.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1085",
+    "name": "Reactivate Account",
+    "description": "Adversaries target inactive accounts because they are less likely to be monitored closely by the account holder or financial institution. They may attempt to reactivate the account through social engineering or by exploiting loopholes in the bank's security procedures. Once reactivated, they can use the account to launder money, deposit counterfeit checks, or engage in other fraudulent activities, taking advantage of the perceived lack of scrutiny on inactive accounts.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1219",
+    "name": "Remote Access Tools",
+    "description": "An adversary may use legitimate remote access tools to establish an interactive command and control channel within a network. Remote access tools create a session between two trusted hosts through a graphical interface, a command line interaction, a protocol tunnel via development or management software, or hardware-level access such as KVM (Keyboard, Video, Mouse) over IP solutions. Desktop support software (usually graphical interface) and remote management software (typically command line interface) allow a user to control a computer remotely as if they are a local user inheriting the user or software permissions. This software is commonly used for troubleshooting, software installation, and system management.[1][2][3] Adversaries may similarly abuse response features included in EDR and other defensive tools that enable remote access",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1094",
+    "name": "Reversal of Transaction",
+    "description": "Adversaries exploit the Reversal of Operation by initially conducting a legitimate transaction, such as purchasing goods or services. After the transaction is complete and the funds have been transferred, they then reverse the transaction, claiming it was unauthorized or fraudulent. This technique mya allow them to obtain the goods or services without actually paying for them, effectively evading detection and potentially causing financial loss to the legitimate party involved.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1095",
+    "name": "Scheduled Transfer",
+    "description": "Scheduled Transfer is a technique employed by malicious adversaries to systematically move funds out of an account at designated intervals. This tactic is often used in conjunction with financial evasion, laundering, and the cash-out of illicit funds. By setting up or hijacking existing scheduled transfers within financial systems, like those offered by banks or payment processing services, attackers can discreetly channel money to accounts they control or to other entities that help obscure the origins of the funds.\n\nExecution: \n\nCybercriminals may gain control over online banking or payment service accounts ‚Äî such as those managed by Stripe ‚Äî and create or modify scheduled transfers to divert funds to other accounts. These scheduled transactions can be programmed to recur at periodic intervals, often lined up with the typical cadence of legitimate business transactions to avoid detection. The funds may be transferred to accounts that further launder the money, such as shell companies or cryptocurrency exchanges.\n\nExamples:\n\nA fraudster infiltrates a company's financial system and sets up automated, recurring transfers to external accounts just beneath reporting thresholds to slowly siphon off money without attracting too much attention.\n\nAfter gaining access to a personal banking account, the attacker schedules small transfers to a series of other accounts they control, effectively laundering the money through a web of transactions.\nA compromised business account is used to set up regular payouts to supposed contradversaries or vendors, in reality, a fa√ßade for moving illicit gains.\n\nGoals: The primary objectives behind the Scheduled Transfer technique include:\n\nStealthily extracting funds from a compromised account over an extended period to maximize the total illicit financial gain.\nUtilizing the seeming normalcy of routine, scheduled transfers to blend illicit transactions with legitimate business operations, making them less conspicuous.\nLayering the movement of illegally obtained funds as part of the laundering process, aiming to obscure the trail and integrate the money into the legal economy.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1113",
+    "name": "Screen Capture",
+    "description": "Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation. Screen capturing functionality may be included as a feature of a remote access tool used in post-compromise operations. Taking a screenshot is also typically possible through native utilities or API calls, such as CopyFromScreen, xwd, or screencapture.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1451",
+    "name": "SIM Card Swap",
+    "description": "Unauthorized SIM changes including swapping to a new SIM card within the same carrier or porting the phone number to a new SIM card at a new carrier. This results in voice and SMS communications being redirected to the threat-actor.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1086",
+    "name": "Social Engineering",
+    "description": "Adversaries may manipulate individuals into divulging sensitive information, authorizing transactions, or taking actions that compromise security. Social engineering exploits human psychology, trust, authority, fear, or urgency rather than technical vulnerabilities. Social engineering may be conducted through various communication channels and is often combined with other techniques to establish credibility or create pressure for immediate action.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1608",
+    "name": "Stage Capabilities",
+    "description": "Adversaries may upload malicious content, establish fraud infrastructure, or position resources for delivery to victims. This may include hosting phishing websites, establishing command and control infrastructure, uploading malicious applications to app stores, or creating social media profiles for fraud operations. Staging activities prepare the technical infrastructure needed to execute fraud operations.",
+    "tactics": ["TA0042"],
+    "subtechniques": ["T1608.001"],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1608.001",
+    "name": "Stage Capabilities: SEO Poisoning",
+    "description": "Adversaries may manipulate search engine optimization to position malicious websites prominently in search results for targeted keywords. SEO poisoning can make fraudulent websites, phishing pages, or malicious content appear in top search results for legitimate queries. This technique exploits user trust in search engines and may target users searching for customer service contact information, software downloads, or financial services.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1539",
+    "name": "Steal Web Session Cookie",
+    "description": "An adversary may steal web application or service session cookies and use them to gain access to web applications or Internet services as an authenticated user without needing credentials. Web applications and services often use session cookies as an authentication token after a user has authenticated to a website.\n\nCookies are often valid for an extended period of time, even if the web application is not actively used. Cookies can be found on disk, in the process memory of the browser, and in network traffic to remote systems. Additionally, other applications on the targets machine might store sensitive authentication cookies in memory (e.g. apps which authenticate to cloud services). Session cookies can be used to bypasses some multi-factor authentication protocols.[1]\n\nThere are several examples of malware targeting cookies from web browsers on the local system.[2][3] Adversaries may also steal cookies by injecting malicious JavaScript content into websites or relying on User Execution by tricking victims into running malicious JavaScript in their browser.[4][5]\n\nThere are also open source frameworks such as Evilginx2 and Muraena that can gather session cookies through a malicious proxy (e.g., Adversary-in-the-Middle) that can be set up by an adversary and used in phishing campaigns.[6][7]\n\nAfter an adversary acquires a valid cookie, they can then perform a Web Session Cookie technique to login to the corresponding web application.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1087",
+    "name": "Structuring",
+    "description": "Parceling large transactions, locations or other account activity to subvert fraud detection and CTR/SAR reporting. Adversaries will use structuring to keep their fraudulent activity from detection or alerts.",
+    "tactics": ["FA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1195",
+    "name": "Supply Chain Compromise",
+    "description": "A supply chain compromise in the context of credential access refers to a strategic cyberattack targeting companies in the payment process chain‚Äîsuch as vendors, service providers, or application developers‚Äîthat businesses rely on for integration with payment systems. The goal is to infiltrate these third parties to gain access to sensitive credentials, customer payment information, or to manipulate payment transactions indirectly.; Execution: Cybercriminals identify vulnerable points in the supply chain, including less secure partner networks or third-party software interacting with payment accounts. They may introduce malicious code into legitimate software updates, exploit weak security practices, or leverage compromised third-party services to inject malicious payloads. Once a supplier is compromised, attackers gain access to credentials or sensitive information of any business relying on that supplier, including API keys or account login information. Examples: Infiltrating the network of a point-of-sale (POS) software provider to capture API keys used by merchants.; Compromising a third-party plugin that integrates with payment systems, injecting code that intercepts and transmits live credentials as merchants input them.; Launching spear-phishing campaigns against employees at companies offering development tools to gain access to their systems and subsequently to user credentials. Goals: Objectives of supply chain compromise attacks include: Obtaining a wide array of account credentials or API keys for unauthorized transactions or large-scale data exfiltration.; Capitalizing on trust and automated processes between suppliers and businesses to gather sensitive information over time.; Using compromised third-party services as a launch point to infiltrate high-value targets within the same supply chain.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1096",
+    "name": "Testing Payment Thresholds",
+    "description": "Adversaries conduct small-scale transactions to identify vulnerable accounts with sufficient funds. By staying within the payment thresholds, they avoid raising suspicion while accumulating information. This approach enables them to strategically target accounts with significant balances for larger-scale fraudulent activities.",
+    "tactics": ["FA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1550",
+    "name": "Use Alternate Authentication Material",
+    "description": "Adversaries may use authentication materials other than passwords to gain unauthorized access to accounts or systems. This may include using stolen authentication tokens, session cookies, API keys, or biometric data. Alternate authentication materials may be longer-lived than passwords, may not trigger password-based security controls, or may be easier to steal than passwords in certain scenarios.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "T1550.002",
+    "name": "Use Alternate Authentication Material: Application Access Token",
+    "description": "Adversaries may use stolen application access tokens to authenticate to services without requiring passwords or MFA. Access tokens are often long-lived, may have broad permissions, and may not be protected as carefully as passwords. Stolen tokens can be obtained through malware, phishing, insecure storage, or compromised applications. Using stolen tokens allows adversaries to bypass password-based authentication controls and may not trigger alerts for unusual login locations.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": true,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1097",
+    "name": "Use Virtual cards",
+    "description": "Adversaries use virtual cards for money laundering because they provide anonymity, flexibility, and ease of use in online transactions. Virtual cards are often obtained with less stringent identity verification, making it easier to conceal illicit financial activities. Their disposability allows adversaries to use them for a series of transactions and then discard them, reducing traceability.\nThese cards are beneficial for cross-border transactions, enabling adversaries to move funds quickly across jurisdictions, and complicating efforts to track money flows. Virtual cards can also be employed to create complex layers of transactions, often used in \"layering\" within money laundering schemes to obscure the origin of funds. This flexibility makes virtual cards a convenient tool for converting illicit funds into legitimate assets without raising suspicion.",
+    "tactics": ["TA0005"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1088",
+    "name": "Vishing",
+    "description": "A type of social engineering technique that uses calls, either voice or video, to trick consumers, specifically account holders, into sharing sensitive information. Adversaries may try to gain the consumer's trust and convince them to complete an action or give up personal information and financial details.",
+    "tactics": ["TA0001"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1098",
+    "name": "Website Cloning",
+    "description": "Website cloning is a technique whereby cybercriminals create a replica of a legitimate website with the intent to deceive visitors. The cloned website mimics the design, layout, and functionality of the original site, but is controlled by the attacker. Users are often directed to these fraudulent sites via phishing emails, social media links, or through search engine manipulation. Once on the cloned site, visitors may unknowingly provide sensitive information such as login credentials, financial data, or personal details.\n\nExecution: \n\nAttackers create a cloned website by copying the source code of the legitimate site and hosting it on a different server, often with a similar domain name designed to confuse potential victims (a practice known as \"typosquatting\"). They might also inject malicious scripts into the cloned site for additional nefarious activities, such as capturing keystrokes or redirecting payments.\n\nExamples:\n\nAn imposter copies a bank‚Äôs website to a domain that is off by one letter, hoping customers will not notice the URL difference and will enter their online banking credentials.\nCloning an online retailer's website around the holiday shopping season, tricking shoppers into \"purchasing\" high-demand items that will never be shipped‚Äîwhile collecting their credit card information.\nCreating a duplicate of a popular software download site to distribute malware-laden versions of the software.\n\nGoals: The primary goals of website cloning are to:\n\nCapture sensitive information from users by convincing them they are interacting with the legitimate site.\nFacilitate financial fraud by misleading customers into making payments or donations, which are then rerouted to the attacker.\nDistribute malware that can result in further exploitation of the victim‚Äôs device for financial gain, data theft, or unauthorized access to secure networks.\nDamage the reputation and trust of the legitimate site owner, which can have long-term business consequences.",
+    "tactics": ["TA0042"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  },
+  {
+    "id": "F1099",
+    "name": "Withdrawal by Legitimate Account Owner",
+    "description": "Adversaries may exploit the Withdrawal by Legitimate Account Owner defence to evade detection by conducting illicit transactions that appear legitimate on the surface. They might coerce or deceive account holders into making withdrawals or transfers under false pretences, using their legitimate access to financial accounts. By leveraging this defence, adversaries can obscure their illicit activities, making it harder for authorities to identify and prosecute them, as the transactions initially appear to be authorized by the account owner.",
+    "tactics": ["TA0002"],
+    "subtechniques": [],
+    "isAttack": false,
+    "version": "1.0",
+    "lastModified": "2026-03-06T19:15:57.686Z"
+  }
+]

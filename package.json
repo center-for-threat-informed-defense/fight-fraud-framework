@@ -1,0 +1,44 @@
+{
+  "name": "fight-financial-fraud",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "update": "node ./scripts/parse_data.js",
+    "generate:stix": "python scripts/generate_stix.py",
+    "generate:navigator": "python scripts/generate_navigator_layer.py"
+  },
+  "dependencies": {
+    "@primevue/themes": "^4.5.4",
+    "bootstrap": "^5.3.8",
+    "exceljs": "^4.4.0",
+    "markdown-it": "^14.1.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.5.4",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.0",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/downloadjs": "^1.4.6",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.5.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "npm-run-all2": "^6.1.2",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4",
+    "typescript": "4.7",
+    "vite": "^4.0.4",
+    "vue-tsc": "^2.0.7"
+  }
+}

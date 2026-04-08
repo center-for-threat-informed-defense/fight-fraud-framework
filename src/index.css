@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+body {
+  @apply bg-white m-0;
+}
+
+#page-body {
+  @apply pt-20 bg-white text-ctid-black xl:max-w-[1536px] mx-auto p-16 xl:py-20 lg:px-32 2xl:px-16;
+  min-height: calc(100vh - 450px);
+}
+
+#app {
+  @apply top-0 m-0;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply uppercase;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+h1 {
+  @apply text-4xl mb-2;
+}
+
+h2 {
+  @apply text-2xl mt-10 mb-2;
+}
+
+.btn-primary-light {
+  @apply bg-ctid-light-blue hover:bg-ctid-blue hover:text-white my-4 py-4 uppercase font-bold text-lg;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.btn-primary {
+  @apply bg-ctid-navy hover:bg-ctid-dark-navy text-white w-full p-4 text-center my-4 py-4 uppercase font-bold text-lg;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.description a {
+  @apply text-ctid-blue hover:underline;
+}
+
+.description p {
+  @apply mb-2;
+  font-size: 15px;
+}
+
+/* Primevue Overrides */
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.p-tabmenu .p-menuitem-link {
+  @apply bg-ctid-navy uppercase text-white hover:text-ctid-light-blue;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.p-menubar .p-menuitem-link,
+.p-menubar {
+  @apply uppercase font-medium;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.p-menuitem-text {
+  @apply my-2;
+}
+
+.p-accordion-tab {
+  @apply rounded-none shadow-none border-[1px] border-ctid-black -mt-[1px];
+}
+
+.p-accordion-header {
+  @apply uppercase;
+}
+
+.p-accordion-tab .p-highlight,
+.p-highlight .p-accordion-header-link {
+  @apply bg-ctid-navy text-white;
+}
+
+.p-accordion-header-link {
+  @apply p-4;
+}
+
+.p-accordion-tab h2,
+.p-accordion-tab h4 {
+  @apply uppercase font-semibold;
+}
+
+.p-accordion-tab h2 .highlight,
+.p-accordion-tab h4 .highlight {
+  @apply mx-1;
+}
+
+.p-accordion-tab-active h2 .highlight,
+.subtechniques .p-accordion-tab-active h4 .highlight {
+  @apply text-ctid-light-blue;
+}
+
+.p-accordion {
+  @apply border-collapse;
+}
+
+.p-accordion-tab {
+  @apply rounded-none shadow-none border-[1px] border-ctid-black;
+}
+
+.p-accordion-header-text {
+  @apply uppercase font-semibold text-lg;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.p-checkbox-box {
+  @apply border-[1px] border-ctid-black rounded-none;
+}
+
+.p-checkbox.p-highlight,
+.p-highlight .p-checkbox-box {
+  @apply bg-ctid-navy;
+}
+.p-tabmenu-tablist {
+  background-color: #0d2f4f !important;
+  border: none !important;
+}
+.p-tabmenu-item-label {
+  @apply text-ctid-light-gray;
+}
+.p-tabmenu-item-active .p-tabmenu-item-label {
+  @apply text-ctid-light-blue border-ctid-light-blue;
+}
+.p-tabmenu-item-link {
+  border: none !important;
+}
+.p-tabmenu-item-active .p-tabmenu-item-link {
+  color: #87deff !important;
+  border-bottom: 4px #87deff solid !important;
+}
+.p-selectbutton .p-button.p-component {
+  @apply uppercase border-[1px] border-ctid-black rounded-none mx-[-1px] sm:mx-1 md:mx-[-1px] lg:mx-1;
+}
+
+.p-selectbutton .p-highlight.p-button.p-component {
+  @apply bg-ctid-navy text-white;
+}
+
+.p-tooltip-text {
+  @apply bg-ctid-light-blue/80 text-ctid-black;
+}
+
+.p-tabmenu-ink-bar,
+.p-tabview-ink-bar {
+  @apply bg-ctid-light-blue;
+}
+
+.p-tabview-ink-bar {
+  @apply bg-ctid-blue -mb-[1px];
+}
+
+.p-highlight .p-menuitem-text {
+  @apply text-ctid-light-blue;
+}
+
+.p-menubar-root-list {
+  @apply w-60 -ml-40;
+}
+
+.p-tabview-nav-content .p-tabview-header {
+  @apply uppercase mx-1 my-1 font-bold text-xl;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.p-tabview-nav-content.p-tabview-nav {
+  @apply gap-2 w-max cursor-pointer;
+}
+
+.p-tabview-nav-content .p-tabview a {
+  @apply px-4 py-1 text-xl;
+}
+
+.p-tabview-nav {
+  @apply w-5/6 mx-auto border-b-2 border-solid;
+}
+
+.p-splitbutton.p-component {
+  @apply w-full bg-ctid-navy text-white rounded-none my-4;
+}
+
+.p-splitbutton .p-splitbutton-defaultbutton {
+  @apply uppercase font-semibold text-lg hover:text-ctid-light-blue hover:bg-ctid-dark-navy p-4;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+.p-splitbutton .p-button-icon-only.p-splitbutton-menubutton {
+  @apply hover:text-ctid-light-blue hover:bg-ctid-dark-navy px-2;
+}
+
+.attack-indicator {
+  @apply text-ctid-red font-semibold ml-1;
+}
+
+.markdown-html p {
+  @apply mb-8;
+  margin-bottom: 10px !important;
+}
+
+.markdown-html a {
+  @apply text-ctid-blue underline;
+}
+
+/* Custom CSS for CTID style guide */
+a.link-blue-external {
+  font-size: inherit;
+  cursor: pointer;
+  display: block;
+  text-transform: uppercase !important;
+  text-decoration: none;
+  background-size: 20px;
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 2em !important;
+  padding-bottom: 3px;
+  margin-top: 10px;
+  font-family:
+    "Fira Sans Extra Condensed", "Roboto", Helvetica, Arial, sans-serif !important;
+  transition: padding 300ms ease 0ms;
+  position: relative;
+  line-height: 40px !important;
+  width: max-content;
+}
+
+a.link-blue-external:hover {
+  padding-right: 2.5em !important;
+}
+
+a.link-blue-external:focus {
+  outline: 2px dashed;
+}
+
+a.link-blue-external {
+  border-bottom: 2px solid #005b94;
+  color: #005b94;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="27.673" height="20.126" viewBox="0 0 27.673 20.126"><g id="arrow_forward" transform="translate(9)"><path id="Path_2708" data-name="Path 2708" d="M0,0H20.126V20.126H0Z" transform="translate(-1.453)" fill="none"/><path id="Path_2709" data-name="Path 2709" d="M8.61,4,7.428,5.182,12.107,9.87H-9v1.677H12.107L7.428,16.235,8.61,17.417l6.709-6.709Z" transform="translate(0 -0.646)" fill="%23005b94"/></g></svg>');
+}
+
+a.link-blue-external.dark,
+#section-letter-from-the-director-jon-baker a.link-blue-external,
+#section-our-impact a.link-blue-external {
+  border-bottom: 2px solid var(--ctid-light-blue);
+  color: var(--ctid-light-blue);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="27.673" height="20.126" viewBox="0 0 27.673 20.126"><g id="arrow_forward" transform="translate(9)"><path id="Path_2708" data-name="Path 2708" d="M0,0H20.126V20.126H0Z" transform="translate(-1.453)" fill="none"/><path id="Path_2709" data-name="Path 2709" d="M8.61,4,7.428,5.182,12.107,9.87H-9v1.677H12.107L7.428,16.235,8.61,17.417l6.709-6.709Z" transform="translate(0 -0.646)" fill="%2387DEFF"/></g></svg>');
+}
+a.link-blue-external.small {
+  line-height: 30px !important;
+  padding-bottom: 1px;
+  font-size: 14px;
+}
+.btn {
+  font-weight: 700;
+  font-family: roboto, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  border-radius: 0;
+}
+.btn-external {
+  background-color: #005b94;
+  color: #fff;
+  height: max-content;
+  margin: 10px 0;
+  display: flex;
+  width: max-content;
+  padding: 16px 20px;
+}
+.btn-external:hover,
+.btn-external:active,
+.btn-external:focus {
+  background-color: #0d2f4f;
+  color: #fff;
+}
+.btn-external i {
+  @apply text-xs my-auto ml-2;
+}
+.main {
+  @apply w-full block;
+}
+
+.sidebar {
+  @apply md:border-r-2 border-ctid-light-gray  mr-6 pr-6 md:w-1/4;
+}
+
+.right-sidebar {
+  @apply md:border-l-2 border-ctid-light-gray md:pl-6 md:ml-6 md:w-1/4;
+}
+
+.p-menubar-root-list {
+  width: 200px !important;
+  left: -150px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 0s 50000s;
+}
