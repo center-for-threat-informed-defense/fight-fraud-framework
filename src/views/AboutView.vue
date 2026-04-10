@@ -41,7 +41,7 @@
       <p>F3 has been developed in collaboration with CTID members from Aviation Information Sharing and Analysis Center
         (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase, Lloyds Banking Group, Marsh,
         National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard Chartered, and Verizon Business.
-        CTID also recognizes Group IB as a key
+        CTID also recognizes Group-IB as a key
         data contributor. </p>
       <router-link to="/about/contributors" class="link-blue-external small">Learn More</router-link>
 
