@@ -32,7 +32,7 @@
         gratefully acknowledges the significant contributions and deep expertise provided by Aviation Information
         Sharing and Analysis Center (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase,
         Lloyds Banking Group, Marsh, National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard
-        Chartered, and Verizon Business towards the development of MITRE F3™. CTID further recognizes Group IB as a key
+        Chartered, and Verizon Business towards the development of MITRE F3™. CTID further recognizes Group-IB as a key
         data contributor whose insights and contributions supported the development of F3.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-x-20 gap-y-10">
