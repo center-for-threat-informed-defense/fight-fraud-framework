@@ -8,7 +8,16 @@
 
             <div class="grid grid-cols-2 gap-x-2 gap-y-2 mt-6 w-96">
               <div v-for="link in featuredLinks" :key="link.label" class="w-32">
-                <router-link :to="link.route" class="link-blue-external">
+                <a
+                  v-if="link.external"
+                  :href="link.route"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-blue-external"
+                >
+                  {{ link.label }}
+                </a>
+                <router-link v-else :to="link.route" class="link-blue-external">
                   {{ link.label }}
                 </router-link>
               </div>
@@ -24,7 +33,17 @@
               detection, and response across organizational teams. The knowledge base is globally accessible, open, and
               available at no charge to any person or organization.
             </p>
-            <router-link to="/about" class="link-blue-external">Learn More</router-link>
+            <div class="mt-4 flex flex-wrap gap-20">
+              <router-link to="/about" class="link-blue-external">Learn More</router-link>
+              <a
+                href="https://ctid.mitre.org/fraud/MITRE%20F3%20Design%20Principles%20and%20Methodology.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-blue-external"
+              >
+                Read the F3 Design Principles
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +76,7 @@ export default defineComponent({
         {
           label: "Techniques", route: "/technique"
         }
-      ],
+      ] as Array<{ label: string; route: string; external?: boolean }>,
     };
   },
 })
