@@ -3,8 +3,8 @@
     <div class="sidebar">
       <h2>Download Paper</h2>
       <p>The content on this page has been published as a standalone paper.</p>
-      <a :href="downloadUrl" class="btn btn-external"
-        download="MITRE F3 Design Principles and Methodology.pdf">Download Paper <i class="pi pi-download"></i></a>
+      <a :href="downloadUrl" class="btn btn-external" download="MITRE F3 Design Principles and Methodology.pdf">Download
+        Paper <i class="pi pi-download"></i></a>
 
       <h2>On This Page</h2>
       <template v-for="heading of topLevelHeadings" :key="heading.label">
@@ -23,7 +23,12 @@
       <p>The MITRE Fight Fraud Framework (F3)™ is a curated knowledge base of tactics and techniques
         used by fraud actors. MITRE F3™ includes behaviors that characterize known fraud TTPs and references existing <a
           href="https://attack.mitre.org/" target="blank">MITRE ATT&CK®</a> techniques as applicable to financial
-        fraud. These incidents involve the intentional use of deceptive or illegal practices to fraudulently obtain money, assets, or information from individuals or institutions and include actions carried out over cyber channels. F3 provides a common structure and taxonomy and a collective ability to enumerate the material events of cyber fraud incidents and enable partnership on fraud prevention and response.</p>
+        fraud. These incidents involve the intentional use of deceptive or illegal practices to fraudulently obtain
+        money,
+        assets, or information from individuals or institutions and include actions carried out over cyber channels. F3
+        provides a common structure and taxonomy and a collective ability to enumerate the material events of cyber
+        fraud
+        incidents and enable partnership on fraud prevention and response.</p>
 
       <p>The initial release focuses on financial fraud as seen by banking institutions<sup><a href=""
             target="blank">1</a></sup>. </p>
@@ -366,7 +371,7 @@
       <ul>
         <li>
           <a href="https://www.fsisac.com/knowledge/cyber-fraud-prevention-framework" target="blank"
-            class="font-medium">FS-ISAC Cyber Fraud
+            class="font-medium text-ctid-blue hover:text-ctid-navy hover:underline">FS-ISAC Cyber Fraud
             Prevention Framework </a>
           <ul>
             <li>Framework that enables gathering and sharing of cyber fraud information across the financial sector
@@ -374,7 +379,8 @@
           </ul>
         </li>
 
-        <li><a href="https://nrf.com/research/retail-fraud-taxonomy" target="blank" class="font-medium">National Retail
+        <li><a href="https://nrf.com/research/retail-fraud-taxonomy" target="blank"
+            class="font-medium text-ctid-blue hover:text-ctid-navy hover:underline">National Retail
             Federation Retail
             Fraud Taxonomy</a>
           <ul>
@@ -383,7 +389,7 @@
           </ul>
         </li>
         <li><a href="https://www.group-ib.com/products/cyber-fraud-intelligence-platform/" target="blank"
-            class="font-medium">Group-IB Cyber
+            class="font-medium text-ctid-blue hover:text-ctid-navy hover:underline">Group-IB Cyber
             Fraud Intelligence</a>
           <ul>
             <li>Framework to systematically break down fraud actor actions and behaviors across an incident into stages
@@ -391,7 +397,8 @@
           </ul>
         </li>
 
-        <li><a href="https://github.com/stripe/ft3" target="blank" class="font-medium">Stripe Fraud Tools Tactics and
+        <li><a href="https://github.com/stripe/ft3" target="blank"
+            class="font-medium text-ctid-blue hover:text-ctid-navy hover:underline">Stripe Fraud Tools Tactics and
             Techniques (FT3)</a>
           <ul>
             <li>Framework to enhance understanding of the tactics, techniques, and procedures (TTPs) used by actors in
