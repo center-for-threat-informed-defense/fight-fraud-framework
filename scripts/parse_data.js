@@ -2,6 +2,8 @@ const ExcelJS = require("exceljs");
 const fs = require("fs");
 const SOURCE_FILE = "src/data/FFF Complete.xlsx";
 const DESTINATION_FILE = "src/data/matrix-data.json";
+const PUBLIC_FILE = "public/f3-v1.json";
+const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
 
 (async function () {
   const wb = new ExcelJS.Workbook();
@@ -84,7 +86,19 @@ const DESTINATION_FILE = "src/data/matrix-data.json";
       throw error;
     }
   });
-  console.log("Export technique data to Techniques.json");
+  console.log("Export technique data to matrix-data.json");
+  fs.writeFile(PUBLIC_FILE, str, (error) => {
+    if (error) {
+      console.error(error);
+      throw error;
+    }
+  });
+  console.log("Export technique data to public file location");
+  // here i want to copy the excel workbook from one directory into another
+  fs.copyFile(SOURCE_FILE, PUBLIC_SPREADSHEET, (err) => {
+    if (err) throw err;
+    console.log(`Copied Excel workbook to ${PUBLIC_SPREADSHEET}`);
+  });
 })();
 
 function convertRichTextToMarkdown(richTextValue) {
