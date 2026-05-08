@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "update": "node ./scripts/parse_data.js",
     "generate:stix": "python scripts/generate_stix.py",
-    "generate:navigator": "python scripts/generate_navigator_layer.py"
+    "generate:navigator": "python scripts/generate_navigator_layer.py",
+    "update-everything": "npm run update && npm run generate:stix && npm run generate:navigator"
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",
