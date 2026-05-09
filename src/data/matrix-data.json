@@ -1649,5 +1649,72 @@
         "isAttack": false,
         "version": "1.0",
         "lastModified": "2026-04-08T17:36:46.311Z"
+    },
+    {
+        "id": "F1049",
+        "name": "Payment QR Code Substitution",
+        "description": "Fraud actors may replace or present fraudulent payment QR codes so that victims initiate payments to actor-controlled accounts instead of the intended recipient. This can occur in physical environments, digital invoices, messaging applications, e-commerce checkout flows, donation campaigns, parking or transit payment signs, restaurant bills, or peer-to-peer payment requests.\n\nUnlike QR-code phishing that primarily redirects victims to credential-harvesting sites, payment QR code substitution causes the victim's legitimate banking or wallet application to initiate a real payment using attacker-supplied destination details. Actors may overlay stickers on printed QR codes, alter PDF invoices, compromise merchant pages, send fake billing messages, or display counterfeit QR codes during social engineering interactions.",
+        "tactics": [
+            "TA0002",
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T11:24:00.000Z"
+    },
+    {
+        "id": "F1050",
+        "name": "Instant Payment Key Manipulation",
+        "description": "Fraud actors may register, alter, claim, or socially engineer victims into using instant payment aliases or keys that route funds to accounts controlled by the actor. In instant payment ecosystems, aliases such as phone numbers, tax identifiers, email addresses, random keys, or payment handles can be used instead of traditional account and routing details. Fraud actors may exploit victim confusion, account takeover, weak key-ownership validation, compromised contact channels, or fake payment instructions to cause payers to send funds to the actor-controlled key.\n\nThis technique is commonly observed in systems where instant payment keys are widely used for person-to-person, merchant, marketplace, and business payments. Actors may replace legitimate keys in invoices or messages, register keys using mule accounts, convince victims that a new key belongs to a trusted person or organization, or manipulate account settings after account takeover to redirect future payments.",
+        "tactics": [
+            "FA0001",
+            "TA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T11:24:00.000Z"
+    },
+    {
+        "id": "F1051",
+        "name": "Fake Payment Confirmation",
+        "description": "Fraud actors may create or present fake payment confirmations, receipts, screenshots, transaction IDs, or bank notifications to convince victims that a payment has been completed when no valid settlement occurred. This can be used to obtain goods, services, account credits, shipment releases, or refunds before the recipient verifies funds through authoritative channels.\n\nActors may generate counterfeit receipts using image editing tools, manipulate screenshots from legitimate banking applications, exploit delayed reconciliation processes, send spoofed payment notification messages, or pressure merchants and individuals to release goods based on apparent proof of payment. This technique is especially effective in real-time payment contexts where recipients expect funds to arrive quickly but may rely on visual confirmation instead of checking account settlement directly.",
+        "tactics": [
+            "TA0002",
+            "TA0005",
+            "FA0002"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T11:24:00.000Z"
+    },
+    {
+        "id": "F1052",
+        "name": "Social Engineering for Authorized Push Payment",
+        "description": "Fraud actors may socially engineer victims into authorizing push payments from their own accounts to accounts controlled by the actor or their accomplices. Instead of directly compromising credentials or initiating the transfer themselves, actors manipulate the victim into believing the payment is necessary, urgent, safe, or beneficial.\n\nPretexts may include impersonating bank staff, law enforcement, relatives, employers, vendors, investment advisors, technical support, marketplace buyers or sellers, or emergency contacts. Actors may instruct victims to move funds to a supposedly safe account, pay a fake invoice, complete a marketplace transaction, send money to assist a family member, or participate in a fraudulent investment opportunity. Because the payment is technically authorized by the account holder, recovery and detection can be more difficult than with unauthorized account takeover.",
+        "tactics": [
+            "TA0002",
+            "TA0001"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T11:24:00.000Z"
+    },
+    {
+        "id": "F1053",
+        "name": "Instant Payment Refund Abuse",
+        "description": "Fraud actors may abuse instant payment refund, return, or recovery mechanisms to obtain funds, reverse apparent obligations, or manipulate victims and institutions after a real or claimed payment. Actors may send low-value or fraudulent payments and pressure victims to return funds to a different account, submit false claims that a legitimate payment was unauthorized, or use fake proof of payment and refund requests to create confusion during dispute handling.\n\nIn real-time payment systems, the speed and finality of settlement can create pressure for victims, merchants, and financial institutions to act quickly. Fraud actors may exploit this urgency by claiming mistaken transfers, impersonating support staff, or coordinating mule accounts to receive returned funds before fraud controls can validate the original transaction context.",
+        "tactics": [
+            "TA0002",
+            "FA0002",
+            "TA0005"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T11:24:00.000Z"
     }
 ]

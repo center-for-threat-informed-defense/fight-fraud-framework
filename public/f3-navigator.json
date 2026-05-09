@@ -966,6 +966,126 @@
             "color": "#FFFFFF"
         },
         {
+            "techniqueID": "F1049",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1049",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1050",
+            "tactic": "positioning",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1050",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1051",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1051",
+            "tactic": "defense-evasion",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1051",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1052",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1052",
+            "tactic": "initial-access",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1053",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1053",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1053",
+            "tactic": "defense-evasion",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
             "techniqueID": "F1002.001",
             "tactic": "initial-access",
             "enabled": true,
