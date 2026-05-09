@@ -11,7 +11,7 @@ def write_to_json_file(obj, output_dir, filename):
     output_dir.mkdir(parents=True, exist_ok=True)
     output_filepath = output_dir / filename
 
-    with open(output_filepath, "w") as f:
+    with open(output_filepath, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=4)
 
     return output_filepath
@@ -204,7 +204,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    with open(args.stix_filepath, "r") as f:
+    with open(args.stix_filepath, "r", encoding="utf-8") as f:
         stix_bundle = json.load(f)
 
     generate_matrix_layer(

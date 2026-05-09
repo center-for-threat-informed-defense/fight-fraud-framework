@@ -33,11 +33,13 @@
         Sharing and Analysis Center (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase,
         Lloyds Banking Group, Marsh, National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard
         Chartered, and Verizon Business towards the development of MITRE F3™. CTID further recognizes Group-IB as a key
-        data contributor whose insights and contributions supported the development of F3.</p>
+        data contributor whose insights and contributions supported the development of F3, and SWARMY, an anti-fraud
+        company operating in Brazil, for suggesting the Instant Payment Key Manipulation technique.</p>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-10 gap-x-20 gap-y-10">
         <div v-for="contributor of contributors" :key="contributor.name" class="contributor">
-          <img :src="contributor.img" />
+          <img v-if="contributor.img" :src="contributor.img" />
+          <span v-else>{{ contributor.name }}</span>
         </div>
       </div>
     </div>
@@ -114,6 +116,11 @@ export default defineComponent({
           img: "https://ctid.mitre.org/img/participants/standard_chartered.png",
         },
         {
+          name: "SWARMY",
+          link: "",
+          img: "",
+        },
+        {
           name: "Verizon Business",
           link: "",
           img: "https://ctid.mitre.org/img/participants/verizon.png",
@@ -142,5 +149,9 @@ a h3 {
 
 .contributor img {
   @apply m-auto h-20 w-auto object-contain
+}
+
+.contributor span {
+  @apply m-auto text-ctid-blue font-semibold text-xl
 }
 </style>

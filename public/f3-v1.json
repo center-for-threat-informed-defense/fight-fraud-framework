@@ -1649,5 +1649,17 @@
         "isAttack": false,
         "version": "1.0",
         "lastModified": "2026-04-08T17:36:46.311Z"
+    },
+    {
+        "id": "F1049",
+        "name": "Instant Payment Key Manipulation",
+        "description": "Fraud actors may register, alter, claim, or socially engineer victims into using instant payment aliases or keys that route funds to accounts controlled by the actor. In instant payment ecosystems, aliases such as phone numbers, tax identifiers, email addresses, random keys, or payment handles can be used instead of traditional account and routing details. Fraud actors may exploit victim confusion, account takeover, weak key-ownership validation, compromised contact channels, or fake payment instructions to cause payers to send funds to an actor-controlled key.\n\nThis technique is commonly observed in systems where instant payment keys are widely used for person-to-person, merchant, marketplace, and business payments. Actors may replace legitimate keys in invoices or messages, register keys using mule accounts, convince victims that a new key belongs to a trusted person or organization, or manipulate account settings after account takeover to redirect future payments.\n\nThis technique was suggested by SWARMY, an anti-fraud company operating in Brazil, based on fraud patterns observed in the Brazilian instant payment ecosystem.",
+        "tactics": [
+            "FA0001"
+        ],
+        "subtechniques": [],
+        "isAttack": false,
+        "version": "1.0",
+        "lastModified": "2026-05-09T10:47:26.224Z"
     }
 ]

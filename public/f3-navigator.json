@@ -966,6 +966,16 @@
             "color": "#FFFFFF"
         },
         {
+            "techniqueID": "F1049",
+            "tactic": "positioning",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
             "techniqueID": "F1002.001",
             "tactic": "initial-access",
             "enabled": true,

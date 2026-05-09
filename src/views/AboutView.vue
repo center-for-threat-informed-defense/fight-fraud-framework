@@ -42,7 +42,8 @@
         (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase, Lloyds Banking Group, Marsh,
         National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard Chartered, and Verizon Business.
         CTID also recognizes Group-IB as a key
-        data contributor. </p>
+        data contributor, and SWARMY, an anti-fraud company operating in Brazil, for suggesting the Instant Payment Key
+        Manipulation technique. </p>
       <router-link to="/about/contributors" class="link-blue-external small">Learn More</router-link>
 
       <h2>Contact Us</h2>
