@@ -33,17 +33,17 @@
       <h2>Current Version</h2>
       <div class="version">
         <div class="w-1/2 my-auto">
-          <h3>MITRE F3 v1.0</h3>
-          <p>April 2026 - Current</p>
+          <h3>MITRE F3 v1.1</h3>
+          <p>June 2026 - Current</p>
         </div>
 
         <div class="grid grid-cols-2 w-1/2">
-          <a :href="stixUrl" download="f3-financial-stix-v1" class="link-blue-external small">Download
+          <a :href="stixUrl" download="f3-financial-stix-v1.1" class="link-blue-external small">Download
             STIX</a>
-          <a :href="navigatorUrl" download="f3-financial-navigator-v1" class="link-blue-external small">Download
+          <a :href="navigatorUrl" download="f3-financial-navigator-v1.1" class="link-blue-external small">Download
             Navigator Layer</a>
-          <a :href="jsonUrl" download="f3-financial-json-v1" class="link-blue-external small">Download JSON</a>
-          <a :href="excelUrl" download="f3-financial-excel-v1" class="link-blue-external small">Download Excel</a>
+          <a :href="jsonUrl" download="f3-financial-json-v1.1" class="link-blue-external small">Download JSON</a>
+          <a :href="excelUrl" download="f3-financial-excel-v1.1" class="link-blue-external small">Download Excel</a>
         </div>
 
       </div>

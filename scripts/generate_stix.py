@@ -132,7 +132,7 @@ class F3:
         """Sets attributes from the F3 data."""
         self.data_id = "F3"
         self.data_name = "MITRE Fight Financial Fraud Framework"
-        self.data_version = "1.0"
+        self.data_version = "1.1"
 
         if not isinstance(f3_data, list):
             raise ValueError(
@@ -254,7 +254,7 @@ class F3:
             # created = curr_datetime,
             # modified = curr_datetime,
             spec_version="2.1",
-            x_mitre_version="0.1",
+            x_mitre_version=self.data_version,
             x_mitre_attack_spec_version="2.1.0",
             created_by_ref="identity--f1e3e4d7-42b2-5b41-bbee-ffa8f4a03996",
             object_marking_refs=[],
