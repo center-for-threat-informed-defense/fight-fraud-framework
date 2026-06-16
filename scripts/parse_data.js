@@ -23,7 +23,7 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
       name: row.getCell(2).value,
       description: convertRichTextToMarkdown(row.getCell(3).value),
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
-      version: "1.0",
+      version: "1.1",
       lastModified: new Date().toISOString(),
       tactic: true,
     };
@@ -66,7 +66,7 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
       tactics: tactics,
       subtechniques: [],
       isAttack: tid.charAt(0) === "T" ? true : false,
-      version: "1.0",
+      version: "1.1",
       lastModified: new Date().toISOString(),
     };
 
