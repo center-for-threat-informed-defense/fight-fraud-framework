@@ -63,8 +63,8 @@ export default defineComponent({
     return {
       stixUrl: `${baseUrl}f3-stix.json`,
       navigatorUrl: `${baseUrl}f3-navigator.json`,
-      jsonUrl: `${baseUrl}f3-v1.json`,
-      excelUrl: `${baseUrl}F3-v1.xlsx`,
+      jsonUrl: `${baseUrl}f3-v1.1.json`,
+      excelUrl: `${baseUrl}f3-excel-v1.1.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
         { label: "Version History", route: "/resources/versions" },
