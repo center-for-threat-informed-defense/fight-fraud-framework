@@ -32,7 +32,20 @@ export default defineComponent({
     },
     computed: {
         tactics() {
-            return this.matrixData.filter(i => i.tactic)
+            const tactics = this.matrixData.filter(i => i.tactic);
+            const stealthIndex = tactics.findIndex(tactic => tactic.id === "TA0005");
+            const defenseImpairmentIndex = tactics.findIndex(tactic => tactic.id === "TA0112");
+
+            if (stealthIndex === -1 || defenseImpairmentIndex === -1) {
+                return tactics;
+            }
+
+            const orderedTactics = [...tactics];
+            const [defenseImpairment] = orderedTactics.splice(defenseImpairmentIndex, 1);
+            const updatedStealthIndex = orderedTactics.findIndex(tactic => tactic.id === "TA0005");
+            orderedTactics.splice(updatedStealthIndex + 1, 0, defenseImpairment);
+
+            return orderedTactics;
         }
     },
     methods: {
