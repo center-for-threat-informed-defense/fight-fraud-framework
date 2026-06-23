@@ -5,16 +5,16 @@
         "description": "The fraud actor's actions to gather information they can use to plan future operations, including both cyber intrusions and attempted fraud. \n\nReconnaissance consists of techniques that involve fraud actors actively or passively gathering information that can be used to support targeting. Such information may include details of the victim organization, infrastructure, or staff/personnel. This information can be leveraged by the fraud actor to aid in other phases of the fraud lifecycle, such as using gathered information to plan and execute Initial Access, to scope and prioritize post-compromise objectives, or to drive and lead further Reconnaissance efforts.",
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.708Z",
+        "lastModified": "2026-06-23T17:40:07.147Z",
         "tactic": true
     },
     {
         "id": "TA0042",
         "name": "Resource Development",
-        "description": "The fraud actor's actions to establish resources they can use to support both cyber and fraud activities. \n\nResource Development consists of techniques that involve fraud actors creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities. These resources can be leveraged by the fraud actor to aid in other phases of the fraud lifecycle, such as using purchased domains to support Execution, email accounts for phishing as a part of Initial Access, or spoofing to help with Defense Evasion.",
+        "description": "The fraud actor's actions to establish resources they can use to support both cyber and fraud activities. \n\nResource Development consists of techniques that involve fraud actors creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities. These resources can be leveraged by the fraud actor to aid in other phases of the fraud lifecycle, such as using purchased domains to support Execution, email accounts for phishing as a part of Initial Access, or spoofing to help with Stealth.",
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
+        "lastModified": "2026-06-23T17:40:07.149Z",
         "tactic": true
     },
     {
@@ -23,7 +23,7 @@
         "description": "The fraud actor's actions to gain a foothold in a selected environment.  \n\nInitial Access consists of techniques that use various entry vectors to gain their initial foothold within a selected environment. Techniques used to gain a foothold include targeted spearphishing and exploiting weaknesses in browsers. Footholds gained through initial access may allow for continued access, like compromise accounts and use of external remote services, or may be limited-use due to changing passwords.",
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
+        "lastModified": "2026-06-23T17:40:07.149Z",
         "tactic": true
     },
     {
@@ -32,34 +32,7 @@
         "description": "The fraud actor is trying to hide and conceal fraudulent activity by appearing as normal user or business behavior.\n\nStealth consists of techniques that reduce the likelihood of detection by blending in with legitimate activity or minimizing observable indicators of fraud. These techniques are characterized by concealment behaviors such as obfuscation, impersonation, traffic shaping, or mimicking normal customer operations, without directly modifying security controls or monitoring systems. The goal is to remain indistinguishable from benign activity while leaving defensive systems operational and intact.",
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
-        "tactic": true
-    },
-    {
-        "id": "FA0001",
-        "name": "Positioning",
-        "description": "The fraud actor's actions in a selected environment, after initial access, to collect or manipulate data or otherwise prepare for execution. \n                   \nPositioning consists of techniques that involve fraud actors gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable fraud actors to maximize the value extracted during fraud execution or establish persistent access for future operations.",
-        "isAttack": false,
-        "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
-        "tactic": true
-    },
-    {
-        "id": "TA0002",
-        "name": "Execution",
-        "description": "The fraud actor's actions to run malicious code or initiate fraudulent transactions that will convert stolen data to money. \n\nExecution consists of techniques that result in fraud actor‑controlled code or actions running on a local, remote, or transaction‑processing system. Techniques that run malicious code or automate actions are often paired with other tactics to achieve broader goals, such as exploring a network, manipulating applications, initiating unauthorized payments, or altering transaction data to support fraud. For example, a fraud actor might use a remote access tool to run a PowerShell script that performs Remote System Discovery and then launch scripts or bots that submit fraudulent transfers, modify payment instructions, or replay payment messages through compromised banking or merchant platforms.",
-        "isAttack": true,
-        "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
-        "tactic": true
-    },
-    {
-        "id": "FA0002",
-        "name": "Monetization",
-        "description": "The fraud actor's actions to convert assets, often stolen, into usable funds or value in their possession.\n\nFraud actors may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve fraud actors liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or manipulating markets. These techniques represent the final stages of fraud operations where fraud actors secure their gains and attempt to obscure the transaction trail.",
-        "isAttack": false,
-        "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
+        "lastModified": "2026-06-23T17:40:07.149Z",
         "tactic": true
     },
     {
@@ -68,7 +41,34 @@
         "description": "The fraud actor is trying to break or undermine security mechanisms, fraud controls, or customer safeguards, so defenders or victims cannot respond to fraudulent activity.\n\nDefense Impairment consists of techniques that degrade, disable, evade, or undermine the effectiveness and trustworthiness of security controls, fraud prevention systems, and customer-facing security features. This is characterized by direct interference with defensive technologies, operational processes, or user security controls. This may include disabling account alerts, suppressing notifications, modifying contact information, or bypassing authentication safeguards. The goal is to reduce the ability of organizations and victims to identify, prevent, or respond to fraud activity.",
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z",
+        "lastModified": "2026-06-23T17:40:07.149Z",
+        "tactic": true
+    },
+    {
+        "id": "FA0001",
+        "name": "Positioning",
+        "description": "The fraud actor's actions in a selected environment, after initial access, to collect or manipulate data or otherwise prepare for execution. \n                   \nPositioning consists of techniques that involve fraud actors gathering sensitive information, altering account configurations, manipulating transaction parameters, or establishing conditions necessary for successful fraud operations. These preparatory activities enable fraud actors to maximize the value extracted during fraud execution or establish persistent access for future operations.",
+        "isAttack": false,
+        "version": "1.1",
+        "lastModified": "2026-06-23T17:40:07.149Z",
+        "tactic": true
+    },
+    {
+        "id": "TA0002",
+        "name": "Execution",
+        "description": "The fraud actor's actions to run malicious code or initiate fraudulent transactions that will convert stolen data to money. \n\nExecution consists of techniques that result in fraud actor‑controlled code or actions running on a local, remote, or transaction‑processing system. Techniques that run malicious code or automate actions are often paired with other tactics to achieve broader goals, such as exploring a network, manipulating applications, initiating unauthorized payments, or altering transaction data to support fraud. For example, a fraud actor might use a remote access tool to run a PowerShell script that performs Remote System Discovery and then launch scripts or bots that submit fraudulent transfers, modify payment instructions, or replay payment messages through compromised banking or merchant platforms.",
+        "isAttack": true,
+        "version": "1.1",
+        "lastModified": "2026-06-23T17:40:07.149Z",
+        "tactic": true
+    },
+    {
+        "id": "FA0002",
+        "name": "Monetization",
+        "description": "The fraud actor's actions to convert assets, often stolen, into usable funds or value in their possession.\n\nFraud actors may convert fraudulently obtained funds or assets into a form they can utilize or transfer to their possession. Monetization consists of techniques that involve fraud actors liquidating stolen digital assets, transferring funds from compromised accounts, converting fraud proceeds into difficult-to-trace monetary instruments, or manipulating markets. These techniques represent the final stages of fraud operations where fraud actors secure their gains and attempt to obscure the transaction trail.",
+        "isAttack": false,
+        "version": "1.1",
+        "lastModified": "2026-06-23T17:40:07.149Z",
         "tactic": true
     },
     {
@@ -81,7 +81,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1453",
@@ -93,7 +93,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1002",
@@ -110,7 +110,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1002.001",
@@ -124,7 +124,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1002.002",
@@ -138,7 +138,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1003",
@@ -150,7 +150,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1004",
@@ -162,7 +162,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1531",
@@ -174,7 +174,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.712Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005",
@@ -196,7 +196,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.001",
@@ -209,7 +209,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.002",
@@ -222,7 +222,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.003",
@@ -235,7 +235,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.004",
@@ -248,7 +248,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.005",
@@ -261,7 +261,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.006",
@@ -274,7 +274,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.007",
@@ -287,7 +287,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1005.008",
@@ -300,7 +300,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1006",
@@ -316,7 +316,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1006.001",
@@ -328,7 +328,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1006.002",
@@ -340,7 +340,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1006.003",
@@ -352,7 +352,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1650",
@@ -364,7 +364,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1583",
@@ -380,7 +380,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1583.001",
@@ -392,7 +392,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1583.008",
@@ -404,7 +404,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1583.003",
@@ -416,7 +416,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1007",
@@ -434,7 +434,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1007.001",
@@ -448,7 +448,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1007.002",
@@ -462,7 +462,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1007.003",
@@ -476,7 +476,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1557",
@@ -490,7 +490,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1008",
@@ -505,7 +505,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1008.001",
@@ -517,7 +517,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1008.002",
@@ -529,7 +529,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1009",
@@ -547,7 +547,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1009.001",
@@ -560,7 +560,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1009.002",
@@ -573,7 +573,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1009.003",
@@ -586,7 +586,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1009.004",
@@ -599,7 +599,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1010",
@@ -611,7 +611,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1011",
@@ -624,7 +624,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1185",
@@ -637,7 +637,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1110",
@@ -654,7 +654,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1110.004",
@@ -666,7 +666,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1110.002",
@@ -678,7 +678,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1110.001",
@@ -690,7 +690,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1110.003",
@@ -702,7 +702,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1012",
@@ -714,7 +714,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1013",
@@ -726,7 +726,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1014",
@@ -738,7 +738,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1015",
@@ -750,7 +750,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1016",
@@ -762,7 +762,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1017",
@@ -778,7 +778,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1017.001",
@@ -790,7 +790,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1586",
@@ -807,7 +807,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1586.003",
@@ -819,7 +819,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1586.004",
@@ -831,7 +831,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1586.002",
@@ -843,7 +843,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1586.001",
@@ -855,7 +855,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1017.002",
@@ -867,7 +867,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1017.003",
@@ -879,7 +879,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1018",
@@ -891,7 +891,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1019",
@@ -903,7 +903,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1020",
@@ -918,7 +918,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1020.001",
@@ -930,7 +930,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1555",
@@ -945,7 +945,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1555.003",
@@ -957,7 +957,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1555.005",
@@ -969,7 +969,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1020.002",
@@ -981,7 +981,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1021",
@@ -993,7 +993,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1189",
@@ -1005,7 +1005,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1667",
@@ -1017,7 +1017,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1672",
@@ -1029,7 +1029,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1585",
@@ -1041,7 +1041,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1022",
@@ -1053,7 +1053,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1023",
@@ -1065,7 +1065,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1024",
@@ -1077,7 +1077,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1593",
@@ -1092,7 +1092,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1593.001",
@@ -1104,7 +1104,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "T1593.002",
@@ -1116,7 +1116,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
         "id": "F1025",
@@ -1132,7 +1132,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1025.001",
@@ -1144,7 +1144,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1025.002",
@@ -1156,7 +1156,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1025.003",
@@ -1168,7 +1168,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1070",
@@ -1180,7 +1180,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1026",
@@ -1192,7 +1192,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1027",
@@ -1204,7 +1204,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1028",
@@ -1217,7 +1217,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1111",
@@ -1229,7 +1229,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1621",
@@ -1241,7 +1241,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1029",
@@ -1253,7 +1253,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1030",
@@ -1265,7 +1265,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1031",
@@ -1278,7 +1278,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1032",
@@ -1291,7 +1291,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1033",
@@ -1303,7 +1303,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1034",
@@ -1315,7 +1315,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1035",
@@ -1328,7 +1328,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1660",
@@ -1340,7 +1340,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1598",
@@ -1352,7 +1352,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1036",
@@ -1365,7 +1365,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1037",
@@ -1377,7 +1377,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1219",
@@ -1389,7 +1389,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1038",
@@ -1401,7 +1401,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1039",
@@ -1413,7 +1413,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1113",
@@ -1425,7 +1425,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1451",
@@ -1437,7 +1437,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1608",
@@ -1451,7 +1451,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1608.006",
@@ -1463,7 +1463,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1539",
@@ -1476,7 +1476,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1040",
@@ -1493,7 +1493,7 @@
         ],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1195",
@@ -1505,7 +1505,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1040.001",
@@ -1519,7 +1519,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1550",
@@ -1533,7 +1533,7 @@
         ],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "T1550.001",
@@ -1545,7 +1545,7 @@
         "subtechniques": [],
         "isAttack": true,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1040.002",
@@ -1559,7 +1559,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1041",
@@ -1572,7 +1572,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1042",
@@ -1585,7 +1585,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1043",
@@ -1597,7 +1597,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1044",
@@ -1609,7 +1609,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1045",
@@ -1621,7 +1621,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1046",
@@ -1633,7 +1633,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1047",
@@ -1645,7 +1645,7 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     },
     {
         "id": "F1048",
@@ -1657,6 +1657,6 @@
         "subtechniques": [],
         "isAttack": false,
         "version": "1.1",
-        "lastModified": "2026-06-16T15:30:49.713Z"
+        "lastModified": "2026-06-23T17:40:07.151Z"
     }
 ]

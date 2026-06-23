@@ -34,7 +34,6 @@
           STIX</a>
         <a :href="navigatorUrl" download="f3-navigator-v1.1.json" class="link-blue-external small">Download
           Navigator Layer</a>
-        <!-- <a href="f3-v1.json" download="f3-json-v1" class="link-blue-external small">Download JSON</a> -->
         <a :href="excelUrl" download="f3-excel-v1.1.xlsx" class="link-blue-external small">Download Excel</a>
 
       </div>
@@ -72,7 +71,7 @@ export default defineComponent({
     return {
       stixUrl: `${baseUrl}f3-stix-v1.1.json`,
       navigatorUrl: `${baseUrl}f3-navigator-v1.1.json`,
-      excelUrl: `${baseUrl}F3-v1.xlsx`,
+      excelUrl: `${baseUrl}f3-excel-v1.1.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
       ],
