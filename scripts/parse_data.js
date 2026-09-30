@@ -4,11 +4,19 @@ const SOURCE_FILE = "src/data/FFF Complete.xlsx";
 const DESTINATION_FILE = "src/data/matrix-data.json";
 const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
+const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
+const CURRENT_VERSION = "1.2";
 
 (async function () {
   const wb = new ExcelJS.Workbook();
   // initialize new list for techniques
   const techniques = [];
+  const previousTechniques = new Map(
+    JSON.parse(fs.readFileSync(PREVIOUS_PUBLIC_FILE, "utf8")).map((item) => [
+      item.id,
+      item,
+    ]),
+  );
   // Tables are presentation metadata and are not needed for the data export.
   // Ignoring them also avoids ExcelJS table-part parsing issues in workbooks
   // edited by current versions of Excel and openpyxl.
@@ -21,13 +29,26 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
     if (rowNum === 1) {
       return;
     } // skip heading row
+    const name = row.getCell(2).value;
+    const description = convertRichTextToMarkdown(row.getCell(3).value);
+    const previous = previousTechniques.get(row.getCell(1).value);
+    if (
+      previous &&
+      (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
+        normalizeComparisonText(previous.description) !==
+          normalizeComparisonText(description))
+    ) {
+      throw new Error(
+        `Tactic ${row.getCell(1).value} changed, but the Tactics sheet has no Modified Date column.`,
+      );
+    }
     const technique = {
       id: row.getCell(1).value,
-      name: row.getCell(2).value,
-      description: convertRichTextToMarkdown(row.getCell(3).value),
+      name: name,
+      description: description,
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
-      version: "1.2",
-      lastModified: new Date().toISOString(),
+      version: CURRENT_VERSION,
+      lastModified: previous?.lastModified || new Date().toISOString(),
       tactic: true,
     };
     techniques.push(technique);
@@ -62,15 +83,42 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
         ? tacticsCellValue.split(/\s*,\s*/)
         : [];
 
+    const name = row.getCell(2).value;
+    const description = convertRichTextToMarkdown(row.getCell(3).value);
+    const isAttack = tid.charAt(0) === "T" ? true : false;
+    const previous = previousTechniques.get(tid);
+    const modifiedDate = dateCellToIso(row.getCell(7).value);
+    const addedDate = dateCellToIso(row.getCell(6).value);
+    const coreChanged =
+      previous &&
+      (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
+        normalizeComparisonText(previous.description) !==
+          normalizeComparisonText(description) ||
+        previous.isAttack !== isAttack ||
+        JSON.stringify(previous.tactics || []) !== JSON.stringify(tactics));
+
+    if (coreChanged && !modifiedDate) {
+      throw new Error(
+        `Technique ${tid} changed without a Modified Date in the workbook.`,
+      );
+    }
+
+    const lastModified = modifiedDate || previous?.lastModified || addedDate;
+    if (!lastModified) {
+      throw new Error(
+        `Technique ${tid} has no Modified Date, prior published timestamp, or Added Date.`,
+      );
+    }
+
     const technique = {
       id: tid,
-      name: row.getCell(2).value,
-      description: convertRichTextToMarkdown(row.getCell(3).value),
+      name: name,
+      description: description,
       tactics: tactics,
       subtechniques: [],
-      isAttack: tid.charAt(0) === "T" ? true : false,
-      version: "1.2",
-      lastModified: new Date().toISOString(),
+      isAttack: isAttack,
+      version: CURRENT_VERSION,
+      lastModified: lastModified,
     };
 
     if (tid.split(".").length > 1) {
@@ -103,6 +151,29 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
     console.log(`Copied Excel workbook to ${PUBLIC_SPREADSHEET}`);
   });
 })();
+
+function dateCellToIso(value) {
+  if (!value) {
+    return null;
+  }
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+  if (typeof value === "object" && "result" in value) {
+    return dateCellToIso(value.result);
+  }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    throw new Error(`Invalid workbook date: ${value}`);
+  }
+  return parsed.toISOString();
+}
+
+function normalizeComparisonText(value) {
+  return String(value || "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 function convertRichTextToMarkdown(richTextValue) {
   if (!richTextValue || !Array.isArray(richTextValue.richText)) {
