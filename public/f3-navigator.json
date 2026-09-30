@@ -1136,6 +1136,126 @@
             "color": "#FFFFFF"
         },
         {
+            "techniqueID": "F1060",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1060",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1061",
+            "tactic": "positioning",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1061",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1062",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1062",
+            "tactic": "stealth",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1062",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1063",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1063",
+            "tactic": "initial-access",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1064",
+            "tactic": "execution",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1064",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
+            "techniqueID": "F1064",
+            "tactic": "stealth",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
             "techniqueID": "F1002.001",
             "tactic": "initial-access",
             "enabled": true,

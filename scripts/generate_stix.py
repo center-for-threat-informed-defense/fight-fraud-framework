@@ -281,7 +281,7 @@ class F3:
         # Patch subtechniques so they inherit parent tactics
         stix_json = self.patch_subtechnique_kill_chain_phases(stix_json)
 
-        with open(stix_output_filepath, "w") as f:
+        with open(stix_output_filepath, "w", encoding="utf-8") as f:
             json.dump(stix_json, f)
 
     def patch_subtechnique_kill_chain_phases(self, stix_json):
@@ -489,7 +489,7 @@ if __name__ == "__main__":
     output_filepath = Path(args.output_filepath)
     output_filepath.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(args.f3_data_filepath) as f:
+    with open(args.f3_data_filepath, encoding="utf-8") as f:
         data = json.load(f)
 
         f3 = F3(data, "mitre-f3")
