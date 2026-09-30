@@ -33,19 +33,36 @@
       <h2>Current Version</h2>
       <div class="version">
         <div class="w-1/2 my-auto">
-          <h3>MITRE F3 v1.1</h3>
-          <p>June 2026 - Current</p>
+          <h3>MITRE F3 v1.2</h3>
+          <p>September 2026 - Current</p>
         </div>
 
         <div class="grid grid-cols-2 w-1/2">
-          <a :href="stixUrl" download="f3-financial-stix-v1.1" class="link-blue-external small">Download
+          <a :href="stixUrl" download="f3-financial-stix-v1.2" class="link-blue-external small">Download
             STIX</a>
-          <a :href="navigatorUrl" download="f3-financial-navigator-v1.1" class="link-blue-external small">Download
+          <a :href="navigatorUrl" download="f3-financial-navigator-v1.2" class="link-blue-external small">Download
             Navigator Layer</a>
-          <a :href="jsonUrl" download="f3-financial-json-v1.1" class="link-blue-external small">Download JSON</a>
-          <a :href="excelUrl" download="f3-financial-excel-v1.1" class="link-blue-external small">Download Excel</a>
+          <a :href="jsonUrl" download="f3-financial-json-v1.2" class="link-blue-external small">Download JSON</a>
+          <a :href="excelUrl" download="f3-financial-excel-v1.2" class="link-blue-external small">Download Excel</a>
         </div>
 
+      </div>
+
+      <h2>Previous Versions</h2>
+      <div class="version">
+        <div class="w-1/2 my-auto">
+          <h3>MITRE F3 v1.1</h3>
+          <p>June 2026</p>
+        </div>
+
+        <div class="grid grid-cols-2 w-1/2">
+          <a :href="previousStixUrl" download="f3-financial-stix-v1.1" class="link-blue-external small">Download
+            STIX</a>
+          <a :href="previousNavigatorUrl" download="f3-financial-navigator-v1.1" class="link-blue-external small">Download
+            Navigator Layer</a>
+          <a :href="previousJsonUrl" download="f3-financial-json-v1.1" class="link-blue-external small">Download JSON</a>
+          <a :href="previousExcelUrl" download="f3-financial-excel-v1.1" class="link-blue-external small">Download Excel</a>
+        </div>
       </div>
 
     </div>
@@ -61,10 +78,14 @@ export default defineComponent({
   data() {
     const baseUrl = import.meta.env.BASE_URL
     return {
-      stixUrl: `${baseUrl}f3-stix.json`,
-      navigatorUrl: `${baseUrl}f3-navigator.json`,
-      jsonUrl: `${baseUrl}f3-v1.1.json`,
-      excelUrl: `${baseUrl}f3-excel-v1.1.xlsx`,
+      stixUrl: `${baseUrl}f3-stix-v1.2.json`,
+      navigatorUrl: `${baseUrl}f3-navigator-v1.2.json`,
+      jsonUrl: `${baseUrl}f3-v1.2.json`,
+      excelUrl: `${baseUrl}f3-excel-v1.2.xlsx`,
+      previousStixUrl: `${baseUrl}f3-stix-v1.1.json`,
+      previousNavigatorUrl: `${baseUrl}f3-navigator-v1.1.json`,
+      previousJsonUrl: `${baseUrl}f3-v1.1.json`,
+      previousExcelUrl: `${baseUrl}f3-excel-v1.1.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
         { label: "Version History", route: "/resources/versions" },

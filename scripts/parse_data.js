@@ -9,7 +9,10 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
   const wb = new ExcelJS.Workbook();
   // initialize new list for techniques
   const techniques = [];
-  await wb.xlsx.readFile(SOURCE_FILE);
+  // Tables are presentation metadata and are not needed for the data export.
+  // Ignoring them also avoids ExcelJS table-part parsing issues in workbooks
+  // edited by current versions of Excel and openpyxl.
+  await wb.xlsx.readFile(SOURCE_FILE, { ignoreNodes: ["tableParts"] });
   console.log("Reading from Compiled technique spreadsheet...");
   console.log("Grabbing tactics");
 
@@ -23,7 +26,7 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
       name: row.getCell(2).value,
       description: convertRichTextToMarkdown(row.getCell(3).value),
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
-      version: "1.1",
+      version: "1.2",
       lastModified: new Date().toISOString(),
       tactic: true,
     };
@@ -66,7 +69,7 @@ const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
       tactics: tactics,
       subtechniques: [],
       isAttack: tid.charAt(0) === "T" ? true : false,
-      version: "1.1",
+      version: "1.2",
       lastModified: new Date().toISOString(),
     };
 

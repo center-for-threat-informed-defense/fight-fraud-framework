@@ -30,11 +30,11 @@
         have their own tools and processes. You may also want to use F3 data with other CTID or MITRE ATT&CK ® tools.
         These download links provide you F3 data in various formats to explore cyber fraud TTPs, describe incidents, and
         coordinate efforts.</p>
-      <div class="flex gap-8"><a :href="stixUrl" download="f3-stix-v1.1.json" class="link-blue-external small">Download
+      <div class="flex gap-8"><a :href="stixUrl" download="f3-stix-v1.2.json" class="link-blue-external small">Download
           STIX</a>
-        <a :href="navigatorUrl" download="f3-navigator-v1.1.json" class="link-blue-external small">Download
+        <a :href="navigatorUrl" download="f3-navigator-v1.2.json" class="link-blue-external small">Download
           Navigator Layer</a>
-        <a :href="excelUrl" download="f3-excel-v1.1.xlsx" class="link-blue-external small">Download Excel</a>
+        <a :href="excelUrl" download="f3-excel-v1.2.xlsx" class="link-blue-external small">Download Excel</a>
 
       </div>
       <h2>F3 Matrix</h2>
@@ -69,9 +69,9 @@ export default defineComponent({
   data() {
     const baseUrl = import.meta.env.BASE_URL
     return {
-      stixUrl: `${baseUrl}f3-stix-v1.1.json`,
-      navigatorUrl: `${baseUrl}f3-navigator-v1.1.json`,
-      excelUrl: `${baseUrl}f3-excel-v1.1.xlsx`,
+      stixUrl: `${baseUrl}f3-stix-v1.2.json`,
+      navigatorUrl: `${baseUrl}f3-navigator-v1.2.json`,
+      excelUrl: `${baseUrl}f3-excel-v1.2.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
       ],
