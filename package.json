@@ -1,6 +1,7 @@
 {
   "name": "fight-financial-fraud",
   "version": "0.0.0",
+  "f3Version": "1.2",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -9,9 +10,10 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "update": "node ./scripts/parse_data.js",
-    "generate:stix": "python scripts/generate_stix.py",
-    "generate:navigator": "python scripts/generate_navigator_layer.py",
-    "update-everything": "npm run update && npm run generate:stix && npm run generate:navigator"
+    "generate:stix": "python3 scripts/generate_stix.py",
+    "generate:navigator": "python3 scripts/generate_navigator_layer.py",
+    "archive:json": "node ./scripts/archive_versioned_json.js",
+    "update-everything": "npm run update && npm run generate:stix && npm run generate:navigator && npm run archive:json"
   },
   "dependencies": {
     "@primevue/themes": "^4.5.4",

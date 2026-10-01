@@ -500,18 +500,6 @@
         "lastModified": "2026-06-23T17:40:07.150Z"
     },
     {
-        "id": "F1010",
-        "name": "Buy Money Order",
-        "description": "Fraud actors may purchase money orders with stolen payment methods or fraudulent funds to convert illicit proceeds into more anonymous monetary instruments. Money orders can be cashed at various locations, are difficult to trace back to the purchaser, and can be used as payment instruments with reduced fraud detection compared to electronic payments.",
-        "tactics": [
-            "FA0002"
-        ],
-        "subtechniques": [],
-        "isAttack": false,
-        "version": "1.2",
-        "lastModified": "2026-06-23T17:40:07.150Z"
-    },
-    {
         "id": "F1011",
         "name": "Card Dump Capture",
         "description": "Fraud actors may capture payment card magnetic stripe data, EMV chip data, or card details from various sources. This may include using skimming devices at point-of-sale terminals, ATMs, or fuel pumps, compromising payment processing systems, or conducting memory scraping attacks against POS systems. Captured card data can be used to create counterfeit cards, conduct card-not-present fraud, or be sold to other malicious fraud actors.",
