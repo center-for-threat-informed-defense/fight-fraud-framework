@@ -176,16 +176,6 @@
             "color": "#FFFFFF"
         },
         {
-            "techniqueID": "F1010",
-            "tactic": "monetization",
-            "enabled": true,
-            "metadata": [],
-            "links": [],
-            "comment": "",
-            "showSubtechniques": true,
-            "color": "#FFFFFF"
-        },
-        {
             "techniqueID": "F1011",
             "tactic": "positioning",
             "enabled": true,

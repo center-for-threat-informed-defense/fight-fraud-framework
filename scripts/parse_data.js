@@ -5,7 +5,7 @@ const DESTINATION_FILE = "src/data/matrix-data.json";
 const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
 const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
-const CURRENT_VERSION = "1.2";
+const CURRENT_VERSION = require("../package.json").f3Version;
 
 (async function () {
   const wb = new ExcelJS.Workbook();
