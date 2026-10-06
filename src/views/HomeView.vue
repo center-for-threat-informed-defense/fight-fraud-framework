@@ -92,14 +92,13 @@ export default defineComponent({
 .hero {
   @apply bg-ctid-light-gray/30;
   margin-top: -7rem;
-  padding-top: 7rem;
-  padding-bottom: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
-/* Now this can be "normal" spacing, not huge top padding */
 .hero-inner {
-  @apply mx-auto w-11/12 lg:w-3/4;
-  @apply py-5 sm:py-6;
+  @apply mx-auto w-11/12 lg:w-11/12;
+  @apply py-2;
 }
 
 .hero-grid {
@@ -108,7 +107,14 @@ export default defineComponent({
   @apply items-start;
 }
 
-.hero-left,
+.hero-left {
+  @apply w-full lg:w-1/2 lg:flex lg:flex-col lg:items-center;
+}
+
+.hero-left > h1 {
+  @apply lg:w-96 lg:text-left;
+}
+
 .hero-right {
   @apply w-full lg:w-1/2;
 }
