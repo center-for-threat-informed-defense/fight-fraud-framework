@@ -38,7 +38,7 @@
         <a href="mailto:ctid@mitre.org?subject=Fight%20Fraud%20Framework%20Feedback" target="_blank"
           class="btn btn-external">Email Us <i class="pi pi-external-link"></i>
         </a>
-        <a href="https://github.com/center-for-threat-informed-defense/fight-financial-fraud/issues/new" target="_blank"
+        <a href="https://github.com/center-for-threat-informed-defense/fight-fraud-framework/issues/new" target="_blank"
           class="btn btn-external">Submit a GitHub Issue <i class="pi pi-external-link"></i>
         </a>
       </div>

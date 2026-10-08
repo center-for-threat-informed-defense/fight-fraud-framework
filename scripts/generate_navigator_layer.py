@@ -101,7 +101,7 @@ def generate_matrix_layer(
     layer_name = "F3 Matrix"
     layer_description = (
         "Knowledge base of tactics, techniques, and procedures used by "
-        "financial fraud actors, see ctid.mitre.org/fraud"
+        "financial fraud actors, see ctid.mitre.org/fightfraud/"
     )
 
     metadata = []
