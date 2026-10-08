@@ -36,7 +36,7 @@
             <div class="mt-4 flex flex-wrap gap-20">
               <router-link to="/about" class="link-blue-external">Learn More</router-link>
               <a
-                href="https://ctid.mitre.org/fraud/MITRE%20F3%20Design%20Principles%20and%20Methodology.pdf"
+                :href="designPrinciplesUrl"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="link-blue-external"
@@ -77,6 +77,7 @@ export default defineComponent({
           label: "Techniques", route: "/technique"
         }
       ] as Array<{ label: string; route: string; external?: boolean }>,
+      designPrinciplesUrl: `${import.meta.env.BASE_URL}MITRE%20F3%20Design%20Principles%20and%20Methodology.pdf`,
     };
   },
 })

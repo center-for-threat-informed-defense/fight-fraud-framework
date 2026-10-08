@@ -6,155 +6,215 @@ on:
   pull_request:
   workflow_dispatch:
 
-# If another web build starts for the same branch, cancel the previous build. This
-# protects us from two builds trying to upload at the same time and clobbering each
-# other.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.event_name == 'pull_request' && format('f3-preview-{0}', github.event.number) || 'f3-production' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
-  id-token: write
-  pages: write
-  pull-requests: write
 
 jobs:
-  update_data:
+  build:
     runs-on: ubuntu-latest
+    env:
+      BASE_PATH: ${{ github.event_name == 'pull_request' && format('/pr-{0}/', github.event.number) || '/fightfraud/' }}
     steps:
-      # Configure Environment
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        id: "setup-node"
         with:
-          node-version: "19"
-          cache: "npm"
-          cache-dependency-path: "./package-lock.json"
+          node-version: "22"
+          cache: npm
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: npm ci
-      - name: Update data
-        run: npm run update
-      - name: Install Python deps
         run: |
+          npm ci
           pip install stix2
-
-      - name: Generate export data
+      - name: Generate data
         run: |
-          npm install
+          npm run update
           npm run generate:stix
           npm run generate:navigator
-
-  fff_website_build:
-    needs: update_data
-    runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-      BASE_PATH: ${{ (github.ref_name == 'main') && '/' || format('/{0}/', github.head_ref || github.ref_name) }}
-    steps:
-      # Configure Environment
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        id: "setup-node"
-        with:
-          node-version: "19"
-          cache: "npm"
-          cache-dependency-path: "./package-lock.json"
-      - name: Install dependencies
-        run: npm ci
-
-      # Lint
+          npm run archive:json
       - name: Lint
         run: npm run lint
-
-      # Build and Upload Artifact
-      - name: Type Check
+      - name: Type check
         run: npm run type-check
-      - name: Build
-        run: npm run build-only -- --base "${BASE_PATH}"
-      - name: Upload artifact
+      - name: Build website
+        run: npm run build-only -- --base "$BASE_PATH"
+      - name: Verify website
+        run: |
+          test -s dist/index.html
+          test -s dist/404.html
+          test -s dist/f3-v1.json
+          test -s dist/f3-stix.json
+          test -s dist/f3-navigator.json
+          test -s 'dist/MITRE F3 Design Principles and Methodology.pdf'
+          compgen -G 'dist/assets/*.js' > /dev/null
+          compgen -G 'dist/assets/*.css' > /dev/null
+          grep -Fq "$BASE_PATH" dist/index.html
+      - name: Upload website
         uses: actions/upload-artifact@v4
         with:
-          name: fff_website
-          path: ./dist/
+          name: f3-website
+          path: dist/
+          retention-days: 1
 
-  # Publish to Azure blob only on PRs, not main.
-  azure_blob:
-    needs: fff_website_build
+  deploy_production:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      id-token: write
+    environment:
+      name: production
+      url: https://ctid.mitre.org/fightfraud/
     env:
-      AZURE_STORAGE_ACCOUNT: mappingsexplorerfinsec
-      AZURE_STORAGE_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-      STATICRYPT_PASS: ${{ secrets.STATICRYPT_PASS }}
+      AZURE_STATIC_WEBSITE_ENDPOINT: ${{ vars.AZURE_STATIC_WEBSITE_ENDPOINT }}
+      AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+      AZURE_STORAGE_CONTAINER: $web
+    steps:
+      - name: Download website
+        uses: actions/download-artifact@v4
+        with:
+          name: f3-website
+          path: dist
+      - name: Verify deployment source
+        run: |
+          test -s dist/index.html
+          test -s dist/404.html
+          compgen -G 'dist/assets/*.js' > /dev/null
+          compgen -G 'dist/assets/*.css' > /dev/null
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Synchronize static website
+        run: |
+          account=$(printf '%s' "$AZURE_STORAGE_ACCOUNT" | tr -d '[:space:]')
+          test -n "$account"
+          az storage blob sync \
+            --account-name "$account" \
+            --container "$AZURE_STORAGE_CONTAINER" \
+            --source dist \
+            --auth-mode login \
+            --delete-destination true \
+            --only-show-errors
+      - name: Verify static website
+        run: |
+          endpoint=$(printf '%s' "$AZURE_STATIC_WEBSITE_ENDPOINT" | tr -d '[:space:]')
+          endpoint="${endpoint%/}"
+          test -n "$endpoint"
+
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/" > /dev/null
+
+          assets=(dist/assets/*.js dist/assets/*.css)
+          for asset in "${assets[@]}"; do
+            curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+              "$endpoint/${asset#dist/}" > /dev/null
+          done
+
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/f3-stix.json" > /dev/null
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/MITRE%20F3%20Design%20Principles%20and%20Methodology.pdf" > /dev/null
+
+          status=$(curl --silent --show-error --output /tmp/f3-404.html \
+            --write-out '%{http_code}' "$endpoint/not-a-real-page")
+          test "$status" = '404'
+          grep -Fq 'Page Not Found' /tmp/f3-404.html
+
+  deploy_preview:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_PREVIEW_STORAGE_ACCOUNT || 'mappingsexplorerfinsec' }}
+      AZURE_STORAGE_CONTAINER: $web
+      PREVIEW_PATH: pr-${{ github.event.number }}
+      PREVIEW_ENDPOINT: ${{ vars.AZURE_PREVIEW_STATIC_WEBSITE_ENDPOINT || 'https://mappingsexplorerfinsec.z13.web.core.windows.net' }}
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: "19"
-      - run: npm install -g staticrypt
-      - name: Download Web Site
+          node-version: "22"
+      - name: Install StatiCrypt
+        run: npm install --global staticrypt@3.5.4
+      - name: Download website
         uses: actions/download-artifact@v4
         with:
-          name: fff_website
-          path: fff_website
-      - env:
+          name: f3-website
+          path: f3-website
+      - name: Encrypt HTML files
+        env:
           STATICRYPT_PASS: ${{ secrets.STATICRYPT_PASS }}
-        run: >
+        run: |
           staticrypt --remember 3 --salt b1c18fbb5081eca3e2db08a413b01774 \
-            --password $STATICRYPT_PASS --short \
-            --template-title "MITRE Fight Fraud Framework™ (branch: $BRANCH_NAME)" \
-            --template-instructions "The contents of this site are marked TLP:AMBER:CTID-R&D:22-80. Do not share with unauthorized individuals." \
+            --password "$STATICRYPT_PASS" --short \
+            --template-title "MITRE Fight Fraud Framework (preview: $PREVIEW_PATH)" \
+            --template-instructions "HTML pages are password-protected; linked downloads may remain directly accessible." \
             --template-color-primary "#005B94" \
             --template-color-secondary "#b2b2b2" \
             --template-button "Log In" \
-            -r fff_website/
-      - name: Ensure StatiCrypt ran # StatiCrypt will fail without warning; verify it created a directory
-        run: test -d encrypted
+            -r f3-website/
+          test -s encrypted/f3-website/index.html
+          test -s encrypted/f3-website/404.html
+          ! cmp -s f3-website/index.html encrypted/f3-website/index.html
       - name: Copy encrypted HTML files
-        run: rsync -Ir -v --include='*.html' --exclude='*.*' encrypted/fff_website .
-      - name: Set the branch name
-        run: mv fff_website "$BRANCH_NAME"
+        run: rsync -Ir --include='*.html' --exclude='*.*' encrypted/f3-website .
+      - name: Prepare preview directory
+        run: mv f3-website "$PREVIEW_PATH"
       - name: Install Azure CLI
         run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-      - name: Delete old blobs
-        run: az storage blob delete-batch -s '$web' --pattern "$BRANCH_NAME/*"
-      - name: Upload to blob storage
-        run: az storage blob upload-batch -s . --pattern "$BRANCH_NAME/*" -d '$web'
-      - uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
+      - name: Synchronize preview
+        env:
+          AZURE_STORAGE_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
+        run: |
+          az storage blob delete-batch \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --source "$AZURE_STORAGE_CONTAINER" \
+            --pattern "$PREVIEW_PATH/*" \
+            --only-show-errors
+          az storage blob upload-batch \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --source . \
+            --destination "$AZURE_STORAGE_CONTAINER" \
+            --pattern "$PREVIEW_PATH/*" \
+            --overwrite \
+            --only-show-errors
+      - name: Verify preview
+        run: |
+          endpoint=$(printf '%s' "$PREVIEW_ENDPOINT" | tr -d '[:space:]')
+          endpoint="${endpoint%/}"
+          test -n "$endpoint"
+
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/$PREVIEW_PATH/" > /tmp/f3-preview.html
+          grep -Fq 'MITRE Fight Fraud Framework' /tmp/f3-preview.html
+
+          assets=("$PREVIEW_PATH"/assets/*.js)
+          test -s "${assets[0]}"
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/${assets[0]}" > /dev/null
+          curl --fail --silent --show-error --retry 6 --retry-delay 10 \
+            "$endpoint/$PREVIEW_PATH/f3-stix.json" > /dev/null
+      - name: Comment preview URL
+        uses: actions/github-script@v7
         with:
           script: |
+            const endpoint = process.env.PREVIEW_ENDPOINT.replace(/\/+$/, "");
+            const path = process.env.PREVIEW_PATH;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `This PR has been published to https://mappingsexplorerfinsec.z13.web.core.windows.net/${process.env['BRANCH_NAME']}/`,
-            })
-
-  # github_pages:
-  #   # This job only runs when committing or merging to main branch.
-  #   if: github.ref_name == 'main'
-  #   needs: fff_website_build
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: github-pages
-  #     url: $\{\{ steps.deployment.outputs.page_url \}\}
-
-  #   steps:
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v2
-  #     - name: Download Web Site
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: fff_website
-  #         path: fff_website
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v3
-  #       with:
-  #         path: ./fff_website
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
+              body: `This PR has been published to ${endpoint}/${path}/`,
+            });

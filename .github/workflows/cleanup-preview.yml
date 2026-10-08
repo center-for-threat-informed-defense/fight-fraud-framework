@@ -1,0 +1,33 @@
+name: Clean Up Website Preview
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: f3-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  cleanup:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_PREVIEW_STORAGE_ACCOUNT || 'mappingsexplorerfinsec' }}
+      AZURE_STORAGE_CONTAINER: $web
+      PREVIEW_PATH: pr-${{ github.event.number }}
+    steps:
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Delete preview
+        env:
+          AZURE_STORAGE_SAS_TOKEN: ${{ secrets.AZURE_SAS_TOKEN }}
+        run: |
+          az storage blob delete-batch \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --source "$AZURE_STORAGE_CONTAINER" \
+            --pattern "$PREVIEW_PATH/*" \
+            --only-show-errors

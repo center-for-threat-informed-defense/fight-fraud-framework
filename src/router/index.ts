@@ -14,6 +14,7 @@ import ContactUsView from "@/views/ContactUsView.vue";
 import DesignPrinciplesView from "@/views/DesignPrinciplesView.vue";
 import ContributorView from "@/views/ContributorView.vue";
 import VersionHistoryView from "@/views/VersionHistoryView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const routes = [
   {
@@ -90,6 +91,12 @@ const routes = [
     path: "/search/:query?",
     name: "search",
     component: SearchView,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFoundView,
+    meta: { title: "Page Not Found" },
   },
 ];
 

@@ -72,7 +72,7 @@ export default defineComponent({
             externalProjects: [
                 { label: "Attack Flow", route: "https://center-for-threat-informed-defense.github.io/attack-flow/" },
                 { label: "M3TID", route: "https://center-for-threat-informed-defense.github.io/m3tid/" },
-                { label: "Mappings Explorer", route: "https://center-for-threat-informed-defense.github.io/mappings-explorer/" },
+                { label: "Mappings Explorer", route: "https://ctid.mitre.org/mappings/" },
                 { label: "Summiting the Pyramid", route: "https://center-for-threat-informed-defense.github.io/summiting-the-pyramid/" },
             ]
         };

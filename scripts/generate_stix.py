@@ -231,12 +231,17 @@ class F3:
         tactic_refs = [t.id for t in stix_tactics]
         print(f"\tGenerated {len(tactic_refs)} tactic references for matrix")
         matrix_uuid = uuid.uuid5(self.uuid_domain, "F3-matrix")
+        matrix_modified = max(
+            item["lastModified"] for item in self.tactics + self.techniques
+        )
         stix_matrix_obj = AttackMatrix(
             id=f"x-mitre-matrix--{matrix_uuid}",
             name="Fight Financial Fraud Matrix",
             description=f"{self.data_id} matrix for Fight Financial Fraud",
             external_references=external_references,
             tactic_refs=tactic_refs,
+            created="2026-04-02T19:15:57.686Z",
+            modified=matrix_modified,
             allow_custom=True,
         )
         stix_matrices.append(stix_matrix_obj)
@@ -354,11 +359,11 @@ class F3:
 
         return kill_chain_phases
 
-    def build_f3_external_references(self, t, f3_url, route="techniques"):
+    def build_f3_external_references(self, t, f3_url, route="technique"):
         """Returns a STIX External Reference for F3 data."""
 
         # Construct the full URL to the resource
-        url = f3_url + "/" + route + "/" + t["id"]
+        url = f3_url.rstrip("/") + "/#/" + route + "/" + t["id"]
 
         # External references is a list
         return [
@@ -376,7 +381,7 @@ class F3:
             id=f"x-mitre-tactic--{tactic_uuid}",
             name=t["name"],
             description=t["description"],
-            external_references=self.build_f3_external_references(t, f3_url, "tactics"),
+            external_references=self.build_f3_external_references(t, f3_url, "tactic"),
             x_mitre_shortname=t["name"].lower().replace(" ", "-"),
             created="2026-04-02T19:15:57.686Z",
             modified=t["lastModified"],
@@ -474,7 +479,7 @@ if __name__ == "__main__":
         "--url",
         type=str,
         dest="f3_url",
-        default="https://ctid.mitre.org/fraud",
+        default="https://ctid.mitre.org/fightfraud/",
         help="URL to F3 website for Navigator item linking",
     )
     parser.add_argument(

@@ -15,10 +15,10 @@ The website hosts all of the resources for this project. The website is linked b
 
 | Resource                                                                                          | Description                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Web Site](https://ctid.mitre.org/fraud)                                                          | The website hosts the F3 matrix, design principles & methodology, and project information.                                                                                                                    |
-| [Matrix](https://ctid.mitre.org/fraud/#/matrix)                                                   | The F3 Matrix provides a visual representation of F3 tactics (these are the fraud actor's goals) and the different techniques under each tactic, which are actions fraud actors may use to achieve that goal. |
-| [About](https://ctid.mitre.org/fraud/#/about)                                                     | Learn more about the F3 project.                                                                                                                                                                              |
-| [Design Principles & Methodology](https://top-attack-techniques.mitre-engenuity.org/#methodology) | An authoritative source of information about F3, describing the motivation behind the creation of F3, its design philosophy, the components contained within the knowledge base, and how it can be used.      |
+| [Web Site](https://ctid.mitre.org/fightfraud/)                                                    | The website hosts the F3 matrix, design principles & methodology, and project information.                                                                                                                    |
+| [Matrix](https://ctid.mitre.org/fightfraud/#/matrix)                                             | The F3 Matrix provides a visual representation of F3 tactics (these are the fraud actor's goals) and the different techniques under each tactic, which are actions fraud actors may use to achieve that goal. |
+| [About](https://ctid.mitre.org/fightfraud/#/about)                                               | Learn more about the F3 project.                                                                                                                                                                              |
+| [Design Principles & Methodology](https://ctid.mitre.org/fightfraud/#/about/methodology)          | An authoritative source of information about F3, describing the motivation behind the creation of F3, its design philosophy, the components contained within the knowledge base, and how it can be used.      |
 
 ## Getting Involved
 
@@ -39,6 +39,18 @@ Please submit [issues](https://github.com/center-for-threat-informed-defense/fig
 any technical questions/concerns or contact
 [ctid@mitre.org](mailto:ctid@mitre.org?subject=Question%20about%20Fight%20Fraud%20Framework)
 directly for more general inquiries.
+
+## Deployment
+
+Production is hosted at <https://ctid.mitre.org/fightfraud/> from a dedicated
+Azure Storage static website behind the CTID Azure Front Door. A successful build from
+this repository's `main` branch deploys directly to the storage account using GitHub
+OIDC and the `production` environment.
+
+The environment provides `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and
+`AZURE_SUBSCRIPTION_ID` secrets, plus `AZURE_STORAGE_ACCOUNT` and
+`AZURE_STATIC_WEBSITE_ENDPOINT` variables. The Azure identity has Storage Blob Data
+Contributor access only to the dedicated F3 production storage account.
 
 ## Notice
 
