@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: f3-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
 jobs:
   cleanup:
     if: github.event.pull_request.head.repo.full_name == github.repository
