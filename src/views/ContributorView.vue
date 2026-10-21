@@ -30,7 +30,7 @@
         and CTID member-powered collaboration. With the understanding that the challenges we face are bigger than
         ourselves, our members join CTID prepared to tackle hard problems in a uniquely collaborative environment. CTID
         gratefully acknowledges the significant contributions and deep expertise provided by Aviation Information
-        Sharing and Analysis Center (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), JPMorganChase,
+        Sharing and Analysis Center (A-ISAC), Citi, CrowdStrike, Financial Services ISAC (FS-ISAC), Fraud Kill Chain, JPMorganChase,
         Lloyds Banking Group, Marsh, National Retail Federation (NRF), Retail & Hospitality ISAC (RH-ISAC), Standard
         Chartered, and Verizon Business towards the development of MITRE F3™. CTID further recognizes Group-IB as a key
         data contributor whose insights and contributions supported the development of F3.</p>
@@ -78,6 +78,11 @@ export default defineComponent({
           name: "FS-ISAC",
           link: "",
           img: "https://ctid.mitre.org/img/participants/fs_isac.png",
+        },
+        {
+          name: "Fraud Kill Chain", 
+          link: "",
+          img: "https://ctid.mitre.org/img/participants/fkc.png"
         },
         {
           name: "Group-IB",
