@@ -37,13 +37,10 @@ export default defineComponent({
     },
     methods: {
         getTacticTechniques(tactic) {
-            const matches = [];
-            this.matrixData.forEach(i => {
-                if (i.tactics?.includes(tactic.id)) {
-                    matches.push(i.id)
-                }
-            })
-            return matches;
+            return this.matrixData
+                .filter(i => i.tactics?.includes(tactic.id))
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map(i => i.id);
         }
     }
 });
