@@ -6,6 +6,25 @@ const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
 const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
 const CURRENT_VERSION = require("../package.json").f3Version;
+// These v1.3 corrections are editorial only. They intentionally retain the
+// previously published lastModified value instead of receiving a new date.
+// See "Editorial corrections" in F3 v1.3 Change Log.md.
+const EDITORIAL_ONLY_CHANGES = new Set([
+  "F1001",
+  "F1003",
+  "F1005",
+  "F1005.004",
+  "F1022",
+  "F1028",
+  "F1039",
+  "T1070",
+  "T1110",
+  "T1185",
+  "T1189",
+  "T1539",
+  "T1583.008",
+  "T1586",
+]);
 
 (async function () {
   const wb = new ExcelJS.Workbook();
@@ -97,7 +116,7 @@ const CURRENT_VERSION = require("../package.json").f3Version;
         previous.isAttack !== isAttack ||
         JSON.stringify(previous.tactics || []) !== JSON.stringify(tactics));
 
-    if (coreChanged && !modifiedDate) {
+    if (coreChanged && !modifiedDate && !EDITORIAL_ONLY_CHANGES.has(tid)) {
       throw new Error(
         `Technique ${tid} changed without a Modified Date in the workbook.`,
       );
