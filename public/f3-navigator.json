@@ -906,6 +906,16 @@
             "color": "#FFFFFF"
         },
         {
+            "techniqueID": "F1064",
+            "tactic": "monetization",
+            "enabled": true,
+            "metadata": [],
+            "links": [],
+            "comment": "",
+            "showSubtechniques": true,
+            "color": "#FFFFFF"
+        },
+        {
             "techniqueID": "F1065",
             "tactic": "resource-development",
             "enabled": true,

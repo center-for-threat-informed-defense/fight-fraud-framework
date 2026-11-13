@@ -1513,7 +1513,8 @@
         "name": "Exploit Transaction Processing Gaps",
         "description": "Fraud actors may exploit gaps or timing differences in how financial transactions are authorized, posted, made available, settled, reconciled, or reversed to obtain or move value before an institution fully validates the transaction.\n\nFraud actors may take advantage of provisional credit, delayed check clearing, offline or batch processing, inconsistent controls across channels, or synchronization failures between systems. They may deposit a fraudulent or unfunded instrument and withdraw or transfer provisionally available funds before the item is returned, move unsettled funds between linked accounts or products, or conduct withdrawals or internal transfers while an ATM or payment network is offline.\n\nFraud actors may repeat or coordinate transactions across accounts, channels, or institutions to increase the amount obtained and cash out before the processing gap is detected or corrected. They may use the resulting funds for purchases, transfers, cash withdrawals, or other activities that realize value from the exploited gap.",
         "tactics": [
-            "FA0001"
+            "FA0001",
+            "FA0002"
         ],
         "subtechniques": [],
         "isAttack": false,
