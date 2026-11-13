@@ -4,7 +4,7 @@ const SOURCE_FILE = "src/data/FFF Complete.xlsx";
 const DESTINATION_FILE = "src/data/matrix-data.json";
 const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
-const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
+const PREVIOUS_PUBLIC_FILE = "public/f3-v1.json";
 const CURRENT_VERSION = require("../package.json").f3Version;
 const INITIAL_F3_ADDED_DATE = "2026-04-02T19:15:57.686Z";
 // These v1.3 corrections are editorial only. They intentionally retain the
@@ -67,7 +67,7 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       name: name,
       description: description,
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
-      version: CURRENT_VERSION,
+      version: previous?.version || CURRENT_VERSION,
       addedDate: previous?.addedDate || INITIAL_F3_ADDED_DATE,
       lastModified: previous?.lastModified || new Date().toISOString(),
       tactic: true,
@@ -119,6 +119,8 @@ const EDITORIAL_ONLY_CHANGES = new Set([
           normalizeComparisonText(description) ||
         previous.isAttack !== isAttack ||
         JSON.stringify(previous.tactics || []) !== JSON.stringify(tactics));
+    const versionChanged =
+      !previous || (coreChanged && !EDITORIAL_ONLY_CHANGES.has(tid));
 
     if (coreChanged && !modifiedDate && !EDITORIAL_ONLY_CHANGES.has(tid)) {
       throw new Error(
@@ -141,7 +143,9 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       tactics: tactics,
       subtechniques: [],
       isAttack: isAttack,
-      version: CURRENT_VERSION,
+      version: versionChanged
+        ? CURRENT_VERSION
+        : previous?.version || CURRENT_VERSION,
       addedDate: resolvedAddedDate,
       lastModified: lastModified,
     };
@@ -183,6 +187,10 @@ function dateCellToIso(value) {
   }
   if (value instanceof Date) {
     return value.toISOString();
+  }
+  if (typeof value === "number") {
+    const excelEpoch = Date.UTC(1899, 11, 30);
+    return new Date(excelEpoch + value * 24 * 60 * 60 * 1000).toISOString();
   }
   if (typeof value === "object" && "result" in value) {
     return dateCellToIso(value.result);

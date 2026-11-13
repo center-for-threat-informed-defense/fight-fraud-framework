@@ -135,7 +135,9 @@ class F3:
         """Sets attributes from the F3 data."""
         self.data_id = "F3"
         self.data_name = "MITRE Fight Financial Fraud Framework"
-        self.data_version = "1.2"
+        package_json = Path(__file__).resolve().parents[1] / "package.json"
+        with package_json.open() as package_file:
+            self.data_version = json.load(package_file)["f3Version"]
 
         if not isinstance(f3_data, list):
             raise ValueError(
