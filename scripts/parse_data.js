@@ -6,6 +6,7 @@ const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
 const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
 const CURRENT_VERSION = require("../package.json").f3Version;
+const INITIAL_F3_ADDED_DATE = "2026-04-02T19:15:57.686Z";
 // These v1.3 corrections are editorial only. They intentionally retain the
 // previously published lastModified value instead of receiving a new date.
 // See "Editorial corrections" in F3 v1.3 Change Log.md.
@@ -67,6 +68,7 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       description: description,
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
       version: CURRENT_VERSION,
+      addedDate: previous?.addedDate || INITIAL_F3_ADDED_DATE,
       lastModified: previous?.lastModified || new Date().toISOString(),
       tactic: true,
     };
@@ -108,6 +110,8 @@ const EDITORIAL_ONLY_CHANGES = new Set([
     const previous = previousTechniques.get(tid);
     const modifiedDate = dateCellToIso(row.getCell(7).value);
     const addedDate = dateCellToIso(row.getCell(6).value);
+    const resolvedAddedDate =
+      addedDate || previous?.addedDate || INITIAL_F3_ADDED_DATE;
     const coreChanged =
       previous &&
       (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
@@ -122,7 +126,8 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       );
     }
 
-    const lastModified = modifiedDate || previous?.lastModified || addedDate;
+    const lastModified =
+      modifiedDate || previous?.lastModified || resolvedAddedDate;
     if (!lastModified) {
       throw new Error(
         `Technique ${tid} has no Modified Date, prior published timestamp, or Added Date.`,
@@ -137,6 +142,7 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       subtechniques: [],
       isAttack: isAttack,
       version: CURRENT_VERSION,
+      addedDate: resolvedAddedDate,
       lastModified: lastModified,
     };
 
