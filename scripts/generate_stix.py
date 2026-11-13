@@ -14,6 +14,9 @@ from stix2.v21 import (
 )
 
 
+INITIAL_F3_ADDED_DATE = "2026-04-02T19:15:57.686Z"
+
+
 """
 Custom MITRE ATT&CK STIX object to be able to use the Navigator.
         https://github.com/mitre/cti/blob/master/USAGE.md#the-attck-data-model
@@ -132,7 +135,9 @@ class F3:
         """Sets attributes from the F3 data."""
         self.data_id = "F3"
         self.data_name = "MITRE Fight Financial Fraud Framework"
-        self.data_version = "1.2"
+        package_json = Path(__file__).resolve().parents[1] / "package.json"
+        with package_json.open() as package_file:
+            self.data_version = json.load(package_file)["f3Version"]
 
         if not isinstance(f3_data, list):
             raise ValueError(
@@ -240,7 +245,7 @@ class F3:
             description=f"{self.data_id} matrix for Fight Financial Fraud",
             external_references=external_references,
             tactic_refs=tactic_refs,
-            created="2026-04-02T19:15:57.686Z",
+            created=INITIAL_F3_ADDED_DATE,
             modified=matrix_modified,
             allow_custom=True,
         )
@@ -383,7 +388,7 @@ class F3:
             description=t["description"],
             external_references=self.build_f3_external_references(t, f3_url, "tactic"),
             x_mitre_shortname=t["name"].lower().replace(" ", "-"),
-            created="2026-04-02T19:15:57.686Z",
+            created=t["addedDate"],
             modified=t["lastModified"],
         )
 
@@ -411,7 +416,7 @@ class F3:
             external_references=self.build_f3_external_references(t, f3_url),
             allow_custom=True,
             x_mitre_platforms=["F3"],
-            created="2026-04-02T19:15:57.686Z",
+            created=t["addedDate"],
             modified=t["lastModified"],
         )
 
@@ -433,7 +438,7 @@ class F3:
             allow_custom=True,
             x_mitre_platforms=["F3"],
             x_mitre_is_subtechnique=True,
-            created="2026-04-02T19:15:57.686Z",
+            created=t["addedDate"],
             modified=t["lastModified"],
         )
 
@@ -445,7 +450,7 @@ class F3:
             source_ref=subtechnique.id,
             relationship_type="subtechnique-of",
             target_ref=parent.id,
-            created="2026-04-02T19:15:57.686Z",
+            created=t["addedDate"],
             modified=t["lastModified"],
         )
 
