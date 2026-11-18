@@ -7,17 +7,20 @@ if (!/^\d+\.\d+$/.test(f3Version)) {
 }
 
 const outputs = [
-  ["public/f3-v1.json", `public/f3-v${f3Version}.json`],
-  ["public/f3-stix.json", `public/f3-stix-v${f3Version}.json`],
-  ["public/f3-navigator.json", `public/f3-navigator-v${f3Version}.json`],
+  ["public/f3-v1.json", `public/f3-v${f3Version}.json`, true],
+  ["public/f3-stix.json", `public/f3-stix-v${f3Version}.json`, true],
+  ["public/f3-navigator.json", `public/f3-navigator-v${f3Version}.json`, true],
+  ["public/F3-v1.xlsx", `public/f3-excel-v${f3Version}.xlsx`, false],
 ];
 
-for (const [source, destination] of outputs) {
+for (const [source, destination, isJson] of outputs) {
   if (!fs.existsSync(source)) {
-    throw new Error(`Generated JSON file is missing: ${source}`);
+    throw new Error(`Release artifact is missing: ${source}`);
   }
 
-  JSON.parse(fs.readFileSync(source, "utf8"));
+  if (isJson) {
+    JSON.parse(fs.readFileSync(source, "utf8"));
+  }
   fs.copyFileSync(source, destination);
   console.log(
     `Archived ${path.basename(source)} as ${path.basename(destination)}`,
@@ -25,5 +28,5 @@ for (const [source, destination] of outputs) {
 }
 
 console.log(
-  "Existing JSON files for earlier F3 versions remain unchanged for historical comparisons.",
+  "Existing files for earlier F3 versions remain unchanged for historical comparisons.",
 );
