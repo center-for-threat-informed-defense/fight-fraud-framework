@@ -4,8 +4,28 @@ const SOURCE_FILE = "src/data/FFF Complete.xlsx";
 const DESTINATION_FILE = "src/data/matrix-data.json";
 const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
-const PREVIOUS_PUBLIC_FILE = "public/f3-v1.1.json";
+const PREVIOUS_PUBLIC_FILE = "public/f3-v1.json";
 const CURRENT_VERSION = require("../package.json").f3Version;
+const INITIAL_F3_ADDED_DATE = "2026-04-02T19:15:57.686Z";
+// These v1.3 corrections are editorial only. They intentionally retain the
+// previously published lastModified value instead of receiving a new date.
+// See "Editorial corrections" in F3 v1.3 Change Log.md.
+const EDITORIAL_ONLY_CHANGES = new Set([
+  "F1001",
+  "F1003",
+  "F1005",
+  "F1005.004",
+  "F1022",
+  "F1028",
+  "F1039",
+  "T1070",
+  "T1110",
+  "T1185",
+  "T1189",
+  "T1539",
+  "T1583.008",
+  "T1586",
+]);
 
 (async function () {
   const wb = new ExcelJS.Workbook();
@@ -47,7 +67,8 @@ const CURRENT_VERSION = require("../package.json").f3Version;
       name: name,
       description: description,
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
-      version: CURRENT_VERSION,
+      version: previous?.version || CURRENT_VERSION,
+      addedDate: previous?.addedDate || INITIAL_F3_ADDED_DATE,
       lastModified: previous?.lastModified || new Date().toISOString(),
       tactic: true,
     };
@@ -89,6 +110,8 @@ const CURRENT_VERSION = require("../package.json").f3Version;
     const previous = previousTechniques.get(tid);
     const modifiedDate = dateCellToIso(row.getCell(7).value);
     const addedDate = dateCellToIso(row.getCell(6).value);
+    const resolvedAddedDate =
+      addedDate || previous?.addedDate || INITIAL_F3_ADDED_DATE;
     const coreChanged =
       previous &&
       (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
@@ -96,14 +119,17 @@ const CURRENT_VERSION = require("../package.json").f3Version;
           normalizeComparisonText(description) ||
         previous.isAttack !== isAttack ||
         JSON.stringify(previous.tactics || []) !== JSON.stringify(tactics));
+    const versionChanged =
+      !previous || (coreChanged && !EDITORIAL_ONLY_CHANGES.has(tid));
 
-    if (coreChanged && !modifiedDate) {
+    if (coreChanged && !modifiedDate && !EDITORIAL_ONLY_CHANGES.has(tid)) {
       throw new Error(
         `Technique ${tid} changed without a Modified Date in the workbook.`,
       );
     }
 
-    const lastModified = modifiedDate || previous?.lastModified || addedDate;
+    const lastModified =
+      modifiedDate || previous?.lastModified || resolvedAddedDate;
     if (!lastModified) {
       throw new Error(
         `Technique ${tid} has no Modified Date, prior published timestamp, or Added Date.`,
@@ -117,7 +143,10 @@ const CURRENT_VERSION = require("../package.json").f3Version;
       tactics: tactics,
       subtechniques: [],
       isAttack: isAttack,
-      version: CURRENT_VERSION,
+      version: versionChanged
+        ? CURRENT_VERSION
+        : previous?.version || CURRENT_VERSION,
+      addedDate: resolvedAddedDate,
       lastModified: lastModified,
     };
 
@@ -158,6 +187,10 @@ function dateCellToIso(value) {
   }
   if (value instanceof Date) {
     return value.toISOString();
+  }
+  if (typeof value === "number") {
+    const excelEpoch = Date.UTC(1899, 11, 30);
+    return new Date(excelEpoch + value * 24 * 60 * 60 * 1000).toISOString();
   }
   if (typeof value === "object" && "result" in value) {
     return dateCellToIso(value.result);
