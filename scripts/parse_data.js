@@ -6,7 +6,6 @@ const PUBLIC_FILE = "public/f3-v1.json";
 const PUBLIC_SPREADSHEET = "public/F3-v1.xlsx";
 const PREVIOUS_PUBLIC_FILE = "public/f3-v1.json";
 const CURRENT_VERSION = require("../package.json").f3Version;
-const INITIAL_F3_ADDED_DATE = "2026-04-02T19:15:57.686Z";
 // These v1.3 corrections are editorial only. They intentionally retain the
 // previously published lastModified value instead of receiving a new date.
 // See "Editorial corrections" in F3 v1.3 Change Log.md.
@@ -52,6 +51,13 @@ const EDITORIAL_ONLY_CHANGES = new Set([
     const name = row.getCell(2).value;
     const description = convertRichTextToMarkdown(row.getCell(3).value);
     const previous = previousTechniques.get(row.getCell(1).value);
+    const addedDate = dateCellToIso(row.getCell(4).value);
+    const modifiedDate = dateCellToIso(row.getCell(5).value);
+    if (!addedDate || !modifiedDate) {
+      throw new Error(
+        `Tactic ${row.getCell(1).value} must have Added Date and Modified Date values in the workbook.`,
+      );
+    }
     if (
       previous &&
       (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
@@ -68,8 +74,8 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       description: description,
       isAttack: row.getCell(1).value.charAt(0) === "T" ? true : false,
       version: previous?.version || CURRENT_VERSION,
-      addedDate: previous?.addedDate || INITIAL_F3_ADDED_DATE,
-      lastModified: previous?.lastModified || new Date().toISOString(),
+      addedDate: addedDate,
+      lastModified: modifiedDate,
       tactic: true,
     };
     techniques.push(technique);
@@ -110,8 +116,11 @@ const EDITORIAL_ONLY_CHANGES = new Set([
     const previous = previousTechniques.get(tid);
     const modifiedDate = dateCellToIso(row.getCell(7).value);
     const addedDate = dateCellToIso(row.getCell(6).value);
-    const resolvedAddedDate =
-      addedDate || previous?.addedDate || INITIAL_F3_ADDED_DATE;
+    if (!addedDate || !modifiedDate) {
+      throw new Error(
+        `Technique ${tid} must have Added Date and Modified Date values in the workbook.`,
+      );
+    }
     const coreChanged =
       previous &&
       (normalizeComparisonText(previous.name) !== normalizeComparisonText(name) ||
@@ -128,14 +137,6 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       );
     }
 
-    const lastModified =
-      modifiedDate || previous?.lastModified || resolvedAddedDate;
-    if (!lastModified) {
-      throw new Error(
-        `Technique ${tid} has no Modified Date, prior published timestamp, or Added Date.`,
-      );
-    }
-
     const technique = {
       id: tid,
       name: name,
@@ -146,8 +147,8 @@ const EDITORIAL_ONLY_CHANGES = new Set([
       version: versionChanged
         ? CURRENT_VERSION
         : previous?.version || CURRENT_VERSION,
-      addedDate: resolvedAddedDate,
-      lastModified: lastModified,
+      addedDate: addedDate,
+      lastModified: modifiedDate,
     };
 
     if (tid.split(".").length > 1) {
