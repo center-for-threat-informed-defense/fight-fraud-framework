@@ -71,8 +71,8 @@ export default defineComponent({
     const baseUrl = import.meta.env.BASE_URL
     return {
       f3Version: packageInfo.f3Version,
-      stixUrl: `${baseUrl}f3-stix.json`,
-      navigatorUrl: `${baseUrl}f3-navigator.json`,
+      stixUrl: `${baseUrl}f3-stix-v${packageInfo.f3Version}.json`,
+      navigatorUrl: `${baseUrl}f3-navigator-v${packageInfo.f3Version}.json`,
       excelUrl: `${baseUrl}f3-excel-v${packageInfo.f3Version}.xlsx`,
       breadcrumbItems: [
         { label: "Resources", route: "/resources" },
