@@ -45,11 +45,16 @@ jobs:
         run: npm run build-only -- --base "$BASE_PATH"
       - name: Verify website
         run: |
+          f3_version=$(node -p "require('./package.json').f3Version")
           test -s dist/index.html
           test -s dist/404.html
           test -s dist/f3-v1.json
           test -s dist/f3-stix.json
           test -s dist/f3-navigator.json
+          test -s "dist/f3-v${f3_version}.json"
+          test -s "dist/f3-stix-v${f3_version}.json"
+          test -s "dist/f3-navigator-v${f3_version}.json"
+          test -s "dist/f3-excel-v${f3_version}.xlsx"
           test -s 'dist/MITRE F3 Design Principles and Methodology.pdf'
           compgen -G 'dist/assets/*.js' > /dev/null
           compgen -G 'dist/assets/*.css' > /dev/null
